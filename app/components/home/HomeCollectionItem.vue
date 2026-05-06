@@ -1,6 +1,4 @@
 <script setup>
-  import CollectionServiceCard from './CollectionServiceCard.vue';
-
   const props = defineProps({
     collection: {
       type: Object,
@@ -18,6 +16,12 @@
 
   const swiperContainer = ref(null);
   const swiper = ref(null);
+
+  const displayServices = computed(() => {
+    const raw = props.collection.services ?? props.collection.items;
+    if (!Array.isArray(raw)) return [];
+    return raw.slice(0, props.maxServices);
+  });
 
   swiper.value = useSwiper(swiperContainer, {
     slidesPerView: 1.3,
@@ -53,33 +57,25 @@
         </h2>
       </div>
 
-      <!-- Skeleton Loader -->
-      <div v-if="!swiperContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div v-for="n in 4" :key="n" class="bg-gray-100 rounded-2xl animate-pulse">
-          <div class="aspect-video bg-gray-200 rounded-t-2xl"></div>
-          <div class="p-4 flex flex-col gap-3">
-            <div class="h-4 w-3/4 bg-gray-200 rounded-full"></div>
-            <div class="h-3 w-1/3 bg-gray-200 rounded-full"></div>
-            <div class="h-5 w-1/2 bg-gray-200 rounded-full"></div>
-          </div>
-        </div>
+      <div
+        v-if="!displayServices.length"
+        class="rounded-2xl border border-gray-100 bg-gray-50/80 py-12 px-4 text-center text-gray-500"
+      >
+        {{ $t('services.empty.title') }}
       </div>
 
       <!-- Swiper -->
-      <ClientOnly>
+      <ClientOnly v-else>
         <div class="relative">
           <swiper-container ref="swiperContainer" :id="`collectionSwiper-${index}`">
-            <swiper-slide
-              v-for="service in collection.services?.slice(0, maxServices)"
-              :key="service.id"
-              class="h-auto"
-            >
-              <CollectionServiceCard :service="service" />
+            <swiper-slide v-for="service in displayServices" :key="service.id">
+              <HomeCollectionServiceCard :service="service" />
             </swiper-slide>
           </swiper-container>
 
           <!-- Navigation Arrows -->
           <button
+            v-if="displayServices.length > 1"
             @click="swiper?.prev()"
             class="max-md:hidden hover:bg-brand-50 z-10 absolute top-[35%] -start-4 flex items-center justify-center w-10 h-10 rounded-full border border-brand-500 text-brand-500 bg-white shadow-sm"
           >
@@ -89,6 +85,7 @@
           </button>
 
           <button
+            v-if="displayServices.length > 1"
             @click="swiper?.next()"
             class="max-md:hidden hover:bg-brand-50 z-10 absolute top-[35%] -end-4 flex items-center justify-center w-10 h-10 rounded-full border border-brand-500 text-brand-500 bg-white shadow-sm"
           >
@@ -107,11 +104,6 @@
 
   [id^="collectionSwiper-"] {
     width: 100%;
-    min-height: 280px;
     padding-bottom: 8px;
-  }
-
-  [id^="collectionSwiper-"] swiper-slide {
-    height: auto;
   }
 </style>
