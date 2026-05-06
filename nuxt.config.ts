@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// Dev note: paired workspace sync with backend repo.
 
 import tailwindcss from '@tailwindcss/vite';
 
