@@ -40,9 +40,11 @@ export default defineNuxtConfig({
   },
 
   scripts: {
-    // Defer third-party registry scripts (GTM) until the main thread is idle — reduces TBT on mobile PSI.
+    // Idle-load registry scripts (GTM) after Nuxt hydration to keep TBT low on mobile PSI.
+    // Note: object triggers like { idleTimeout: N } are broken in @nuxt/scripts <=0.12.2 (fix landed
+    // post-release in commit faf83ff, 2025-10-15). Stick to the documented string trigger here.
     defaultScriptOptions: {
-      trigger: { idleTimeout: 2500 },
+      trigger: 'onNuxtReady',
     },
     registry: {
       googleTagManager: true,
