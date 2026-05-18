@@ -7,4 +7,8 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   if (!auth.user) {
     return navigateTo(localePath({ name: 'login', query: { redirect: to.path } }));
   }
+
+  useSeoMeta({
+    robots: 'noindex, nofollow',
+  });
 });

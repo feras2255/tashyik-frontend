@@ -3,6 +3,10 @@
   const layout = useLayoutStore();
 
   await layout.load();
+
+  useSeoMeta({
+    robots: 'noindex, nofollow',
+  });
 </script>
 
 <template>

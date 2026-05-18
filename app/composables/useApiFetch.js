@@ -1,9 +1,42 @@
 import { hash } from 'ohash';
 
+/**
+ * Base URL for API calls. On the server, `api.localhost` / `*.local.test` often fail from Node DNS;
+ * optional `runtimeConfig.apiInternalBaseUrl` or loopback rewrite fixes SSR refresh errors.
+ */
+function getApiBaseUrl(config) {
+  const publicBase = (config.public.apiBaseUrl || '').replace(/\/$/, '');
+
+  if (!publicBase) {
+    return publicBase;
+  }
+
+  const internal = (config.apiInternalBaseUrl || '').replace(/\/$/, '');
+
+  if (import.meta.server && internal) {
+    return internal;
+  }
+
+  try {
+    const u = new URL(publicBase);
+
+    if (u.hostname === 'api.localhost' || u.hostname.endsWith('.local.test')) {
+      u.hostname = '127.0.0.1';
+
+      return u.href.replace(/\/$/, '');
+    }
+  } catch {
+    /* ignore invalid public API URL */
+  }
+
+  return publicBase;
+}
+
 export function useApiFetch(path, options = {}, useFetchFunction = false) {
   const { $i18n } = useNuxtApp();
   const config = useRuntimeConfig();
   const token = useCookie('token', { default: () => null });
+  const baseURL = getApiBaseUrl(config);
 
   const headers = {
     ...options?.headers,
@@ -19,7 +52,7 @@ export function useApiFetch(path, options = {}, useFetchFunction = false) {
 
   return useFetchFunction
     ? useFetch(path, {
-      baseURL: config.public.apiBaseUrl,
+      baseURL,
       watch: false,
       key,
       ...options,
@@ -27,7 +60,7 @@ export function useApiFetch(path, options = {}, useFetchFunction = false) {
     })
     : $fetch(path, {
       ...options,
-      baseURL: config.public.apiBaseUrl,
+      baseURL,
       headers,
     });
 }

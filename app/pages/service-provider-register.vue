@@ -114,7 +114,9 @@
 
   onMounted(async () => {
     try {
-      const response = await useApiFetch('/cities');
+      const response = await useApiFetch('/cities', {
+        query: { per_page: 200 },
+      });
 
       cities.value = response.data;
     } catch (error) {

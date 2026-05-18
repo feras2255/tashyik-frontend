@@ -1,17 +1,28 @@
 <script setup>
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
+  const localePath = useLocalePath();
   const switchLocalePath = useSwitchLocalePath();
   const route = useRoute();
-  const service = ref(null);
+  const { fetchServiceBySlug } = useServiceFetchers();
   const galleryContainer = ref(null);
 
-  try {
-    const response = await useApiFetch(`/services/${route.params.service}`);
+  const { data: servicePayload, error: pageError } = await useAsyncData(
+    () => `service-detail-${route.params.service}-${locale.value}`,
+    async () => {
+      const response = await fetchServiceBySlug(route.params.service);
 
-    service.value = response.data;
-  } catch (error) {
-    if (error.statusCode == 404 || error.response?.status == 404) {
+      return response.data;
+    },
+    {
+      watch: [() => route.params.service, locale],
+    },
+  );
+
+  if (pageError.value) {
+    const status = pageError.value.statusCode || pageError.value.status || pageError.value?.response?.status;
+
+    if (status === 404) {
       throw createError({
         statusCode: 404,
         statusMessage: t('common.page_not_found'),
@@ -20,59 +31,110 @@
     }
 
     throw createError({
-        statusCode: 500,
-        statusMessage: error.message || 'Failed to fetch service',
-        fatal: true,
+      statusCode: status || 500,
+      statusMessage: pageError.value.message || 'Failed to fetch service',
+      fatal: true,
     });
   }
 
-  const ogImage = computed(() => service.value?.og_image || service.value?.image);
-  const canonicalUrl = computed(() => `${config.public.appUrl}${switchLocalePath(locale.value)}`);
-  const seoTitle = computed(() => service.value?.meta_title || t('alt.service', { service: service.value?.name }));
-  const seoDescription = computed(() => service.value?.meta_description || service.value?.description);
+  const service = computed(() => servicePayload.value ?? null);
 
-  useSeoMeta({
-    title: seoTitle.value,
-    ogTitle: seoTitle.value,
-    description: seoDescription.value,
-    ogDescription: seoDescription.value,
-    ogImage: ogImage.value,
+  const parentCategory = computed(() => service.value?.parent_category ?? null);
+
+  useEntitySeo({
+    entity: service,
+    parentCategory,
     ogType: 'website',
-    ogUrl: canonicalUrl.value,
-    twitterCard: 'summary_large_image',
-    twitterTitle: seoTitle.value,
-    twitterDescription: seoDescription.value,
-    twitterImage: ogImage.value,
   });
 
-  // JSON-LD Structured Data
-  useHead({
-    script: [
-      {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Service',
-          name: service.value?.name,
-          description: service.value?.description,
-          provider: {
-            '@type': 'Organization',
-            name: t('common.brand'),
-          },
-          offers: {
-            '@type': 'Offer',
-            price: service.value?.price?.after_discount,
-            priceCurrency: 'SAR',
-            availability: 'https://schema.org/InStock',
-          },
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: service.value?.rating,
-            bestRating: '5',
-          },
-        }),
+  const serviceJsonLd = computed(() => {
+    if (!service.value) {
+      return null;
+    }
+
+    const price = service.value.price?.after_discount;
+    const payload = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: service.value.name,
+      description: service.value.description,
+      areaServed: {
+        '@type': 'Country',
+        name: 'Saudi Arabia',
       },
-    ],
+      provider: {
+        '@type': 'LocalBusiness',
+        name: t('common.brand'),
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'SA',
+        },
+      },
+      offers: {
+        '@type': 'Offer',
+        price: price != null && price !== '' ? String(price) : undefined,
+        priceCurrency: 'SAR',
+        availability: 'https://schema.org/InStock',
+      },
+    };
+
+    return JSON.stringify(payload);
+  });
+
+  const breadcrumbJsonLd = computed(() => {
+    if (!service.value) {
+      return null;
+    }
+
+    const base = (config.public.appUrl || '').replace(/\/$/, '');
+    const items = [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: t('navigation.home'),
+        item: `${base}${localePath({ name: 'index' })}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: t('navigation.categories'),
+        item: `${base}${localePath({ name: 'categories' })}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: service.value.name,
+        item: `${base}${switchLocalePath(locale.value)}`,
+      },
+    ];
+
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items,
+    });
+  });
+
+  useHead({
+    script: computed(() => {
+      const scripts = [];
+
+      if (serviceJsonLd.value) {
+        scripts.push({
+          type: 'application/ld+json',
+          innerHTML: serviceJsonLd.value,
+        });
+      }
+
+      if (breadcrumbJsonLd.value) {
+        scripts.push({
+          type: 'application/ld+json',
+          innerHTML: breadcrumbJsonLd.value,
+        });
+      }
+
+      return scripts;
+    }),
   });
 
   useSwiper(galleryContainer, {
@@ -83,8 +145,22 @@
 </script>
 
 <template>
-  <div class="container px-2 py-8 md:py-12 flex flex-col gap-6">
+  <div v-if="service" class="container px-2 py-8 md:py-12 flex flex-col gap-6">
     <AppBreadcrumb :pages="[{ name: service.name }]" />
+
+    <section v-if="service.city_links?.length" class="rounded-xl border border-gray-100 bg-white p-4 flex flex-col gap-2 shadow-sm">
+      <h2 class="text-sm font-semibold text-gray-800">{{ t('cities.available_in') }}</h2>
+      <div class="flex flex-wrap gap-2">
+        <NuxtLink
+          v-for="c in service.city_links"
+          :key="c.slug"
+          :to="localePath({ name: 'services-service-in-city', params: { service: service.slug, city: c.slug } })"
+          class="inline-flex rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-sm text-gray-800 hover:border-brand-200 hover:bg-brand-50"
+        >
+          {{ c.name }}
+        </NuxtLink>
+      </div>
+    </section>
 
     <div v-if="!galleryContainer">
       <div class="w-full aspect-video md:aspect-16/6 rounded-xl bg-gray-300 animate-pulse"></div>

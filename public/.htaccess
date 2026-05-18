@@ -1,0 +1,12 @@
+# Apache / cPanel: fallback to index.html for client-side routes (static `nuxt generate` output).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Alternative (Apache 2.2.16+): uncomment instead of the rules above.
+# FallbackResource /index.html

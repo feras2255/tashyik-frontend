@@ -1,0 +1,2 @@
+# Netlify and similar hosts: serve SPA for unknown paths (deep links / refresh).
+/*    /index.html   200

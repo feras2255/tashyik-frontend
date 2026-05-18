@@ -1,26 +1,53 @@
 <script setup>
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
+  const localePath = useLocalePath();
   const switchLocalePath = useSwitchLocalePath();
   const salesIq = useSalesIq();
   const route = useRoute();
-  const data = ref(null);
-  const selectedCategory = ref(null);
-  const services = ref([]);
-  const currentPage = ref(1);
-  const lastPage = ref(1);
-  const hasMoreServices = computed(() => currentPage.value < lastPage.value);
+  const { fetchServicesPage } = useServiceFetchers();
+
   const loader = ref(false);
   const q = ref(null);
+  const syncingFromPayload = ref(false);
 
-  try {
-    const response = await useApiFetch(`/categories/${route.params.category}`);
+  const { data: payload, error: pageError } = await useAsyncData(
+    () => `category-page-${route.params.category}-${locale.value}`,
+    async () => {
+      const catRes = await useApiFetch(`/categories/${route.params.category}`);
+      const cat = catRes.data;
+      const subId = cat.subcategories?.[0]?.id ?? null;
+      let servicesList = [];
+      let meta = { current_page: 1, last_page: 1 };
 
-    data.value = response.data;
+      if (subId) {
+        const svcRes = await fetchServicesPage({ page: 1, category: subId });
 
-    selectedCategory.value = data.value.subcategories[0]?.id;
-  } catch (error) {
-    if (error.statusCode === 404 || error.response?.status === 404) {
+        servicesList = svcRes.data;
+        meta = svcRes.meta;
+      } else {
+        const svcRes = await fetchServicesPage({ page: 1 });
+
+        servicesList = svcRes.data;
+        meta = svcRes.meta;
+      }
+
+      return {
+        category: cat,
+        services: servicesList,
+        meta,
+        initialSubId: subId,
+      };
+    },
+    {
+      watch: [() => route.params.category, locale],
+    },
+  );
+
+  if (pageError.value) {
+    const status = pageError.value.statusCode || pageError.value.status || pageError.value?.response?.status;
+
+    if (status === 404) {
       throw createError({
         statusCode: 404,
         statusMessage: t('common.page_not_found'),
@@ -29,39 +56,96 @@
     }
 
     throw createError({
-        statusCode: 500,
-        statusMessage: error.message || 'Failed to fetch category',
-        fatal: true,
+      statusCode: status || 500,
+      statusMessage: pageError.value.message || 'Failed to fetch category',
+      fatal: true,
     });
   }
 
-  const ogImage = computed(() => data.value?.og_image || data.value?.image);
-  const canonicalUrl = computed(() => `${config.public.appUrl}${switchLocalePath(locale.value)}`);
-  const seoTitle = computed(() => data.value?.meta_title || t('alt.category', { category: data.value?.name }));
-  const seoDescription = computed(() => data.value?.meta_description || data.value?.description);
+  const data = computed(() => payload.value?.category ?? null);
+  const selectedCategory = ref(payload.value?.initialSubId ?? null);
+  const services = ref([...(payload.value?.services ?? [])]);
+  const currentPage = ref(payload.value?.meta?.current_page ?? 1);
+  const lastPage = ref(payload.value?.meta?.last_page ?? 1);
+  const hasMoreServices = computed(() => currentPage.value < lastPage.value);
 
-  useSeoMeta({
-    title: seoTitle.value,
-    ogTitle: seoTitle.value,
-    description: seoDescription.value,
-    ogDescription: seoDescription.value,
-    ogImage: ogImage.value,
+  watch(
+    () => payload.value,
+    (p) => {
+      if (!p) {
+        return;
+      }
+
+      syncingFromPayload.value = true;
+      selectedCategory.value = p.initialSubId;
+      services.value = [...p.services];
+      currentPage.value = p.meta.current_page;
+      lastPage.value = p.meta.last_page;
+      nextTick(() => {
+        syncingFromPayload.value = false;
+      });
+    },
+    { immediate: true },
+  );
+
+  useEntitySeo({
+    entity: data,
+    parentCategory: null,
     ogType: 'website',
-    ogUrl: canonicalUrl.value,
-    twitterCard: 'summary_large_image',
-    twitterTitle: seoTitle.value,
-    twitterDescription: seoDescription.value,
-    twitterImage: ogImage.value,
+  });
+
+  const breadcrumbJsonLd = computed(() => {
+    if (!data.value) {
+      return null;
+    }
+
+    const base = (config.public.appUrl || '').replace(/\/$/, '');
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: t('navigation.home'),
+          item: `${base}${localePath({ name: 'index' })}`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: t('navigation.categories'),
+          item: `${base}${localePath({ name: 'categories' })}`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: data.value.name,
+          item: `${base}${switchLocalePath(locale.value)}`,
+        },
+      ],
+    };
+  });
+
+  useHead({
+    script: computed(() =>
+      breadcrumbJsonLd.value
+        ? [
+            {
+              type: 'application/ld+json',
+              innerHTML: JSON.stringify(breadcrumbJsonLd.value),
+            },
+          ]
+        : [],
+    ),
   });
 
   async function loadServices() {
     try {
-      const response = await useApiFetch(`/services?page=${currentPage.value}`, {
-        method: 'POST',
-        body: {
-          category: selectedCategory.value,
-          q: q.value,
-        },
+      const response = await fetchServicesPage({
+        page: currentPage.value,
+        category: selectedCategory.value,
+        q: q.value,
       });
 
       services.value = [...services.value, ...response.data];
@@ -100,6 +184,10 @@
   watch(
     () => selectedCategory.value,
     async () => {
+      if (syncingFromPayload.value) {
+        return;
+      }
+
       currentPage.value = 1;
 
       loader.value = true;
@@ -107,9 +195,6 @@
       services.value = [];
 
       await loadServices();
-    },
-    {
-      immediate: true,
     },
   );
 </script>
@@ -135,9 +220,9 @@
       <div class="inline-flex gap-3 overflow-x-auto">
         <button v-if="q" @click="selectedCategory = null" v-text="$t('common.all')" class="px-6 py-3 rounded-lg text-sm text-nowrap" :class="[selectedCategory == null ? 'bg-brand-500 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200']"></button>
         <button v-for="subcategory in data?.subcategories" :key="subcategory.id" @click="selectedCategory = subcategory.id" class="px-6 py-3 rounded-lg text-sm text-nowrap inline-flex items-center gap-1.5" :class="[subcategory.id == selectedCategory ? 'bg-brand-500 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200']">
-            <span v-text="subcategory.name"></span>
-            <span v-if="subcategory.badge" class="text-[9px] px-1.5 py-0.5 rounded font-medium leading-none" :class="[subcategory.id == selectedCategory ? 'bg-white/20 text-white' : 'bg-brand-50 text-brand-600']" v-text="subcategory.badge"></span>
-          </button>
+          <span v-text="subcategory.name"></span>
+          <span v-if="subcategory.badge" class="text-[9px] px-1.5 py-0.5 rounded font-medium leading-none" :class="[subcategory.id == selectedCategory ? 'bg-white/20 text-white' : 'bg-brand-50 text-brand-600']" v-text="subcategory.badge"></span>
+        </button>
       </div>
     </div>
 

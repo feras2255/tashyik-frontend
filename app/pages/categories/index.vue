@@ -3,11 +3,19 @@
   const config = useRuntimeConfig();
   const categories = ref(null);
 
+  const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
+
   useSeoMeta({
     title: t('seo.categories.title'),
     ogTitle: t('seo.categories.title'),
     description: t('seo.categories.description'),
     ogDescription: t('seo.categories.description'),
+    ogImage: defaultOg,
+    ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: t('seo.categories.title'),
+    twitterDescription: t('seo.categories.description'),
+    twitterImage: defaultOg,
   });
 
   try {
@@ -46,6 +54,20 @@
     <div class="flex flex-col gap-5">
       <h1 v-text="$t('categories.title')" class="text-3xl md:text-4xl text-gray-800 font-medium"></h1>
       <h2 v-text="$t('categories.subtitle')" class="text-lg md:text-xl text-gray-500"></h2>
+      <div class="flex flex-wrap gap-4">
+        <NuxtLinkLocale
+          :to="{ name: 'services' }"
+          class="text-brand-600 hover:text-brand-700 font-medium text-base w-fit"
+        >
+          {{ $t('navigation.services') }}
+        </NuxtLinkLocale>
+        <NuxtLinkLocale
+          :to="{ name: 'cities' }"
+          class="text-brand-600 hover:text-brand-700 font-medium text-base w-fit"
+        >
+          {{ $t('cities.browse_by_city') }}
+        </NuxtLinkLocale>
+      </div>
     </div>
     <div>
       <div class="flex flex-col md:grid grid-cols-2 lg:grid-cols-3 gap-5">

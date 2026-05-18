@@ -84,6 +84,16 @@
             </NuxtLinkLocale>
           </li>
           <li>
+            <NuxtLinkLocale :to="{ name: 'services' }">
+              {{ $t('navigation.services') }}
+            </NuxtLinkLocale>
+          </li>
+          <li>
+            <NuxtLinkLocale :to="{ name: 'cities' }">
+              {{ $t('navigation.cities') }}
+            </NuxtLinkLocale>
+          </li>
+          <li>
             <NuxtLinkLocale to="/articles">
               {{ $t('navigation.articles') }}
             </NuxtLinkLocale>
@@ -188,6 +198,19 @@
               <path fill="currentColor" d="M6.5 10C7.3 10 8 9.3 8 8.5S7.3 7 6.5 7S5 7.7 5 8.5S5.7 10 6.5 10M9 6l7 7l-5 5l-7-7V6zm0-2H4c-1.1 0-2 .9-2 2v5c0 .6.2 1.1.6 1.4l7 7c.3.4.8.6 1.4.6s1.1-.2 1.4-.6l5-5c.4-.4.6-.9.6-1.4c0-.6-.2-1.1-.6-1.4l-7-7C10.1 4.2 9.6 4 9 4m4.5 1.7l1-1l6.9 6.9c.4.4.6.9.6 1.4s-.2 1.1-.6 1.4L16 19.8l-1-1l5.7-5.8z" />
             </svg>
             <span>{{ $t('navigation.categories') }}</span>
+          </NuxtLinkLocale>
+          <NuxtLinkLocale :to="{ name: 'services' }" tabindex="-1" data-drawer-hide="mobile-navigation-drawer" aria-controls="mobile-navigation-drawer" class="p-3 w-full rounded-lg hover:bg-gray-50 flex flex-row gap-3 items-center justify-start" activeClass="bg-gray-50">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01" />
+            </svg>
+            <span>{{ $t('navigation.services') }}</span>
+          </NuxtLinkLocale>
+          <NuxtLinkLocale :to="{ name: 'cities' }" tabindex="-1" data-drawer-hide="mobile-navigation-drawer" aria-controls="mobile-navigation-drawer" class="p-3 w-full rounded-lg hover:bg-gray-50 flex flex-row gap-3 items-center justify-start" activeClass="bg-gray-50">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>{{ $t('navigation.cities') }}</span>
           </NuxtLinkLocale>
           <NuxtLinkLocale :to="{ name: 'contact' }" tabindex="-1" data-drawer-hide="mobile-navigation-drawer" aria-controls="mobile-navigation-drawer" class="p-3 w-full rounded-lg hover:bg-gray-50 flex flex-row gap-3 items-center justify-start" activeClass="bg-gray-50">
             <!-- humbleicons:mail -->

@@ -36,6 +36,10 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/i18n', 'nuxt-swiper', '@pinia/nuxt', '@nuxt/scripts', '@nuxt/fonts'],
 
+  /**
+   * `inlineStyles: true` can cause a visible “CSS flash” on hard refresh in dev: critical CSS inlines
+   * first, then Vite attaches the full stylesheet after hydration. `false` keeps one consistent cascade.
+   */
   features: {
     inlineStyles: false,
   },
@@ -107,16 +111,24 @@ export default defineNuxtConfig({
       },
     ],
     preload: true,
-    display: 'swap',
+    /** Avoid swap reflow on refresh: keep ExpoArabic when cached; otherwise fall back without a second layout pass. */
+    display: 'optional',
   },
 
   runtimeConfig: {
+    /**
+     * Server-only API base (SSR / prerender). Use when `NUXT_PUBLIC_API_BASE_URL` uses a hostname
+     * that Node cannot resolve (e.g. `api.localhost`). If empty, `useApiFetch` rewrites common dev hosts to 127.0.0.1.
+     */
+    apiInternalBaseUrl: process.env.NUXT_API_INTERNAL_BASE_URL || '',
     public: {
       appUrl: process.env.NUXT_PUBLIC_APP_URL || (isProd ? siteBaseUrl : ''),
-      apiBaseUrl: '',
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || '',
       keywords: '',
       salesIqKey: '',
       whatsappLink: '',
+      /** Twitter @handle for twitter:site (optional). */
+      twitterSite: process.env.NUXT_PUBLIC_TWITTER_SITE || '',
       saudiBusinessCenterCertificate: '',
       i18n: {
         baseUrl: siteBaseUrl,
@@ -139,6 +151,14 @@ export default defineNuxtConfig({
     baseUrl: siteBaseUrl,
     detectBrowserLanguage: {
       useCookie: true,
+      fallbackLocale: 'ar',
+      /**
+       * Unprefixed paths (e.g. `/cities`) map to the default locale in `prefix_and_default`. Without `alwaysRedirect`,
+       * nuxt-i18n skips detection when the path resolves to a supported locale (`skipDetect` in runtime/utils.js),
+       * so cookie/header locale is ignored and `/cities` can 404 for non-default locales.
+       */
+      redirectOn: 'no prefix',
+      alwaysRedirect: true,
     },
     locales: [
       {
@@ -200,7 +220,7 @@ export default defineNuxtConfig({
     ],
     strategy: 'prefix_and_default',
     defaultLocale: 'ar',
-    lazy: false,
+    lazy: true,
     langDir: 'locales',
   },
 });

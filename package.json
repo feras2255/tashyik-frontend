@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "optimize:images": "node scripts/optimize-hero-images.mjs"
+    "optimize:images": "node scripts/optimize-hero-images.mjs",
+    "seo:meta-smoke": "node scripts/seo-meta-smoke.mjs"
   },
   "devDependencies": {
     "baseline-browser-mapping": "^2.10.27",

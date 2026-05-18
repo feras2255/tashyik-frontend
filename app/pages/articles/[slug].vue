@@ -2,6 +2,7 @@
   const route = useRoute();
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
+  const localePath = useLocalePath();
   const switchLocalePath = useSwitchLocalePath();
 
   const slug = route.params.slug;
@@ -19,51 +20,106 @@
 
   const article = computed(() => articleData.value?.data || articleData.value);
 
-  // SEO Meta
-  const seoTitle = computed(() => article.value?.meta_title || article.value?.title);
-  const seoDescription = computed(() => article.value?.meta_description || article.value?.excerpt);
-  const ogImage = computed(() => article.value?.og_image || article.value?.featured_image_lg || article.value?.featured_image);
-  const canonicalUrl = computed(() => `${config.public.appUrl}${switchLocalePath(locale.value)}`);
-
-  useSeoMeta({
-    title: seoTitle.value,
-    description: seoDescription.value,
-    ogTitle: seoTitle.value,
-    ogDescription: seoDescription.value,
-    ogImage: ogImage.value,
+  useEntitySeo({
+    entity: article,
+    parentCategory: null,
     ogType: 'article',
-    ogUrl: canonicalUrl.value,
-    twitterCard: 'summary_large_image',
-    twitterTitle: seoTitle.value,
-    twitterDescription: seoDescription.value,
-    twitterImage: ogImage.value,
   });
 
-  // JSON-LD Structured Data
-  useHead({
-    script: [
-      {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: article.value?.title,
-          description: article.value?.excerpt,
-          image: ogImage.value,
-          datePublished: article.value?.published_at,
-          url: canonicalUrl.value,
-          publisher: {
-            '@type': 'Organization',
-            name: t('common.brand'),
-          },
-        }),
+  const articleJsonLd = computed(() => {
+    const a = article.value;
+
+    if (!a) {
+      return null;
+    }
+
+    const img =
+      a.og_image || a.featured_image_lg || a.featured_image;
+
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: a.title,
+      description: a.excerpt,
+      image: img,
+      datePublished: a.published_at,
+      dateModified: a.updated_at || a.published_at,
+      url: `${(config.public.appUrl || '').replace(/\/$/, '')}${switchLocalePath(locale.value)}`,
+      publisher: {
+        '@type': 'Organization',
+        name: t('common.brand'),
       },
-    ],
+      ...(a.author
+        ? {
+            author: {
+              '@type': 'Person',
+              name: a.author.name,
+            },
+          }
+        : {}),
+    });
+  });
+
+  const breadcrumbJsonLd = computed(() => {
+    const a = article.value;
+
+    if (!a) {
+      return null;
+    }
+
+    const base = (config.public.appUrl || '').replace(/\/$/, '');
+
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: t('navigation.home'),
+          item: `${base}${localePath({ name: 'index' })}`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: t('navigation.articles'),
+          item: `${base}${localePath({ name: 'articles' })}`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: a.title,
+          item: `${base}${switchLocalePath(locale.value)}`,
+        },
+      ],
+    });
+  });
+
+  useHead({
+    script: computed(() => {
+      const scripts = [];
+
+      if (articleJsonLd.value) {
+        scripts.push({
+          type: 'application/ld+json',
+          innerHTML: articleJsonLd.value,
+        });
+      }
+
+      if (breadcrumbJsonLd.value) {
+        scripts.push({
+          type: 'application/ld+json',
+          innerHTML: breadcrumbJsonLd.value,
+        });
+      }
+
+      return scripts;
+    }),
   });
 
   // Share URLs
-  const shareUrl = computed(() => canonicalUrl.value);
-  const shareTitle = computed(() => seoTitle.value);
+  const shareUrl = computed(() => `${(config.public.appUrl || '').replace(/\/$/, '')}${switchLocalePath(locale.value)}`);
+  const shareTitle = computed(() => article.value?.meta_title || article.value?.title || '');
 
   const twitterShareUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle.value)}&url=${encodeURIComponent(shareUrl.value)}`);
   const facebookShareUrl = computed(() => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl.value)}`);

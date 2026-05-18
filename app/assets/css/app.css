@@ -25,8 +25,9 @@
   --radius-2xl: 17.14px;
 }
 
-* {
-  font-family: 'ExpoArabic', sans-serif;
+html,
+body {
+  font-family: 'ExpoArabic', ui-sans-serif, system-ui, sans-serif;
 }
 
 html {

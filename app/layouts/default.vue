@@ -8,8 +8,10 @@
 
   await loadLayout();
 
+  const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
+
   useSeoMeta({
-    ogImage: 'https://tashyik.com/images/og.webp',
+    ogImage: defaultOg,
     ogImageType: 'image/webp',
     ogImageWidth: '1200',
     ogImageHeight: '630',
