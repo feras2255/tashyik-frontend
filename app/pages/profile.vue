@@ -8,6 +8,7 @@
   useSeoMeta({
     title: t('seo.profile.title'),
   });
+  useNoIndexSeo();
 </script>
 
 <template>

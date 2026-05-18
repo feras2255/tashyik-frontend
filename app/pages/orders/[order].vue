@@ -8,6 +8,7 @@
   definePageMeta({ middleware: ['auth'] });
 
   useSeoMeta({ title: t('seo.orders.view.title') });
+  useNoIndexSeo();
 
   try {
     const response = await useApiFetch(`/user/orders/${route.params.order}`);

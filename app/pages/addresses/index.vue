@@ -7,6 +7,7 @@
   useSeoMeta({
     title: t('seo.addresses.title'),
   });
+  useNoIndexSeo();
 
   try {
     const response = await useApiFetch('/addresses');

@@ -55,6 +55,7 @@
   useSeoMeta({
     title: t('orders.make.title'),
   });
+  useNoIndexSeo();
 
   async function increaseQuantity() {
     if (loader.value) return;

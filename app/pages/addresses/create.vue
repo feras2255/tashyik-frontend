@@ -7,6 +7,7 @@
   useSeoMeta({
     title: t('seo.addresses.create.title'),
   });
+  useNoIndexSeo();
 </script>
 
 <template>

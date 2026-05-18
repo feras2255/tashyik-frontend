@@ -24,6 +24,7 @@
   useSeoMeta({
     title: t('seo.register.title'),
   });
+  useNoIndexSeo();
 
   async function handleRegister() {
     loader.value = true;

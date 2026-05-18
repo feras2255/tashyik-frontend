@@ -21,6 +21,7 @@
   useSeoMeta({
     title: t('seo.forgot_password.title'),
   });
+  useNoIndexSeo();
 
   // Step 1: Send OTP
   async function handleSendOtp() {

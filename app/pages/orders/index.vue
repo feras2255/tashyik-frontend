@@ -11,6 +11,7 @@
   definePageMeta({ middleware: ['auth'] });
 
   useSeoMeta({ title: t('seo.orders.title') });
+  useNoIndexSeo();
 
   const currentTap = computed(() => {
     if (!route.query.tap) return 'new';

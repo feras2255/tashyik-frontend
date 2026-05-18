@@ -9,6 +9,7 @@
   useSeoMeta({
     title: t('institution.seo_title'),
   });
+  useNoIndexSeo();
 
   const loading = ref(true);
   const members = ref([]);

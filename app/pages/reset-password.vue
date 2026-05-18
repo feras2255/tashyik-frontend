@@ -22,6 +22,7 @@
   useSeoMeta({
     title: t('seo.reset_password.title'),
   });
+  useNoIndexSeo();
 
   async function handleSubmit() {
     loader.value = true;

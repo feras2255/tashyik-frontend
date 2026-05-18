@@ -48,6 +48,7 @@
   useSeoMeta({
     title: t('seo.service_provider_register.title'),
   });
+  useNoIndexSeo();
 
   async function handleRegister() {
     loader.value = true;

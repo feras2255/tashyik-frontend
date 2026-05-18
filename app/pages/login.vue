@@ -17,6 +17,7 @@
   useSeoMeta({
     title: t('seo.login.title'),
   });
+  useNoIndexSeo();
 
   async function handleLogin() {
     loader.value = true;

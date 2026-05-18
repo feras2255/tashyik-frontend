@@ -1,4 +1,25 @@
 User-agent: *
 Allow: /
 
+Disallow: /login
+Disallow: /*/login
+Disallow: /register
+Disallow: /*/register
+Disallow: /service-provider-register
+Disallow: /*/service-provider-register
+Disallow: /forgot-password
+Disallow: /*/forgot-password
+Disallow: /reset-password
+Disallow: /*/reset-password
+Disallow: /orders
+Disallow: /*/orders
+Disallow: /profile
+Disallow: /*/profile
+Disallow: /addresses
+Disallow: /*/addresses
+Disallow: /institution
+Disallow: /*/institution
+Disallow: /services/*/order
+Disallow: /*/services/*/order
+
 Sitemap: https://www.tashyik.com/sitemaps/index.xml
