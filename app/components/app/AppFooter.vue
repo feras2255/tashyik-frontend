@@ -4,14 +4,15 @@
   const currentYear = computed(() => new Date().getFullYear());
   const { description, social_links, mobile_app_links, contact_info } = useLayoutStore();
   const config = useRuntimeConfig();
+  const apiFetch = useApiFetchClient();
 
   const { data: hubLinks } = await useAsyncData(
     'footer-seo-hub-links',
     async () => {
       try {
         const [services, cities] = await Promise.all([
-          useApiFetch('/services', { params: { limit: 6 } }),
-          useApiFetch('/cities', { params: { limit: 6 } }),
+          apiFetch('/services', { params: { limit: 6 } }),
+          apiFetch('/cities', { params: { limit: 6 } }),
         ]);
 
         return {

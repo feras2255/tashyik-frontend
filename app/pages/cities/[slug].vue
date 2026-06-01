@@ -62,11 +62,8 @@
 
   const city = computed(() => payload.value?.city ?? null);
 
-  const categoryChips = computed(() => {
-    const list = city.value?.filter_categories ?? [];
-
-    return [...list].sort((a, b) => String(pickLocalizedName(a.name)).localeCompare(String(pickLocalizedName(b.name)), 'ar'));
-  });
+  /** Preserve API item_order (same as dashboard); do not re-sort alphabetically. */
+  const categoryChips = computed(() => city.value?.filter_categories ?? []);
 
   const searchTrimmed = computed(() => searchDebounced.value);
 

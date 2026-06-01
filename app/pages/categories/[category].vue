@@ -7,6 +7,7 @@
   const switchLocalePath = useSwitchLocalePath();
   const salesIq = useSalesIq();
   const route = useRoute();
+  const apiFetch = useApiFetchClient();
   const { fetchServicesPage } = useServiceFetchers();
 
   const loader = ref(false);
@@ -16,7 +17,7 @@
   const { data: payload, error: pageError } = await useAsyncData(
     () => `category-page-${route.params.category}-${locale.value}`,
     async () => {
-      const catRes = await useApiFetch(`/categories/${route.params.category}`);
+      const catRes = await apiFetch(`/categories/${route.params.category}`);
       const cat = catRes.data;
       const subId = cat.subcategories?.[0]?.id ?? null;
       let servicesList = [];

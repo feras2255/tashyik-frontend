@@ -5,7 +5,7 @@ export const useCitiesStore = defineStore('cities', () => {
     if (!collection.value) {
       try {
         const response = await useApiFetch('/cities', {
-          query: { per_page: 200 },
+          query: { per_page: 120 },
         });
 
         collection.value = response.data;

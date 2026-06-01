@@ -1,4 +1,6 @@
 export function useServiceFetchers() {
+  const apiFetch = useApiFetchClient();
+
   async function fetchServicesPage({ page = 1, perPage = null, category = null, q = null } = {}) {
     const body = {
       category: category || null,
@@ -12,22 +14,22 @@ export function useServiceFetchers() {
       query.set('per_page', String(Math.max(1, Number(perPage) || 1)));
     }
 
-    return useApiFetch(`/services?${query.toString()}`, {
+    return apiFetch(`/services?${query.toString()}`, {
       method: 'POST',
       body,
     });
   }
 
   async function fetchServiceBySlug(slug) {
-    return useApiFetch(`/services/${slug}`);
+    return apiFetch(`/services/${slug}`);
   }
 
   async function fetchCategories() {
-    return useApiFetch('/categories');
+    return apiFetch('/categories');
   }
 
   async function fetchCityBySlug(slug) {
-    return useApiFetch(`/cities/${slug}`);
+    return apiFetch(`/cities/${slug}`);
   }
 
   async function fetchCityServices(citySlug, { page = 1, perPage = 48, q = null, categoryId = null } = {}) {
@@ -44,11 +46,11 @@ export function useServiceFetchers() {
       query.category_id = categoryId;
     }
 
-    return useApiFetch(`/cities/${citySlug}/services`, { query });
+    return apiFetch(`/cities/${citySlug}/services`, { query });
   }
 
   async function fetchServiceCityPage(serviceSlug, citySlug) {
-    return useApiFetch(`/services/${serviceSlug}/in/${citySlug}`).catch(() => ({ data: null }));
+    return apiFetch(`/services/${serviceSlug}/in/${citySlug}`).catch(() => ({ data: null }));
   }
 
   async function fetchServiceCityPayload(serviceSlug, citySlug, { relatedPerPage = 24 } = {}) {

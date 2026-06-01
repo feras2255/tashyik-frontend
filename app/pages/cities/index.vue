@@ -4,6 +4,7 @@
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
+  const apiFetch = useApiFetchClient();
 
   const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
 
@@ -23,8 +24,8 @@
   const { data: cities, error } = await useAsyncData(
     () => `cities-index-${locale.value}`,
     async () => {
-      const res = await useApiFetch('/cities', {
-        query: { per_page: 200 },
+      const res = await apiFetch('/cities', {
+        query: { per_page: 120 },
       });
 
       return res.data ?? [];
@@ -53,18 +54,15 @@
     return String(city?.name ?? '');
   }
 
-  const sortedCities = computed(() => {
-    const list = cities.value ?? [];
+  /** Preserve API `item_order` (dashboard drag); do not re-sort alphabetically. */
+  const orderedCities = computed(() => cities.value ?? []);
 
-    return [...list].sort((a, b) => cityName(a).localeCompare(cityName(b), locale.value));
-  });
-
-  const cityCount = computed(() => sortedCities.value.length);
+  const cityCount = computed(() => orderedCities.value.length);
 
   const hasFilter = computed(() => Boolean(filterQ.value.trim()));
 
   const filteredCities = computed(() => {
-    const list = sortedCities.value;
+    const list = orderedCities.value;
     const q = filterQ.value.trim().toLowerCase();
 
     if (!q) {

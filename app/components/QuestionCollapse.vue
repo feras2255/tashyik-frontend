@@ -8,6 +8,7 @@
   });
 
   const route = useRoute();
+  const apiFetch = useApiFetchClient();
 
   const { data: fetched } = await useAsyncData(
     () => `faq-questions-${route.fullPath}`,
@@ -17,7 +18,7 @@
       }
 
       try {
-        const response = await useApiFetch('/general/questions');
+        const response = await apiFetch('/general/questions');
         return response.data ?? [];
       } catch (error) {
         console.error('Failed to get questions:', error);

@@ -32,11 +32,44 @@ function getApiBaseUrl(config) {
   return publicBase;
 }
 
+/**
+ * Returns a plain $fetch wrapper bound to the current request context.
+ * Safe to call inside useAsyncData callbacks (unlike useApiFetch, which re-enters composables).
+ */
+export function useApiFetchClient() {
+  const nuxtApp = useNuxtApp();
+  const config = useRuntimeConfig();
+  const token = useCookie('token', { default: () => null });
+  const baseURL = getApiBaseUrl(config);
+
+  return function apiFetch(path, options = {}) {
+    const locale = nuxtApp.$i18n?.locale;
+    const headers = {
+      ...options?.headers,
+      accept: 'application/json',
+      'X-App-Language': unref(locale),
+    };
+
+    if (token.value) {
+      headers.Authorization = `Bearer ${token.value}`;
+    }
+
+    const resolvedPath = typeof path === 'function' ? path() : path;
+
+    return $fetch(resolvedPath, {
+      ...options,
+      baseURL,
+      headers,
+    });
+  };
+}
+
 export function useApiFetch(path, options = {}, useFetchFunction = false) {
   const { $i18n } = useNuxtApp();
   const config = useRuntimeConfig();
   const token = useCookie('token', { default: () => null });
   const baseURL = getApiBaseUrl(config);
+  const apiFetch = useApiFetchClient();
 
   const headers = {
     ...options?.headers,
@@ -58,9 +91,5 @@ export function useApiFetch(path, options = {}, useFetchFunction = false) {
       ...options,
       headers,
     })
-    : $fetch(path, {
-      ...options,
-      baseURL,
-      headers,
-    });
+    : apiFetch(path, options);
 }

@@ -25,6 +25,11 @@ const LOCALE_SLUG_CHECKS = [
 ];
 
 export default defineNuxtRouteMiddleware(async (to) => {
+  const nuxtApp = useNuxtApp();
+  const config = useRuntimeConfig();
+  const localePath = useLocalePath();
+  const { lookup } = useLocaleSlugLookup();
+
   const routeName = String(to.name || '');
   const rule = LOCALE_SLUG_CHECKS.find((entry) => entry.match(routeName));
 
@@ -32,21 +37,18 @@ export default defineNuxtRouteMiddleware(async (to) => {
     return;
   }
 
-  const { locale, defaultLocale } = useI18n();
+  const locale = unref(nuxtApp.$i18n?.locale);
+  const defaultLocale = nuxtApp.$i18n?.defaultLocale ?? 'ar';
 
-  if (locale.value === defaultLocale) {
+  if (locale === defaultLocale) {
     return;
   }
 
-  const config = useRuntimeConfig();
   const apiBase = String(config.public.apiBaseUrl || '').replace(/\/$/, '');
 
   if (!apiBase) {
     return;
   }
-
-  const localePath = useLocalePath();
-  const { lookup } = useLocaleSlugLookup();
 
   for (const { type, param } of rule.params) {
     const currentSlug = to.params[param];
@@ -55,7 +57,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
       continue;
     }
 
-    const resolved = await lookup(apiBase, type, currentSlug, locale.value);
+    const resolved = await lookup(apiBase, type, currentSlug, locale);
 
     if (!resolved?.preferred_slug || resolved.preferred_slug === currentSlug) {
       continue;

@@ -25,6 +25,11 @@ const ENTITY_SLUG_CHECKS = [
 ];
 
 export default defineNuxtRouteMiddleware(async (to) => {
+  const nuxtApp = useNuxtApp();
+  const config = useRuntimeConfig();
+  const localePath = useLocalePath();
+  const { lookup } = useSlugRedirectLookup();
+
   const routeName = String(to.name || '');
   const rule = ENTITY_SLUG_CHECKS.find((entry) => entry.match(routeName));
 
@@ -32,16 +37,13 @@ export default defineNuxtRouteMiddleware(async (to) => {
     return;
   }
 
-  const config = useRuntimeConfig();
   const apiBase = String(config.public.apiBaseUrl || '').replace(/\/$/, '');
 
   if (!apiBase) {
     return;
   }
 
-  const { locale } = useI18n();
-  const localePath = useLocalePath();
-  const { lookup } = useSlugRedirectLookup();
+  const locale = unref(nuxtApp.$i18n?.locale);
 
   for (const { type, param } of rule.params) {
     const currentSlug = to.params[param];
@@ -50,7 +52,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
       continue;
     }
 
-    const redirect = await lookup(apiBase, type, currentSlug, locale.value);
+    const redirect = await lookup(apiBase, type, currentSlug, locale);
 
     if (!redirect?.new_slug || redirect.new_slug === currentSlug) {
       continue;
