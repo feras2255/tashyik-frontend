@@ -1,4 +1,5 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
 
   const { t, locale } = useI18n();
   const localePath = useLocalePath();
@@ -56,7 +57,7 @@
           <NuxtLinkLocale
             v-for="article in articles"
             :key="article.id"
-            :to="{ name: 'articles-slug', params: { slug: article.slug } }"
+            :to="{ name: 'articles-slug', params: { slug: resolveEntitySlug(article) } }"
             class="group block"
             :id="`article-${article.id}`">
             <article class="bg-white rounded-lg shadow-sm hover:shadow-md border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-300 transform hover:-translate-y-1">

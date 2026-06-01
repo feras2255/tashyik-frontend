@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const props = defineProps({
     service: {
       type: Object,
@@ -76,15 +78,17 @@
 
   const hasHighlights = computed(() => Array.isArray(props.service.highlights) && props.service.highlights.length > 0);
 
+  const serviceSlug = computed(() => resolveEntitySlug(props.service));
+
   const detailsTo = computed(() =>
     props.citySlug
-      ? { name: 'services-service-in-city', params: { service: props.service.slug, city: props.citySlug } }
-      : { name: 'services-service', params: { service: props.service.slug } },
+      ? { name: 'services-service-in-city', params: { service: serviceSlug.value, city: props.citySlug } }
+      : { name: 'services-service', params: { service: serviceSlug.value } },
   );
 
   const orderTo = computed(() => ({
     name: 'services-service-order',
-    params: { service: props.service.slug },
+    params: { service: serviceSlug.value },
     ...(props.citySlug ? { query: { city: props.citySlug } } : {}),
   }));
 </script>
@@ -93,13 +97,26 @@
   <div
     class="group relative flex w-full flex-col rounded-2xl bg-white shadow transition-shadow duration-200 hover:shadow-xl static-color"
   >
+    <!--
+      Whole-card crawlable link: keeps the visual-design "two button" footer
+      while letting Googlebot follow the entire card to the detail URL. The
+      visible buttons remain interactive — z-index ensures clicks on them
+      route to their own destinations and not the card-cover anchor.
+    -->
+    <NuxtLinkLocale :to="detailsTo" class="absolute inset-0 z-10 rounded-2xl" :aria-label="displayName">
+      <span class="sr-only">{{ displayName }}</span>
+    </NuxtLinkLocale>
+
     <!-- Image -->
     <div class="aspect-video w-full shrink-0 overflow-hidden rounded-2xl rounded-b-none bg-gray-100 object-cover object-center">
       <img
         v-if="service.image"
         :src="service.image"
-        :alt="$t('alt.service', { service: displayName })"
+        :alt="service.image_alt?.[$i18n.locale] || service.image_alt || $t('alt.service', { service: displayName })"
         loading="lazy"
+        decoding="async"
+        width="640"
+        height="360"
         class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
       />
       <div v-else class="flex h-full w-full items-center justify-center text-gray-400">
@@ -156,11 +173,19 @@
             <del v-if="service.price.has_discount" v-text="`${service.price.original} ${service.price.currency}`" class="text-sm font-medium text-gray-400" />
           </div>
           <span v-else v-text="$t('common.no_price')" class="text-lg text-gray-800" />
-          <img class="h-5 shrink-0 self-center sm:h-6" src="/images/tabby-tamara.webp" alt="Tabby & Tamara" loading="lazy" />
+          <img
+            class="h-5 shrink-0 self-center sm:h-6"
+            src="/images/tabby-tamara.webp"
+            alt="Tabby & Tamara"
+            loading="lazy"
+            decoding="async"
+            width="120"
+            height="24"
+          />
         </div>
 
         <!-- Actions -->
-        <div class="flex flex-col gap-2 overflow-hidden sm:flex-row sm:items-stretch">
+        <div class="relative z-20 flex flex-col gap-2 overflow-hidden sm:flex-row sm:items-stretch">
           <NuxtLinkLocale class="w-full" :to="orderTo">
             <ButtonsFilled class="w-full text-nowrap">
               {{ $t('service.actions.order_now') }}

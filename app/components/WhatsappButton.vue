@@ -9,7 +9,7 @@
     :href="link"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Contact us on WhatsApp"
+    :aria-label="$t('a11y.contact_whatsapp')"
     class="fixed bottom-[69px] sm:bottom-20 start-[15px] sm:start-2 bg-green-500 text-white p-2.5 sm:p-3 w-11 h-11 sm:w-14 sm:h-14 rounded-full static-color z-50"
   >
     <!-- flowbite:whatsapp-solid -->

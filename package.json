@@ -7,12 +7,23 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt prepare && (husky || true)",
     "optimize:images": "node scripts/optimize-hero-images.mjs",
-    "seo:meta-smoke": "node scripts/seo-meta-smoke.mjs"
+    "seo:meta-smoke": "node scripts/seo-meta-smoke.mjs",
+    "lint": "eslint --ext .js,.mjs,.ts,.vue --max-warnings 0 .",
+    "lint:fix": "eslint --ext .js,.mjs,.ts,.vue --fix .",
+    "format": "prettier --check \"**/*.{js,mjs,ts,vue,json,md,css}\"",
+    "format:fix": "prettier --write \"**/*.{js,mjs,ts,vue,json,md,css}\"",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@nuxt/eslint-config": "^0.5.7",
     "baseline-browser-mapping": "^2.10.27",
+    "eslint": "^9.18.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.0",
+    "prettier": "^3.4.2",
     "sharp": "^0.34.1"
   },
   "dependencies": {
@@ -31,5 +42,9 @@
     "tailwindcss": "^4.1.13",
     "vue": "^3.5.22",
     "vue-router": "^4.5.1"
+  },
+  "lint-staged": {
+    "*.{js,mjs,ts,vue}": ["eslint --fix --max-warnings 0", "prettier --write"],
+    "*.{json,md,css}": ["prettier --write"]
   }
 }

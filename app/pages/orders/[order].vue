@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const { t } = useI18n();
   const localePath = useLocalePath();
   const route = useRoute();
@@ -65,7 +67,7 @@
         </ButtonsFilled>
 
         <!-- Order again -->
-        <NuxtLinkLocale :to="{ name: 'services-service-order', params: { service: order.service?.slug } }">
+        <NuxtLinkLocale :to="{ name: 'services-service-order', params: { service: resolveEntitySlug(order.service) } }">
           <ButtonsOutline class="w-full">
             {{ $t('order.actions.order_again') }}
           </ButtonsOutline>

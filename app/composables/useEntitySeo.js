@@ -36,10 +36,52 @@ function truncate(s, max) {
   return `${s.slice(0, max - 1).trimEnd()}\u2026`;
 }
 
+function resolveImageUrl(value) {
+  if (!value) {
+    return null;
+  }
+
+  if (typeof value === 'string') {
+    return value.trim() || null;
+  }
+
+  if (typeof value === 'object') {
+    return value.og || value.lg || value.sm || null;
+  }
+
+  return null;
+}
+
+function formatKeywords(value, localeCode) {
+  if (value == null || value === '') {
+    return '';
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item).trim()).filter(Boolean).join(', ');
+  }
+
+  if (typeof value === 'string') {
+    return value.trim();
+  }
+
+  if (typeof value === 'object') {
+    const localized = value[localeCode] ?? value.ar ?? value.en ?? Object.values(value).find(Boolean);
+
+    return formatKeywords(localized, localeCode);
+  }
+
+  return '';
+}
+
+import { resolveEntitySlug } from '~/utils/seoSlug';
+
 export function useEntitySeo(options) {
   const { t, locale, locales } = useI18n();
   const config = useRuntimeConfig();
+  const localePath = useLocalePath();
   const switchLocalePath = useSwitchLocalePath();
+  const route = useRoute();
   const layout = useLayoutStore();
 
   const entity = computed(() => unref(options.entity));
@@ -56,6 +98,29 @@ export function useEntitySeo(options) {
 
   const canonicalUrl = computed(() => {
     const base = (config.public.appUrl || '').replace(/\/$/, '');
+    const override = options.canonicalPath != null ? unref(options.canonicalPath) : null;
+
+    if (override) {
+      return `${base}${override}`;
+    }
+
+    const slugParam = options.slugParam;
+    const e = entity.value;
+
+    if (slugParam && e) {
+      const resolvedSlug = resolveEntitySlug(e);
+
+      if (resolvedSlug) {
+        return `${base}${localePath({
+          name: route.name,
+          params: {
+            ...route.params,
+            [slugParam]: resolvedSlug,
+          },
+          query: route.query,
+        })}`;
+      }
+    }
 
     return `${base}${switchLocalePath(locale.value)}`;
   });
@@ -121,6 +186,18 @@ export function useEntitySeo(options) {
     return truncate(plain || shortDesc.value, 160);
   });
 
+  const keywords = computed(() => {
+    const e = entity.value;
+
+    if (!e) {
+      return '';
+    }
+
+    const raw = e.meta_keywords ?? e.keywords;
+
+    return formatKeywords(raw, locale.value);
+  });
+
   const ogImage = computed(() => {
     const e = entity.value;
 
@@ -128,8 +205,13 @@ export function useEntitySeo(options) {
       return defaultOgImage.value;
     }
 
-    const fromEntity = e.og_image || e.image || e.featured_image_lg || e.featured_image;
-    const fromParent = parentCategory.value?.og_image || parentCategory.value?.image;
+    const fromEntity =
+      resolveImageUrl(e.og_image) ||
+      resolveImageUrl(e.image) ||
+      resolveImageUrl(e.featured_image_lg) ||
+      resolveImageUrl(e.featured_image);
+    const fromParent =
+      resolveImageUrl(parentCategory.value?.og_image) || resolveImageUrl(parentCategory.value?.image);
 
     return fromEntity || fromParent || defaultOgImage.value;
   });
@@ -154,6 +236,7 @@ export function useEntitySeo(options) {
     ogType,
     ogUrl: canonicalUrl,
     ogLocale,
+    keywords,
     twitterCard: 'summary_large_image',
     twitterTitle: title,
     twitterDescription: description,
@@ -172,6 +255,7 @@ export function useEntitySeo(options) {
   return {
     title,
     description,
+    keywords,
     ogImage,
     canonicalUrl,
     brand,

@@ -43,7 +43,7 @@
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: `${base}/categories?q={search_term_string}`,
+          urlTemplate: `${base}/services?q={search_term_string}`,
         },
         'query-input': 'required name=search_term_string',
       },
@@ -57,15 +57,22 @@
 
   useHead({
     titleTemplate: (titleChunk) => {
-      let title;
+      const brand = t('common.brand');
 
       if (route.name.startsWith('index__')) {
-        title = titleChunk || `${t('common.brand')} | ${t('common.short_description')}`;
-      } else {
-        title = titleChunk ? `${titleChunk} - ${t('common.brand')}` : t('common.brand');
+        return titleChunk || `${brand} | ${t('common.short_description')}`;
       }
 
-      return title;
+      if (!titleChunk) {
+        return brand;
+      }
+
+      const lower = titleChunk.toLowerCase();
+      if (lower.includes(brand.toLowerCase()) || lower.includes('tashyik')) {
+        return titleChunk;
+      }
+
+      return `${titleChunk} - ${brand}`;
     },
     meta: [{ property: 'og:site_name', content: t('common.brand') }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const head = useLocaleHead();
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
@@ -63,6 +65,21 @@
   const service = computed(() => payload.value?.service ?? null);
   const city = computed(() => payload.value?.city ?? null);
   const relatedServices = computed(() => payload.value?.related ?? []);
+  const cityPage = computed(() => payload.value?.cityPage ?? null);
+
+  const cityPageBody = computed(() => {
+    const page = cityPage.value;
+    if (!page?.body) {
+      return '';
+    }
+
+    const body = page.body;
+    if (typeof body === 'string') {
+      return body;
+    }
+
+    return body[locale.value] || body.ar || body.en || '';
+  });
 
   const heroLead = computed(() => {
     const s = service.value;
@@ -141,37 +158,57 @@
     return null;
   });
 
+  const pageMetaTitle = computed(() => {
+    const page = cityPage.value;
+
+    if (!page?.meta_title) {
+      return null;
+    }
+
+    return page.meta_title[locale.value] || page.meta_title.ar || page.meta_title.en || null;
+  });
+
+  const pageKeywords = computed(() => {
+    const page = cityPage.value;
+
+    if (page?.keywords) {
+      const raw = page.keywords[locale.value] ?? page.keywords.ar ?? page.keywords.en ?? page.keywords;
+
+      if (Array.isArray(raw)) {
+        return raw.filter(Boolean).join(', ');
+      }
+
+      if (typeof raw === 'string' && raw.trim()) {
+        return raw.trim();
+      }
+    }
+
+    return '';
+  });
+
   const entity = computed(() => {
     const s = service.value;
     const c = city.value;
+    const page = cityPage.value;
 
     if (!s || !c) {
       return null;
     }
 
+    const pageMetaDescription = page?.meta_description?.[locale.value] || page?.meta_description?.ar || page?.meta_description?.en || null;
+
     return {
       name: `${s.name} — ${c.name}`,
-      meta_title: s.meta_title,
-      meta_description: s.meta_description,
-      description: s.description,
+      meta_title: pageMetaTitle.value || s.meta_title,
+      meta_description: pageMetaDescription || s.meta_description,
+      description: cityPageBody.value || s.description,
+      keywords: pageKeywords.value || s.keywords,
       og_image: s.og_image,
       image: s.image,
     };
   });
 
-  useEntitySeo({
-    entity,
-    parentCategory: null,
-    ogType: 'website',
-  });
-
-  const orderLink = computed(() => ({
-    name: 'services-service-order',
-    params: { service: service.value?.slug },
-    query: city.value?.slug ? { city: city.value.slug } : {},
-  }));
-
-  const serviceCityPagePath = computed(() => {
+  const serviceCityCanonicalPath = computed(() => {
     const s = service.value;
     const c = city.value;
 
@@ -179,10 +216,46 @@
       return '';
     }
 
-    return localePath({ name: 'services-service-in-city', params: { service: s.slug, city: c.slug } });
+    return localePath({
+      name: 'services-service-in-city',
+      params: {
+        service: resolveEntitySlug(s),
+        city: resolveEntitySlug(c),
+      },
+    });
   });
 
+  useEntitySeo({
+    entity,
+    parentCategory: null,
+    ogType: 'website',
+    canonicalPath: serviceCityCanonicalPath,
+  });
+
+  const orderLink = computed(() => ({
+    name: 'services-service-order',
+    params: { service: resolveEntitySlug(service.value) },
+    query: city.value?.slug ? { city: resolveEntitySlug(city.value) } : {},
+  }));
+
+  const serviceCityPagePath = computed(() => serviceCityCanonicalPath.value);
+
   const plainDescriptionForJsonLd = computed(() => {
+    const page = cityPage.value;
+
+    if (page?.meta_description) {
+      const pageMeta =
+        page.meta_description[locale.value] || page.meta_description.ar || page.meta_description.en;
+
+      if (pageMeta != null && String(pageMeta).trim()) {
+        return stripHtml(String(pageMeta));
+      }
+    }
+
+    if (cityPageBody.value) {
+      return stripHtml(cityPageBody.value);
+    }
+
     const s = service.value;
 
     if (!s) {
@@ -197,6 +270,8 @@
 
     return stripHtml(s.description || '');
   });
+
+  const heroHeading = computed(() => pageMetaTitle.value || `${service.value?.name} — ${city.value?.name}`);
 
   const serviceCityJsonLd = computed(() => {
     const s = service.value;
@@ -244,6 +319,10 @@
       };
     }
 
+    if (cityPage.value?.updated_at) {
+      payloadLd.dateModified = cityPage.value.updated_at;
+    }
+
     return JSON.stringify(payloadLd);
   });
 
@@ -272,7 +351,7 @@
           '@type': 'ListItem',
           position: 2,
           name: c.name,
-          item: `${base}${localePath({ name: 'cities-slug', params: { slug: c.slug } })}`,
+          item: `${base}${localePath({ name: 'cities-slug', params: { slug: resolveEntitySlug(c) } })}`,
         },
         {
           '@type': 'ListItem',
@@ -353,14 +432,13 @@
           <AppBreadcrumb
             class="mb-6 text-gray-600 [&_a]:text-gray-600 [&_a:hover]:text-brand-600"
             :pages="[
-              { name: city.name, path: { name: 'cities-slug', params: { slug: city.slug } } },
-              { name: service.name, path: { name: 'services-service-in-city', params: { service: service.slug, city: city.slug } } },
+              { name: city.name, path: { name: 'cities-slug', params: { slug: resolveEntitySlug(city) } } },
+              { name: service.name, path: { name: 'services-service-in-city', params: { service: resolveEntitySlug(service), city: resolveEntitySlug(city) } } },
             ]"
           />
 
           <h1 class="text-2xl font-semibold tracking-tight text-gray-900 md:text-4xl">
-            {{ service.name }}
-            <span class="text-gray-500">— {{ city.name }}</span>
+            {{ heroHeading }}
           </h1>
 
           <p v-if="heroLead" class="mt-4 max-w-xl text-base leading-relaxed text-gray-600 md:text-lg">
@@ -423,6 +501,19 @@
     <div class="container mx-auto mt-10 max-w-6xl lg:mt-14">
       <div class="grid gap-10 lg:grid-cols-12 lg:gap-10">
         <article class="min-w-0 space-y-10 lg:col-span-8">
+          <section
+            v-if="cityPageBody"
+            class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8"
+          >
+            <h2 class="text-lg font-semibold text-gray-900 md:text-xl">
+              {{ t('cities.service_in_city_local_overview', { city: city.name }) }}
+            </h2>
+            <div
+              class="prose prose-sm mt-4 max-w-none text-gray-700 md:prose-base"
+              v-html="cityPageBody"
+            />
+          </section>
+
           <section class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
             <h2 class="text-lg font-semibold text-gray-900 md:text-xl">
               {{ t('cities.service_in_city_includes_title') }}
@@ -518,13 +609,13 @@
 
           <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
             <NuxtLink
-              :to="localePath({ name: 'cities-slug', params: { slug: city.slug } })"
+              :to="localePath({ name: 'cities-slug', params: { slug: resolveEntitySlug(city) } })"
               class="text-brand-600 hover:text-brand-700"
             >
               {{ t('cities.view_city_hub', { city: city.name }) }}
             </NuxtLink>
             <NuxtLink
-              :to="localePath({ name: 'services-service', params: { service: service.slug } })"
+              :to="localePath({ name: 'services-service', params: { service: resolveEntitySlug(service) } })"
               class="text-brand-600 hover:text-brand-700"
             >
               {{ t('service.actions.view_details') }}
@@ -611,7 +702,7 @@
       </h2>
       <ul class="mt-8 grid list-none gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
         <li v-for="rel in relatedServices" :key="rel.id">
-          <ServiceCard :service="rel" :city-slug="city.slug" />
+          <ServiceCard :service="rel" :city-slug="resolveEntitySlug(city)" />
         </li>
       </ul>
     </div>

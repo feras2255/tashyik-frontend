@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <nav aria-label="Breadcrumb">
+  <nav :aria-label="$t('a11y.breadcrumb')">
     <ol class="flex flex-wrap items-center gap-2">
       <li>
         <NuxtLinkLocale :to="{ name: 'index' }" class="text-gray-500 flex items-center">

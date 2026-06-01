@@ -1,4 +1,5 @@
 <script setup>
+  const { t } = useI18n();
   const { description } = useLayoutStore();
 
   const heroImageSrc = '/images/home-hero-section-622.webp';
@@ -14,9 +15,18 @@
     ],
   });
 
+  const explicitTitle = computed(() => t('seo.home.title'));
+  const explicitDescription = computed(() => t('seo.home.description'));
+  const fallbackDescription = computed(() => description || explicitDescription.value);
+
   useSeoMeta({
-    description: description,
-    ogDescription: description,
+    title: explicitTitle,
+    ogTitle: explicitTitle,
+    description: fallbackDescription,
+    ogDescription: fallbackDescription,
+    twitterTitle: explicitTitle,
+    twitterDescription: fallbackDescription,
+    twitterCard: 'summary_large_image',
   });
 </script>
 

@@ -1,15 +1,19 @@
 <script setup>
-  defineProps({
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
+  const props = defineProps({
     service: {
       type: Object,
       required: true,
     },
   });
+
+  const serviceSlug = computed(() => resolveEntitySlug(props.service));
 </script>
 
 <template>
   <NuxtLinkLocale
-    :to="{ name: 'services-service', params: { service: service.slug } }"
+    :to="{ name: 'services-service', params: { service: serviceSlug } }"
     class="group relative flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden static-color"
   >
     <!-- Image -->

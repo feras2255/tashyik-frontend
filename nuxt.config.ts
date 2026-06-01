@@ -1,9 +1,42 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // Dev note: paired workspace sync with backend repo.
 
+import { existsSync, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
 import tailwindcss from '@tailwindcss/vite';
 
 const isProd = process.env.NODE_ENV === 'production';
+
+/**
+ * Read an optional list of routes to prerender at build time. The backend
+ * artisan command `app:seo-export-prerender-routes` writes `seo-prerender-routes.json`
+ * containing the top service-city pages (by completed orders) to materialise
+ * as static HTML. The file is gitignored so production builds always use a
+ * fresh snapshot exported during the deploy step.
+ */
+function loadPrerenderRoutes(): string[] {
+  const file = resolve(process.cwd(), 'seo-prerender-routes.json');
+
+  if (!existsSync(file)) {
+    return [];
+  }
+
+  try {
+    const raw = readFileSync(file, 'utf8');
+    const parsed = JSON.parse(raw);
+
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+
+    return parsed
+      .filter((entry): entry is string => typeof entry === 'string' && entry.startsWith('/'))
+      .slice(0, 100);
+  } catch {
+    return [];
+  }
+}
 
 /**
  * Response headers for HTML routes. Full CSP belongs at CDN (Cloudflare) after staging QA.
@@ -59,6 +92,11 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    prerender: {
+      crawlLinks: false,
+      routes: ['/', '/services', '/cities', '/categories', ...loadPrerenderRoutes()],
+      failOnError: false,
+    },
     routeRules: {
       '/_nuxt/**': {
         headers: {
@@ -78,6 +116,17 @@ export default defineNuxtConfig({
       '/**': {
         headers: securityHeaders,
       },
+    },
+  },
+
+  app: {
+    head: {
+      link: [
+        { rel: 'preconnect', href: 'https://api.tashyik.com', crossorigin: '' },
+        { rel: 'dns-prefetch', href: 'https://api.tashyik.com' },
+        { rel: 'preconnect', href: 'https://www.googletagmanager.com', crossorigin: '' },
+        { rel: 'dns-prefetch', href: 'https://www.googletagmanager.com' },
+      ],
     },
   },
 

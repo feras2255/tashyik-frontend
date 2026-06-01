@@ -1,12 +1,36 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const currentYear = computed(() => new Date().getFullYear());
   const { description, social_links, mobile_app_links, contact_info } = useLayoutStore();
   const config = useRuntimeConfig();
+
+  const { data: hubLinks } = await useAsyncData(
+    'footer-seo-hub-links',
+    async () => {
+      try {
+        const [services, cities] = await Promise.all([
+          useApiFetch('/services', { params: { limit: 6 } }),
+          useApiFetch('/cities', { params: { limit: 6 } }),
+        ]);
+
+        return {
+          services: (services?.data ?? []).slice(0, 6),
+          cities: (cities?.data ?? []).slice(0, 6),
+        };
+      } catch (error) {
+        console.error('Failed to load footer hub links', error);
+
+        return { services: [], cities: [] };
+      }
+    },
+    { default: () => ({ services: [], cities: [] }) },
+  );
 </script>
 
 <template>
   <footer class="dark mt-auto text-white bg-brand-950">
-    <div class="container max-md:px-4 max-md:py-12 py-24 flex flex-col md:grid grid-cols-2 xl:grid-cols-4 w-full max-md:gap-10 gap-32">
+    <div class="container max-md:px-4 max-md:py-12 py-24 flex flex-col md:grid grid-cols-2 xl:grid-cols-5 w-full max-md:gap-10 gap-16 xl:gap-12">
       <div class="flex flex-col gap-6 items-start">
         <AppLogo class="h-12" />
         <p v-text="description" class="font-light text-brand-50"></p>
@@ -52,6 +76,39 @@
               <path fill="currentColor" d="M544.5 273.9c-44 .1-87-13.6-122.8-39.2v178.7c0 33.1-10.1 65.4-29 92.6s-45.6 48-76.6 59.6s-64.8 13.5-96.9 5.3s-60.9-25.9-82.7-50.8s-35.3-56-39-88.9s2.9-66.1 18.6-95.2s40-52.7 69.6-67.7s62.9-20.5 95.7-16v89.9c-15-4.7-31.1-4.6-46 .4s-27.9 14.6-37 27.3s-14 28.1-13.9 43.9s5.2 31 14.5 43.7s22.4 22.1 37.4 26.9s31.1 4.8 46-.1s28-14.4 37.2-27.1s14.2-28.1 14.2-43.8V64h88c-.1 7.4.6 14.9 1.9 22.2c3.1 16.3 9.4 31.9 18.7 45.7s21.3 25.6 35.2 34.6c19.9 13.1 43.2 20.1 67 20.1V274z" />
             </svg>
           </a>
+        </div>
+      </div>
+
+      <!-- SEO hub links -->
+      <div class="flex h-full flex-col gap-4">
+        <h3 v-text="$t('footer.popular_services')" class="text-xl max-md:text-lg mb-2 sm:mb-0"></h3>
+        <div class="flex flex-col gap-2 *:font-light *:text-brand-50 *:hover:text-brand-200">
+          <NuxtLinkLocale
+            v-for="service in hubLinks.services"
+            :key="service.id"
+            :to="{ name: 'services-service', params: { service: resolveEntitySlug(service) } }"
+            class="static-color line-clamp-1"
+          >
+            {{ service.name }}
+          </NuxtLinkLocale>
+          <NuxtLinkLocale :to="{ name: 'services' }" class="text-brand-200 hover:text-brand-300 font-medium">
+            {{ $t('footer.see_all_services') }} →
+          </NuxtLinkLocale>
+        </div>
+
+        <h3 v-text="$t('footer.popular_cities')" class="text-xl max-md:text-lg mt-6 mb-2 sm:mb-0"></h3>
+        <div class="flex flex-col gap-2 *:font-light *:text-brand-50 *:hover:text-brand-200">
+          <NuxtLinkLocale
+            v-for="city in hubLinks.cities"
+            :key="city.id"
+            :to="{ name: 'cities-slug', params: { slug: resolveEntitySlug(city) } }"
+            class="static-color line-clamp-1"
+          >
+            {{ city.name }}
+          </NuxtLinkLocale>
+          <NuxtLinkLocale :to="{ name: 'cities' }" class="text-brand-200 hover:text-brand-300 font-medium">
+            {{ $t('footer.see_all_cities') }} →
+          </NuxtLinkLocale>
         </div>
       </div>
 

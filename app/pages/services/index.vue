@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
@@ -185,7 +187,7 @@
         '@type': 'ListItem',
         position: index + 1,
         name: service.name,
-        url: `${base}${localePath({ name: 'services-service', params: { service: service.slug } })}`,
+        url: `${base}${localePath({ name: 'services-service', params: { service: resolveEntitySlug(service) } })}`,
       })),
     });
   });

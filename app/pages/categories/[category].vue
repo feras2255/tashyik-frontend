@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug, sanitizeRichHtml } from '~/utils/seoSlug';
+
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
@@ -63,6 +65,7 @@
   }
 
   const data = computed(() => payload.value?.category ?? null);
+  const sanitizedDescription = computed(() => sanitizeRichHtml(data.value?.description || ''));
   const selectedCategory = ref(payload.value?.initialSubId ?? null);
   const services = ref([...(payload.value?.services ?? [])]);
   const currentPage = ref(payload.value?.meta?.current_page ?? 1);
@@ -92,6 +95,7 @@
     entity: data,
     parentCategory: null,
     ogType: 'website',
+    slugParam: 'category',
   });
 
   const breadcrumbJsonLd = computed(() => {
@@ -127,17 +131,45 @@
     };
   });
 
+  const collectionJsonLd = computed(() => {
+    if (!data.value) {
+      return null;
+    }
+
+    const base = (config.public.appUrl || '').replace(/\/$/, '');
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: data.value.name,
+      description: data.value.meta_description || data.value.description || undefined,
+      url: `${base}${switchLocalePath(locale.value)}`,
+      ...(data.value.og_image ? { image: data.value.og_image } : {}),
+    };
+  });
+
   useHead({
-    script: computed(() =>
-      breadcrumbJsonLd.value
-        ? [
-            {
-              type: 'application/ld+json',
-              innerHTML: JSON.stringify(breadcrumbJsonLd.value),
-            },
-          ]
-        : [],
-    ),
+    script: computed(() => {
+      const scripts = [];
+
+      if (breadcrumbJsonLd.value) {
+        scripts.push({
+          key: 'category-breadcrumb-schema',
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify(breadcrumbJsonLd.value),
+        });
+      }
+
+      if (collectionJsonLd.value) {
+        scripts.push({
+          key: 'category-collection-schema',
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify(collectionJsonLd.value),
+        });
+      }
+
+      return scripts;
+    }),
   });
 
   async function loadServices() {
@@ -203,10 +235,16 @@
   <section v-if="data" class="container px-4 py-8 md:py-12 space-y-5 md:space-y-10">
     <AppBreadcrumb :pages="[{ name: $t('alt.category', { category: data?.name }) }]" />
 
-    <!-- Search -->
+    <h1 v-text="data?.name" class="text-3xl md:text-4xl text-gray-800 font-medium"></h1>
+
+    <p
+      v-if="sanitizedDescription"
+      class="max-w-3xl text-base leading-relaxed text-gray-600 md:text-lg"
+      v-html="sanitizedDescription"
+    ></p>
     <div class="rounded-xl bg-white shadow p-3 md:p-6 flex flex-col gap-3 md:gap-5">
       <form @submit.prevent="handleSearch">
-        <label for="services-search" class="sr-only">Search</label>
+        <label for="services-search" class="sr-only" v-text="$t('common.search')"></label>
         <div class="relative">
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

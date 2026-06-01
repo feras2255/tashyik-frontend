@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
@@ -41,10 +43,19 @@
 
   const parentCategory = computed(() => service.value?.parent_category ?? null);
 
+  function stripHtml(html) {
+    if (html == null) {
+      return '';
+    }
+
+    return String(html).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+
   useEntitySeo({
     entity: service,
     parentCategory,
     ogType: 'website',
+    slugParam: 'service',
   });
 
   const serviceJsonLd = computed(() => {
@@ -53,11 +64,13 @@
     }
 
     const price = service.value.price?.after_discount;
+    const aggregate = service.value.review_aggregate;
+
     const payload = {
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: service.value.name,
-      description: service.value.description,
+      description: stripHtml(service.value.description),
       areaServed: {
         '@type': 'Country',
         name: 'Saudi Arabia',
@@ -77,6 +90,20 @@
         availability: 'https://schema.org/InStock',
       },
     };
+
+    if (aggregate?.count > 0) {
+      payload.aggregateRating = {
+        '@type': 'AggregateRating',
+        ratingValue: aggregate.average,
+        reviewCount: aggregate.count,
+        bestRating: 5,
+        worstRating: 1,
+      };
+    }
+
+    if (service.value.updated_at) {
+      payload.dateModified = service.value.updated_at;
+    }
 
     return JSON.stringify(payload);
   });
@@ -121,6 +148,7 @@
 
       if (serviceJsonLd.value) {
         scripts.push({
+          key: 'service-schema',
           type: 'application/ld+json',
           innerHTML: serviceJsonLd.value,
         });
@@ -128,6 +156,7 @@
 
       if (breadcrumbJsonLd.value) {
         scripts.push({
+          key: 'service-breadcrumb-schema',
           type: 'application/ld+json',
           innerHTML: breadcrumbJsonLd.value,
         });
@@ -154,7 +183,7 @@
         <NuxtLink
           v-for="c in service.city_links"
           :key="c.slug"
-          :to="localePath({ name: 'services-service-in-city', params: { service: service.slug, city: c.slug } })"
+          :to="localePath({ name: 'services-service-in-city', params: { service: resolveEntitySlug(service), city: resolveEntitySlug(c) } })"
           class="inline-flex rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-sm text-gray-800 hover:border-brand-200 hover:bg-brand-50"
         >
           {{ c.name }}
@@ -167,13 +196,11 @@
     </div>
 
     <!-- Gallery -->
-    <ClientOnly>
-      <swiper-container ref="galleryContainer" id="galleryCarousel">
-        <swiper-slide v-for="(image, index) of service.gallery" :key="index">
-          <img :src="image" class="w-full aspect-video md:aspect-16/6 object-center object-cover rounded-xl" :alt="service.name" loading="lazy" />
-        </swiper-slide>
-      </swiper-container>
-    </ClientOnly>
+    <swiper-container ref="galleryContainer" id="galleryCarousel">
+      <swiper-slide v-for="(image, index) of service.gallery" :key="index">
+        <img :src="image" class="w-full aspect-video md:aspect-16/6 object-center object-cover rounded-xl" :alt="service.image_alt?.[$i18n.locale] || service.name" loading="lazy" />
+      </swiper-slide>
+    </swiper-container>
 
     <div class="flex flex-col lg:grid grid-cols-12 gap-6">
       <div class="col-span-7 xl:col-span-8 flex flex-col gap-6">
@@ -215,12 +242,6 @@
             <span v-text="highlight.title" class="text-gray-500"></span>
           </div>
         </section>
-
-        <!-- Questions section -->
-        <section class="bg-white p-5 md:p-8 rounded-xl shadow flex flex-col gap-5">
-          <h3 v-text="$t('home.questions.title')" class="text-lg text-gray-800 font-medium"></h3>
-          <QuestionCollapse class="divide-y divide-gray-200" title-class="text-gray-500 p-3" body-class="p-3" />
-        </section>
       </div>
 
       <div class="col-span-5 xl:col-span-4">
@@ -240,7 +261,7 @@
 
           <hr class="border-dashed border-gray-200" />
 
-          <NuxtLinkLocale :to="{ name: 'services-service-order', params: { service: service.slug } }" class="w-full">
+          <NuxtLinkLocale :to="{ name: 'services-service-order', params: { service: resolveEntitySlug(service) } }" class="w-full">
             <ButtonsFilled class="w-full">
               {{ $t('service.order_service') }}
             </ButtonsFilled>

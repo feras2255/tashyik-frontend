@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const route = useRoute();
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
@@ -24,6 +26,25 @@
     entity: article,
     parentCategory: null,
     ogType: 'article',
+    slugParam: 'slug',
+  });
+
+  useSeoMeta(
+    computed(() => ({
+      articlePublishedTime: article.value?.published_at || undefined,
+      articleModifiedTime: article.value?.updated_at || article.value?.published_at || undefined,
+      ...(article.value?.author?.name ? { articleAuthor: [article.value.author.name] } : {}),
+    })),
+  );
+
+  const articleImageAlt = computed(() => {
+    const alt = article.value?.image_alt;
+
+    if (alt != null && String(alt).trim()) {
+      return String(alt).trim();
+    }
+
+    return article.value?.title || '';
   });
 
   const articleJsonLd = computed(() => {
@@ -167,7 +188,7 @@
         <div class="rounded-xl overflow-hidden shadow-xl bg-white w-full">
           <img
             :src="article.featured_image_lg"
-            :alt="article.title"
+            :alt="articleImageAlt"
             class="w-full aspect-[16/9] object-cover object-center"
             loading="eager" />
         </div>
@@ -180,6 +201,52 @@
           <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 lg:p-14 mb-8">
             <div class="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-p:leading-relaxed prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-strong:text-gray-800 ck-content" v-html="article.body"></div>
           </article>
+
+          <div
+            v-if="article.tags?.length || article.category || article.service"
+            class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 mb-8 flex flex-col gap-4"
+          >
+            <div v-if="article.tags?.length" class="flex flex-wrap gap-2">
+              <span
+                v-for="tag in article.tags"
+                :key="tag.slug || tag.id"
+                class="inline-flex rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700"
+              >
+                {{ tag.name || tag.title }}
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-3 text-sm">
+              <NuxtLinkLocale
+                v-if="article.category?.slug"
+                :to="{ name: 'categories-category', params: { category: resolveEntitySlug(article.category) } }"
+                class="text-brand-600 hover:underline"
+              >
+                {{ article.category.name }}
+              </NuxtLinkLocale>
+              <NuxtLinkLocale
+                v-if="article.service?.slug"
+                :to="{ name: 'services-service', params: { service: resolveEntitySlug(article.service) } }"
+                class="text-brand-600 hover:underline"
+              >
+                {{ article.service.name }}
+              </NuxtLinkLocale>
+            </div>
+          </div>
+
+          <section v-if="article.related?.length" class="mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">{{ $t('articles.related') }}</h2>
+            <div class="grid gap-4 md:grid-cols-2">
+              <NuxtLinkLocale
+                v-for="related in article.related"
+                :key="related.slug || related.id"
+                :to="{ name: 'articles-slug', params: { slug: resolveEntitySlug(related) } }"
+                class="rounded-xl border border-gray-100 bg-white p-4 shadow-sm hover:border-brand-200"
+              >
+                <h3 class="font-semibold text-gray-900">{{ related.title }}</h3>
+                <p v-if="related.excerpt" class="mt-2 text-sm text-gray-600 line-clamp-2">{{ related.excerpt }}</p>
+              </NuxtLinkLocale>
+            </div>
+          </section>
 
           <!-- Share Section -->
           <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">

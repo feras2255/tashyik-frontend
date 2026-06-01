@@ -1,5 +1,6 @@
 <script setup>
   import { watchDebounced } from '@vueuse/core';
+  import { resolveEntitySlug } from '~/utils/seoSlug';
 
   const { t } = useI18n();
   const summary = ref(null);
@@ -131,7 +132,7 @@
 
 <template>
   <div class="container px-2 py-8 md:py-12 space-y-8">
-    <AppBreadcrumb :pages="[{ path: localePath({ name: 'services-service', params: { service: summary.service.slug } }), name: summary.service.name }, { name: $t('orders.make.title') }]" />
+    <AppBreadcrumb :pages="[{ path: localePath({ name: 'services-service', params: { service: resolveEntitySlug(summary.service) } }), name: summary.service.name }, { name: $t('orders.make.title') }]" />
 
     <div class="flex flex-col lg:grid grid-cols-12 gap-6 text-gray-500">
       <div class="col-span-7 flex flex-col gap-6">
@@ -193,7 +194,7 @@
             {{ $t('orders.make.coupons.title') }}
           </h3>
           <form @submit.prevent="handleCoupon">
-            <label for="coupon-code" class="sr-only">Coupon code</label>
+            <label for="coupon-code" class="sr-only" v-text="$t('a11y.coupon_code')"></label>
             <div class="relative">
               <input v-model="coupon" type="text" id="coupon-code" class="block w-full p-3 md:p-4 text-gray-800 border border-gray-200 rounded-lg bg-transparent focus:ring-brand-100 focus:border-brand-100 placeholder:text-gray-400 max-md:text-sm" :placeholder="$t('orders.make.coupons.placeholder')" required autocomplete="off" />
               <button v-text="$t('orders.make.coupons.apply')" type="submit" class="text-white absolute top-0 end-0 h-full bg-brand-500 hover:bg-brand-600 focus:ring-4 focus:outline-none focus:ring-brand-100 rounded-e-lg max-md:text-sm px-7 py-1"></button>

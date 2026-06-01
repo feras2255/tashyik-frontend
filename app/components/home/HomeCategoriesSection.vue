@@ -46,16 +46,15 @@
         </div>
       </div>
 
-      <ClientOnly>
-        <div class="relative">
-          <swiper-container ref="categoryContainer" id="categoriesCarousel">
-            <swiper-slide v-for="(chunk, index) in categoryChunks" :key="index">
-              <div class="grid grid-cols-3 gap-1 md:gap-5">
-                <CategoryLink v-for="category in chunk" :key="category.id" :category="category" :swiper="true" />
-              </div>
-            </swiper-slide>
-          </swiper-container>
-          <!-- Previous button -->
+      <div class="relative">
+        <swiper-container ref="categoryContainer" id="categoriesCarousel">
+          <swiper-slide v-for="(chunk, index) in categoryChunks" :key="index">
+            <div class="grid grid-cols-3 gap-1 md:gap-5">
+              <CategoryLink v-for="category in chunk" :key="category.id" :category="category" :swiper="true" />
+            </div>
+          </swiper-slide>
+        </swiper-container>
+        <ClientOnly>
           <button class="max-md:hidden hover:bg-brand-50 z-10 absolute top-[30%] -start-4 flex items-center justify-center w-12 h-12 rounded-full border border-brand-500 text-brand-500">
             <!-- mdi:chevron-right -->
             <svg @click="swiper.prev()" class="w-8 h-8 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -64,7 +63,6 @@
             </svg>
           </button>
 
-          <!-- Next button -->
           <button @click="swiper.next()" class="max-md:hidden hover:bg-brand-50 z-10 absolute top-[30%] -end-4 flex items-center justify-center w-12 h-12 rounded-full border border-brand-500 text-brand-500">
             <!-- mdi:chevron-right -->
             <svg class="w-8 h-8 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -72,8 +70,8 @@
               <path fill="currentColor" d="M8.59 16.58L13.17 12L8.59 7.41L10 6l6 6l-6 6z" />
             </svg>
           </button>
-        </div>
-      </ClientOnly>
+        </ClientOnly>
+      </div>
 
       <ButtonsOutline class="md:hidden block mx-auto min-h-12 min-w-12">
         <NuxtLinkLocale :to="{ name: 'categories' }" class="inline-flex items-center justify-center min-h-12 w-full">

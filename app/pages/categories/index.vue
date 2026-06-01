@@ -1,6 +1,9 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
+  const localePath = useLocalePath();
   const categories = ref(null);
 
   const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
@@ -26,11 +29,13 @@
     console.error('Failed to load categories:', error);
   }
 
-  // JSON-LD Structured Data
   if (categories.value?.length) {
+    const baseUrl = (config.public.appUrl || 'https://www.tashyik.com').replace(/\/$/, '');
+
     useHead({
       script: [
         {
+          key: 'categories-itemlist-schema',
           type: 'application/ld+json',
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org',
@@ -40,7 +45,7 @@
               '@type': 'ListItem',
               position: i + 1,
               name: cat.name,
-              url: `${config.public.appUrl}/${locale.value}/categories/${cat.slug}`,
+              url: `${baseUrl}${localePath({ name: 'categories-category', params: { category: resolveEntitySlug(cat) } })}`,
             })),
           }),
         },

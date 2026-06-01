@@ -1,20 +1,82 @@
 <script setup>
-  defineProps(['headingClass', 'titleClass', 'bodyClass']);
+  const props = defineProps({
+    headingClass: { type: String, default: '' },
+    titleClass: { type: String, default: '' },
+    bodyClass: { type: String, default: '' },
+    items: { type: Array, default: null },
+    fetchGeneral: { type: Boolean, default: true },
+  });
 
-  const questions = ref(null);
+  const route = useRoute();
 
-  onMounted(async () => {
-    try {
-      const response = await useApiFetch('/general/questions');
+  const { data: fetched } = await useAsyncData(
+    () => `faq-questions-${route.fullPath}`,
+    async () => {
+      if (props.items != null || !props.fetchGeneral) {
+        return [];
+      }
 
-      questions.value = response.data;
-    } catch (error) {
-      console.error('Failed to get questions:', error);
+      try {
+        const response = await useApiFetch('/general/questions');
+        return response.data ?? [];
+      } catch (error) {
+        console.error('Failed to get questions:', error);
+        return [];
+      }
+    },
+  );
+
+  const questions = computed(() => {
+    if (Array.isArray(props.items) && props.items.length) {
+      return props.items.map((item, idx) => ({
+        id: item.id ?? `local-${idx}`,
+        title: item.title ?? item.question ?? '',
+        answer: item.answer ?? '',
+      }));
     }
 
+    return fetched.value || [];
+  });
+
+  onMounted(() => {
     useFlowbite(() => {
       initAccordions();
     });
+  });
+
+  const faqJsonLd = computed(() => {
+    const list = questions.value;
+
+    if (!list || list.length === 0) {
+      return null;
+    }
+
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: list.map((q) => ({
+        '@type': 'Question',
+        name: q.title,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: q.answer,
+        },
+      })),
+    });
+  });
+
+  useHead({
+    script: computed(() =>
+      faqJsonLd.value
+        ? [
+            {
+              key: 'faq-page-schema',
+              type: 'application/ld+json',
+              innerHTML: faqJsonLd.value,
+            },
+          ]
+        : [],
+    ),
   });
 </script>
 

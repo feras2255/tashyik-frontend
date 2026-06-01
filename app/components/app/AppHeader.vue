@@ -108,8 +108,16 @@
       <div class="flex flex-row md:gap-3 items-center ms-auto lg:mx-0">
         <div v-if="auth.isLoggedIn" class="ms-auto flex items-center justify-center gap-2">
           <button id="dropdownProfileButton" data-dropdown-toggle="dropdownProfile" class="hidden md:flex items-center text-sm p-1 px-3 rounded-lg hover:bg-gray-100 md:me-0 focus:ring-4 focus:ring-gray-100" type="button">
-            <span class="sr-only">Open user menu</span>
-            <img class="w-7 h-7 me-2 rounded-full object-center object-cover" :src="auth.user.picture" alt="user photo" />
+            <span class="sr-only" v-text="$t('a11y.open_user_menu')"></span>
+            <img
+              class="w-7 h-7 me-2 rounded-full object-center object-cover"
+              :src="auth.user.picture"
+              alt="user photo"
+              width="28"
+              height="28"
+              loading="lazy"
+              decoding="async"
+            />
             {{ auth.user.name }}
             <svg class="w-2.5 h-2.5 ms-3 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
@@ -149,7 +157,7 @@
         <AppHeaderNotifications v-if="auth.isLoggedIn" />
       </div>
       <button data-drawer-target="mobile-navigation-drawer" data-drawer-show="mobile-navigation-drawer" aria-controls="mobile-navigation-drawer" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-        <span class="sr-only">Open main menu</span>
+        <span class="sr-only" v-text="$t('a11y.open_main_menu')"></span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
         </svg>
@@ -173,7 +181,7 @@
           <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
           </svg>
-          <span class="sr-only">Close menu</span>
+          <span class="sr-only" v-text="$t('a11y.close_menu')"></span>
         </button>
       </div>
       <hr class="w-full border-t border-gray-200" />
@@ -231,7 +239,15 @@
         <div v-if="auth.isLoggedIn" class="flex flex-col divide-y divide-gray-100 border-t border-gray-100">
           <div class="flex flex-col gap-2 p-2">
             <div class="inline-flex gap-2 items-center">
-              <img class="w-9 h-9 rounded-full" :src="auth.user.picture" alt="user photo" />
+              <img
+                class="w-9 h-9 rounded-full"
+                :src="auth.user.picture"
+                alt="user photo"
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="flex flex-col gap-1 p-2">
                 <span v-text="auth.user.name" class="truncate text-gray-700"></span>
                 <div class="inline-flex gap-1">

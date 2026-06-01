@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
@@ -95,7 +97,7 @@
               '@type': 'ListItem',
               position: i + 1,
               name: c.name,
-              url: `${base}${localePath({ name: 'cities-slug', params: { slug: c.slug } })}`,
+              url: `${base}${localePath({ name: 'cities-slug', params: { slug: resolveEntitySlug(c) } })}`,
             })),
           }),
         },
@@ -203,7 +205,7 @@
         >
           <li v-for="c in filteredCities" :key="c.id">
             <NuxtLinkLocale
-              :to="{ name: 'cities-slug', params: { slug: c.slug } }"
+              :to="{ name: 'cities-slug', params: { slug: resolveEntitySlug(c) } }"
               class="group relative flex h-full min-h-[11rem] overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2"
               :aria-label="t('cities.view_city_hub', { city: c.name })"
             >
