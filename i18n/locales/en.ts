@@ -72,6 +72,8 @@ export default {
     breadcrumb: 'Breadcrumb',
     contact_whatsapp: 'Contact us on WhatsApp',
     coupon_code: 'Coupon code',
+    show_password: 'Show password',
+    hide_password: 'Hide password',
   },
   common: {
     brand: 'Tashyik',

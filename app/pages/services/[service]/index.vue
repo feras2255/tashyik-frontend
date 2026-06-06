@@ -8,17 +8,18 @@
   const route = useRoute();
   const layout = useLayoutStore();
   const { fetchServiceBySlug } = useServiceFetchers();
+  const { pricingWindowKey } = useSaudiPricingWindowKey();
   const galleryContainer = ref(null);
 
   const { data: servicePayload, error: pageError } = await useAsyncData(
-    () => `service-detail-${route.params.service}-${locale.value}`,
+    () => `service-detail-${route.params.service}-${locale.value}-${pricingWindowKey.value}`,
     async () => {
       const response = await fetchServiceBySlug(route.params.service);
 
       return response.data;
     },
     {
-      watch: [() => route.params.service, locale],
+      watch: [() => route.params.service, locale, pricingWindowKey],
     },
   );
 

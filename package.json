@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare && (husky || true)",
     "optimize:images": "node scripts/optimize-hero-images.mjs",
     "seo:meta-smoke": "node scripts/seo-meta-smoke.mjs",
+    "deploy:production": "node scripts/deploy-production.mjs",
     "lint": "eslint --ext .js,.mjs,.ts,.vue --max-warnings 0 .",
     "lint:fix": "eslint --ext .js,.mjs,.ts,.vue --fix .",
     "format": "prettier --check \"**/*.{js,mjs,ts,vue,json,md,css}\"",

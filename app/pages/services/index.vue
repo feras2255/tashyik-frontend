@@ -6,6 +6,7 @@
   const localePath = useLocalePath();
   const salesIq = useSalesIq();
   const { fetchServicesPage, fetchCategories } = useServiceFetchers();
+  const { pricingWindowKey } = useSaudiPricingWindowKey();
 
   const searchInput = ref('');
   const activeQuery = ref('');
@@ -34,7 +35,7 @@
   });
 
   const { data: payload, error: pageError, pending: pagePending } = await useAsyncData(
-    () => `services-index-${locale.value}`,
+    () => `services-index-${locale.value}-${pricingWindowKey.value}`,
     async () => {
       const [categoriesRes, servicesRes] = await Promise.all([
         fetchCategories(),
@@ -48,7 +49,7 @@
       };
     },
     {
-      watch: [locale],
+      watch: [locale, pricingWindowKey],
     },
   );
 

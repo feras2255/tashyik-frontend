@@ -71,6 +71,8 @@ export default {
     breadcrumb: 'مسار التصفح',
     contact_whatsapp: 'تواصل معنا عبر واتساب',
     coupon_code: 'كود الخصم',
+    show_password: 'إظهار كلمة المرور',
+    hide_password: 'إخفاء كلمة المرور',
   },
   common: {
     brand: 'تشييك',

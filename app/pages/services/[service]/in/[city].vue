@@ -8,6 +8,7 @@
   const route = useRoute();
   const layout = useLayoutStore();
   const { fetchServiceCityPayload } = useServiceFetchers();
+  const { pricingWindowKey } = useSaudiPricingWindowKey();
 
   function stripHtml(html) {
     if (html == null) {
@@ -35,12 +36,12 @@
   }
 
   const { data: payload, error: pageError } = await useAsyncData(
-    () => `service-in-city-${route.params.service}-${route.params.city}-${locale.value}`,
+    () => `service-in-city-${route.params.service}-${route.params.city}-${locale.value}-${pricingWindowKey.value}`,
     async () => {
       return fetchServiceCityPayload(route.params.service, route.params.city, { relatedPerPage: 24 });
     },
     {
-      watch: [() => route.params.service, () => route.params.city, locale],
+      watch: [() => route.params.service, () => route.params.city, locale, pricingWindowKey],
     },
   );
 

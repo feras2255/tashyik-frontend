@@ -211,8 +211,6 @@
 
           <h3 v-text="$t('orders.make.summary.title')" class="md:text-xl font-medium"></h3>
 
-          <hr class="border-dashed border-gray-200" />
-
           <!-- Visit cost -->
           <div class="inline-flex justify-between gap-3">
             <span v-text="$t('order.summary.visit_cost')"></span>

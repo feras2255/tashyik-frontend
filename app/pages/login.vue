@@ -50,7 +50,7 @@
       <!-- Password -->
       <div>
         <InputsLabel for="password" :name="$t('inputs.password')" />
-        <InputsDefault v-model="credentials.password" id="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+        <InputsPassword v-model="credentials.password" id="password" placeholder="••••••••" autocomplete="current-password" required />
         <InputsError :message="errors?.password?.[0]" />
       </div>
 

@@ -9,13 +9,14 @@
   const route = useRoute();
   const apiFetch = useApiFetchClient();
   const { fetchServicesPage } = useServiceFetchers();
+  const { pricingWindowKey } = useSaudiPricingWindowKey();
 
   const loader = ref(false);
   const q = ref(null);
   const syncingFromPayload = ref(false);
 
   const { data: payload, error: pageError } = await useAsyncData(
-    () => `category-page-${route.params.category}-${locale.value}`,
+    () => `category-page-${route.params.category}-${locale.value}-${pricingWindowKey.value}`,
     async () => {
       const catRes = await apiFetch(`/categories/${route.params.category}`);
       const cat = catRes.data;
@@ -43,7 +44,7 @@
       };
     },
     {
-      watch: [() => route.params.category, locale],
+      watch: [() => route.params.category, locale, pricingWindowKey],
     },
   );
 
