@@ -86,7 +86,7 @@ export function useApiFetch(path, options = {}, useFetchFunction = false) {
   return useFetchFunction
     ? useFetch(path, {
       baseURL,
-      watch: false,
+      watch: options.watch ?? [() => unref($i18n.locale)],
       key,
       ...options,
       headers,

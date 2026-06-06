@@ -57,6 +57,13 @@ if (isProd) {
 /** Public site origin — matches `i18n.baseUrl`; used as default `runtimeConfig.public.appUrl` for canonical/hreflang when env is unset. */
 const siteBaseUrl = 'https://www.tashyik.com';
 
+/** Locale home paths — live SSR only (prerender bakes default-locale Arabic HTML). */
+const localeHomeRoutes = ['/en', '/hi', '/bn', '/ur', '/tl', '/id', '/fr'];
+
+const localeHomeRouteRules = Object.fromEntries(
+  localeHomeRoutes.map((path) => [path, { prerender: false }]),
+);
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -94,7 +101,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: false,
-      routes: ['/', '/services', '/cities', '/categories', ...loadPrerenderRoutes()],
+      routes: ['/services', '/cities', '/categories', ...loadPrerenderRoutes()],
       failOnError: false,
     },
     routeRules: {
@@ -113,6 +120,8 @@ export default defineNuxtConfig({
           'cache-control': 'public, max-age=31536000, immutable',
         },
       },
+      '/': { prerender: false },
+      ...localeHomeRouteRules,
       '/**': {
         headers: securityHeaders,
       },
@@ -269,7 +278,8 @@ export default defineNuxtConfig({
     ],
     strategy: 'prefix_and_default',
     defaultLocale: 'ar',
-    lazy: true,
+    // Eager bundles: SSR must have all locale messages before $t() runs (Google Ads / locale homepages).
+    lazy: false,
     langDir: 'locales',
   },
 });

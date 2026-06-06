@@ -15,17 +15,19 @@
     ],
   });
 
-  const explicitTitle = computed(() => t('seo.home.title'));
-  const explicitDescription = computed(() => t('seo.home.description'));
-  const fallbackDescription = computed(() => description || explicitDescription.value);
+  const homeSeoTitle = computed(() => t('seo.home.title'));
+
+  useHead({
+    title: homeSeoTitle,
+  });
 
   useSeoMeta({
-    title: explicitTitle,
-    ogTitle: explicitTitle,
-    description: fallbackDescription,
-    ogDescription: fallbackDescription,
-    twitterTitle: explicitTitle,
-    twitterDescription: fallbackDescription,
+    title: homeSeoTitle,
+    ogTitle: homeSeoTitle,
+    description: () => t('seo.home.description') || description,
+    ogDescription: () => t('seo.home.description') || description,
+    twitterTitle: () => t('seo.home.title'),
+    twitterDescription: () => t('seo.home.description') || description,
     twitterCard: 'summary_large_image',
   });
 </script>

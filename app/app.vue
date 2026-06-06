@@ -58,9 +58,10 @@
   useHead({
     titleTemplate: (titleChunk) => {
       const brand = t('common.brand');
+      const isHome = route.path === '/' || /^\/(ar|en|hi|bn|ur|tl|id|fr)\/?$/.test(route.path);
 
-      if (route.name.startsWith('index__')) {
-        return titleChunk || `${brand} | ${t('common.short_description')}`;
+      if (isHome) {
+        return titleChunk && titleChunk.length > 15 ? titleChunk : `${brand} | ${t('common.short_description')}`;
       }
 
       if (!titleChunk) {

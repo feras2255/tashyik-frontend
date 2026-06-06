@@ -1,5 +1,12 @@
 <script setup>
-  const { data, error } = useApiFetch('/categories', {}, true);
+  const route = useRoute();
+  const apiFetch = useApiFetchClient();
+  const { locale } = useI18n();
+
+  const { data, error } = await useAsyncData(
+    () => `home-categories-${locale.value}-${route.fullPath}`,
+    () => apiFetch('/categories'),
+  );
 
   watch(error, (e) => {
     if (e) console.error('Failed to load categories:', e);

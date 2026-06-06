@@ -17,10 +17,11 @@
         <div class="flex flex-col gap-4 md:gap-5 xl:gap-8">
           <h1 class="text-2xl md:text-4xl xl:text-5xl flex flex-col gap-2 md:gap-4 text-gray-800 font-medium my-auto h-full">
             <span v-text="$t('home.hero.title')"></span>
-            <div class="inline-flex gap-3">
+            <span class="inline-flex gap-3">
               <span v-text="$t('home.hero.subtitle.part_1')"></span>
               <span v-text="$t('home.hero.subtitle.part_2')" class="text-brand-500"></span>
-            </div>
+            </span>
+            <span class="text-lg md:text-xl xl:text-2xl text-gray-600 font-normal" v-text="$t('common.short_description')"></span>
           </h1>
           <p v-text="$t('home.hero.description')" class="text-gray-600 text-lg md:text-xl xl:text-2xl leading-8"></p>
           <div class="inline-flex flex-wrap gap-3 sm:gap-4 items-center">

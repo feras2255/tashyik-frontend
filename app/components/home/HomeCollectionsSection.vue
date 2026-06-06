@@ -14,7 +14,14 @@
     },
   });
 
-  const { data, error, pending } = useApiFetch('/general/service-collections', {}, true);
+  const route = useRoute();
+  const apiFetch = useApiFetchClient();
+  const { locale } = useI18n();
+
+  const { data, error, pending } = await useAsyncData(
+    () => `home-collections-${locale.value}-${route.fullPath}-${props.start}-${props.end ?? 'all'}`,
+    () => apiFetch('/general/service-collections'),
+  );
 
   watch(error, (e) => {
     if (e) console.error('Failed to load service collections:', e);

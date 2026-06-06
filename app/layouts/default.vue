@@ -7,6 +7,9 @@
   const alternateLocales = ref();
 
   await loadLayout();
+  if (import.meta.client) {
+    watch(locale, () => loadLayout());
+  }
 
   const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
 
