@@ -33,8 +33,12 @@
 </script>
 
 <template>
-  <!-- Hero Section -->
-  <HomeHeroSection />
+  <main>
+    <!-- Hero Section -->
+    <HomeHeroSection />
+
+  <!-- Offers / Discounts Section -->
+  <HomeOffersSection />
 
   <!-- Featured Collection (first one, teaser) -->
   <HomeCollectionsSection :start="0" :end="1" :max-services="5" />
@@ -48,12 +52,19 @@
   <!-- Features -->
   <HomeFeaturesSection />
 
+  <!-- Newsletter Section -->
+  <HomeNewsletterSection />
+
   <!-- Reviews Section -->
   <HomeReviewsSection />
+
+  <!-- Top Rated Section -->
+  <HomeTopRatedSection />
 
   <!-- Download App -->
   <DownloadAppSection />
 
-  <!-- Questions Section -->
-  <HomeQuestionsSection />
+    <!-- Questions Section -->
+    <HomeQuestionsSection />
+  </main>
 </template>

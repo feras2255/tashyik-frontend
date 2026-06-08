@@ -8,8 +8,9 @@
   const { fetchServicesPage, fetchCategories } = useServiceFetchers();
   const { pricingWindowKey } = useSaudiPricingWindowKey();
 
-  const searchInput = ref('');
-  const activeQuery = ref('');
+  const route = useRoute();
+  const searchInput = ref(route.query.q || '');
+  const activeQuery = ref(route.query.q || '');
   const selectedParentId = ref(null);
   const selectedCategoryId = ref(null);
   const services = ref([]);
@@ -35,11 +36,11 @@
   });
 
   const { data: payload, error: pageError, pending: pagePending } = await useAsyncData(
-    () => `services-index-${locale.value}-${pricingWindowKey.value}`,
+    () => `services-index-${locale.value}-${pricingWindowKey.value}-${route.query.q || ''}`,
     async () => {
       const [categoriesRes, servicesRes] = await Promise.all([
         fetchCategories(),
-        fetchServicesPage({ page: 1, perPage: servicesPerPage }),
+        fetchServicesPage({ page: 1, perPage: servicesPerPage, q: route.query.q || '' }),
       ]);
 
       return {
@@ -51,6 +52,18 @@
     {
       watch: [locale, pricingWindowKey],
     },
+  );
+
+  watch(
+    () => route.query.q,
+    async (newQ) => {
+      if (newQ !== undefined && newQ !== activeQuery.value) {
+        searchInput.value = newQ;
+        activeQuery.value = newQ;
+        currentPage.value = 1;
+        await loadServices({ reset: true });
+      }
+    }
   );
 
   if (pageError.value) {

@@ -14,7 +14,7 @@
 <template>
   <NuxtLinkLocale
     :to="{ name: 'services-service', params: { service: serviceSlug } }"
-    class="group relative flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden static-color"
+    class="group relative flex flex-col bg-white rounded-2xl border border-gray-200 transition-all duration-300 overflow-hidden static-color hover:border-brand-500"
   >
     <!-- Image -->
     <div class="relative bg-gray-100 w-full aspect-video overflow-hidden">
@@ -35,7 +35,7 @@
     </div>
 
     <!-- Content -->
-    <div class="flex flex-col gap-2 p-4 relative">
+    <div class="flex flex-col p-4 md:p-5 relative bg-white">
       <!-- Promotional Badge Force HMR -->
       <span v-if="service.badge" class="absolute -top-3.5 md:-top-4 rtl:left-4 ltr:right-4 inline-flex items-center gap-1 bg-brand-50 text-brand-700 font-medium px-2.5 md:px-3 py-1 md:py-1.5 rounded shadow-sm border border-brand-100 z-10 w-fit text-xs md:text-sm whitespace-nowrap">
         <svg class="w-3.5 h-3.5 text-brand-500" fill="currentColor" viewBox="0 0 20 20">
@@ -44,29 +44,31 @@
         {{ service.badge }}
       </span>
 
+      <div class="flex items-center w-full mb-4 px-1">
+        <!-- Price (Mapped to Figma Price position - Start/Right) -->
+        <div v-if="service.price.original > 0" class="inline-flex items-center gap-1">
+          <del v-if="service.price.has_discount" class="text-[10px] text-gray-400">
+            {{ service.price.original }} {{ service.price.currency }}
+          </del>
+          <span class="text-xs font-semibold text-teal-500">
+            {{ service.price.after_discount }} {{ service.price.currency }}
+          </span>
+        </div>
+        <span v-else class="text-xs font-semibold text-teal-500">{{ $t('common.no_price') }}</span>
+      </div>
+
       <!-- Name -->
-      <h3 class="text-base font-medium text-gray-800 line-clamp-1">
+      <h3 class="text-lg md:text-xl font-bold text-brand-700 text-center line-clamp-2 min-h-[3.5rem] flex items-center justify-center">
         {{ service.name }}
       </h3>
 
-      <!-- Rating -->
-      <div class="inline-flex items-center gap-1 text-sm text-gray-500">
+      <!-- Rating (Moved below title) -->
+      <div class="flex justify-center items-center gap-1 text-sm text-gray-500 mt-2">
         <svg class="w-4 h-4 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
-        <span>{{ service.rating }}</span>
+        <span class="mt-0.5">{{ service.rating }}</span>
       </div>
-
-      <!-- Price -->
-      <div v-if="service.price.original > 0" class="inline-flex items-center gap-2 mt-1">
-        <span class="text-lg font-bold text-brand-500">
-          {{ service.price.after_discount }} {{ service.price.currency }}
-        </span>
-        <del v-if="service.price.has_discount" class="text-sm text-gray-400">
-          {{ service.price.original }} {{ service.price.currency }}
-        </del>
-      </div>
-      <span v-else class="text-sm text-gray-500 mt-1">{{ $t('common.no_price') }}</span>
     </div>
   </NuxtLinkLocale>
 </template>

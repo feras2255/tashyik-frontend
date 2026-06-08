@@ -50,7 +50,7 @@
   <template v-else-if="visibleCollections?.length">
     <HomeCollectionItem
       v-for="(collection, index) in visibleCollections"
-      :key="collection.title"
+      :key="collection.id || collection.slug || collection.title || start + index"
       :collection="collection"
       :index="start + index"
       :max-services="maxServices"
