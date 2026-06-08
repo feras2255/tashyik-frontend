@@ -122,7 +122,7 @@
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
           </svg>
         </div>
-        <input v-model="searchQuery" type="search" class="bg-[#ECEEF0] border border-[#C5C5D3] text-gray-800 text-sm rounded-full block w-full h-full ps-[44px] pe-[16px] py-[8px] focus:ring-brand-500 focus:border-brand-500" placeholder="ابحث عن خدمة..." required>
+        <input v-model="searchQuery" type="search" class="bg-[#ECEEF0] border border-[#C5C5D3] text-gray-800 text-sm rounded-full block w-full h-full ps-[44px] pe-[16px] py-[8px] focus:ring-brand-500 focus:border-brand-500" placeholder="وش تبي نصلح لك اليوم؟" required>
       </form>
       <div class="flex flex-row gap-1.5 xl:gap-2 items-center ms-auto lg:mx-0 whitespace-nowrap">
         <div v-if="auth.isLoggedIn" class="ms-auto flex items-center justify-center gap-2">
@@ -156,16 +156,16 @@
           </div>
         </div>
         <div v-else class="hidden lg:inline-flex gap-2">
-          <NuxtLinkLocale :to="{ name: 'index', hash: '#download-app-section' }" class="inline-flex justify-center items-center gap-2 static-color w-[141px] h-[44px] px-[24px] py-[10px] rounded-[8px] border border-[#7A3E98] bg-[#7A3E98] text-white hover:bg-brand-600 transition-colors">
+          <NuxtLinkLocale :to="{ name: 'index', hash: '#download-app-section' }" class="inline-flex justify-center items-center gap-2 static-color min-w-[140px] h-[44px] px-4 rounded-[8px] border border-[#7A3E98] bg-[#7A3E98] text-white hover:bg-brand-600 transition-colors">
             <!-- majesticons:device-mobile-line -->
-            <svg class="w-4.5 h-4.5" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+            <svg class="w-4.5 h-4.5 shrink-0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
               <!-- Icon from Majesticons by Gerrit Halfmann - https://github.com/halfmage/majesticons/blob/main/LICENSE -->
               <g fill="currentColor"><path d="M8 22a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H8zm-1-3a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v14zm3-1a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1z" /></g>
             </svg>
-            <span class="w-[55px] h-[24px] text-sm leading-[24px] text-center font-medium">{{ $t('navigation.download_app') }}</span>
+            <span class="text-sm font-medium whitespace-nowrap">{{ $t('navigation.download_app') }}</span>
           </NuxtLinkLocale>
-          <NuxtLinkLocale :to="{ name: 'login' }" class="inline-flex justify-center items-center static-color w-[141px] h-[44px] px-[24px] py-[10px] rounded-[8px] border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
-            <span class="w-[55px] h-[24px] text-sm leading-[24px] text-center font-medium">{{ $t('navigation.login') }}</span>
+          <NuxtLinkLocale :to="{ name: 'login' }" class="inline-flex justify-center items-center static-color min-w-[120px] h-[44px] px-4 rounded-[8px] border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
+            <span class="text-sm font-medium whitespace-nowrap">{{ $t('navigation.login') }}</span>
           </NuxtLinkLocale>
         </div> 
         <AppHeaderLanguage />

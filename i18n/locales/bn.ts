@@ -779,5 +779,4 @@ export default {
   results: 'ফলাফল',
   no_results: 'কোনো ফলাফল নেই',
   clear: 'মুছুন',
-  orders: 'অর্ডার',
 } as const;

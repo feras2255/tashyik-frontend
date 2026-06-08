@@ -11,8 +11,7 @@
   <div class="flex flex-col gap-4 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
     <!-- Header: User Info & Date -->
     <div class="flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img :src="review.image" class="w-12 h-12 rounded-full object-cover" alt="User Avatar" loading="lazy" />
+      <div>
         <span v-text="review.name" class="font-bold text-gray-900"></span>
       </div>
       <span v-text="review.date" class="text-gray-400 text-sm"></span>

@@ -30,20 +30,20 @@
         v-if="service.price.has_discount"
         class="absolute top-3 start-3 bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md z-10"
       >
-        خصم {{ service.price.discount_percintage }}%
+        {{ $t('common.promotion', { percentage: service.price.discount_percintage }) }}
       </div>
     </div>
 
     <!-- Content -->
-    <div class="flex flex-col p-4 md:p-5 bg-white grow">
+    <div class="flex flex-col p-4 md:p-5 bg-white grow text-center">
 
       <!-- Name -->
-      <h3 class="text-base md:text-lg font-bold text-gray-900 text-start line-clamp-1 mb-1">
+      <h3 class="text-base md:text-lg font-bold text-gray-900 text-center line-clamp-1 mb-1">
         {{ service.name }}
       </h3>
 
       <!-- Description -->
-      <p v-if="service.description" class="text-sm text-gray-500 text-start line-clamp-2 mb-3 leading-relaxed">
+      <p v-if="service.description" class="text-sm text-gray-500 text-center line-clamp-2 mb-3 leading-relaxed">
         {{ service.description }}
       </p>
 
@@ -51,7 +51,7 @@
       <div class="grow"></div>
 
       <!-- Price Row -->
-      <div class="flex items-center gap-3 mt-2">
+      <div class="flex items-center justify-center gap-3 mt-2 mb-4">
         <span v-if="service.price.original > 0" class="text-lg font-bold text-brand-700">
           {{ service.price.after_discount }} {{ service.price.currency }}
         </span>
@@ -62,6 +62,11 @@
         <del v-if="service.price.has_discount" class="text-sm text-gray-400">
           {{ service.price.original }} {{ service.price.currency }}
         </del>
+      </div>
+
+      <!-- Action Button -->
+      <div class="mt-auto w-full flex items-center justify-center text-white font-medium hover:opacity-90 transition-opacity" style="height: 48px; border-radius: 12px; background: #7A3E98;">
+        {{ $t('common.order_now') }}
       </div>
     </div>
   </NuxtLinkLocale>
