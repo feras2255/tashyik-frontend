@@ -779,5 +779,4 @@ export default {
   results: 'Hasil',
   no_results: 'Tidak ada hasil',
   clear: 'Bersihkan',
-  orders: 'Pesanan',
 } as const;

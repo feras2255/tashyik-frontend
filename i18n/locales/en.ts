@@ -109,6 +109,7 @@ export default {
     select_address: 'Select Address',
     done: 'Done',
     loading: 'Loading…',
+    order_now: 'Order Now',
   },
   alt: {
     category: '{category} category',
@@ -120,7 +121,13 @@ export default {
       subtitle: {
         part_1: 'We are here',
         part_2: 'To make your life easier',
+        part_3: 'All your home services in one place',
       },
+      search_placeholder: 'What service do you need?',
+      search_button: 'Search Now',
+      rating_badge: '4.9 Customer Rating',
+      response_badge: 'Response in minutes',
+      technicians_badge: '500+ Certified Techs',
       highlight_1: 'Certified Technicians',
       highlight_2: 'Response within minutes',
       description: 'We provide you with integrated home maintenance services delivered to your doorstep quickly and easily.',
@@ -132,6 +139,18 @@ export default {
     categories: {
       title: 'Everything you need is here!',
       action: 'View All Categories',
+    },
+    offers: {
+      title: 'Exclusive Limited Time Offers',
+      description: 'Take advantage of the best discounts on home maintenance services with top professional technicians.',
+      free_inspection: 'Free Inspection',
+      discount_on_service: '{percentage}% Off {name}',
+      free_inspection_for: 'Free Inspection for {name}',
+      first_order_maintenance: 'Home appliances maintenance from first order',
+      plumbing_saving: 'Plumbing savings',
+    },
+    top_rated: {
+      title: 'Top Rated',
     },
     features: {
       title: 'Why do thousands of customers trust us?',

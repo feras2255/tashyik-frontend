@@ -14,7 +14,7 @@
 <template>
   <NuxtLinkLocale
     :to="{ name: 'services-service', params: { service: serviceSlug } }"
-    class="group relative flex flex-col bg-white rounded-2xl border border-gray-200 transition-all duration-300 overflow-hidden static-color hover:border-brand-500"
+    class="group relative flex flex-col h-full bg-white rounded-2xl border border-gray-200 transition-all duration-300 overflow-hidden static-color hover:border-brand-500"
   >
     <!-- Image -->
     <div class="relative bg-gray-100 w-full aspect-video overflow-hidden">
@@ -35,7 +35,7 @@
     </div>
 
     <!-- Content -->
-    <div class="flex flex-col p-4 md:p-5 relative bg-white">
+    <div class="flex flex-col grow p-4 md:p-5 relative bg-white">
       <!-- Promotional Badge Force HMR -->
       <span v-if="service.badge" class="absolute -top-3.5 md:-top-4 rtl:left-4 ltr:right-4 inline-flex items-center gap-1 bg-brand-50 text-brand-700 font-medium px-2.5 md:px-3 py-1 md:py-1.5 rounded shadow-sm border border-brand-100 z-10 w-fit text-xs md:text-sm whitespace-nowrap">
         <svg class="w-3.5 h-3.5 text-brand-500" fill="currentColor" viewBox="0 0 20 20">
@@ -44,31 +44,48 @@
         {{ service.badge }}
       </span>
 
-      <div class="flex items-center w-full mb-4 px-1">
-        <!-- Price (Mapped to Figma Price position - Start/Right) -->
-        <div v-if="service.price.original > 0" class="inline-flex items-center gap-1">
-          <del v-if="service.price.has_discount" class="text-[10px] text-gray-400">
+      <!-- Top Row: Price (Right) & Icon (Left) -->
+      <div class="flex justify-between items-center mb-4">
+        <!-- Price -->
+        <div class="flex flex-col items-start text-start">
+          <div v-if="service.price.original > 0" class="inline-flex items-center gap-1">
+            <span class="text-[10px] md:text-xs text-[#14b8a6]">{{ $t('cities.service_in_city_price_label') }}</span>
+            <span class="text-xs md:text-sm font-bold text-[#14b8a6]">
+              {{ service.price.after_discount }} {{ service.price.currency }}
+            </span>
+          </div>
+          <span v-else class="text-xs md:text-sm font-bold text-[#14b8a6]">{{ $t('common.no_price') }}</span>
+          <del v-if="service.price.has_discount" class="text-[10px] text-gray-400 mt-0.5">
             {{ service.price.original }} {{ service.price.currency }}
           </del>
-          <span class="text-xs font-semibold text-teal-500">
-            {{ service.price.after_discount }} {{ service.price.currency }}
-          </span>
         </div>
-        <span v-else class="text-xs font-semibold text-teal-500">{{ $t('common.no_price') }}</span>
+
+        <!-- Icon -->
+        <div class="w-6 h-6 text-[#7A3E98] flex items-center justify-center shrink-0">
+          <img v-if="service.icon" :src="service.icon" class="w-full h-full object-contain" :alt="service.name" />
+          <svg v-else class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L6.04 7.5 12 10.85l5.96-3.35L12 4.15z" />
+          </svg>
+        </div>
       </div>
 
-      <!-- Name -->
-      <h3 class="text-lg md:text-xl font-bold text-brand-700 text-center line-clamp-2 min-h-[3.5rem] flex items-center justify-center">
-        {{ service.name }}
-      </h3>
-
-      <!-- Rating (Moved below title) -->
-      <div class="flex justify-center items-center gap-1 text-sm text-gray-500 mt-2">
-        <svg class="w-4 h-4 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-        <span class="mt-0.5">{{ service.rating }}</span>
+      <!-- Title & Category -->
+      <div class="mb-2 text-right w-full" dir="rtl">
+        <!-- Service Type (Bold, 24px, Purple) -->
+        <span class="block mb-1" style="font-family: 'Tajawal', sans-serif; font-weight: 700; font-size: 24px; line-height: 32px; color: #7A3E98; text-align: right; vertical-align: middle;">
+         {{ service.category?.name || service.parent_category?.name || service.category_name || service.type || ' صيانة' }}
+        </span>
+        <!-- Service Name (Regular, 16px, Dark Grey) -->
+        <h3 class="line-clamp-2" style="font-family: 'Tajawal', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #444651; text-align: right; vertical-align: middle;">
+          {{ service.name }}
+        </h3>
       </div>
+
+      <!-- Description (نوع السيرفيز) - Hiding this if user considers service name as the last line, but keeping it empty or as is if it's there -->
+      <p v-if="service.card_description || service.description" class="line-clamp-2 mb-2 w-full text-right" style="font-family: 'Tajawal', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #444651; text-align: right; vertical-align: middle;" dir="rtl">
+        {{ service.card_description || service.description }}
+      </p>
+
     </div>
   </NuxtLinkLocale>
 </template>

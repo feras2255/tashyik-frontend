@@ -28,18 +28,15 @@
   <section class="py-12 md:py-20 bg-white">
     <div class="container px-4">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 md:mb-12">
-        الأعلى تقييماً
+        {{ $t('home.top_rated.title') }}
       </h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div v-for="(provider, index) in providers" :key="index" class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex items-center justify-between">
           
           <!-- Provider Info -->
-          <div class="flex items-center gap-4">
-            <img :src="provider.image" class="w-14 h-14 rounded-full object-cover" alt="Provider Avatar" loading="lazy" />
-            <div class="flex flex-col">
-              <span class="font-bold text-gray-900">{{ provider.name }}</span>
-              <span class="text-sm text-gray-500">{{ provider.title }}</span>
-            </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-gray-900">{{ provider.name }}</span>
+            <span class="text-sm text-gray-500">{{ provider.title }}</span>
           </div>
 
           <!-- Rating -->

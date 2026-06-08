@@ -108,6 +108,7 @@ export default {
     select_address: 'حدد عنوان',
     done: 'تم',
     loading: 'جاري التحميل…',
+    order_now: 'اطلب الآن',
   },
   alt: {
     category: 'قسم {category}',
@@ -119,7 +120,13 @@ export default {
       subtitle: {
         part_1: 'جينا',
         part_2: 'نسهّل حياتـك',
+        part_3: 'كل خدمات بيتك في مكان واحد',
       },
+      search_placeholder: 'وش تبي نصلح لك اليوم؟',
+      search_button: 'ابحث الآن',
+      rating_badge: '4.9 تقييم العملاء',
+      response_badge: 'استجابة خلال دقائق',
+      technicians_badge: '+500 فني معتمد',
       highlight_1: 'فنيين معتمدين',
       highlight_2: 'استجابة خلال دقائق',
       description: 'نوفر لك خدمات صيانة منزلية متكاملة توصل لين باب بيتك بسرعة وسهولة.',
@@ -131,6 +138,18 @@ export default {
     categories: {
       title: 'كل اللي تحتاجه عندنا!',
       action: 'عرض جميع الأقسام',
+    },
+    offers: {
+      title: 'عروض حصرية لفترة محدودة',
+      description: 'استفد من أفضل الخصومات على خدمات صيانة المنزل مع نخبة من الفنيين المحترفين.',
+      free_inspection: 'فحص مجاني',
+      discount_on_service: 'خصم {percentage}% على {name}',
+      free_inspection_for: 'فحص مجاني لـ {name}',
+      first_order_maintenance: 'صيانة الأجهزة المنزلية من أول طلب',
+      plumbing_saving: 'توفير السباكة',
+    },
+    top_rated: {
+      title: 'الأعلى تقييماً',
     },
     features: {
       title: 'ليش يثق بنا آلاف العملاء؟',
@@ -326,7 +345,7 @@ export default {
     index_subtitle: 'ابحث في خدمات تشييك، وصف حسب التخصص، واحجز فني معتمد بدون الحاجة للدخول على الأقسام أولاً.',
     index_support_title: 'تحتاج مساعدة في اختيار الخدمة؟',
     index_search_label: 'ابحث في الخدمات',
-    index_search_placeholder: 'ابحث باسم الخدمة أو المشكلة أو كلمة مفتاحية...',
+    index_search_placeholder: 'وش تبي نصلح لك اليوم؟',
     index_filter_by_category: 'تصفية حسب القسم',
     index_result_count: 'عرض {count} من {total} خدمة',
     index_clear_filters: 'مسح الفلاتر',
@@ -474,7 +493,7 @@ export default {
     browse_by_city: 'تصفح حسب المدينة',
     services_heading: 'الخدمات في {city}',
     services_search_label: 'ابحث عن خدمة',
-    services_search_placeholder: 'ابحث باسم الخدمة…',
+    services_search_placeholder: 'وش تبي نصلح لك اليوم؟',
     city_search_result_count: 'عرض {filtered} نتيجة من أصل {total}',
     city_search_no_results_for: 'لا توجد نتائج لـ «{q}»',
     city_categories_filter_aria: 'تصفية الخدمات حسب القسم',

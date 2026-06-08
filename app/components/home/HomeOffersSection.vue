@@ -19,10 +19,10 @@
       <!-- Section Header -->
       <div class="text-center max-w-2xl mx-auto">
         <h2 class="text-2xl lg:text-4xl font-bold text-brand-700 mb-3">
-          عروض حصرية لفترة محدودة
+          {{ $t('home.offers.title') }}
         </h2>
         <p class="text-base md:text-lg text-gray-500">
-          استفد من أفضل الخصومات على خدمات صيانة المنزل مع نخبة من الفنيين المحترفين.
+          {{ $t('home.offers.description') }}
         </p>
       </div>
 
@@ -43,9 +43,9 @@
           </div>
           <!-- Content -->
           <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white">
-            <p class="text-sm md:text-base font-medium opacity-90 mb-2">فحص مجاني</p>
+            <p class="text-sm md:text-base font-medium opacity-90 mb-2">{{ $t('home.offers.free_inspection') }}</p>
             <h3 class="text-2xl md:text-4xl font-bold leading-tight">
-              خصم {{ discountedServices[0]?.price?.discount_percintage }}% على <br/>{{ discountedServices[0]?.name }}
+              {{ $t('home.offers.discount_on_service', { percentage: discountedServices[0]?.price?.discount_percintage, name: discountedServices[0]?.name }) }}
             </h3>
           </div>
         </div>
@@ -61,9 +61,9 @@
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
               <div class="absolute bottom-0 start-0 end-0 p-5 text-white">
-                <p class="text-xs font-medium opacity-90 mb-1">صيانة الأجهزة المنزلية من أول طلب</p>
+                <p class="text-xs font-medium opacity-90 mb-1">{{ $t('home.offers.first_order_maintenance') }}</p>
                 <h3 class="text-lg md:text-xl font-bold leading-tight">
-                  فحص مجاني لـ {{ discountedServices[1]?.name }}
+                  {{ $t('home.offers.free_inspection_for', { name: discountedServices[1]?.name }) }}
                 </h3>
               </div>
            </div>
@@ -76,9 +76,9 @@
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
               <div class="absolute bottom-0 start-0 end-0 p-5 text-white">
-                <p class="text-xs font-medium opacity-90 mb-1">توفير السباكة</p>
+                <p class="text-xs font-medium opacity-90 mb-1">{{ $t('home.offers.plumbing_saving') }}</p>
                 <h3 class="text-lg md:text-xl font-bold leading-tight">
-                  خصم {{ discountedServices[2]?.price?.discount_percintage }}% على {{ discountedServices[2]?.name }}
+                  {{ $t('home.offers.discount_on_service', { percentage: discountedServices[2]?.price?.discount_percintage, name: discountedServices[2]?.name }) }}
                 </h3>
               </div>
            </div>
@@ -102,6 +102,8 @@
           :service="service"
         />
       </div>
+
+
 
     </div>
   </section>

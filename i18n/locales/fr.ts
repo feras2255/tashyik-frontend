@@ -790,5 +790,4 @@ export default {
   results: '{count} résultats',
   no_results: 'Aucun résultat',
   clear: 'Effacer les filtres',
-  orders: 'Plus de commandes',
 } as const;

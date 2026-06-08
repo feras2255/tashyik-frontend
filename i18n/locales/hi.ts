@@ -779,5 +779,4 @@ export default {
   results: 'परिणाम',
   no_results: 'कोई परिणाम नहीं',
   clear: 'साफ करें',
-  orders: 'ऑर्डर',
 } as const;
