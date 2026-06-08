@@ -12,15 +12,16 @@
     if (e) console.error('Failed to load categories:', e);
   });
 
-  const categories = computed(() => data.value?.data ?? null);
+  const categories = computed(() => data.value?.data ?? data.value ?? []);
+  const isLoading = computed(() => !data.value && !error.value);
   const categoryContainer = ref(null);
   const swiper = ref(null);
 
   const categoryChunks = computed(() => {
     const chunks = [];
-    const list = categories.value;
-    for (let i = 0; i < list?.length; i += 6) {
-      chunks.push(list?.slice(i, i + 6));
+    const list = categories.value ?? [];
+    for (let i = 0; i < list.length; i += 6) {
+      chunks.push(list.slice(i, i + 6));
     }
     return chunks;
   });
@@ -45,7 +46,7 @@
         </ButtonsOutline>
       </div>
 
-      <div v-if="!categoryContainer">
+      <div v-if="isLoading">
         <div class="w-full h-[260px] md:h-[500px] rounded-2xl bg-gray-100 animate-pulse flex flex-col items-center justify-center p-8 gap-2">
           <div class="bg-gray-200 w-16 h-16 rounded-lg mb-3"></div>
           <div class="h-5 w-40 rounded-full bg-gray-200"></div>
@@ -53,7 +54,7 @@
         </div>
       </div>
 
-      <div class="relative">
+      <div class="relative" v-else>
         <swiper-container ref="categoryContainer" id="categoriesCarousel">
           <swiper-slide v-for="(chunk, index) in categoryChunks" :key="index">
             <div class="grid grid-cols-3 gap-1 md:gap-5">
