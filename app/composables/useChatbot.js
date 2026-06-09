@@ -19,25 +19,49 @@ export function useChatbot() {
 
   const getChatErrorPayload = (error) => {
     const status = Number(error?.status || error?.response?.status || 0);
-    const message = error?.response?.data?.message || error?.message || 'حدث خطأ غير متوقع. حاول مرة أخرى.';
+    const code = error?.response?.data?.error || null;
 
-    return {
-      message,
-      status,
-      code: error?.code ?? null,
-    };
+    let message;
+    if (status === 0 || code === 'network_error') {
+      message = 'تعذر الاتصال بالخادم. تحقق من الإنترنت وحاول مجدداً.';
+    } else if (status >= 500) {
+      message = 'حدث خطأ في الخادم. حاول مرة أخرى بعد قليل.';
+    } else if (status === 404 && code === 'conversation_not_found') {
+      message = null; // handled by retry logic, don't show error
+    } else {
+      message = 'تعذر إرسال رسالتك. حاول مرة أخرى.';
+    }
+
+    return message ? { message, status, code } : null;
   };
 
   // Initialize guest token from localStorage
   const initializeGuestToken = () => {
     if (process.client) {
-      const stored = localStorage.getItem('chatbot_guest_token');
-      if (stored) {
-        guestToken.value = stored;
+      const storedToken = localStorage.getItem('chatbot_guest_token');
+      const storedUuid = localStorage.getItem('chatbot_conversation_uuid');
+      // Only restore both if they exist together (they are a pair)
+      if (storedToken && storedUuid) {
+        guestToken.value = storedToken;
+        conversationUuid.value = storedUuid;
       } else {
+        // Clear any orphaned data and generate a fresh token
+        localStorage.removeItem('chatbot_guest_token');
+        localStorage.removeItem('chatbot_conversation_uuid');
         guestToken.value = generateUUID();
         localStorage.setItem('chatbot_guest_token', guestToken.value);
+        conversationUuid.value = null;
       }
+    }
+  };
+
+  const clearStoredConversationUuid = () => {
+    conversationUuid.value = null;
+    guestToken.value = generateUUID();
+    if (process.client) {
+      // Clear the whole pair and generate a new guest_token for the next fresh conversation
+      localStorage.removeItem('chatbot_conversation_uuid');
+      localStorage.setItem('chatbot_guest_token', guestToken.value);
     }
   };
 
@@ -51,7 +75,7 @@ export function useChatbot() {
   };
 
   // Send message (Guest)
-  const sendGuestMessage = async (messageText) => {
+  const sendGuestMessage = async (messageText, retry = true) => {
     if (!messageText.trim()) return;
 
     clearChatError();
@@ -66,13 +90,13 @@ export function useChatbot() {
         },
       });
 
-      // Update conversation UUID if new
-      if (!conversationUuid.value && response.conversation_uuid) {
+      if (response.conversation_uuid) {
+        // Always save uuid and guest_token together as a pair
         conversationUuid.value = response.conversation_uuid;
         localStorage.setItem('chatbot_conversation_uuid', response.conversation_uuid);
+        localStorage.setItem('chatbot_guest_token', guestToken.value);
       }
 
-      // Add AI message
       if (response.message) {
         messages.value.push({
           id: response.assistant_message_id || `ai-${Date.now()}`,
@@ -86,8 +110,18 @@ export function useChatbot() {
       chatError.value = null;
       return response;
     } catch (error) {
-      console.error('Error sending guest message:', error);
-      chatError.value = getChatErrorPayload(error);
+      const status = Number(error?.status || error?.response?.status || 0);
+      const code = error?.response?.data?.error || null;
+
+      // 404 or guest_token_mismatch → clear the pair and retry fresh
+      if (retry && (status === 404 || code === 'guest_token_mismatch')) {
+        clearStoredConversationUuid();
+        isSending.value = false;
+        return await sendGuestMessage(messageText, false);
+      }
+
+      const payload = getChatErrorPayload(error);
+      if (payload) chatError.value = payload;
       throw error;
     } finally {
       isSending.value = false;
@@ -95,7 +129,7 @@ export function useChatbot() {
   };
 
   // Send message (User)
-  const sendUserMessage = async (messageText) => {
+  const sendUserMessage = async (messageText, retry = true) => {
     if (!messageText.trim() || !token.value) return;
 
     clearChatError();
@@ -109,13 +143,11 @@ export function useChatbot() {
         },
       });
 
-      // Update conversation UUID if new
       if (!conversationUuid.value && response.conversation_uuid) {
         conversationUuid.value = response.conversation_uuid;
         localStorage.setItem('chatbot_conversation_uuid', response.conversation_uuid);
       }
 
-      // Add AI message
       if (response.message) {
         messages.value.push({
           id: response.assistant_message_id || `ai-${Date.now()}`,
@@ -129,8 +161,17 @@ export function useChatbot() {
       chatError.value = null;
       return response;
     } catch (error) {
-      console.error('Error sending user message:', error);
-      chatError.value = getChatErrorPayload(error);
+      const status = Number(error?.status || error?.response?.status || 0);
+
+      // Any 404 with stored UUID → clear and retry fresh
+      if (retry && status === 404 && conversationUuid.value) {
+        clearStoredConversationUuid();
+        isSending.value = false;
+        return await sendUserMessage(messageText, false);
+      }
+
+      const payload = getChatErrorPayload(error);
+      if (payload) chatError.value = payload;
       throw error;
     } finally {
       isSending.value = false;
@@ -147,6 +188,11 @@ export function useChatbot() {
     } else {
       return sendGuestMessage(messageText);
     }
+  };
+
+  // Get conversation messages (for polling)
+  const getConversationMessages = async (conversationId) => {
+    return await apiFetch(`/chat/conversations/${conversationId}/messages`);
   };
 
   // Load conversation messages
@@ -191,17 +237,24 @@ export function useChatbot() {
     messages.value = [];
     conversationUuid.value = null;
     currentConversation.value = null;
+    guestToken.value = generateUUID();
     if (process.client) {
       localStorage.removeItem('chatbot_conversation_uuid');
+      localStorage.setItem('chatbot_guest_token', guestToken.value);
     }
   };
 
-  // Load stored conversation
+  // Load stored conversation (only if the pair exists together)
   const loadStoredConversation = () => {
     if (process.client) {
-      const stored = localStorage.getItem('chatbot_conversation_uuid');
-      if (stored) {
-        conversationUuid.value = stored;
+      const storedUuid = localStorage.getItem('chatbot_conversation_uuid');
+      const storedToken = localStorage.getItem('chatbot_guest_token');
+      if (storedUuid && storedToken) {
+        conversationUuid.value = storedUuid;
+        guestToken.value = storedToken;
+      } else {
+        localStorage.removeItem('chatbot_conversation_uuid');
+        localStorage.removeItem('chatbot_guest_token');
       }
     }
   };
@@ -212,8 +265,10 @@ export function useChatbot() {
     conversationUuid.value = null;
     currentConversation.value = null;
     chatError.value = null;
+    guestToken.value = generateUUID();
     if (process.client) {
       localStorage.removeItem('chatbot_conversation_uuid');
+      localStorage.setItem('chatbot_guest_token', guestToken.value);
     }
   };
 
@@ -232,6 +287,7 @@ export function useChatbot() {
     sendMessage,
     sendGuestMessage,
     sendUserMessage,
+    getConversationMessages,
     loadConversationMessages,
     loadConversations,
     createNewConversation,

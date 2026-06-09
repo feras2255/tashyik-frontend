@@ -18,7 +18,7 @@
 </script>
 
 <template>
-  <section class="py-14 md:py-26">
+  <section class="py-8 md:py-14">
     <div class="container flex flex-col gap-5">
       <div class="flex flex-row gap-3 sm:gap-5 justify-between items-center flex-wrap">
         <h2 v-text="$t('home.categories.title')" class="text-xl lg:text-4xl font-medium text-gray-800"></h2>

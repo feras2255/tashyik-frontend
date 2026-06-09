@@ -14,7 +14,7 @@
 <template>
   <NuxtLinkLocale
     :to="{ name: 'services-service', params: { service: serviceSlug } }"
-    class="group relative flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+    class="group relative flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden w-[220px] md:w-full"
   >
     <!-- Image -->
     <div class="relative bg-gray-100 w-full aspect-[4/3] overflow-hidden">

@@ -19,12 +19,20 @@
     if (!Array.isArray(raw)) return [];
     return raw.slice(0, props.maxServices);
   });
+
+  const scrollRef = ref(null);
+
+  const scroll = (dir) => {
+    if (!scrollRef.value) return;
+    const amount = 280;
+    scrollRef.value.scrollBy({ left: dir === 'next' ? amount : -amount, behavior: 'smooth' });
+  };
 </script>
 
 <template>
   <section
     :class="[index % 2 === 0 ? 'bg-white' : 'bg-brand-50']"
-    class="py-14 md:py-20"
+    class="py-8 md:py-14"
   >
     <div class="container flex flex-col gap-6">
       <!-- Header -->
@@ -33,7 +41,7 @@
           {{ collection.title }}
         </h2>
         <NuxtLinkLocale :to="{ name: 'services' }" class="text-sm md:text-base text-gray-500 hover:text-brand-600 flex items-center gap-1 font-medium transition-colors">
-          عرض جميع الخدمات
+          {{ $t('home.collections.view_all') }}
           <svg class="w-4 h-4 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
           </svg>
@@ -47,14 +55,41 @@
         {{ $t('services.empty.title') }}
       </div>
 
-      <!-- Grid Layout -->
-      <div v-else class="flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-4 xl:gap-6 scrollbar-hide">
-        <HomeCollectionServiceCard
-          v-for="service in displayServices"
-          :key="service.id"
-          :service="service"
-          class="min-w-[220px] md:min-w-0"
-        />
+      <!-- Carousel -->
+      <div v-else class="relative">
+        <!-- Prev -->
+        <button
+          @click="scroll('prev')"
+          class="absolute start-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center hover:bg-brand-50 hover:border-brand-300 transition-colors"
+          aria-label="السابق"
+        >
+          <svg class="w-5 h-5 text-brand-600 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <!-- Scroll container -->
+        <div ref="scrollRef" class="overflow-x-auto pb-2 scrollbar-hide">
+          <div class="flex gap-4" style="width: max-content;">
+            <HomeCollectionServiceCard
+              v-for="service in displayServices"
+              :key="service.id"
+              :service="service"
+              style="width: 260px; flex: 0 0 260px;"
+            />
+          </div>
+        </div>
+
+        <!-- Next -->
+        <button
+          @click="scroll('next')"
+          class="absolute end-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center hover:bg-brand-50 hover:border-brand-300 transition-colors"
+          aria-label="التالي"
+        >
+          <svg class="w-5 h-5 text-brand-600 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </div>
   </section>

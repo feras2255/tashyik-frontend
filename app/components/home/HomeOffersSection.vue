@@ -13,7 +13,7 @@
 
 <template>
   <!-- Only show this section if there are actual discounted services -->
-  <section v-if="discountedServices?.length" class="py-14 md:py-20 bg-[#FCFAFF]">
+  <section v-if="discountedServices?.length" class="py-8 md:py-14 bg-[#FCFAFF]">
     <div class="container flex flex-col gap-10">
 
       <!-- Section Header -->
@@ -39,7 +39,7 @@
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
           <!-- Badge -->
           <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
-            عرض الموسم
+            {{ $t('home.collections.season_badge') }}
           </div>
           <!-- Content -->
           <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white">
@@ -87,19 +87,21 @@
       </div>
 
       <!-- Services Grid (cards below the banners) -->
-      <div v-if="discountedServices.length > 3" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 mt-4">
+      <div v-if="discountedServices.length > 3" class="flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 xl:gap-6 scrollbar-hide mt-4">
         <HomeOfferServiceCard
           v-for="service in discountedServices.slice(3, 7)"
           :key="service.id"
           :service="service"
+          class="shrink-0 md:w-auto"
         />
       </div>
       <!-- Fallback if there are less than 3 services (just show cards) -->
-      <div v-else-if="discountedServices.length > 0 && discountedServices.length < 3" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6">
+      <div v-else-if="discountedServices.length > 0 && discountedServices.length < 3" class="flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 xl:gap-6 scrollbar-hide">
         <HomeOfferServiceCard
           v-for="service in discountedServices"
           :key="service.id"
           :service="service"
+          class="shrink-0 md:w-auto"
         />
       </div>
 

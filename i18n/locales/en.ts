@@ -179,6 +179,25 @@ export default {
         description: 'Avg. Customer Rating',
       },
     },
+    features: {
+      title: 'Why choose Tashyik?',
+      fast_support: { title: 'Fast Support', description: 'Our support team is available 24/7 to answer your questions and resolve your issues.' },
+      clear_prices: { title: 'Clear Prices', description: 'No hidden fees — prices are set in advance so you know the cost before booking.' },
+      trusted_techs: { title: 'Trusted Technicians', description: 'All technicians undergo thorough background checks and professional skills testing.' },
+      instant_booking: { title: 'Instant Booking', description: 'Just a few clicks and your technician is on the way to your home at the agreed time.' },
+      real_reviews: { title: 'Real Reviews', description: 'All ratings are from real customers who have actually experienced the service.' },
+      warranty: { title: 'Service Warranty', description: 'We provide a warranty of up to 30 days on all completed maintenance services.' },
+    },
+    newsletter: {
+      title: "Don't miss any new offer!",
+      description: 'Subscribe to our newsletter to receive the latest discounts and exclusive deals directly to your inbox.',
+      placeholder: 'Your email address',
+      subscribe: 'Subscribe',
+    },
+    collections: {
+      view_all: 'View all services',
+      season_badge: 'Season offer',
+    },
     reviews: {
       title: 'What our customers say!',
       item_1: {

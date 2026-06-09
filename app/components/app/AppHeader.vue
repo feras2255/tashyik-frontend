@@ -122,7 +122,7 @@
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
           </svg>
         </div>
-        <input v-model="searchQuery" type="search" class="bg-[#ECEEF0] border border-[#C5C5D3] text-gray-800 text-sm rounded-full block w-full h-full ps-[44px] pe-[16px] py-[8px] focus:ring-brand-500 focus:border-brand-500" placeholder="وش تبي نصلح لك اليوم؟" required>
+        <input v-model="searchQuery" type="search" class="bg-[#ECEEF0] border border-[#C5C5D3] text-gray-800 text-sm rounded-full block w-full h-full ps-[44px] pe-[16px] py-[8px] focus:ring-brand-500 focus:border-brand-500" :placeholder="$t('home.hero.search_placeholder')" required>
       </form>
       <div class="flex flex-row gap-1.5 xl:gap-2 items-center ms-auto lg:mx-0 whitespace-nowrap">
         <div v-if="auth.isLoggedIn" class="ms-auto flex items-center justify-center gap-2">
