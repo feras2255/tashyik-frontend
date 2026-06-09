@@ -27,10 +27,10 @@
       </div>
 
       <!-- Promo Banner Grid (3 images) -->
-      <div v-if="discountedServices.length >= 3" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[400px]">
+      <div v-if="discountedServices.length >= 3" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
         
         <!-- Large Banner (Right side in RTL) -->
-        <div v-if="discountedServices[0]" class="relative rounded-2xl overflow-hidden group flex-1 lg:flex-[1.2] h-64 lg:h-full">
+        <div v-if="discountedServices[0]" class="relative rounded-2xl overflow-hidden group flex-1 lg:flex-[1.8] h-64 lg:h-full">
           <img
             :src="discountedServices[0].image"
             :alt="discountedServices[0].name"
@@ -51,33 +51,33 @@
         </div>
 
         <!-- Left Side Stack (Small Banners) -->
-        <div class="flex flex-col gap-4 flex-1 h-auto lg:h-full">
+        <div class="flex flex-col gap-4 flex-1 lg:flex-[0.8] h-auto lg:h-full">
            <!-- Small Banner Top -->
-           <div v-if="discountedServices[1]" class="relative rounded-2xl overflow-hidden group flex-1 h-48 lg:h-auto">
+           <div v-if="discountedServices[1]" class="relative rounded-2xl overflow-hidden group h-40 lg:h-auto lg:flex-1">
               <img
                 :src="discountedServices[1].image"
                 :alt="discountedServices[1].name"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-              <div class="absolute bottom-0 start-0 end-0 p-5 text-white">
+              <div class="absolute bottom-0 start-0 end-0 p-4 text-white">
                 <p class="text-xs font-medium opacity-90 mb-1">{{ $t('home.offers.first_order_maintenance') }}</p>
-                <h3 class="text-lg md:text-xl font-bold leading-tight">
+                <h3 class="text-base md:text-lg font-bold leading-tight">
                   {{ $t('home.offers.free_inspection_for', { name: discountedServices[1]?.name }) }}
                 </h3>
               </div>
            </div>
            <!-- Small Banner Bottom -->
-           <div v-if="discountedServices[2]" class="relative rounded-2xl overflow-hidden group flex-1 h-48 lg:h-auto">
+           <div v-if="discountedServices[2]" class="relative rounded-2xl overflow-hidden group h-40 lg:h-auto lg:flex-1">
               <img
                 :src="discountedServices[2].image"
                 :alt="discountedServices[2].name"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-              <div class="absolute bottom-0 start-0 end-0 p-5 text-white">
+              <div class="absolute bottom-0 start-0 end-0 p-4 text-white">
                 <p class="text-xs font-medium opacity-90 mb-1">{{ $t('home.offers.plumbing_saving') }}</p>
-                <h3 class="text-lg md:text-xl font-bold leading-tight">
+                <h3 class="text-base md:text-lg font-bold leading-tight">
                   {{ $t('home.offers.discount_on_service', { percentage: discountedServices[2]?.price?.discount_percintage, name: discountedServices[2]?.name }) }}
                 </h3>
               </div>

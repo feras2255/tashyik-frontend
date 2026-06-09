@@ -72,6 +72,11 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      watch: {
+        ignored: ['**/back-end*', '**/*.zip', '**/*.crdownload', '**/back-end*/**']
+      }
+    }
   },
 
   modules: ['@nuxtjs/i18n', 'nuxt-swiper', '@pinia/nuxt', '@nuxt/scripts', '@nuxt/fonts'],

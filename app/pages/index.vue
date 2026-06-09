@@ -40,11 +40,11 @@
   <!-- Offers / Discounts Section -->
   <HomeOffersSection />
 
-  <!-- Featured Collection (first one, teaser) -->
-  <HomeCollectionsSection :start="0" :end="1" :max-services="5" />
-
   <!-- Categories Section -->
   <HomeCategoriesSection />
+
+  <!-- Featured Collection (first one, teaser) -->
+  <HomeCollectionsSection :start="0" :end="1" :max-services="5" />
 
   <!-- Remaining Collections -->
   <HomeCollectionsSection :start="1" :max-services="10" />

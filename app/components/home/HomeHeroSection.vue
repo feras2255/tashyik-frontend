@@ -12,8 +12,8 @@
   }
 
   /** Primary display ~622×512 (mobile / split layout); full asset for large viewports. */
-  const heroSrcDefault = '/images/hero2.webp';
-  const heroSrcLarge = '/images/hero2.webp';
+  const heroSrcDefault = '/images/heroo.webp';
+  const heroSrcLarge = '/images/heroo.webp';
   const heroWidth = 622;
   const heroHeight = 512;
   const heroWidthLarge = 1176;

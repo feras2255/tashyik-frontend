@@ -23,6 +23,13 @@
       image: '/images/review-3.webp',
       tag: 'تكييفات',
     },
+    {
+      name: t('home.reviews.item_4.name'),
+      body: t('home.reviews.item_4.body'),
+      date: t('home.reviews.item_4.date'),
+      image: '/images/review-1.webp',
+      tag: 'سباكة',
+    },
   ];
 </script>
 
@@ -32,7 +39,7 @@
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 md:mb-12">
         آراء عملائنا
       </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <HomeReview v-for="(review, index) in reviews" :key="index" :review="review" />
       </div>
     </div>
