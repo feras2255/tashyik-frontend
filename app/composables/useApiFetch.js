@@ -42,7 +42,7 @@ export function useApiFetchClient() {
   const token = useCookie('token', { default: () => null });
   const baseURL = getApiBaseUrl(config);
 
-  return function apiFetch(path, options = {}) {
+  return async function apiFetch(path, options = {}) {
     const locale = nuxtApp.$i18n?.locale;
     const headers = {
       ...options?.headers,
@@ -56,11 +56,25 @@ export function useApiFetchClient() {
 
     const resolvedPath = typeof path === 'function' ? path() : path;
 
-    return $fetch(resolvedPath, {
-      ...options,
-      baseURL,
-      headers,
-    });
+    try {
+      return await $fetch(resolvedPath, {
+        ...options,
+        baseURL,
+        headers,
+      });
+    } catch (error) {
+      const status = Number(error?.status || error?.response?.status || error?.statusCode || 500);
+      const data = error?.data ?? error?.response?.data ?? null;
+      const bodyMessage = data?.message || data?.error?.message || data?.error || null;
+      const message = String(bodyMessage || error?.message || error?.statusText || 'Unknown error occurred');
+      const normalized = new Error(message);
+      normalized.name = 'ApiError';
+      normalized.status = status;
+      normalized.code = data?.code || data?.error?.code || null;
+      normalized.response = { status, data };
+      normalized.body = data;
+      throw normalized;
+    }
   };
 }
 

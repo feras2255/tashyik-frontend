@@ -74,6 +74,7 @@ export default {
     coupon_code: 'Coupon code',
     show_password: 'Show password',
     hide_password: 'Hide password',
+    chatbot: 'Open chat',
   },
   common: {
     brand: 'Tashyik',
@@ -110,6 +111,8 @@ export default {
     done: 'Done',
     loading: 'Loading…',
     order_now: 'Order Now',
+    send: 'Send',
+    close: 'Close',
   },
   alt: {
     category: '{category} category',
@@ -817,5 +820,20 @@ export default {
       orders: 'Most orders',
       this_month: 'Most active this month',
     },
+  },
+  chatbot: {
+    title: 'Tashyik Chat',
+    subtitle: 'We are here to help you',
+    welcome: 'Welcome! How can we help you?',
+    placeholder: 'Type your message...',
+    new_chat: 'New Chat',
+    send: 'Send',
+    close: 'Close',
+    typing: 'Typing...',
+    error_network: 'Unable to connect. Please check your connection and try again.',
+    error_server: 'Server error occurred. Please try again later.',
+    error_generic: 'An unexpected error occurred. Please try again.',
+    retry: 'Try again',
+    messages_count: 'messages',
   },
 } as const;
