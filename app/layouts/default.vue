@@ -41,6 +41,9 @@
       </main>
 
       <ClientOnly>
+        <!-- Chatbot Button -->
+        <ChatbotButton />
+
         <!-- Whatsapp button -->
         <WhatsappButton />
 

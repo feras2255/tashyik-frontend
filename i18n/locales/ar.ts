@@ -73,6 +73,7 @@ export default {
     coupon_code: 'كود الخصم',
     show_password: 'إظهار كلمة المرور',
     hide_password: 'إخفاء كلمة المرور',
+    chatbot: 'فتح الدردشة',
   },
   common: {
     brand: 'تشييك',
@@ -109,6 +110,8 @@ export default {
     done: 'تم',
     loading: 'جاري التحميل…',
     order_now: 'اطلب الآن',
+    send: 'إرسال',
+    close: 'إغلاق',
   },
   alt: {
     category: 'قسم {category}',
@@ -821,5 +824,20 @@ export default {
       orders: 'الأكثر طلبات',
       this_month: 'الأنشط هذا الشهر',
     },
+  },
+  chatbot: {
+    title: 'دردشة تشييك',
+    subtitle: 'نحن هنا لمساعدتك',
+    welcome: 'مرحباً بك! كيف يمكننا مساعدتك؟',
+    placeholder: 'اكتب رسالتك...',
+    new_chat: 'محادثة جديدة',
+    send: 'إرسال',
+    close: 'إغلاق',
+    typing: 'يكتب...',
+    error_network: 'تعذر الاتصال. تحقق من اتصالك وحاول مرة أخرى.',
+    error_server: 'يوجد خطأ في الخادم. حاول مرة أخرى لاحقاً.',
+    error_generic: 'حدث خطأ غير متوقع. حاول مرة أخرى.',
+    retry: 'حاول مرة أخرى',
+    messages_count: 'رسائل',
   },
 } as const;

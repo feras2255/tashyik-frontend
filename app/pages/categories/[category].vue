@@ -267,7 +267,7 @@
     </div>
 
     <!-- Services -->
-    <div class="flex flex-col lg:grid grid-cols-2 xl:grid-cols-3 gap-8">
+    <div class="flex flex-row flex-nowrap gap-4 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-8" style="display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;">
       <ServiceCard v-for="service of services" :key="service.id" :service />
     </div>
 

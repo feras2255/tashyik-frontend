@@ -95,7 +95,8 @@
 
 <template>
   <div
-    class="group relative flex w-full flex-col rounded-2xl bg-white shadow transition-shadow duration-200 hover:shadow-xl static-color"
+    class="group relative flex min-w-[18rem] max-w-[85vw] shrink-0 snap-start flex-col rounded-2xl bg-white shadow transition-shadow duration-200 hover:shadow-xl static-color lg:min-w-full lg:max-w-full"
+    style="flex:0 0 auto; min-width:18rem; max-width:85vw; scroll-snap-align:start;"
   >
     <!--
       Whole-card crawlable link: keeps the visual-design "two button" footer
