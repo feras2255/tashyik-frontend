@@ -25,7 +25,7 @@
 </script>
 
 <template>
-  <section class="py-12 md:py-20" style="background-color: #FAF7FC;">
+  <section class="py-8 md:py-14" style="background-color: #FAF7FC;">
     <div class="container px-4">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 md:mb-12">
         {{ $t('home.top_rated.title') }}

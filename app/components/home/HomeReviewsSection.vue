@@ -34,10 +34,10 @@
 </script>
 
 <template>
-  <section class="py-12 md:py-20 bg-white">
+  <section class="py-8 md:py-14 bg-white">
     <div class="container px-4">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 md:mb-12">
-        آراء عملائنا
+        {{ $t('home.reviews.title') }}
       </h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <HomeReview v-for="(review, index) in reviews" :key="index" :review="review" />
