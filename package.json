@@ -3,10 +3,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
+    "dev": "cross-env NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
+    "generate": "cross-env NODE_OPTIONS=--max-old-space-size=4096 nuxt generate",
     "preview": "nuxt preview",
+    "start": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare && (husky || true)",
     "optimize:images": "node scripts/optimize-hero-images.mjs",
     "seo:meta-smoke": "node scripts/seo-meta-smoke.mjs",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@nuxt/eslint-config": "^0.5.7",
     "baseline-browser-mapping": "^2.10.27",
+    "cross-env": "^10.1.0",
     "eslint": "^9.18.0",
     "eslint-plugin-vue": "^9.32.0",
     "husky": "^9.1.7",
@@ -37,7 +39,7 @@
     "@unhead/vue": "^2.0.17",
     "flowbite": "^3.1.2",
     "isomorphic-dompurify": "^3.12.0",
-    "nuxt": "^4.1.2",
+    "nuxt": "^4.4.8",
     "nuxt-swiper": "^2.0.1",
     "pinia": "^3.0.3",
     "tailwindcss": "^4.1.13",
@@ -45,7 +47,12 @@
     "vue-router": "^4.5.1"
   },
   "lint-staged": {
-    "*.{js,mjs,ts,vue}": ["eslint --fix --max-warnings 0", "prettier --write"],
-    "*.{json,md,css}": ["prettier --write"]
+    "*.{js,mjs,ts,vue}": [
+      "eslint --fix --max-warnings 0",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
   }
 }
