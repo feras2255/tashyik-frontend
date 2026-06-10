@@ -6,29 +6,29 @@
       name: t('home.reviews.item_1.name'),
       body: t('home.reviews.item_1.body'),
       date: t('home.reviews.item_1.date'),
+      tag: t('home.reviews.item_1.tag'),
       image: '/images/review-1.webp',
-      tag: 'صيانة',
     },
     {
       name: t('home.reviews.item_2.name'),
       body: t('home.reviews.item_2.body'),
       date: t('home.reviews.item_2.date'),
+      tag: t('home.reviews.item_2.tag'),
       image: '/images/review-2.webp',
-      tag: 'تكييفات',
     },
     {
       name: t('home.reviews.item_3.name'),
       body: t('home.reviews.item_3.body'),
       date: t('home.reviews.item_3.date'),
+      tag: t('home.reviews.item_3.tag'),
       image: '/images/review-3.webp',
-      tag: 'تكييفات',
     },
     {
       name: t('home.reviews.item_4.name'),
       body: t('home.reviews.item_4.body'),
       date: t('home.reviews.item_4.date'),
+      tag: t('home.reviews.item_4.tag'),
       image: '/images/review-1.webp',
-      tag: 'سباكة',
     },
   ];
 </script>

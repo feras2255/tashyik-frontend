@@ -1,862 +1,893 @@
 export default {
   seo: {
     login: {
-      title: 'تسجيل الدخول',
+      title: "تسجيل الدخول"
     },
     register: {
-      title: 'إنشاء حساب',
+      title: "إنشاء حساب"
     },
     service_provider_register: {
-      title: 'إنشاء حساب مقدم خدمة',
+      title: "إنشاء حساب مقدم خدمة"
     },
     orders: {
-      title: 'طلباتي',
+      title: "طلباتي",
       view: {
-        title: 'تفاصيل الطلب',
-      },
+        title: "تفاصيل الطلب"
+      }
     },
     addresses: {
-      title: 'عناويني',
+      title: "عناويني",
       create: {
-        title: 'اضافة عنوان جديد',
+        title: "اضافة عنوان جديد"
       },
       edit: {
-        title: 'تعديل عنوان',
-      },
+        title: "تعديل عنوان"
+      }
     },
     profile: {
-      title: 'الملف الشخصي',
+      title: "الملف الشخصي"
     },
     forgot_password: {
-      title: 'نسيت كلمة المرور',
+      title: "نسيت كلمة المرور"
     },
     reset_password: {
-      title: 'إعادة تعيين كلمة المرور',
+      title: "إعادة تعيين كلمة المرور"
     },
     service_provider: {
-      title: 'سجل معنا كفني',
-      description: 'سجل كمقدم خدمة منزلية وقدم خدمات المكيفات، الكهرباء، السباكة، الأجهزة المنزلية، النجارة، الدهانات، الستالايت، التنظيف، مكافحة الحشرات والمساعدة المنزلية بسهولة وأمان.',
+      title: "سجل معنا كفني",
+      description: "سجل كمقدم خدمة منزلية وقدم خدمات المكيفات، الكهرباء، السباكة، الأجهزة المنزلية، النجارة، الدهانات، الستالايت، التنظيف، مكافحة الحشرات والمساعدة المنزلية بسهولة وأمان."
     },
     categories: {
-      title: 'الاقسام',
-      description: 'تصفح أقسام خدمات الصيانة المنزلية, السباكة والكهرباء وصيانة المكيفات والأجهزة المنزلية. احجز فني صيانة منزلي بسرعة وبجودة مضمونة.',
+      title: "الأقسام",
+      description: "تصفح أقسام خدمات الصيانة المنزلية, السباكة والكهرباء وصيانة المكيفات والأجهزة المنزلية. احجز فني صيانة منزلي بسرعة وبجودة مضمونة."
     },
     services: {
-      title: 'الخدمات',
-      description: 'تصفح كل خدمات الصيانة المنزلية، وابحث عن الخدمة المناسبة، واحجز فني معتمد بسرعة.',
+      title: "الخدمات",
+      description: "تصفح كل خدمات الصيانة المنزلية، وابحث عن الخدمة المناسبة، واحجز فني معتمد بسرعة."
     },
     cities_index: {
-      title: 'المدن التي نخدمها',
-      description: 'تصفّح تغطية الصيانة المنزلية حسب المدينة وافتح صفحات الخدمات الموجّهة لمنطقتك.',
+      title: "المدن التي نخدمها",
+      description: "تصفّح تغطية الصيانة المنزلية حسب المدينة وافتح صفحات الخدمات الموجّهة لمنطقتك."
     },
     about: {
-      title: 'من نحن',
-      description: 'منصة سعودية متخصصة في ربطك بفنيين معتمدين لجميع خدمات الصيانة المنزلية، بسرعة، أمان، وسهولة. هدفنا نريح بالك ونضمن جودة تليق ببيتك.',
+      title: "من نحن",
+      description: "منصة سعودية متخصصة في ربطك بفنيين معتمدين لجميع خدمات الصيانة المنزلية، بسرعة، أمان، وسهولة. هدفنا نريح بالك ونضمن جودة تليق ببيتك."
     },
     contact: {
-      title: 'تواصل معنا',
-      description: 'فريقنا جاهز يستقبل رسالتك ويجاوبك في أسرع وقت. املأ البيانات، وراح نتواصل معك مباشرة لمساعدتك أو تنفيذ طلبك..',
+      title: "تواصل معنا",
+      description: "فريقنا جاهز يستقبل رسالتك ويجاوبك في أسرع وقت. املأ البيانات، وراح نتواصل معك مباشرة لمساعدتك أو تنفيذ طلبك.."
     },
     home: {
-      title: 'تشييك | احجز فني صيانة منزلية معتمد في السعودية',
-      description: 'احجز فنيين موثوقين لصيانة المكيفات، السباكة، الكهرباء، والأجهزة المنزلية في كل المدن السعودية. خدمة سريعة، ضمان معتمد، أسعار شفافة.',
-    },
+      title: "تشييك | احجز فني صيانة منزلية معتمد في السعودية",
+      description: "احجز فنيين موثوقين لصيانة المكيفات، السباكة، الكهرباء، والأجهزة المنزلية في كل المدن السعودية. خدمة سريعة، ضمان معتمد، أسعار شفافة."
+    }
   },
   a11y: {
-    open_user_menu: 'افتح قائمة المستخدم',
-    open_main_menu: 'افتح القائمة الرئيسية',
-    close_menu: 'أغلق القائمة',
-    notifications: 'الإشعارات',
-    language: 'اللغة',
-    breadcrumb: 'مسار التصفح',
-    contact_whatsapp: 'تواصل معنا عبر واتساب',
-    coupon_code: 'كود الخصم',
-    show_password: 'إظهار كلمة المرور',
-    hide_password: 'إخفاء كلمة المرور',
-    chatbot: 'فتح الدردشة',
+    open_user_menu: "افتح قائمة المستخدم",
+    open_main_menu: "افتح القائمة الرئيسية",
+    close_menu: "أغلق القائمة",
+    notifications: "الإشعارات",
+    language: "اللغة",
+    breadcrumb: "مسار التصفح",
+    contact_whatsapp: "تواصل معنا عبر واتساب",
+    coupon_code: "كود الخصم",
+    show_password: "إظهار كلمة المرور",
+    hide_password: "إخفاء كلمة المرور",
+    chatbot: "فتح الدردشة"
   },
   common: {
-    brand: 'تشييك',
-    account: 'الحساب',
-    next: 'التالي',
-    back: 'رجوع',
-    short_description: 'خدمات الصيانة المنزلية',
-    order_service: 'اطلب الخدمة',
-    load_more: 'تحميل المزيد',
-    save: 'حفظ',
-    select_type: 'حدد النوع',
-    select_categories: 'حدد الأقسام',
-    individual: 'فرد',
-    institution: 'مؤسسة',
-    company: 'شركة',
-    update: 'تحديث',
-    delete: 'حذف',
-    updated_successfully: 'تم التحديث بنجاح',
-    page_not_found: 'لم يتم العثور على الصفحة',
-    something_went_wrong: 'حدث خطأ',
-    or: 'أو',
-    request_under_review: 'طلبك قيد المراجعة',
-    back_to_home: 'العودة للصفحة الرئيسية',
-    no_price: 'السعر حسب الاتفاق',
-    select_city: 'اختر المدينة',
-    search_for_services: 'ابحث عن خدمة...',
-    search: 'بحث',
-    promotion: '{percentage}% خصم',
-    warranty: 'ضمان لمدة {duration}',
-    all: 'الكل',
-    wallet_balance: 'رصيد المحفظة',
-    optional: 'إختياري',
-    select_address: 'حدد عنوان',
-    done: 'تم',
-    loading: 'جاري التحميل…',
-    order_now: 'اطلب الآن',
-    send: 'إرسال',
-    close: 'إغلاق',
+    maintenance: "صيانة",
+    brand: "تشييك",
+    account: "الحساب",
+    next: "التالي",
+    back: "رجوع",
+    short_description: "خدمات الصيانة المنزلية",
+    order_service: "اطلب الخدمة",
+    load_more: "تحميل المزيد",
+    save: "حفظ",
+    select_type: "حدد النوع",
+    select_categories: "حدد الأقسام",
+    individual: "فرد",
+    institution: "مؤسسة",
+    company: "شركة",
+    update: "تحديث",
+    delete: "حذف",
+    updated_successfully: "تم التحديث بنجاح",
+    page_not_found: "لم يتم العثور على الصفحة",
+    something_went_wrong: "حدث خطأ",
+    or: "أو",
+    request_under_review: "طلبك قيد المراجعة",
+    back_to_home: "العودة للصفحة الرئيسية",
+    no_price: "السعر حسب الاتفاق",
+    select_city: "اختر المدينة",
+    search_for_services: "ابحث عن خدمة...",
+    search: "بحث",
+    promotion: "{percentage}% خصم",
+    warranty: "ضمان لمدة {duration}",
+    all: "الكل",
+    wallet_balance: "رصيد المحفظة",
+    optional: "إختياري",
+    select_address: "حدد عنوان",
+    done: "تم",
+    loading: "جاري التحميل…",
+    order_now: "اطلب الآن",
+    send: "إرسال",
+    close: "إغلاق"
   },
   alt: {
-    category: 'قسم {category}',
-    service: 'خدمة {service}',
+    category: "قسم {category}",
+    service: "خدمة {service}"
   },
   home: {
     hero: {
-      title: 'تشييك الآن بالسعودية!',
+      title: "تشييك الآن بالسعودية!",
       subtitle: {
-        part_1: 'جينا',
-        part_2: 'نسهّل حياتـك',
-        part_3: 'كل خدمات بيتك في مكان واحد',
+        part_1: "جينا",
+        part_2: "نسهّل حياتـك",
+        part_3: "كل خدمات بيتك في مكان واحد"
       },
-      search_placeholder: 'وش تبي نصلح لك اليوم؟',
-      search_button: 'ابحث الآن',
-      rating_badge: '4.9 تقييم العملاء',
-      response_badge: 'استجابة خلال دقائق',
-      technicians_badge: '+500 فني معتمد',
-      highlight_1: 'فنيين معتمدين',
-      highlight_2: 'استجابة خلال دقائق',
-      description: 'نوفر لك خدمات صيانة منزلية متكاملة توصل لين باب بيتك بسرعة وسهولة.',
+      search_placeholder: "وش تبي نصلح لك اليوم؟",
+      search_button: "ابحث الآن",
+      rating_badge: "4.9 تقييم العملاء",
+      response_badge: "استجابة خلال دقائق",
+      technicians_badge: "+500 فني معتمد",
+      highlight_1: "فنيين معتمدين",
+      highlight_2: "استجابة خلال دقائق",
+      description: "نوفر لك خدمات صيانة منزلية متكاملة توصل لين باب بيتك بسرعة وسهولة.",
       actions: {
-        browse_categories: 'تصفح الأقسام',
-        request_custom_service: 'اطلب خدمة مخصصة',
-      },
+        browse_categories: "تصفح الأقسام",
+        request_custom_service: "اطلب خدمة مخصصة"
+      }
     },
     categories: {
-      title: 'كل اللي تحتاجه عندنا!',
-      action: 'عرض جميع الأقسام',
+      title: "الأقسام",
+      action: "عرض كل الأقسام",
+      huge_discounts: "تخفيضات قوية"
     },
     offers: {
-      title: 'عروض حصرية لفترة محدودة',
-      description: 'استفد من أفضل الخصومات على خدمات صيانة المنزل مع نخبة من الفنيين المحترفين.',
-      free_inspection: 'فحص مجاني',
-      discount_on_service: 'خصم {percentage}% على {name}',
-      free_inspection_for: 'فحص مجاني لـ {name}',
-      first_order_maintenance: 'صيانة الأجهزة المنزلية من أول طلب',
-      plumbing_saving: 'توفير السباكة',
+      title: "عروض حصرية لفترة محدودة",
+      description: "استفد من أفضل الخصومات على خدمات صيانة المنزل مع نخبة من الفنيين المحترفين.",
+      free_inspection: "فحص مجاني",
+      discount_on_service: "خصم {percentage}% على {name}",
+      free_inspection_for: "فحص مجاني لـ {name}",
+      first_order_maintenance: "صيانة الأجهزة المنزلية من أول طلب",
+      plumbing_saving: "توفير السباكة"
     },
     top_rated: {
-      title: 'الأعلى تقييماً',
+      title: "الأعلى تقييماً",
+      provider_1: {
+        name: "أحمد لخدمات المكيفات",
+        title: "أخصائي تكييف"
+      },
+      provider_2: {
+        name: "النجار للكهرباء",
+        title: "أخصائي كهربائي"
+      },
+      provider_3: {
+        name: "فريق صيانة الأجهزة",
+        title: "أخصائي صيانة الأجهزة المنزلية"
+      }
     },
     features: {
-      title: 'ليش يثق بنا آلاف العملاء؟',
-      subtitle: 'نفخر بثقة آلاف العملاء فينا، لأننا نحرص دايمًا نقدّم خدمة تعتمد عليها.',
-      feature_1: {
-        title: '+300',
-        description: 'خدمة منزلية',
+      title: "ليش تختار تشييك؟",
+      fast_support: {
+        title: "دعم فني سريع",
+        description: "فريق الدعم متاح على مدار الساعة للإجابة على استفساراتك وحل مشكلاتك."
       },
-      feature_2: {
-        title: '3,800+',
-        description: 'فني محترف',
+      clear_prices: {
+        title: "أسعار واضحة",
+        description: "لا توجد رسوم خفية، الأسعار محددة مسبقاً وتعرف تكلفتك قبل الحجز."
       },
-      feature_3: {
-        title: '632,000+',
-        description: 'خدمة منجزة',
+      trusted_techs: {
+        title: "فنيون موثوقون",
+        description: "جميع الفنيين يخضعون لفحص خلفية دقيق واختبارات مهارة احترافية."
       },
-      feature_4: {
-        title: '25+',
-        description: 'مدينة مغطاة',
+      instant_booking: {
+        title: "حجز فوري",
+        description: "بضعة نقرات فقط تفصلك عن وصول الفني لمنزلك في الوقت المحدد."
       },
-      feature_5: {
-        title: '4.8',
-        description: 'متوسط تقييم العملاء',
+      real_reviews: {
+        title: "تقييمات حقيقية",
+        description: "جميع التقييمات من عملاء حقيقيين قاموا بتجربة الخدمة بالفعل."
       },
-    },
-    features: {
-      title: 'ليش تختار تشييك؟',
-      fast_support: { title: 'دعم فني سريع', description: 'فريق الدعم متاح على مدار الساعة للإجابة على استفساراتك وحل مشكلاتك.' },
-      clear_prices: { title: 'أسعار واضحة', description: 'لا توجد رسوم خفية، الأسعار محددة مسبقاً وتعرف تكلفتك قبل الحجز.' },
-      trusted_techs: { title: 'فنيون موثوقون', description: 'جميع الفنيين يخضعون لفحص خلفية دقيق واختبارات مهارة احترافية.' },
-      instant_booking: { title: 'حجز فوري', description: 'بضعة نقرات فقط تفصلك عن وصول الفني لمنزلك في الوقت المحدد.' },
-      real_reviews: { title: 'تقييمات حقيقية', description: 'جميع التقييمات من عملاء حقيقيين قاموا بتجربة الخدمة بالفعل.' },
-      warranty: { title: 'ضمان على الخدمة', description: 'نقدم ضماناً يصل إلى 30 يوماً على جميع خدمات الصيانة المنفذة.' },
+      warranty: {
+        title: "ضمان على الخدمة",
+        description: "نقدم ضماناً يصل إلى 30 يوماً على جميع خدمات الصيانة المنفذة."
+      }
     },
     newsletter: {
-      title: 'لا تفوت أي عرض جديد!',
-      description: 'اشترك في نشرتنا البريدية لتصلك أحدث الخصومات والعروض الحصرية مباشرة على بريدك الإلكتروني.',
-      placeholder: 'بريدك الإلكتروني',
-      subscribe: 'اشترك',
+      title: "لا تفوت أي عرض جديد!",
+      description: "اشترك في نشرتنا البريدية لتصلك أحدث الخصومات والعروض الحصرية مباشرة على بريدك الإلكتروني.",
+      placeholder: "بريدك الإلكتروني",
+      subscribe: "اشترك"
     },
     collections: {
-      view_all: 'عرض جميع الخدمات',
-      season_badge: 'عرض الموسم',
+      view_all: "عرض جميع الخدمات",
+      season_badge: "عرض الموسم"
     },
     reviews: {
-      title: 'آراء عملائنا',
+      title: "آراء عملائنا",
       item_1: {
-        name: 'فهد العنزي',
-        body: 'تطبيق ممتاز والله! طلبت فني مكفات وجاني خلال ساعة، الشغل نظيف والسعر معقول جداً. انصح فيه بقوة 👍',
-        date: 'قبل أسبوع',
+        name: "فهد العنزي",
+        tag: "صيانة المكيفات",
+        body: "تطبيق ممتاز والله! طلبت فني مكيفات وجاني خلال ساعة، الشغل نظيف والسعر معقول جداً. انصح فيه بقوة 👍",
+        date: "قبل أسبوع"
       },
       item_2: {
-        name: 'سارة القحطاني',
-        body: 'تجربة رائعة! اتصلت لدعم الصيانة ووجدت ردود سريعة ومساعدة ممتازة. الخدمة كانت فوق المتوقع!',
-        date: 'قبل يومين',
+        name: "سارة القحطاني",
+        tag: "دعم الصيانة",
+        body: "تجربة رائعة! اتصلت لدعم الصيانة ووجدت ردود سريعة ومساعدة ممتازة. الخدمة كانت فوق المتوقع!",
+        date: "قبل يومين"
       },
       item_3: {
-        name: 'محمد السليماني',
-        body: 'تطبيق متميز، الفنيين محترفين وسريعين. قمت بإصلاح جهاز التكييف الخاص بي في أقل من ساعتين. أنصح الجميع بتجربته!',
-        date: 'قبل يوم',
+        name: "محمد السليماني",
+        tag: "صيانة الأجهزة",
+        body: "تطبيق متميز، الفنيين محترفين وسريعين. قمت بإصلاح جهاز التكييف الخاص بي في أقل من ساعتين. أنصح الجميع بتجربته!",
+        date: "قبل يوم"
       },
       item_4: {
-        name: 'نورة العتيبي',
-        body: 'خدمة رائعة، تواصلت لإصلاح تسرب المياه وجاءني الفني خلال ساعة، الأسعار واضحة ولا فيها تعقيد.',
-        date: 'قبل ثلاثة أيام',
-      },
+        name: "ناصر العتيبي",
+        tag: "صيانة كهرباء",
+        body: "الشغل كان احترافي والوقت مضبوط. الفني شرح لي المشكلة بوضوح وخلص الخدمة بسرعة مع الحفاظ على نظافة المكان. شكراً لكم!",
+        date: "قبل ثلاثة أيام"
+      }
     },
     questions: {
-      title: 'اسئلة ممكن تجي في بالك!',
-    },
+      title: "اسئلة ممكن تجي في بالك!"
+    }
   },
   download_app: {
-    title: 'كل خدمات بيتك.. في تطبيق واحد!',
-    subtitle: 'حمّل التطبيق واطلب الخدمة اللي تحتاجها في أي وقت وبكل راحة،كل شي من جوالك وبضغطة زر وحدة.',
-    get_it_on: 'احصل عليه من',
-    download_on_the: 'تنزيل من',
-    highlight_1: 'طلب الخدمة في ثواني',
-    highlight_2: 'دفع آمن ومضمون',
-    highlight_3: 'تتبع الفني لحظة بلحظة',
+    title_1: "كل خدمات بيتك الآن ..",
+    title_2: "في تطبيق واحد !",
+    highlight_1: "دفع آمن ومضمون",
+    highlight_2: "طلب الخدمة في ثواني",
+    highlight_3: "تتبع الفني لحظة بلحظة",
+    subtitle: "حمّل التطبيق واطلب الخدمة اللي تحتاجها في أي وقت وبكل راحة،كل شي من جوالك وبضغطة زر وحدة.",
+    get_it_on: "احصل عليه من",
+    download_on_the: "تنزيل من"
   },
   footer: {
-    copyright: 'جميع الحقوق محفوظة',
-    developed_by: 'تنفيذ',
-    developer: 'ترافيك بلس',
+    description_1: "احجز فني صيانة منزلية موثوقًا به في دقائق! نوفر أفضل الفنيين المعتمدين في المملكة العربية السعودية لخدمات الكهرباء والسباكة والنجارة والتكييف، بالإضافة إلى أكثر من ",
+    description_2: "300 خدمة أخرى.",
+    important_links: "روابط هامة",
+    privacy_policy: "سياسة الخصوصية",
+    terms_and_conditions: "الشروط والأحكام",
+    faq: "الأسئلة الشائعة",
+    contact_us_link: "اتصل بنا",
+    copyright: "جميع الحقوق محفوظة",
+    developed_by: "تنفيذ",
+    developer: "ترافيك بلس",
     contact_us: {
-      title: 'تواصل معنا',
-      support: 'خدمة العملاء متاح 24/7',
+      title: "تواصل معنا",
+      support: "خدمة العملاء متاح 24/7"
     },
-    resources: 'روابط مهمة',
-    download_app: 'حمل التطبيق',
-    saudi_business_center: 'موثّق في منصة الأعمال',
-    popular_services: 'خدمات شائعة',
-    popular_cities: 'مدن نخدمها',
-    see_all_services: 'كل الخدمات',
-    see_all_cities: 'كل المدن',
+    resources: "روابط مهمة",
+    download_app: "حمل التطبيق",
+    saudi_business_center: "موثّق في منصة الأعمال",
+    popular_services: "خدمات شائعة",
+    popular_cities: "مدن نخدمها",
+    see_all_services: "كل الخدمات",
+    see_all_cities: "كل المدن"
   },
   navigation: {
-    home: 'الرئيسية',
-    login: 'تسجيل الدخول',
-    register: 'انشاء حساب',
-    about: 'من نحن',
-    categories: 'الأقسام',
-    services: 'الخدمات',
-    download_app: 'حمل التطبيق',
-    contact: 'تواصل معنا',
-    articles: 'المقالات',
-    cities: 'المدن',
-    logout: 'تسجل الخروج',
-    privacy_policy: 'سياسة الخصوصية',
-    terms_and_conditions: 'الشروط والأحكام',
-    service_provider: 'سجل كمقدم خدمة',
+    home: "الرئيسية",
+    login: "تسجيل الدخول",
+    register: "انشاء حساب",
+    about: "من نحن",
+    categories: "الأقسام",
+    services: "الخدمات",
+    download_app: "حمل التطبيق",
+    contact: "تواصل معنا",
+    articles: "المقالات",
+    cities: "المدن",
+    logout: "تسجل الخروج",
+    privacy_policy: "سياسة الخصوصية",
+    terms_and_conditions: "الشروط والأحكام",
+    service_provider: "سجل كمقدم خدمة",
     profile: {
-      title: 'حسابي',
-      subtitle: 'ادارة معلوماتك الشخصية',
+      title: "حسابي",
+      subtitle: "ادارة معلوماتك الشخصية"
     },
     orders: {
-      title: 'طلباتي',
-      subtitle: 'تتبع طلباتك ومشترياتك',
+      title: "طلباتي",
+      subtitle: "تتبع طلباتك ومشترياتك"
     },
     addresses: {
-      title: 'عناويني',
-      subtitle: 'ادارة عناوينك المحفوظة',
+      title: "عناويني",
+      subtitle: "ادارة عناوينك المحفوظة"
     },
     institution_members: {
-      title: 'إدارة الموظفين',
-      subtitle: 'عرض وإدارة موظفين المؤسسة',
-    },
+      title: "إدارة الموظفين",
+      subtitle: "عرض وإدارة موظفين المؤسسة"
+    }
   },
   guest: {
     login: {
-      title: 'أهلاً وسهلاً فيك!',
-      subtitle: 'سجل دخولك واستكمل طلباتك بكل سهولة.',
-      forgot_password: 'هل نسيت كلمة المرور؟',
-      sign_in: 'تسجيل الدخول',
-      sign_up: 'إنشاء حساب جديد',
-      no_account: 'ليس لديك حساب؟',
+      title: "أهلاً وسهلاً فيك!",
+      subtitle: "سجل دخولك واستكمل طلباتك بكل سهولة.",
+      forgot_password: "هل نسيت كلمة المرور؟",
+      sign_in: "تسجيل الدخول",
+      sign_up: "إنشاء حساب جديد",
+      no_account: "ليس لديك حساب؟"
     },
     register: {
       customer: {
-        title: 'إنشاء حساب جديد',
-        subtitle: 'أنشئ حسابك واطلب الخدمة بكل سهولة.',
+        title: "إنشاء حساب جديد",
+        subtitle: "أنشئ حسابك واطلب الخدمة بكل سهولة."
       },
       service_provider: {
-        title: 'أنشئ حسابك الآن',
-        subtitle: 'سجل كفني وابدأ في استقبال طلبات الصيانة المنزلية الآن.',
+        title: "أنشئ حسابك الآن",
+        subtitle: "سجل كفني وابدأ في استقبال طلبات الصيانة المنزلية الآن.",
         applied: {
-          title: 'تم التسجيل بنجاح',
-          subtitle: 'طلب التسجيل الخاص بك قيد المراجعة حالياً.',
-        },
+          title: "تم التسجيل بنجاح",
+          subtitle: "طلب التسجيل الخاص بك قيد المراجعة حالياً."
+        }
       },
-      title: 'إنشاء حساب جديد',
-      create_account: 'إنشاء حساب',
-      have_account: 'هل لديك حساب بالفعل؟',
-      sign_in: 'تسجيل الدخول',
+      title: "إنشاء حساب جديد",
+      create_account: "إنشاء حساب",
+      have_account: "هل لديك حساب بالفعل؟",
+      sign_in: "تسجيل الدخول"
     },
     forgot_password: {
-      title: 'نسيت كلمة المرور؟',
-      subtitle: 'أدخل بريدك الإلكتروني وسنرسل لك رمز التحقق.',
-      send_otp: 'إرسال رمز التحقق',
-      otp_subtitle: 'أدخل رمز التحقق المرسل إلى بريدك الإلكتروني.',
-      otp_label: 'رمز التحقق',
-      verify_otp: 'تأكيد الرمز',
-      resend_otp: 'إعادة إرسال الرمز',
-      success_message: 'تم إرسال رمز التحقق إلى بريدك الإلكتروني.',
-      back_to_login: 'العودة لتسجيل الدخول',
+      title: "نسيت كلمة المرور؟",
+      subtitle: "أدخل بريدك الإلكتروني وسنرسل لك رمز التحقق.",
+      send_otp: "إرسال رمز التحقق",
+      otp_subtitle: "أدخل رمز التحقق المرسل إلى بريدك الإلكتروني.",
+      otp_label: "رمز التحقق",
+      verify_otp: "تأكيد الرمز",
+      resend_otp: "إعادة إرسال الرمز",
+      success_message: "تم إرسال رمز التحقق إلى بريدك الإلكتروني.",
+      back_to_login: "العودة لتسجيل الدخول"
     },
     reset_password: {
-      title: 'إعادة تعيين كلمة المرور',
-      subtitle: 'أدخل كلمة المرور الجديدة.',
-      reset_button: 'إعادة تعيين كلمة المرور',
-      success_message: 'تم إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة.',
-    },
+      title: "إعادة تعيين كلمة المرور",
+      subtitle: "أدخل كلمة المرور الجديدة.",
+      reset_button: "إعادة تعيين كلمة المرور",
+      success_message: "تم إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة."
+    }
   },
   inputs: {
-    email: 'البريد الإلكتروني',
-    email_optional: 'البريد الإلكتروني (اختياري)',
-    name: 'وش اسمك؟',
-    phone: 'رقم الجوال',
-    password: 'كلمة المرور',
-    current_password: 'كلمة المرور الحالية',
-    new_password: 'كلمة المرور الجديدة',
-    password_confirmation: 'تأكيد كلمة المرور',
-    remember_me: 'تذكرني',
-    city: 'وين ساكن؟',
-    entity_type: 'نوع الحساب',
-    categories: 'الاقسام',
-    residence_name: 'الاسم في الاقامة',
-    residence_number: 'رقم الاقامة',
-    residence_image: 'صورة الاقامة',
-    commercial_registration_number: 'رقم السجل التجاري',
-    commercial_registration_image: 'صورة السجل التجاري',
-    bank_name: 'إسم البنك',
-    iban: 'رقم IBAN',
-    personal_picture: 'الصورة الشخصية',
-    national_address_image: 'صورة العنوان الوطني',
-    tax_registration_number: 'رقم التسجيل الضريبي',
+    email: "البريد الإلكتروني",
+    email_optional: "البريد الإلكتروني (اختياري)",
+    name: "وش اسمك؟",
+    phone: "رقم الجوال",
+    password: "كلمة المرور",
+    current_password: "كلمة المرور الحالية",
+    new_password: "كلمة المرور الجديدة",
+    password_confirmation: "تأكيد كلمة المرور",
+    remember_me: "تذكرني",
+    city: "وين ساكن؟",
+    entity_type: "نوع الحساب",
+    categories: "الاقسام",
+    residence_name: "الاسم في الاقامة",
+    residence_number: "رقم الاقامة",
+    residence_image: "صورة الاقامة",
+    commercial_registration_number: "رقم السجل التجاري",
+    commercial_registration_image: "صورة السجل التجاري",
+    bank_name: "إسم البنك",
+    iban: "رقم IBAN",
+    personal_picture: "الصورة الشخصية",
+    national_address_image: "صورة العنوان الوطني",
+    tax_registration_number: "رقم التسجيل الضريبي",
     address: {
-      title: 'العنوان',
-      placeholder: 'مثلا: شارع رياض الصالحين المنصورة, الرياض',
+      title: "العنوان",
+      placeholder: "مثلا: شارع رياض الصالحين المنصورة, الرياض"
     },
     type_address_name: {
-      title: 'اكتب إسم العنوان',
-      placeholder: 'مثلا: المنزل الجديد',
+      title: "اكتب إسم العنوان",
+      placeholder: "مثلا: المنزل الجديد"
     },
     landmark: {
-      title: 'علامة مميزة قريبة منك',
-      placeholder: 'مثلا: بجوار محطة البنزين',
+      title: "علامة مميزة قريبة منك",
+      placeholder: "مثلا: بجوار محطة البنزين"
     },
-    address_name: 'اسم العنوان',
-    building_number: 'رقم المبنى',
-    floor_number: 'رقم الدور',
-    apartment_number: 'رقم الشقة',
+    address_name: "اسم العنوان",
+    building_number: "رقم المبنى",
+    floor_number: "رقم الدور",
+    apartment_number: "رقم الشقة"
   },
   services: {
-    index_eyebrow: 'كل الخدمات',
-    index_title: 'اعثر على خدمة الصيانة المناسبة',
-    index_subtitle: 'ابحث في خدمات تشييك، وصف حسب التخصص، واحجز فني معتمد بدون الحاجة للدخول على الأقسام أولاً.',
-    index_support_title: 'تحتاج مساعدة في اختيار الخدمة؟',
-    index_search_label: 'ابحث في الخدمات',
-    index_search_placeholder: 'وش تبي نصلح لك اليوم؟',
-    index_filter_by_category: 'تصفية حسب القسم',
-    index_result_count: 'عرض {count} من {total} خدمة',
-    index_clear_filters: 'مسح الفلاتر',
+    index_eyebrow: "كل الخدمات",
+    index_title: "اعثر على خدمة الصيانة المناسبة",
+    index_subtitle: "ابحث في خدمات تشييك، وصف حسب التخصص، واحجز فني معتمد بدون الحاجة للدخول على الأقسام أولاً.",
+    index_support_title: "تحتاج مساعدة في اختيار الخدمة؟",
+    index_search_label: "ابحث في الخدمات",
+    index_search_placeholder: "وش تبي نصلح لك اليوم؟",
+    index_filter_by_category: "تصفية حسب القسم",
+    index_result_count: "عرض {count} من {total} خدمة",
+    index_clear_filters: "مسح الفلاتر",
     empty: {
-      title: 'لم يتم العثور علي خدمات',
-      subtitle: 'جرب تغيير القسم او كلمات البحث لعرض المزيد من الخدمات',
+      title: "لم يتم العثور علي خدمات",
+      subtitle: "جرب تغيير القسم او كلمات البحث لعرض المزيد من الخدمات"
     },
     invoice: {
-      title: 'عرض الفاتورة',
-      service: 'الخدمة',
-      service_price: 'سعر الخدمة',
-      visit_cost: 'تكلفة الزيارة',
-      subtotal: 'الإجمالي الفرعي',
-      tax: 'الضريبة',
-      wallet_balance: 'رصيد المحفظة',
-      total: 'الإجمالي',
-      pay: 'دفع',
-      request: 'اطلب الخدمة',
+      title: "عرض الفاتورة",
+      service: "الخدمة",
+      service_price: "سعر الخدمة",
+      visit_cost: "تكلفة الزيارة",
+      subtotal: "الإجمالي الفرعي",
+      tax: "الضريبة",
+      wallet_balance: "رصيد المحفظة",
+      total: "الإجمالي",
+      pay: "دفع",
+      request: "اطلب الخدمة"
     },
     custom_service: {
-      title: 'مو متأكد من الخدمة المناسبة؟',
-      subtitle: 'ما لقيت الخدمة اللي تبيها بالضبط؟ لا تشيل هم! وصف لنا المشكلة وراح يوصلك عروض أسعار من فنيين مختصين',
-      action: 'طلب خدمة مخصصة',
-    },
+      title: "مو متأكد من الخدمة المناسبة؟",
+      subtitle: "ما لقيت الخدمة اللي تبيها بالضبط؟ لا تشيل هم! وصف لنا المشكلة وراح يوصلك عروض أسعار من فنيين مختصين",
+      action: "طلب خدمة مخصصة"
+    }
   },
   orders: {
-    name: 'طلباتي',
+    name: "طلباتي",
     navigation: {
-      new: 'الجديدة',
-      in_progress: 'قيد التنفيذ',
-      completed: 'المكتملة',
+      new: "الجديدة",
+      in_progress: "قيد التنفيذ",
+      completed: "المكتملة"
     },
     empty: {
-      title: 'لا يوجد طلبات',
-      subtitle: 'لم يتم العثور علي اي طلب',
-      view_services: 'اطلب خدمة الآن',
+      title: "لا يوجد طلبات",
+      subtitle: "لم يتم العثور علي اي طلب",
+      view_services: "اطلب خدمة الآن"
     },
     make: {
-      title: 'طلب الخدمة',
-      address: 'عنوان طلب الخدمة',
+      title: "طلب الخدمة",
+      address: "عنوان طلب الخدمة",
       details: {
-        title: 'تفاصيل الخدمة',
-        description: 'وصف المشكلة...',
+        title: "تفاصيل الخدمة",
+        description: "وصف المشكلة..."
       },
       coupons: {
-        title: 'لديك كود خصم؟',
-        placeholder: 'أدخل كود الخصم',
-        apply: 'تطبيق',
+        title: "لديك كود خصم؟",
+        placeholder: "أدخل كود الخصم",
+        apply: "تطبيق"
       },
       summary: {
-        title: 'ملخص الطلب',
-      },
-    },
+        title: "ملخص الطلب"
+      }
+    }
   },
   notifications: {
-    title: 'الإشعارات',
-    no_notifications: 'لا يوجد إشعارات',
+    title: "الإشعارات",
+    no_notifications: "لا يوجد إشعارات"
   },
   addresses: {
-    title: 'عناويني',
+    title: "عناويني",
     heading: {
-      title: 'عناويني المحفوظة',
-      subtitle: 'ادارة العناوين المسجلة أو اضافة عناوين جديدة لطلب خدمات الصيانة المنزلية بسرعة',
-      action: 'أضف عنوان جديد',
+      title: "عناويني المحفوظة",
+      subtitle: "ادارة العناوين المسجلة أو اضافة عناوين جديدة لطلب خدمات الصيانة المنزلية بسرعة",
+      action: "أضف عنوان جديد"
     },
     new: {
-      title: 'أضف عنواناً جديداً',
-      subtitle: 'اضبط موقعك على الخريطة وسهّل وصول الفني',
+      title: "أضف عنواناً جديداً",
+      subtitle: "اضبط موقعك على الخريطة وسهّل وصول الفني"
     },
     create: {
-      title: 'اضافة عنوان',
+      title: "اضافة عنوان",
       heading: {
-        title: 'اضافة عنوان جديد',
-        subtitle: 'يرجى تحديد الموقع الخاص بك على الخريطة واستكمال البيانات',
+        title: "اضافة عنوان جديد",
+        subtitle: "يرجى تحديد الموقع الخاص بك على الخريطة واستكمال البيانات"
       },
-      save: 'تأكيد حفظ العنوان',
+      save: "تأكيد حفظ العنوان"
     },
     edit: {
-      title: 'تعديل عنوان',
+      title: "تعديل عنوان",
       heading: {
-        title: 'تعديل عنوان',
-        subtitle: 'يرجى تحديد الموقع الخاص بك على الخريطة واستكمال البيانات',
+        title: "تعديل عنوان",
+        subtitle: "يرجى تحديد الموقع الخاص بك على الخريطة واستكمال البيانات"
       },
-      save: 'تحديث العنوان',
+      save: "تحديث العنوان"
     },
     form: {
-      title: 'تفاصيل عنوانك',
+      title: "تفاصيل عنوانك",
       options: {
-        home: 'البيت',
-        work: 'العمل',
-        other: 'مكان ثاني',
-      },
-    },
+        home: "البيت",
+        work: "العمل",
+        other: "مكان ثاني"
+      }
+    }
   },
   address: {
-    details: 'مبنى {building_number}, شقة {apartment_number}, الدور {floor_number}',
-    mark_as_default: 'تعيين كعنوان افتراضي',
+    details: "مبنى {building_number}, شقة {apartment_number}, الدور {floor_number}",
+    mark_as_default: "تعيين كعنوان افتراضي"
   },
   profile: {
-    name: 'الملف الشخصي',
+    name: "الملف الشخصي",
     header: {
-      title: 'إعدادات الملف الشخصي',
-      subtitle: 'قم بتغيير إعدادات ملفك الشخصي وصورة ملفك الشخصي وكلمة المرور.',
+      title: "إعدادات الملف الشخصي",
+      subtitle: "قم بتغيير إعدادات ملفك الشخصي وصورة ملفك الشخصي وكلمة المرور."
     },
-    information: 'معلومات الملف الشخصي',
-    linked_institution: 'تابع لـ',
-    update_password: 'تحديث كلمة المرور',
-    delete_account: 'حذف الحساب',
+    information: "معلومات الملف الشخصي",
+    linked_institution: "تابع لـ",
+    update_password: "تحديث كلمة المرور",
+    delete_account: "حذف الحساب"
   },
   service_provider: {
     h1: {
-      title: 'سجل معنا كفني مكيفات، كهرباء، سباكة والمزيد',
-      description: 'هل لديك مهارة في مجال الخدمات المنزلية وتبحث عن وسيلة سهلة للوصول إلى العملاء؟ انضم إلينا وابدأ في تقديم خدماتك بثقة واحترافية عبر منصتنا المتخصصة.',
+      title: "سجل معنا كفني مكيفات، كهرباء، سباكة والمزيد",
+      description: "هل لديك مهارة في مجال الخدمات المنزلية وتبحث عن وسيلة سهلة للوصول إلى العملاء؟ انضم إلينا وابدأ في تقديم خدماتك بثقة واحترافية عبر منصتنا المتخصصة."
     },
     h2: {
-      title: 'قدم خدماتك الآن',
-      description: 'نرحب بجميع الفنيين ومقدمي الخدمات المنزلية في المجالات التالية:',
-      items: ['المكيفات (تركيب – صيانة – تنظيف)', 'الكهرباء (تمديدات – إصلاح – تركيب أجهزة)', 'السباكة (صيانة – كشف تسربات – تمديدات)', 'الأجهزة المنزلية (غسالات – ثلاجات – أفران – ميكروويف)', 'النجارة (أبواب – أثاث – غرف نوم – تفصيل)', 'الدهانات (دهانات داخلية وخارجية – ورق جدران)', 'الستالايت (تركيب – برمجة – صيانة)', 'غسيل المنازل (تنظيف شامل – واجهات – سجاد)', 'مكافحة الحشرات (مبيدات آمنة وفعّالة)', 'المساعدة المنزلية (تنظيف وترتيب ودعم يومي للأسر)'],
+      title: "قدم خدماتك الآن",
+      description: "نرحب بجميع الفنيين ومقدمي الخدمات المنزلية في المجالات التالية:",
+      items: [
+        "المكيفات (تركيب – صيانة – تنظيف)",
+        "الكهرباء (تمديدات – إصلاح – تركيب أجهزة)",
+        "السباكة (صيانة – كشف تسربات – تمديدات)",
+        "الأجهزة المنزلية (غسالات – ثلاجات – أفران – ميكروويف)",
+        "النجارة (أبواب – أثاث – غرف نوم – تفصيل)",
+        "الدهانات (دهانات داخلية وخارجية – ورق جدران)",
+        "الستالايت (تركيب – برمجة – صيانة)",
+        "غسيل المنازل (تنظيف شامل – واجهات – سجاد)",
+        "مكافحة الحشرات (مبيدات آمنة وفعّالة)",
+        "المساعدة المنزلية (تنظيف وترتيب ودعم يومي للأسر)"
+      ]
     },
-    button: 'سجل الآن',
+    button: "سجل الآن"
   },
   categories: {
-    title: 'كل خدمات الصيانة اللي يحتاجها بيتك',
-    subtitle: 'اختر الخدمة المناسبة واحجز فني معتمد بسهولة وفي أي وقت.',
+    title: "كل خدمات الصيانة اللي يحتاجها بيتك",
+    subtitle: "اختر الخدمة المناسبة واحجز فني معتمد بسهولة وفي أي وقت.",
     banner: {
-      title: 'جاهز تبدأ بتجربتك مع تشييك؟',
-      subtitle: 'حمّل تطبيق تشييك الآن واحصل على أول خدمة صيانة بكل سهولة واحترافية',
-    },
+      title: "جاهز تبدأ بتجربتك مع تشييك؟",
+      subtitle: "حمّل تطبيق تشييك الآن واحصل على أول خدمة صيانة بكل سهولة واحترافية"
+    }
   },
   cities: {
-    hero_title: 'صيانة منزلية موثوقة في {city}',
-    hero_h1_maintenance: 'خدمات الصيانة في {city}',
-    hero_compact_subtitle: 'فنّيون معتمدون لتكييفك وكهرباءك وسباكة منزلك — احجز بسرعة وبجودة موثوقة.',
-    hero_subtitle:
-      'احجز فنيين معتمدين للتكييف والكهرباء والسباكة والأجهزة المنزلية والمزيد — باستجابة سريعة وجودة مضمونة.',
-    browse_services: 'تصفح الخدمات',
-    schema_description: 'تغطية تشييك لخدمات الصيانة المنزلية في {city}، المملكة العربية السعودية.',
-    popular_services: 'خدمات مميزة في المدينة',
-    available_in: 'متوفر في',
-    index_title: 'المدن التي نخدمها',
-    index_subtitle: 'اختر مدينتك لعرض خدمات الصيانة المنزلية المميزة وحجز فني معتمد.',
-    service_links_truncated:
-      'يظهر هنا {shown} من أصل {total} خدمة مميزة في هذه القائمة. تصفّح جميع الأقسام لعرض الكتالوج الكامل.',
-    view_city_hub: 'كل الخدمات في {city}',
-    browse_by_city: 'تصفح حسب المدينة',
-    services_heading: 'الخدمات في {city}',
-    services_search_label: 'ابحث عن خدمة',
-    services_search_placeholder: 'وش تبي نصلح لك اليوم؟',
-    city_search_result_count: 'عرض {filtered} نتيجة من أصل {total}',
-    city_search_no_results_for: 'لا توجد نتائج لـ «{q}»',
-    city_categories_filter_aria: 'تصفية الخدمات حسب القسم',
-    districts_heading: 'أحياء {city}',
-    districts_intro: 'نخدمك في أبرز أحياء {city} مع وقت وصول قياسي.',
-    services_results_range: 'عرض {from}–{to} من {total}',
-    services_no_results: 'لا توجد خدمات مطابقة لبحثك.',
-    services_none_in_city: 'لا توجد خدمات مدرجة لهذه المدينة بعد.',
-    pagination_label: 'صفحات نتائج الخدمات',
-    pagination_prev: 'السابق',
-    pagination_next: 'التالي',
-    hero_cta_app: 'حمّل التطبيق',
-    hero_cta_call: 'اتصل بنا',
-    price_currency: 'ر.س',
-    index_browse_categories: 'تصفح كل الأقسام',
-    index_filter_placeholder: 'تصفية المدن…',
-    index_card_subtitle: 'خدمات صيانة منزلية',
-    index_secondary_hint: 'تفضّل تصفح نوع الخدمة بدل المدينة؟',
-    index_filter_no_match: 'لا توجد مدن مطابقة للتصفية.',
-    service_in_city_cta_order: 'اطلب هذه الخدمة',
-    service_in_city_cta_order_now: 'اطلب هذه الخدمة الآن',
-    service_in_city_whatsapp_cta: 'تواصل معنا على واتساب',
-    service_in_city_trust_secure_pay: 'دفع آمن ومضمون',
-    service_in_city_certified_badge: 'فني معتمد',
-    service_in_city_rating_line: '⭐ تقييم {rating} من 5',
-    service_in_city_rating_with_orders: '⭐ {rating} ({orders}+ طلب)',
-    service_in_city_social_hint: 'تجارب عملاء موثّقة عبر التطبيق والموقع',
-    service_in_city_includes_title: 'ماذا تشمل الخدمة؟',
-    service_in_city_local_overview: 'نظرة محلية على {city}',
-    service_in_city_how_title: 'كيف تعمل؟',
-    service_in_city_how_step1: 'احجز',
-    service_in_city_how_step1_desc: 'اختر الخدمة والموعد المناسب من التطبيق أو الموقع.',
-    service_in_city_how_step2: 'يصلك الفني',
-    service_in_city_how_step2_desc: 'يتم إرسال فني معتمد إلى عنوانك في الوقت المتفق عليه.',
-    service_in_city_how_step3: 'استمتع بالضمان',
-    service_in_city_how_step3_desc: 'نكمل العمل بمعايير الجودة مع ضمان يحميك بعد الخدمة.',
-    service_in_city_why_title: 'لماذا تشيك؟',
-    service_in_city_why_1_title: 'فنّيون معتمدون',
-    service_in_city_why_1_desc: 'نختار الفنيين بعناية ونتابع جودة الخدمة.',
-    service_in_city_why_2_title: 'دفع آمن',
-    service_in_city_why_2_desc: 'خيارات دفع موثوقة مع تبوي وتامارا حيث ينطبق.',
-    service_in_city_why_3_title: 'ضمان على الخدمة',
-    service_in_city_why_3_desc: 'نوضح مدة الضمان بوضوح قبل إتمام الطلب.',
-    service_in_city_why_4_title: 'دعم متابعة',
-    service_in_city_why_4_desc: 'فريق جاهز لمتابعة طلبك حتى الإغلاق.',
-    service_in_city_reviews_title: 'تقييمات العملاء',
-    service_in_city_rev1_name: 'محمد العتيبي',
-    service_in_city_rev1_text: 'تجربة ممتازة، الفني وصل في الموعد والشغل نظيف ومرتب.',
-    service_in_city_rev2_name: 'نورة السبيعي',
-    service_in_city_rev2_text: 'السعر واضح من البداية والتنسيق سهل عبر التطبيق.',
-    service_in_city_rev3_name: 'خالد المطيري',
-    service_in_city_rev3_text: 'خدمة احترافية، أنصح بالتعامل مع تشيك لصيانة المنزل.',
-    service_in_city_default_bullet1: 'زيارة فنية وفحص المشكلة على الطبيعة.',
-    service_in_city_default_bullet2: 'تنفيذ الإصلاح أو الصيانة وفق معايير السلامة.',
-    service_in_city_default_bullet3: 'تسليم العمل مع توضيح أي ملاحظات أو ضمان.',
-    service_in_city_related_title: 'خدمات أخرى في {city}',
-    service_in_city_sidebar_summary: 'الخدمة والموقع',
-    service_in_city_price_label: 'يبدأ من',
+    hero_title: "صيانة منزلية موثوقة في {city}",
+    hero_h1_maintenance: "خدمات الصيانة في {city}",
+    hero_compact_subtitle: "فنّيون معتمدون لتكييفك وكهرباءك وسباكة منزلك — احجز بسرعة وبجودة موثوقة.",
+    hero_subtitle: "احجز فنيين معتمدين للتكييف والكهرباء والسباكة والأجهزة المنزلية والمزيد — باستجابة سريعة وجودة مضمونة.",
+    browse_services: "تصفح الخدمات",
+    schema_description: "تغطية تشييك لخدمات الصيانة المنزلية في {city}، المملكة العربية السعودية.",
+    popular_services: "خدمات مميزة في المدينة",
+    available_in: "متوفر في",
+    index_title: "المدن التي نخدمها",
+    index_subtitle: "اختر مدينتك لعرض خدمات الصيانة المنزلية المميزة وحجز فني معتمد.",
+    service_links_truncated: "يظهر هنا {shown} من أصل {total} خدمة مميزة في هذه القائمة. تصفّح جميع الأقسام لعرض الكتالوج الكامل.",
+    view_city_hub: "كل الخدمات في {city}",
+    browse_by_city: "تصفح حسب المدينة",
+    services_heading: "الخدمات في {city}",
+    services_search_label: "ابحث عن خدمة",
+    services_search_placeholder: "وش تبي نصلح لك اليوم؟",
+    city_search_result_count: "عرض {filtered} نتيجة من أصل {total}",
+    city_search_no_results_for: "لا توجد نتائج لـ «{q}»",
+    city_categories_filter_aria: "تصفية الخدمات حسب القسم",
+    districts_heading: "أحياء {city}",
+    districts_intro: "نخدمك في أبرز أحياء {city} مع وقت وصول قياسي.",
+    services_results_range: "عرض {from}–{to} من {total}",
+    services_no_results: "لا توجد خدمات مطابقة لبحثك.",
+    services_none_in_city: "لا توجد خدمات مدرجة لهذه المدينة بعد.",
+    pagination_label: "صفحات نتائج الخدمات",
+    pagination_prev: "السابق",
+    pagination_next: "التالي",
+    hero_cta_app: "حمّل التطبيق",
+    hero_cta_call: "اتصل بنا",
+    price_currency: "ر.س",
+    index_browse_categories: "تصفح كل الأقسام",
+    index_filter_placeholder: "تصفية المدن…",
+    index_card_subtitle: "خدمات صيانة منزلية",
+    index_secondary_hint: "تفضّل تصفح نوع الخدمة بدل المدينة؟",
+    index_filter_no_match: "لا توجد مدن مطابقة للتصفية.",
+    service_in_city_cta_order: "اطلب هذه الخدمة",
+    service_in_city_cta_order_now: "اطلب هذه الخدمة الآن",
+    service_in_city_whatsapp_cta: "تواصل معنا على واتساب",
+    service_in_city_trust_secure_pay: "دفع آمن ومضمون",
+    service_in_city_certified_badge: "فني معتمد",
+    service_in_city_rating_line: "⭐ تقييم {rating} من 5",
+    service_in_city_rating_with_orders: "⭐ {rating} ({orders}+ طلب)",
+    service_in_city_social_hint: "تجارب عملاء موثّقة عبر التطبيق والموقع",
+    service_in_city_includes_title: "ماذا تشمل الخدمة؟",
+    service_in_city_local_overview: "نظرة محلية على {city}",
+    service_in_city_how_title: "كيف تعمل؟",
+    service_in_city_how_step1: "احجز",
+    service_in_city_how_step1_desc: "اختر الخدمة والموعد المناسب من التطبيق أو الموقع.",
+    service_in_city_how_step2: "يصلك الفني",
+    service_in_city_how_step2_desc: "يتم إرسال فني معتمد إلى عنوانك في الوقت المتفق عليه.",
+    service_in_city_how_step3: "استمتع بالضمان",
+    service_in_city_how_step3_desc: "نكمل العمل بمعايير الجودة مع ضمان يحميك بعد الخدمة.",
+    service_in_city_why_title: "لماذا تشيك؟",
+    service_in_city_why_1_title: "فنّيون معتمدون",
+    service_in_city_why_1_desc: "نختار الفنيين بعناية ونتابع جودة الخدمة.",
+    service_in_city_why_2_title: "دفع آمن",
+    service_in_city_why_2_desc: "خيارات دفع موثوقة مع تبوي وتامارا حيث ينطبق.",
+    service_in_city_why_3_title: "ضمان على الخدمة",
+    service_in_city_why_3_desc: "نوضح مدة الضمان بوضوح قبل إتمام الطلب.",
+    service_in_city_why_4_title: "دعم متابعة",
+    service_in_city_why_4_desc: "فريق جاهز لمتابعة طلبك حتى الإغلاق.",
+    service_in_city_reviews_title: "تقييمات العملاء",
+    service_in_city_rev1_name: "محمد العتيبي",
+    service_in_city_rev1_text: "تجربة ممتازة، الفني وصل في الموعد والشغل نظيف ومرتب.",
+    service_in_city_rev2_name: "نورة السبيعي",
+    service_in_city_rev2_text: "السعر واضح من البداية والتنسيق سهل عبر التطبيق.",
+    service_in_city_rev3_name: "خالد المطيري",
+    service_in_city_rev3_text: "خدمة احترافية، أنصح بالتعامل مع تشيك لصيانة المنزل.",
+    service_in_city_default_bullet1: "زيارة فنية وفحص المشكلة على الطبيعة.",
+    service_in_city_default_bullet2: "تنفيذ الإصلاح أو الصيانة وفق معايير السلامة.",
+    service_in_city_default_bullet3: "تسليم العمل مع توضيح أي ملاحظات أو ضمان.",
+    service_in_city_related_title: "خدمات أخرى في {city}",
+    service_in_city_sidebar_summary: "الخدمة والموقع",
+    service_in_city_price_label: "يبدأ من"
   },
   service: {
-    order_service: 'اطلب الخدمة الحين',
+    order_service: "اطلب الخدمة الحين",
     actions: {
-      order_now: 'أطلب الحين!',
-      view_details: 'عرض التفاصيل',
+      order_now: "أطلب الحين!",
+      view_details: "عرض التفاصيل"
     },
-    highlight_1: 'فنيين معتمدين ومتخصيين',
-    highlight_2: 'دفع آمن',
-    highlight_3: 'فنيين معتمدين ومتخصيين',
+    highlight_1: "فنيين معتمدين ومتخصيين",
+    highlight_2: "دفع آمن",
+    highlight_3: "فنيين معتمدين ومتخصيين",
     highlights: {
-      title: 'وش راح نسويه لك؟',
-    },
+      title: "وش راح نسويه لك؟"
+    }
   },
   order: {
-    id: 'رقم الطلب',
-    title: 'تفاصيل الطلب',
+    id: "رقم الطلب",
+    title: "تفاصيل الطلب",
     actions: {
-      view_details: 'عرض تفاصيل الطلب',
-      rate: 'قيم تجربتك',
-      order_again: 'اطلب الخدمة مرة ثانية',
+      view_details: "عرض تفاصيل الطلب",
+      rate: "قيم تجربتك",
+      order_again: "اطلب الخدمة مرة ثانية",
       cancel: {
-        title: 'الغاء واسترداد المبلغ',
-        description: 'بجب الإنتظار 15 دقيقة لتتمكن من إلغاء الطلب',
-      },
+        title: "الغاء واسترداد المبلغ",
+        description: "بجب الإنتظار 15 دقيقة لتتمكن من إلغاء الطلب"
+      }
     },
     summary: {
-      title: 'ملخص الطلب',
-      service: 'الخدمة',
-      quantity: 'الكمية',
-      date: 'تاريخ الطلب',
-      status: 'الحالة',
-      description: 'وصف المشكلة',
-      visit_cost: 'تكلفة الزيارة',
-      subtotal: 'الإجمالي الفرعي',
-      tax: 'الضريبة ({rate}%)',
-      wallet_balance: 'رصيد المحفظة',
-      total: 'المبلغ المطلوب',
-      pay: 'ادفع الآن',
-      confirm: 'تأكيد',
+      title: "ملخص الطلب",
+      service: "الخدمة",
+      quantity: "الكمية",
+      date: "تاريخ الطلب",
+      status: "الحالة",
+      description: "وصف المشكلة",
+      visit_cost: "تكلفة الزيارة",
+      subtotal: "الإجمالي الفرعي",
+      tax: "الضريبة ({rate}%)",
+      wallet_balance: "رصيد المحفظة",
+      total: "المبلغ المطلوب",
+      pay: "ادفع الآن",
+      confirm: "تأكيد"
     },
     status: {
-      title: 'حالة الطلب',
-      new: 'يتم العرض علي الفنيين',
-      confirmed: 'تم التأكيد',
-      on_the_way: 'الفني في الطريق',
-      arrived: 'الفني وصل',
-      started: 'جاري العمل',
-      completed: 'اكتمل',
+      title: "حالة الطلب",
+      new: "يتم العرض علي الفنيين",
+      confirmed: "تم التأكيد",
+      on_the_way: "الفني في الطريق",
+      arrived: "الفني وصل",
+      started: "جاري العمل",
+      completed: "اكتمل"
     },
     service_provider: {
-      title: 'الفني',
-      phone: 'جوال',
+      title: "الفني",
+      phone: "جوال",
       actions: {
-        view_on_map: 'عرض علي الخريطة',
-        call: 'أتصل بالفني',
-        whatsapp: 'راسله واتساب',
-      },
+        view_on_map: "عرض علي الخريطة",
+        call: "أتصل بالفني",
+        whatsapp: "راسله واتساب"
+      }
     },
     invoice: {
-      title: 'تفاصيل الفاتورة',
-      price: 'سعر الخدمة',
-      tax: 'الضريبة المضافة ({rate}%)',
-      total: 'الإجمالي',
-      view_details: 'عرض التفاصيل',
-      hide_details: 'إخفاء التفاصيل',
-      visit_cost: 'تكلفة الزيارة',
-      coupons: 'اكواد الخصم',
-      wallet_balance: 'رصيد المحفظة',
+      title: "تفاصيل الفاتورة",
+      price: "سعر الخدمة",
+      tax: "الضريبة المضافة ({rate}%)",
+      total: "الإجمالي",
+      view_details: "عرض التفاصيل",
+      hide_details: "إخفاء التفاصيل",
+      visit_cost: "تكلفة الزيارة",
+      coupons: "اكواد الخصم",
+      wallet_balance: "رصيد المحفظة"
     },
     canceled: {
-      title: 'تم إلغاء الطلب',
-      subtitle: 'تم اضافة المبلغ لرصيدك في المحفظة',
+      title: "تم إلغاء الطلب",
+      subtitle: "تم اضافة المبلغ لرصيدك في المحفظة"
     },
     extra: {
-      title: 'خدمات اضافية',
-      unpaid: 'غير مدفوع',
-      paid: 'تم الدفع',
-      view_details: 'عرض التفاصيل',
+      title: "خدمات اضافية",
+      unpaid: "غير مدفوع",
+      paid: "تم الدفع",
+      view_details: "عرض التفاصيل",
       invoice: {
-        title: 'تفاصيل الخدمة المضافة',
-        price: 'سعر الخدمة المضافة',
-        tax: 'ضريبة الخدمة المضافة',
-        materials: 'سعر المواد',
-      },
-    },
+        title: "تفاصيل الخدمة المضافة",
+        price: "سعر الخدمة المضافة",
+        tax: "ضريبة الخدمة المضافة",
+        materials: "سعر المواد"
+      }
+    }
   },
   review: {
-    title: 'تقييم الخدمة',
-    price: 'التكلفة',
-    rate: 'كيف كانت تجربتك الإجمالية؟',
-    notes: 'اكتب ملاحظاتك (اختياري)',
-    notes_placeholder: 'اكتب ملاحظاتك أو اقتراحاتك هنا...',
+    title: "تقييم الخدمة",
+    price: "التكلفة",
+    rate: "كيف كانت تجربتك الإجمالية؟",
+    notes: "اكتب ملاحظاتك (اختياري)",
+    notes_placeholder: "اكتب ملاحظاتك أو اقتراحاتك هنا...",
     actions: {
-      send: 'ارسل التقييم',
-      skip: 'تخطي',
-    },
+      send: "ارسل التقييم",
+      skip: "تخطي"
+    }
   },
   about: {
     hero: {
-      title: 'تشييك – نخدمك بكل احترافية',
-      description: 'منصة سعودية متخصصة في ربطك بفنيين معتمدين لجميع خدمات الصيانة المنزلية، بسرعة، أمان، وسهولة. هدفنا نريح بالك ونضمن جودة تليق ببيتك.',
+      title: "تشييك – نخدمك بكل احترافية",
+      description: "منصة سعودية متخصصة في ربطك بفنيين معتمدين لجميع خدمات الصيانة المنزلية، بسرعة، أمان، وسهولة. هدفنا نريح بالك ونضمن جودة تليق ببيتك.",
       subtitle: {
-        part_1: 'مين',
-        part_2: 'إحنا؟',
+        part_1: "مين",
+        part_2: "إحنا؟"
       },
       actions: {
-        discover: 'استكشف قصتنّا',
+        discover: "استكشف قصتنّا"
       },
       highlight: {
-        title: 'موثوقية تامة',
-        subtitle: 'فنيين بهوية وطنية',
-      },
+        title: "موثوقية تامة",
+        subtitle: "فنيين بهوية وطنية"
+      }
     },
     story: {
-      title: 'قصتنـا',
-      paragraph_1: 'بدأنا تشييك بهدف تسهيل حياة الناس، وتقديم حل ذكي يجمـع كـل خدمـات الصيـانة المنزليـة فـي مكـان واحد. نؤمن أن الخدمة السريعة والمـوثوقـة تبـدأ من اختيـار الفنـي المنـاسب، وتنتهـي بـراحة العميـل.',
-      paragraph_2: 'رؤيتنا تتجـاوز مجـرد إصـلاح الأعطـال؛ نحـن نسعـى لبناء مجتمع تقني سعـودي يسـاهم فـي رفع جودة الحياة داخل كل منزل في المملكة، مـن خـلال تنظيـم خـدمات الصيـانة وتقـديمهـا عبر تطبيق واحـد. ورفع المعايير الاحترافية.',
+      title: "قصتنـا",
+      paragraph_1: "بدأنا تشييك بهدف تسهيل حياة الناس، وتقديم حل ذكي يجمـع كـل خدمـات الصيـانة المنزليـة فـي مكـان واحد. نؤمن أن الخدمة السريعة والمـوثوقـة تبـدأ من اختيـار الفنـي المنـاسب، وتنتهـي بـراحة العميـل.",
+      paragraph_2: "رؤيتنا تتجـاوز مجـرد إصـلاح الأعطـال؛ نحـن نسعـى لبناء مجتمع تقني سعـودي يسـاهم فـي رفع جودة الحياة داخل كل منزل في المملكة، مـن خـلال تنظيـم خـدمات الصيـانة وتقـديمهـا عبر تطبيق واحـد. ورفع المعايير الاحترافية."
     },
     features: {
       title: {
-        part_1: 'ليش تختار',
-        part_2: 'تشييك؟',
+        part_1: "ليش تختار",
+        part_2: "تشييك؟"
       },
-      subtitle: 'نحن لسنا مجرد تطبيق صيانة! نحن شريكك الموثوق للعناية بمنزلك ',
+      subtitle: "نحن لسنا مجرد تطبيق صيانة! نحن شريكك الموثوق للعناية بمنزلك ",
       feature_1: {
-        title: 'فنيين معتمدين',
-        description: 'نختار فنيين بعناية ونراجع أداءهم باستمرار لضمان أعلى مستوى من الجودة.',
+        title: "فنيين معتمدين",
+        description: "نختار فنيين بعناية ونراجع أداءهم باستمرار لضمان أعلى مستوى من الجودة."
       },
       feature_2: {
-        title: 'استجابة سريعة',
-        description: 'أقرب فني يوصل لك خلال وقت قياسي لحل مشكلتك بأسرع ما يمكن.',
+        title: "استجابة سريعة",
+        description: "أقرب فني يوصل لك خلال وقت قياسي لحل مشكلتك بأسرع ما يمكن."
       },
       feature_3: {
-        title: 'دفع آمن',
-        description: 'طرق دفع موثوقة ومحمية بأحدث معايير الأمان الإلكتروني.',
+        title: "دفع آمن",
+        description: "طرق دفع موثوقة ومحمية بأحدث معايير الأمان الإلكتروني."
       },
       feature_4: {
-        title: 'متابعة لحظية',
-        description: 'تابع حالة طلبك خطوة بخطوة من خلال التطبيق بكل شفافية.',
-      },
+        title: "متابعة لحظية",
+        description: "تابع حالة طلبك خطوة بخطوة من خلال التطبيق بكل شفافية."
+      }
     },
     stats_1: {
-      title: '3,800+',
-      subtitle: 'فني معتمد ومحترف',
+      title: "3,800+",
+      subtitle: "فني معتمد ومحترف"
     },
     stats_2: {
-      title: '632,000+',
-      subtitle: 'طلب منفذ بنجاح',
+      title: "632,000+",
+      subtitle: "طلب منفذ بنجاح"
     },
     stats_3: {
-      title: '4.8',
-      subtitle: 'تقييم رضا العملاء',
+      title: "رقم 4 رقم 8",
+      subtitle: "تقييم رضا العملاء"
     },
     audience: {
-      title: 'نخدم مين؟',
-      subtitle: 'سواء كنت تحتاج صيانة سريعة، تركيب، أو إصلاح، تشييك يخدمك ويناسب احتياجاتك',
+      title: "نخدم مين؟",
+      subtitle: "سواء كنت تحتاج صيانة سريعة، تركيب، أو إصلاح، تشييك يخدمك ويناسب احتياجاتك",
       individuals: {
-        title: 'أصحاب المنازل',
-        description: 'نخـدم أصحـاب المنـازل اللـي يبغـون راحـة البال، وما عندهم وقت يـدورون على فنـي أو يجـربـون أكـثر مـن مرة. مـن خـلال منصتنــا، تقــدر تطلـب خـدمـة الصيـانـة اللـي تحتـاجهـا بكـل سهـولة، ونـوصلك بفنييـن مـوثـوقيـن، ينـجزون الشغل باحترافيـة وفـي الـوقت المنـاسب، علـشـان بيتـك يظل دايمًا في أفضل حال.',
+        title: "أصحاب المنازل",
+        description: "نخـدم أصحـاب المنـازل اللـي يبغـون راحـة البال، وما عندهم وقت يـدورون على فنـي أو يجـربـون أكـثر مـن مرة. مـن خـلال منصتنــا، تقــدر تطلـب خـدمـة الصيـانـة اللـي تحتـاجهـا بكـل سهـولة، ونـوصلك بفنييـن مـوثـوقيـن، ينـجزون الشغل باحترافيـة وفـي الـوقت المنـاسب، علـشـان بيتـك يظل دايمًا في أفضل حال."
       },
       institutions: {
-        title: 'المؤسسات',
-        description: 'نعـرف إن أي عطـل بسيـط ممـكن يـأثر علـى سـير العـمـل. علشـان كـذا نقـدّم للمـؤسسات حـلول صيـانـة تسـاعـدهـم يحافظون على استمرارية العمل بدون تعطيل، سواء كانت صيـانـة دوريـة أو طلبـات عاجلـة. نهتـم بالتنظيـم، والالتـزام،وجودة التنفيذ في كل مرة.',
+        title: "المؤسسات",
+        description: "نعـرف إن أي عطـل بسيـط ممـكن يـأثر علـى سـير العـمـل. علشـان كـذا نقـدّم للمـؤسسات حـلول صيـانـة تسـاعـدهـم يحافظون على استمرارية العمل بدون تعطيل، سواء كانت صيـانـة دوريـة أو طلبـات عاجلـة. نهتـم بالتنظيـم، والالتـزام،وجودة التنفيذ في كل مرة."
       },
       service_providers: {
-        title: 'الفنيين',
-        description: 'نـؤمـن أن الفنـي هـو قلـب الخـدمـة وأسـاس نجـاحهـا. نـوفــر للفـنييـن منـصـة تسـاعــدهم يـوصلــون لعـمـلاء حقيقيين، وتنظيـم واضـح للطلبـات، ودعـم يسهّـل عليهـم شغلهم اليومي. هـدفنـا إن الفنـي يركـز على شغـله، ويكـبر معنـا خطـوة بخطوة بثقة واستقرار.',
-      },
-    },
+        title: "الفنيين",
+        description: "نـؤمـن أن الفنـي هـو قلـب الخـدمـة وأسـاس نجـاحهـا. نـوفــر للفـنييـن منـصـة تسـاعــدهم يـوصلــون لعـمـلاء حقيقيين، وتنظيـم واضـح للطلبـات، ودعـم يسهّـل عليهـم شغلهم اليومي. هـدفنـا إن الفنـي يركـز على شغـله، ويكـبر معنـا خطـوة بخطوة بثقة واستقرار."
+      }
+    }
   },
   contact: {
-    title: 'تواصل معنا مباشرة',
-    subtitle: 'فريقنا جاهز لخدمتك والرد على كل استفساراتك',
+    title: "تواصل معنا مباشرة",
+    subtitle: "فريقنا جاهز لخدمتك والرد على كل استفساراتك",
     hero: {
-      title: 'حياك الله! كيف نقدر نساعدك؟',
-      description: 'فريقنا جاهز يستقبل رسالتك ويجاوبك في أسرع وقت. املأ البيانات، وراح نتواصل معك مباشرة لمساعدتك أو تنفيذ طلبك..',
+      title: "حياك الله! كيف نقدر نساعدك؟",
+      description: "فريقنا جاهز يستقبل رسالتك ويجاوبك في أسرع وقت. املأ البيانات، وراح نتواصل معك مباشرة لمساعدتك أو تنفيذ طلبك.."
     },
     inputs: {
       name: {
-        title: 'الاسم الكامل',
-        placeholder: 'أدخل اسمك الكامل',
+        title: "الاسم الكامل",
+        placeholder: "أدخل اسمك الكامل"
       },
       subject: {
-        title: 'عن ايش تبي تتكلم؟',
-        placeholder: 'صيانة، استفسار، شكوى، أو أي شي ثاني',
+        title: "عن ايش تبي تتكلم؟",
+        placeholder: "صيانة، استفسار، شكوى، أو أي شي ثاني"
       },
       message: {
-        title: 'قول لنا وش في بالك!',
-        placeholder: 'اكتب رسالتك هنا وإحنا نرد عليك بأسرع وقت...',
-      },
+        title: "قول لنا وش في بالك!",
+        placeholder: "اكتب رسالتك هنا وإحنا نرد عليك بأسرع وقت..."
+      }
     },
     actions: {
-      send: 'أرسل رسالتك',
+      send: "أرسل رسالتك"
     },
     info: {
-      whatsapp: 'راسلنا علي واتساب',
-      phone: 'كلمنا على طول',
-      email: 'راسلنا علي الإيميل',
+      whatsapp: "راسلنا علي واتساب",
+      phone: "كلمنا على طول",
+      email: "راسلنا علي الإيميل"
     },
     more_info: {
-      title: 'تغطية شاملة',
-      subtitle: 'نخدمك في جميع مناطق المملكة العربية السعودية بكل احترافية!',
+      title: "تغطية شاملة",
+      subtitle: "نخدمك في جميع مناطق المملكة العربية السعودية بكل احترافية!"
     },
     map: {
-      title: 'موقعنا',
-      subtitle: 'زورنا في مقرنا الرئيسي بالرياض',
+      title: "موقعنا",
+      subtitle: "زورنا في مقرنا الرئيسي بالرياض"
     },
-    message_sent: 'تم الإرسال بنجاح',
+    message_sent: "تم الإرسال بنجاح"
   },
   articles: {
     seo: {
-      title: 'المقالات - تشييك',
-      description: 'اقرأ أحدث المقالات والنصائح حول الصيانة المنزلية، العناية بالأجهزة، وأفضل الممارسات للحفاظ على منزلك.',
+      title: "المقالات - تشييك",
+      description: "اقرأ أحدث المقالات والنصائح حول الصيانة المنزلية، العناية بالأجهزة، وأفضل الممارسات للحفاظ على منزلك."
     },
     hero: {
-      title: 'المقالات',
-      subtitle: 'نصائح ومعلومات مفيدة حول الصيانة المنزلية والعناية بمنزلك',
+      title: "المقالات",
+      subtitle: "نصائح ومعلومات مفيدة حول الصيانة المنزلية والعناية بمنزلك"
     },
-    featured_badge: 'مقال مميز',
-    read_more: 'اقرأ المزيد',
-    share: 'شارك المقال',
-    empty: 'لا توجد مقالات حالياً',
-    related: 'مقالات ذات صلة',
+    featured_badge: "مقال مميز",
+    read_more: "اقرأ المزيد",
+    share: "شارك المقال",
+    empty: "لا توجد مقالات حالياً",
+    related: "مقالات ذات صلة"
   },
   institution: {
-    title: 'إدارة الموظفين',
-    subtitle: 'عرض أداء وإحصائيات موظفين المؤسسة',
-    seo_title: 'إدارة الموظفين',
+    title: "إدارة الموظفين",
+    subtitle: "عرض أداء وإحصائيات موظفين المؤسسة",
+    seo_title: "إدارة الموظفين",
     summary: {
-      active_members: 'الموظفين النشطين',
-      this_month_orders: 'طلبات هذا الشهر',
-      this_month_earnings: 'إيرادات هذا الشهر',
-      balance: 'الرصيد الحالي',
+      active_members: "الموظفين النشطين",
+      this_month_orders: "طلبات هذا الشهر",
+      this_month_earnings: "إيرادات هذا الشهر",
+      balance: "الرصيد الحالي"
     },
     member: {
-      total_orders: 'إجمالي الطلبات',
-      completed_orders: 'طلبات مكتملة',
-      this_month: 'هذا الشهر',
-      earnings: 'الإيرادات',
-      joined: 'تاريخ الانضمام',
+      total_orders: "إجمالي الطلبات",
+      completed_orders: "طلبات مكتملة",
+      this_month: "هذا الشهر",
+      earnings: "الإيرادات",
+      joined: "تاريخ الانضمام"
     },
     empty: {
-      title: 'لا يوجد موظفين',
-      subtitle: 'لم يتم إضافة أي موظف للمؤسسة بعد. تواصل مع الإدارة لإضافة موظفين.',
+      title: "لا يوجد موظفين",
+      subtitle: "لم يتم إضافة أي موظف للمؤسسة بعد. تواصل مع الإدارة لإضافة موظفين."
     },
     status: {
-      active: 'نشط',
-      pending: 'قيد المراجعة',
-      inactive: 'غير نشط',
+      active: "نشط",
+      pending: "قيد المراجعة",
+      inactive: "غير نشط"
     },
     filter: {
-      all: 'الكل',
-      search: 'ابحث بالاسم أو رقم الهاتف...',
-      results: '{count} نتيجة',
-      no_results: 'لا توجد نتائج',
-      clear: 'مسح الفلاتر',
+      all: "الكل",
+      search: "ابحث بالاسم أو رقم الهاتف...",
+      results: "{count} نتيجة",
+      no_results: "لا توجد نتائج",
+      clear: "مسح الفلاتر"
     },
     sort: {
-      name: 'ترتيب حسب الاسم',
-      earnings: 'الأعلى إيرادات',
-      orders: 'الأكثر طلبات',
-      this_month: 'الأنشط هذا الشهر',
-    },
+      name: "ترتيب حسب الاسم",
+      earnings: "الأعلى إيرادات",
+      orders: "الأكثر طلبات",
+      this_month: "الأنشط هذا الشهر"
+    }
   },
   chatbot: {
-    title: 'دردشة تشييك',
-    subtitle: 'نحن هنا لمساعدتك',
-    welcome: 'مرحباً بك! كيف يمكننا مساعدتك؟',
-    placeholder: 'اكتب رسالتك...',
-    new_chat: 'محادثة جديدة',
-    send: 'إرسال',
-    close: 'إغلاق',
-    typing: 'يكتب...',
-    error_network: 'تعذر الاتصال. تحقق من اتصالك وحاول مرة أخرى.',
-    error_server: 'يوجد خطأ في الخادم. حاول مرة أخرى لاحقاً.',
-    error_generic: 'حدث خطأ غير متوقع. حاول مرة أخرى.',
-    retry: 'حاول مرة أخرى',
-    messages_count: 'رسائل',
-  },
+    title: "دردشة تشييك",
+    subtitle: "نحن هنا لمساعدتك",
+    welcome: "مرحباً بك! كيف يمكننا مساعدتك؟",
+    placeholder: "اكتب رسالتك...",
+    new_chat: "محادثة جديدة",
+    send: "إرسال",
+    close: "إغلاق",
+    typing: "يكتب...",
+    error_network: "تعذر الاتصال. تحقق من اتصالك وحاول مرة أخرى.",
+    error_server: "يوجد خطأ في الخادم. حاول مرة أخرى لاحقاً.",
+    error_generic: "حدث خطأ غير متوقع. حاول مرة أخرى.",
+    retry: "حاول مرة أخرى",
+    messages_count: "رسائل",
+    suggestion_1: "مثال: هل يمكنني تأمين خدمة فني كهربائي سريع؟",
+    suggestion_2: "مثال: كيف أطلب خدمة صيانة مكيف؟"
+  }
 } as const;

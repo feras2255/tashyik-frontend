@@ -25,7 +25,7 @@
     <div class="container px-4 flex flex-col lg:grid grid-cols-2 py-10">
       <div class="block my-auto">
         <div class="flex flex-col gap-4 md:gap-5 xl:gap-8">
-          <h1 class="flex flex-col gap-2 md:gap-5 my-auto h-full" style="font-family: 'Tajawal', sans-serif;">
+          <h1 class="flex flex-col gap-2 md:gap-5 my-auto h-full">
             <span v-text="$t('home.hero.title')" class="font-bold text-[32px] leading-[48px] md:text-[44px] md:leading-[64px] text-[#7A3E98]"></span>
             <span class="inline-flex gap-2 md:gap-3 text-black font-bold text-[32px] leading-[48px] md:text-[44px] md:leading-[64px] text-right align-middle flex-wrap">
               <span v-text="$t('home.hero.subtitle.part_1')"></span>
@@ -33,7 +33,7 @@
             </span>
             <span class="text-[20px] leading-[36px] md:text-[28px] md:leading-[64px] text-[#7A3E98] font-bold" v-text="$t('home.hero.subtitle.part_3')"></span>
           </h1>
-          <p v-text="$t('home.hero.description')" class="text-[#444651] font-normal text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] max-w-lg" style="font-family: 'Tajawal', sans-serif;"></p>
+          <p v-text="$t('home.hero.description')" class="text-[#444651] font-normal text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] max-w-lg"></p>
           
           <form class="relative flex items-center gap-[4px] md:gap-[8px] w-full max-w-[600px] h-[64px] md:h-[74px] p-[6px] md:p-[8px] border border-gray-200 rounded-[12px] bg-white mt-4 shadow-sm" @submit.prevent="onSearch">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 md:ps-4 pointer-events-none">

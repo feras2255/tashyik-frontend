@@ -392,15 +392,14 @@
         <AppSpinner />
       </div>
 
-      <div v-else-if="services.length" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); overflow-x: auto; padding-bottom: 1rem;">
-        <div style="display: flex; flex-wrap: nowrap; gap: 1rem; padding-left: calc(50vw - 50%); padding-right: calc(50vw - 50%);">
-          <ServiceCard
-            v-for="service in services"
-            :key="service.id"
-            :service="service"
-            :highlight-query="activeQuery"
-          />
-        </div>
+      <div v-else-if="services.length" class="flex flex-row items-stretch gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 lg:gap-8 md:overflow-visible">
+        <ServiceCard
+          v-for="service in services"
+          :key="service.id"
+          :service="service"
+          :highlight-query="activeQuery"
+          class="shrink-0"
+        />
       </div>
 
       <div

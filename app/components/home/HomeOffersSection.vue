@@ -87,21 +87,21 @@
       </div>
 
       <!-- Services Grid (cards below the banners) -->
-      <div v-if="discountedServices.length > 3" class="flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 xl:gap-6 scrollbar-hide mt-4">
+      <div v-if="discountedServices.length > 3" class="flex items-stretch gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 xl:gap-6 scrollbar-hide mt-4">
         <HomeOfferServiceCard
           v-for="service in discountedServices.slice(3, 7)"
           :key="service.id"
           :service="service"
-          class="shrink-0 md:w-auto"
+          class="shrink-0 md:w-auto h-full"
         />
       </div>
       <!-- Fallback if there are less than 3 services (just show cards) -->
-      <div v-else-if="discountedServices.length > 0 && discountedServices.length < 3" class="flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 xl:gap-6 scrollbar-hide">
+      <div v-else-if="discountedServices.length > 0 && discountedServices.length < 3" class="flex items-stretch gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 xl:gap-6 scrollbar-hide">
         <HomeOfferServiceCard
           v-for="service in discountedServices"
           :key="service.id"
           :service="service"
-          class="shrink-0 md:w-auto"
+          class="shrink-0 md:w-auto h-full"
         />
       </div>
 

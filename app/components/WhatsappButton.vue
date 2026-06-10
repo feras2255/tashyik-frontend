@@ -10,10 +10,10 @@
     target="_blank"
     rel="noopener noreferrer"
     :aria-label="$t('a11y.contact_whatsapp')"
-    class="fixed bottom-[69px] sm:bottom-20 start-[15px] sm:start-2 bg-green-500 text-white p-2.5 sm:p-3 w-11 h-11 sm:w-14 sm:h-14 rounded-full static-color z-50"
+    class="fixed bottom-[72px] sm:bottom-[92px] start-4 sm:start-6 bg-green-500 hover:bg-green-600 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full static-color z-50 shadow-2xl transition-colors flex items-center justify-center"
   >
     <!-- flowbite:whatsapp-solid -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <svg class="w-6 h-6 sm:w-8 sm:h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <!-- Icon from Flowbite Icons by Themesberg - https://github.com/themesberg/flowbite-icons/blob/main/LICENSE -->
       <g fill="currentColor">
         <path fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718l-.697 2.359l2.32-.648l.379.243A8 8 0 1 0 12 4M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382l1.426-4.829l-.006-.007l-.033-.055A9.96 9.96 0 0 1 2 12" clip-rule="evenodd" />

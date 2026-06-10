@@ -1,25 +1,24 @@
 <script setup>
+  const { t } = useI18n();
+
   const providers = [
     {
-      name: 'م. أحمد القحطاني',
-      title: 'خبير صيانة تكييف',
+      name: t('home.top_rated.provider_1.name'),
+      title: t('home.top_rated.provider_1.title'),
       rating: 4.9,
       reviewsCount: 130,
-      image: '/images/service-provider.webp', // Using existing fallback image
     },
     {
-      name: 'خالد منصور',
-      title: 'فني كهرباء معتمد',
+      name: t('home.top_rated.provider_2.name'),
+      title: t('home.top_rated.provider_2.title'),
       rating: 4.8,
       reviewsCount: 85,
-      image: '/images/service-provider.webp',
     },
     {
-      name: 'سارة الرويلي',
-      title: 'مشرفة خدمات تنظيف',
+      name: t('home.top_rated.provider_3.name'),
+      title: t('home.top_rated.provider_3.title'),
       rating: 4.9,
       reviewsCount: 112,
-      image: '/images/service-provider.webp',
     },
   ];
 </script>

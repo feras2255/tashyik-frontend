@@ -285,6 +285,12 @@ export default defineNuxtConfig({
     defaultLocale: 'ar',
     // Eager bundles: SSR must have all locale messages before $t() runs (Google Ads / locale homepages).
     lazy: false,
+    // `nuxt-i18n` prepends its internal base ("i18n") when resolving `langDir`.
+    // The project stores locales in `i18n/locales`, so set `langDir` to "locales"
+    // to avoid producing a duplicated path like `i18n/i18n/locales`.
     langDir: 'locales',
+    // Inline `vueI18n` config removed to avoid a known module resolution issue
+    // where the i18n module expects `vueI18n` to be a path string. Fallback
+    // locale is already handled via `detectBrowserLanguage.fallbackLocale`.
   },
 });

@@ -1,793 +1,892 @@
 export default {
   seo: {
     login: {
-      title: 'Connexion',
+      title: "Connexion"
     },
     register: {
-      title: 'Créer un compte',
+      title: "Créer un compte"
     },
     service_provider_register: {
-      title: 'Créer un compte prestataire',
+      title: "Créer un compte prestataire"
     },
     orders: {
-      title: 'Mes commandes',
+      title: "Mes commandes",
       view: {
-        title: 'Détails de la commande',
-      },
+        title: "Détails de la commande"
+      }
     },
     addresses: {
-      title: 'Mes adresses',
+      title: "Mes adresses",
       create: {
-        title: 'Ajouter une nouvelle adresse',
+        title: "Ajouter une nouvelle adresse"
       },
       edit: {
-        title: "Modifier l'adresse",
-      },
+        title: "Modifier l'adresse"
+      }
     },
     profile: {
-      title: 'Profil personnel',
+      title: "Profil personnel"
     },
     forgot_password: {
-      title: 'Mot de passe oublié',
+      title: "Mot de passe oublié"
     },
     reset_password: {
-      title: 'Réinitialiser le mot de passe',
+      title: "Réinitialiser le mot de passe"
     },
     service_provider: {
-      title: 'Rejoignez-nous en tant que technicien',
-      description: 'Inscrivez-vous en tant que prestataire de services à domicile et proposez vos services de climatisation, électricité, plomberie, électroménager, menuiserie, peinture, satellite, nettoyage, lutte contre les nuisibles et aide à domicile en toute sécurité.',
+      title: "Rejoignez-nous en tant que technicien",
+      description: "Inscrivez-vous en tant que prestataire de services à domicile et proposez vos services de climatisation, électricité, plomberie, électroménager, menuiserie, peinture, satellite, nettoyage, lutte contre les nuisibles et aide à domicile en toute sécurité."
     },
     categories: {
-      title: 'Catégories',
-      description: "Parcourez les catégories de services de maintenance à domicile : plomberie, électricité, climatisation et réparation d'appareils. Réservez rapidement un technicien certifié.",
+      title: "Catégories",
+      description: "Parcourez les catégories de services de maintenance à domicile : plomberie, électricité, climatisation et réparation d'appareils. Réservez rapidement un technicien certifié."
     },
     services: {
-      title: 'Services',
-      description: 'Parcourez tous les services de maintenance à domicile, recherchez le service dont vous avez besoin et réservez rapidement un technicien certifié.',
+      title: "Services",
+      description: "Parcourez tous les services de maintenance à domicile, recherchez le service dont vous avez besoin et réservez rapidement un technicien certifié."
     },
     cities_index: {
-      title: 'Villes desservies',
-      description:
-        'Parcourez la couverture maintenance à domicile par ville et ouvrez les pages de services localisées pour votre zone.',
+      title: "Villes desservies",
+      description: "Parcourez la couverture maintenance à domicile par ville et ouvrez les pages de services localisées pour votre zone."
     },
     about: {
-      title: 'À propos de nous',
-      description: "Une plateforme saoudienne spécialisée pour vous connecter à des techniciens certifiés pour tous vos services de maintenance, rapidement et en toute sécurité. Notre objectif : votre tranquillité d'esprit.",
+      title: "À propos de nous",
+      description: "Une plateforme saoudienne spécialisée pour vous connecter à des techniciens certifiés pour tous vos services de maintenance, rapidement et en toute sécurité. Notre objectif : votre tranquillité d'esprit."
     },
     contact: {
-      title: 'Contactez-nous',
-      description: 'Notre équipe est prête à recevoir votre message et à vous répondre dans les plus brefs délais. Remplissez vos coordonnées et nous vous contacterons directement.',
+      title: "Contactez-nous",
+      description: "Notre équipe est prête à recevoir votre message et à vous répondre dans les plus brefs délais. Remplissez vos coordonnées et nous vous contacterons directement."
     },
     home: {
-      title: 'Tashyik | Réservez un technicien de maintenance à domicile certifié en Arabie Saoudite',
-      description: 'Réservez des techniciens de confiance pour la climatisation, la plomberie, l\'électricité et les appareils électroménagers dans toutes les villes saoudiennes. Service rapide, garantie certifiée, tarifs transparents.',
-    },
+      title: "Tashyik | Réservez un technicien de maintenance à domicile certifié en Arabie Saoudite",
+      description: "Réservez des techniciens de confiance pour la climatisation, la plomberie, l'électricité et les appareils électroménagers dans toutes les villes saoudiennes. Service rapide, garantie certifiée, tarifs transparents."
+    }
   },
   a11y: {
-    open_user_menu: 'Ouvrir le menu utilisateur',
-    open_main_menu: 'Ouvrir le menu principal',
-    close_menu: 'Fermer le menu',
-    notifications: 'Notifications',
-    language: 'Langue',
-    breadcrumb: 'Fil d\'Ariane',
-    contact_whatsapp: 'Nous contacter sur WhatsApp',
-    coupon_code: 'Code promo',
+    open_user_menu: "Ouvrir le menu utilisateur",
+    open_main_menu: "Ouvrir le menu principal",
+    close_menu: "Fermer le menu",
+    notifications: "Notifications",
+    language: "Langue",
+    breadcrumb: "Fil d'Ariane",
+    contact_whatsapp: "Nous contacter sur WhatsApp",
+    coupon_code: "Code promo",
+    show_password: "Show password",
+    hide_password: "Hide password",
+    chatbot: "Open chat"
   },
   common: {
-    brand: 'Tashyik',
-    account: 'Compte',
-    next: 'Suivant',
-    back: 'Retour',
-    short_description: 'Services de maintenance à domicile',
-    order_service: 'Commander un service',
-    load_more: 'Charger plus',
-    save: 'Enregistrer',
-    select_type: 'Sélectionner le type',
-    select_categories: 'Sélectionner les catégories',
-    individual: 'Individuel',
-    institution: 'Institution',
-    company: 'Entreprise',
-    update: 'Mettre à jour',
-    delete: 'Supprimer',
-    updated_successfully: 'Mis à jour avec succès',
-    page_not_found: 'Page non trouvée',
-    something_went_wrong: 'Une erreur est survenue',
-    or: 'Ou',
-    request_under_review: 'Votre demande est en cours de révision',
+    maintenance: "Maintenance",
+    brand: "Tashyik",
+    account: "Compte",
+    next: "Suivant",
+    back: "Retour",
+    short_description: "Services de maintenance à domicile",
+    order_service: "Commander un service",
+    load_more: "Charger plus",
+    save: "Enregistrer",
+    select_type: "Sélectionner le type",
+    select_categories: "Sélectionner les catégories",
+    individual: "Individuel",
+    institution: "Institution",
+    company: "Entreprise",
+    update: "Mettre à jour",
+    delete: "Supprimer",
+    updated_successfully: "Mis à jour avec succès",
+    page_not_found: "Page non trouvée",
+    something_went_wrong: "Une erreur est survenue",
+    or: "Ou",
+    request_under_review: "Votre demande est en cours de révision",
     back_to_home: "Retour à l'accueil",
-    no_price: 'Prix par accord',
-    select_city: 'Sélectionner la ville',
-    search_for_services: 'Rechercher des services...',
-    search: 'Recherche',
-    promotion: '{percentage}% de réduction',
-    warranty: 'Garantie de {duration}',
-    all: 'Tout',
-    wallet_balance: 'Solde du portefeuille',
-    optional: 'Optionnel',
+    no_price: "Prix par accord",
+    select_city: "Sélectionner la ville",
+    search_for_services: "Rechercher des services...",
+    search: "Recherche",
+    promotion: "{percentage}% de réduction",
+    warranty: "Garantie de {duration}",
+    all: "Tout",
+    wallet_balance: "Solde du portefeuille",
+    optional: "Optionnel",
     select_address: "Sélectionner l'adresse",
-    done: 'Terminé',
-    loading: 'Chargement…',
+    done: "Terminé",
+    loading: "Chargement…",
+    order_now: "Commander Maintenant",
+    send: "Envoyer",
+    close: "Fermer"
   },
   alt: {
-    category: 'Catégorie {category}',
-    service: 'Service {service}',
+    category: "Catégorie {category}",
+    service: "Service {service}"
   },
   home: {
     hero: {
-      title: 'Tashyik est maintenant en Arabie Saoudite !',
+      title: "Tashyik est maintenant en Arabie Saoudite !",
       subtitle: {
-        part_1: 'Nous sommes là',
-        part_2: 'Pour vous faciliter la vie',
+        part_1: "Nous sommes là",
+        part_2: "Pour vous faciliter la vie",
+        part_3: "Tous vos services à domicile au même endroit"
       },
-      highlight_1: 'Techniciens certifiés',
-      highlight_2: 'Réponse en quelques minutes',
-      description: 'Nous vous offrons des services de maintenance à domicile intégrés, livrés à votre porte rapidement et facilement.',
+      search_placeholder: "De quel service avez-vous besoin ?",
+      search_button: "Rechercher",
+      rating_badge: "Note Client 4.9",
+      response_badge: "Réponse en quelques minutes",
+      technicians_badge: "+500 Techniciens Certifiés",
+      highlight_1: "Techniciens certifiés",
+      highlight_2: "Réponse en quelques minutes",
+      description: "Nous vous offrons des services de maintenance à domicile intégrés, livrés à votre porte rapidement et facilement.",
       actions: {
-        browse_categories: 'Parcourir les catégories',
-        request_custom_service: 'Demander un service personnalisé',
-      },
+        browse_categories: "Parcourir les catégories",
+        request_custom_service: "Demander un service personnalisé"
+      }
     },
     categories: {
-      title: 'Tout ce dont vous avez besoin est ici !',
-      action: 'Voir toutes les catégories',
+      title: "Tout ce dont vous avez besoin est ici !",
+      action: "Voir toutes les catégories",
+      huge_discounts: "Énormes Réductions"
+    },
+    offers: {
+      title: "Offres Exclusives à Durée Limitée",
+      description: "Profitez des meilleures réductions sur les services d`entretien à domicile avec les meilleurs techniciens professionnels.",
+      free_inspection: "Inspection Gratuite",
+      discount_on_service: "{percentage}% de réduction sur {name}",
+      free_inspection_for: "Inspection Gratuite pour {name}",
+      first_order_maintenance: "Entretien d`appareils électroménagers dès la première commande",
+      plumbing_saving: "Économies en plomberie"
+    },
+    top_rated: {
+      title: "Les Mieux Notés",
+      provider_1: {
+        name: "Top Technicien Climatisation",
+        title: "Spécialiste Climatisation"
+      },
+      provider_2: {
+        name: "Top Électricien",
+        title: "Spécialiste Réparation Électrique"
+      },
+      provider_3: {
+        name: "Top Technicien Électroménager",
+        title: "Spécialiste Réparation Électroménager"
+      }
     },
     features: {
-      title: 'Pourquoi des milliers de clients nous font confiance ?',
-      subtitle: 'Nous sommes fiers de la confiance de nos clients car nous nous efforçons toujours de fournir un service fiable.',
-      feature_1: {
-        title: '+300',
-        description: 'Services à domicile',
+      title: "Pourquoi choisir Tashyik ?",
+      fast_support: {
+        title: "Assistance rapide",
+        description: "Notre équipe d'assistance est disponible 24h/24 et 7j/7 pour répondre à vos questions et résoudre vos problèmes."
       },
-      feature_2: {
-        title: '3 800+',
-        description: 'Techniciens professionnels',
+      clear_prices: {
+        title: "Des prix clairs",
+        description: "Aucun frais caché — les prix sont fixés à l'avance pour que vous connaissiez le coût avant de réserver."
       },
-      feature_3: {
-        title: '632 000+',
-        description: 'Services terminés',
+      trusted_techs: {
+        title: "Techniciens de confiance",
+        description: "Tous les techniciens sont soumis à des vérifications rigoureuses et à des tests de compétences professionnelles."
       },
-      feature_4: {
-        title: '25+',
-        description: 'Villes couvertes',
+      instant_booking: {
+        title: "Réservation instantanée",
+        description: "En quelques clics, votre technicien est en route vers votre domicile à l'heure convenue."
       },
-      feature_5: {
-        title: '4.8',
-        description: 'Note moyenne des clients',
+      real_reviews: {
+        title: "Vrais avis",
+        description: "Toutes les évaluations proviennent de vrais clients qui ont réellement testé le service."
       },
+      warranty: {
+        title: "Garantie de service",
+        description: "Nous offrons une garantie allant jusqu'à 30 jours sur tous les services d'entretien terminés."
+      }
+    },
+    newsletter: {
+      title: "Ne manquez aucune nouvelle offre !",
+      description: "Abonnez-vous à notre newsletter pour recevoir les dernières réductions et offres exclusives directement dans votre boîte de réception.",
+      placeholder: "Votre adresse e-mail",
+      subscribe: "S`abonner"
+    },
+    collections: {
+      view_all: "Voir tous les services",
+      season_badge: "Offre de saison"
     },
     reviews: {
-      title: 'Ce que disent nos clients !',
+      title: "Ce que disent nos clients !",
       item_1: {
-        name: 'Fahad Al-Anzi (témoignage)',
+        name: "Fahad Al-Anzi (témoignage)",
+        tag: "Maintenance",
         body: "Excellente application ! J'ai demandé un technicien AC et il est arrivé en moins d'une heure. Travail propre et prix raisonnable. Je recommande vivement ! 👍",
-        date: 'Il y a une semaine',
+        date: "Il y a une semaine"
       },
       item_2: {
-        name: 'Sarah Al-Qahtani',
-        body: 'Une expérience merveilleuse ! Le support a été très réactif. Le service a dépassé mes attentes !',
-        date: 'Il y a deux jours',
+        name: "Sarah Al-Qahtani",
+        tag: "Maintenance",
+        body: "Une expérience merveilleuse ! Le support a été très réactif. Le service a dépassé mes attentes !",
+        date: "Il y a deux jours"
       },
       item_3: {
-        name: 'Mohammed Al-Sulaimani',
+        name: "Mohammed Al-Sulaimani",
+        tag: "Maintenance",
         body: "Application distinguée, techniciens professionnels. J'ai réparé ma clim en moins de deux heures.",
-        date: 'Hier',
+        date: "Hier"
       },
+      item_4: {
+        name: "Nasser Al-Otaibi",
+        tag: "Maintenance Électrique",
+        body: "Travail professionnel et timing parfait. Le technicien a expliqué le problème clairement et a terminé le service rapidement tout en gardant l`endroit propre. Merci !",
+        date: "Il y a trois jours"
+      }
     },
     questions: {
-      title: 'Questions fréquentes',
-    },
+      title: "Questions fréquentes"
+    }
   },
   download_app: {
-    title: 'Tous vos services à domicile.. en une seule appli !',
+    title_1: "Tous vos services à domicile maintenant..",
+    title_2: "dans une seule application !",
+    title: "Tous vos services à domicile.. en une seule appli !",
     subtitle: "Téléchargez l'application et demandez le service dont vous avez besoin en un seul clic.",
-    get_it_on: 'Disponible sur',
-    download_on_the: 'Télécharger sur',
-    highlight_1: 'Demande de service en quelques secondes',
-    highlight_2: 'Paiement sécurisé et garanti',
-    highlight_3: 'Suivi du technicien en temps réel',
+    get_it_on: "Disponible sur",
+    download_on_the: "Télécharger sur",
+    highlight_1: "Demande de service en quelques secondes",
+    highlight_2: "Paiement sécurisé et garanti",
+    highlight_3: "Suivi du technicien en temps réel"
   },
   footer: {
-    copyright: 'Tous droits réservés',
-    developed_by: 'Réalisé par',
-    developer: 'Par Traffic Plus',
+    important_links: "Liens Importants",
+    privacy_policy: "Politique de Confidentialité",
+    terms_and_conditions: "Termes et Conditions",
+    faq: "FAQ",
+    contact_us_link: "Nous Contacter",
+    copyright: "Tous droits réservés",
+    developed_by: "Réalisé par",
+    developer: "Par Traffic Plus",
     contact_us: {
-      title: 'Contactez-nous',
-      support: 'Support client disponible 24/7',
+      title: "Contactez-nous",
+      support: "Support client disponible 24/7"
     },
-    resources: 'Liens importants',
+    resources: "Liens importants",
     download_app: "Télécharger l'application",
-    saudi_business_center: 'Vérifié par Business Platform',
-    popular_services: 'Services populaires',
-    popular_cities: 'Villes desservies',
-    see_all_services: 'Voir tous les services',
-    see_all_cities: 'Voir toutes les villes',
+    saudi_business_center: "Vérifié par Business Platform",
+    popular_services: "Services populaires",
+    popular_cities: "Villes desservies",
+    see_all_services: "Voir tous les services",
+    see_all_cities: "Voir toutes les villes"
   },
   navigation: {
-    home: 'Accueil',
-    login: 'Connexion',
-    register: 'Inscription',
-    about: 'À propos',
-    categories: 'Catégories',
-    services: 'Services',
+    home: "Accueil",
+    login: "Connexion",
+    register: "Inscription",
+    about: "À propos",
+    categories: "Catégories",
+    services: "Services",
     download_app: "Télécharger l'appli",
-    contact: 'Contact',
-    articles: 'Articles',
-    cities: 'Villes',
-    logout: 'Déconnexion',
-    privacy_policy: 'Politique de confidentialité',
-    terms_and_conditions: 'Conditions générales',
-    service_provider: 'Devenir prestataire',
+    contact: "Contact",
+    articles: "Articles",
+    cities: "Villes",
+    logout: "Déconnexion",
+    privacy_policy: "Politique de confidentialité",
+    terms_and_conditions: "Conditions générales",
+    service_provider: "Devenir prestataire",
     profile: {
-      title: 'Mon compte',
-      subtitle: 'Gérer mes infos personnelles',
+      title: "Mon compte",
+      subtitle: "Gérer mes infos personnelles"
     },
     orders: {
-      title: 'Mes commandes',
-      subtitle: 'Suivre mes commandes',
+      title: "Mes commandes",
+      subtitle: "Suivre mes commandes"
     },
     addresses: {
-      title: 'Mes adresses',
-      subtitle: 'Gérer les adresses enregistrées',
+      title: "Mes adresses",
+      subtitle: "Gérer les adresses enregistrées"
     },
+    institution_members: {
+      title: "Gérer les employés",
+      subtitle: "Voir et gérer les employés de l`institution"
+    }
   },
   guest: {
     login: {
-      title: 'Bienvenue !',
-      subtitle: 'Connectez-vous pour compléter vos demandes.',
-      forgot_password: 'Mot de passe oublié ?',
-      sign_in: 'Se connecter',
-      sign_up: 'Créer un compte',
-      no_account: 'Pas encore de compte ?',
+      title: "Bienvenue !",
+      subtitle: "Connectez-vous pour compléter vos demandes.",
+      forgot_password: "Mot de passe oublié ?",
+      sign_in: "Se connecter",
+      sign_up: "Créer un compte",
+      no_account: "Pas encore de compte ?"
     },
     register: {
       customer: {
-        title: 'Créer un nouveau compte',
-        subtitle: 'Créez votre compte et commandez vos services facilement.',
+        title: "Créer un nouveau compte",
+        subtitle: "Créez votre compte et commandez vos services facilement."
       },
       service_provider: {
-        title: 'Devenir technicien',
-        subtitle: 'Inscrivez-vous et commencez à recevoir des demandes de maintenance.',
+        title: "Devenir technicien",
+        subtitle: "Inscrivez-vous et commencez à recevoir des demandes de maintenance.",
         applied: {
-          title: 'Inscription réussie',
-          subtitle: 'Votre demande est en cours de révision.',
-        },
+          title: "Inscription réussie",
+          subtitle: "Votre demande est en cours de révision."
+        }
       },
-      title: 'Inscription',
-      create_account: 'Créer un compte',
-      have_account: 'Déjà inscrit ?',
-      sign_in: 'Se connecter',
+      title: "Inscription",
+      create_account: "Créer un compte",
+      have_account: "Déjà inscrit ?",
+      sign_in: "Se connecter"
     },
     forgot_password: {
-      title: 'Mot de passe oublié ?',
-      subtitle: 'Entrez votre adresse e-mail et nous vous enverrons un code de vérification.',
-      send_otp: 'Envoyer le code',
-      otp_subtitle: 'Entrez le code de vérification envoyé à votre e-mail.',
-      otp_label: 'Code de vérification',
-      verify_otp: 'Vérifier le code',
-      resend_otp: 'Renvoyer le code',
-      success_message: 'Un code de vérification a été envoyé à votre e-mail.',
-      back_to_login: 'Retour à la connexion',
+      title: "Mot de passe oublié ?",
+      subtitle: "Entrez votre adresse e-mail et nous vous enverrons un code de vérification.",
+      send_otp: "Envoyer le code",
+      otp_subtitle: "Entrez le code de vérification envoyé à votre e-mail.",
+      otp_label: "Code de vérification",
+      verify_otp: "Vérifier le code",
+      resend_otp: "Renvoyer le code",
+      success_message: "Un code de vérification a été envoyé à votre e-mail.",
+      back_to_login: "Retour à la connexion"
     },
     reset_password: {
-      title: 'Réinitialiser le mot de passe',
-      subtitle: 'Entrez votre nouveau mot de passe.',
-      reset_button: 'Réinitialiser',
-      success_message: 'Mot de passe réinitialisé avec succès. Vous pouvez maintenant vous connecter.',
-    },
+      title: "Réinitialiser le mot de passe",
+      subtitle: "Entrez votre nouveau mot de passe.",
+      reset_button: "Réinitialiser",
+      success_message: "Mot de passe réinitialisé avec succès. Vous pouvez maintenant vous connecter."
+    }
   },
   inputs: {
-    email: 'E-mail',
-    email_optional: 'E-mail (Optionnel)',
-    name: 'Quel est votre nom ?',
-    phone: 'Numéro de téléphone',
-    password: 'Mot de passe',
-    current_password: 'Mot de passe actuel',
-    new_password: 'Nouveau mot de passe',
-    password_confirmation: 'Confirmer le mot de passe',
-    remember_me: 'Se souvenir de moi',
-    city: 'Où habitez-vous ?',
-    entity_type: 'Type de compte',
-    categories: 'Catégories',
+    email: "E-mail",
+    email_optional: "E-mail (Optionnel)",
+    name: "Quel est votre nom ?",
+    phone: "Numéro de téléphone",
+    password: "Mot de passe",
+    current_password: "Mot de passe actuel",
+    new_password: "Nouveau mot de passe",
+    password_confirmation: "Confirmer le mot de passe",
+    remember_me: "Se souvenir de moi",
+    city: "Où habitez-vous ?",
+    entity_type: "Type de compte",
+    categories: "Catégories",
     residence_name: "Nom sur la carte d'identité/Iqama",
     residence_number: "Numéro d'identité/Iqama",
     residence_image: "Copie de l'identité/Iqama",
-    commercial_registration_number: 'Numéro de registre du commerce',
-    commercial_registration_image: 'Copie du registre du commerce',
-    bank_name: 'Nom de la banque',
-    iban: 'IBAN',
-    personal_picture: 'Photo de profil',
+    commercial_registration_number: "Numéro de registre du commerce",
+    commercial_registration_image: "Copie du registre du commerce",
+    bank_name: "Nom de la banque",
+    iban: "IBAN",
+    personal_picture: "Photo de profil",
     national_address_image: "Copie de l'adresse nationale",
     tax_registration_number: "Numéro d'enregistrement fiscal",
     address: {
-      title: 'Adresse',
-      placeholder: 'Ex: Rue Riyadh Al Saliheen, Mansoura, Riyad',
+      title: "Adresse",
+      placeholder: "Ex: Rue Riyadh Al Saliheen, Mansoura, Riyad"
     },
     type_address_name: {
       title: "Titre de l'adresse",
-      placeholder: 'Ex: Maison neuve',
+      placeholder: "Ex: Maison neuve"
     },
     landmark: {
-      title: 'Point de repère',
-      placeholder: 'Ex: Près de la station essence',
+      title: "Point de repère",
+      placeholder: "Ex: Près de la station essence"
     },
     address_name: "Nom de l'adresse",
     building_number: "Numéro d'immeuble",
-    floor_number: 'Étage',
-    apartment_number: "Numéro d'appartement",
+    floor_number: "Étage",
+    apartment_number: "Numéro d'appartement"
   },
   services: {
-    index_eyebrow: 'Tous les services',
-    index_title: 'Trouvez le bon service à domicile',
-    index_subtitle: 'Recherchez les services Tashyik, filtrez par spécialité et réservez un technicien certifié sans parcourir les catégories.',
-    index_support_title: 'Besoin d’aide pour choisir le bon service ?',
-    index_search_label: 'Rechercher des services',
-    index_search_placeholder: 'Rechercher par nom, problème ou mot-clé...',
-    index_filter_by_category: 'Filtrer par catégorie',
-    index_result_count: 'Affichage de {count} sur {total} services',
-    index_clear_filters: 'Effacer les filtres',
+    index_eyebrow: "Tous les services",
+    index_title: "Trouvez le bon service à domicile",
+    index_subtitle: "Recherchez les services Tashyik, filtrez par spécialité et réservez un technicien certifié sans parcourir les catégories.",
+    index_support_title: "Besoin d’aide pour choisir le bon service ?",
+    index_search_label: "Rechercher des services",
+    index_search_placeholder: "Rechercher par nom, problème ou mot-clé...",
+    index_filter_by_category: "Filtrer par catégorie",
+    index_result_count: "Affichage de {count} sur {total} services",
+    index_clear_filters: "Effacer les filtres",
     empty: {
-      title: 'Aucun service trouvé',
-      subtitle: 'Essayez de modifier la catégorie ou les termes de recherche.',
+      title: "Aucun service trouvé",
+      subtitle: "Essayez de modifier la catégorie ou les termes de recherche."
     },
     invoice: {
-      title: 'Voir la facture',
-      service: 'Service',
-      service_price: 'Prix du service',
-      visit_cost: 'Frais de visite',
-      subtotal: 'Sous-total',
-      tax: 'Taxes',
-      wallet_balance: 'Solde du portefeuille',
-      total: 'Total',
-      pay: 'Payer',
-      request: 'Commander le service',
+      title: "Voir la facture",
+      service: "Service",
+      service_price: "Prix du service",
+      visit_cost: "Frais de visite",
+      subtotal: "Sous-total",
+      tax: "Taxes",
+      wallet_balance: "Solde du portefeuille",
+      total: "Total",
+      pay: "Payer",
+      request: "Commander le service"
     },
     custom_service: {
       title: "Besoin d'un service spécifique ?",
-      subtitle: 'Décrivez votre problème et recevez des devis de techniciens spécialisés.',
-      action: 'Demander un service personnalisé',
-    },
+      subtitle: "Décrivez votre problème et recevez des devis de techniciens spécialisés.",
+      action: "Demander un service personnalisé"
+    }
   },
   orders: {
-    name: 'Mes commandes',
+    name: "Mes commandes",
     navigation: {
-      new: 'Nouvelles',
-      in_progress: 'En cours',
-      completed: 'Terminées',
+      new: "Nouvelles",
+      in_progress: "En cours",
+      completed: "Terminées"
     },
     empty: {
-      title: 'Aucune commande',
+      title: "Aucune commande",
       subtitle: "Vous n'avez pas encore de commande.",
-      view_services: 'Commander un service maintenant',
+      view_services: "Commander un service maintenant"
     },
     make: {
-      title: 'Demander un service',
-      address: 'Adresse du service',
+      title: "Demander un service",
+      address: "Adresse du service",
       details: {
-        title: 'Détails du service',
-        description: 'Description du problème...',
+        title: "Détails du service",
+        description: "Description du problème..."
       },
       coupons: {
-        title: 'Avez-vous un code promo ?',
-        placeholder: 'Entrez le code',
-        apply: 'Appliquer',
+        title: "Avez-vous un code promo ?",
+        placeholder: "Entrez le code",
+        apply: "Appliquer"
       },
       summary: {
-        title: 'Résumé de la commande',
-      },
-    },
+        title: "Résumé de la commande"
+      }
+    }
   },
   notifications: {
-    title: 'Notifications',
-    no_notifications: 'Aucune notification',
+    title: "Notifications",
+    no_notifications: "Aucune notification"
   },
   addresses: {
-    title: 'Mes adresses',
+    title: "Mes adresses",
     heading: {
-      title: 'Mes adresses enregistrées',
-      subtitle: 'Gérez vos adresses ou ajoutez-en une nouvelle.',
-      action: 'Ajouter une adresse',
+      title: "Mes adresses enregistrées",
+      subtitle: "Gérez vos adresses ou ajoutez-en une nouvelle.",
+      action: "Ajouter une adresse"
     },
     new: {
-      title: 'Nouvelle adresse',
-      subtitle: 'Définissez votre position sur la carte pour aider le technicien.',
+      title: "Nouvelle adresse",
+      subtitle: "Définissez votre position sur la carte pour aider le technicien."
     },
     create: {
-      title: 'Ajouter une adresse',
+      title: "Ajouter une adresse",
       heading: {
-        title: 'Nouvelle adresse',
-        subtitle: 'Veuillez sélectionner votre position sur la carte.',
+        title: "Nouvelle adresse",
+        subtitle: "Veuillez sélectionner votre position sur la carte."
       },
-      save: "Confirmer l'enregistrement",
+      save: "Confirmer l'enregistrement"
     },
     edit: {
       title: "Modifier l'adresse",
       heading: {
         title: "Modifier l'adresse",
-        subtitle: 'Veuillez mettre à jour votre position sur la carte.',
+        subtitle: "Veuillez mettre à jour votre position sur la carte."
       },
-      save: "Mettre à jour l'adresse",
+      save: "Mettre à jour l'adresse"
     },
     form: {
       title: "Détails de l'adresse",
       options: {
-        home: 'Domicile',
-        work: 'Travail',
-        other: 'Autre',
-      },
-    },
+        home: "Domicile",
+        work: "Travail",
+        other: "Autre"
+      }
+    }
   },
   address: {
-    details: 'Immeuble {building_number}, Appt {apartment_number}, Étage {floor_number}',
-    mark_as_default: 'Définir comme adresse par défaut',
+    details: "Immeuble {building_number}, Appt {apartment_number}, Étage {floor_number}",
+    mark_as_default: "Définir comme adresse par défaut"
   },
   profile: {
-    name: 'Profil',
+    name: "Profil",
     header: {
-      title: 'Paramètres du profil',
-      subtitle: 'Modifiez vos paramètres, photo et mot de passe.',
+      title: "Paramètres du profil",
+      subtitle: "Modifiez vos paramètres, photo et mot de passe."
     },
-    information: 'Informations personnelles',
-    update_password: 'Mettre à jour le mot de passe',
-    delete_account: 'Supprimer le compte',
+    information: "Informations personnelles",
+    linked_institution: "Works at",
+    update_password: "Mettre à jour le mot de passe",
+    delete_account: "Supprimer le compte"
   },
   service_provider: {
     h1: {
-      title: 'Inscrivez-vous comme technicien AC, Électricité, Plomberie et plus',
-      description: 'Vous avez des compétences en maintenance ? Rejoignez notre plateforme et commencez à recevoir des clients avec professionnalisme.',
+      title: "Inscrivez-vous comme technicien AC, Électricité, Plomberie et plus",
+      description: "Vous avez des compétences en maintenance ? Rejoignez notre plateforme et commencez à recevoir des clients avec professionnalisme."
     },
     h2: {
-      title: 'Offrez vos services dès maintenant',
-      description: 'Nous accueillons les experts dans les domaines suivants :',
-      items: ['Climatisation', 'Électricité', 'Plomberie', 'Électroménager', 'Menuiserie', 'Peinture', 'Satellite', 'Nettoyage', 'Lutte contre les nuisibles', 'Aide à domicile'],
+      title: "Offrez vos services dès maintenant",
+      description: "Nous accueillons les experts dans les domaines suivants :",
+      items: [
+        "Climatisation",
+        "Électricité",
+        "Plomberie",
+        "Électroménager",
+        "Menuiserie",
+        "Peinture",
+        "Satellite",
+        "Nettoyage",
+        "Lutte contre les nuisibles",
+        "Aide à domicile"
+      ]
     },
-    button: "S'inscrire maintenant",
+    button: "S'inscrire maintenant"
   },
   categories: {
-    title: 'Tous les services de maintenance pour votre maison',
-    subtitle: 'Choisissez le service approprié et réservez un technicien certifié.',
+    title: "Tous les services de maintenance pour votre maison",
+    subtitle: "Choisissez le service approprié et réservez un technicien certifié.",
     banner: {
-      title: 'Prêt à commencer avec Tashyik ?',
-      subtitle: "Téléchargez l'appli maintenant et facilitez la maintenance de votre maison.",
-    },
+      title: "Prêt à commencer avec Tashyik ?",
+      subtitle: "Téléchargez l'appli maintenant et facilitez la maintenance de votre maison."
+    }
   },
   cities: {
-    hero_title: 'Entretien à domicile de confiance à {city}',
-    hero_h1_maintenance: 'Services de maintenance à {city}',
-    hero_compact_subtitle: 'Techniciens certifiés pour clim, électricité, plomberie et plus — réservation rapide, qualité fiable.',
-    hero_subtitle:
-      'Réservez des techniciens certifiés pour clim, électricité, plomberie, électroménager et plus — réponse rapide et qualité garantie.',
-    browse_services: 'Parcourir les services',
-    schema_description: 'Couverture Tashyik pour la maintenance à domicile à {city}, Arabie saoudite.',
-    popular_services: 'Services populaires dans cette ville',
-    available_in: 'Disponible à',
-    index_title: 'Villes desservies',
-    index_subtitle: 'Choisissez une ville pour voir les services populaires et réserver un technicien certifié.',
-    service_links_truncated:
-      'Affichage de {shown} sur {total} services mis en avant. Parcourez toutes les catégories pour le catalogue complet.',
-    view_city_hub: 'Tous les services à {city}',
-    browse_by_city: 'Parcourir par ville',
-    services_heading: 'Services à {city}',
-    services_search_label: 'Rechercher un service',
-    services_search_placeholder: 'Rechercher par nom de service…',
-    city_search_result_count: 'Affichage de {filtered} résultat(s) sur {total}',
-    city_search_no_results_for: 'Aucun résultat pour «{q}»',
-    city_categories_filter_aria: 'Filtrer les services par catégorie',
-    districts_heading: 'Quartiers principaux de {city}',
-    districts_intro: 'Nous couvrons les principaux quartiers de {city} avec des délais d\u2019intervention rapides.',
-    services_results_range: 'Affichage de {from}–{to} sur {total}',
-    services_no_results: 'Aucun service ne correspond à votre recherche.',
-    services_none_in_city: 'Aucun service n’est encore listé pour cette ville.',
-    pagination_label: 'Pages de résultats',
-    pagination_prev: 'Précédent',
-    pagination_next: 'Suivant',
-    hero_cta_app: 'Télécharger l’application',
-    hero_cta_call: 'Nous appeler',
-    price_currency: 'SAR',
-    index_browse_categories: 'Parcourir toutes les catégories',
-    index_filter_placeholder: 'Filtrer les villes…',
-    index_card_subtitle: 'Services d’entretien à domicile',
-    index_secondary_hint: 'Vous préférez parcourir par type de service plutôt que par ville ?',
-    index_filter_no_match: 'Aucune ville ne correspond au filtre.',
-    service_in_city_cta_order: 'Commander ce service',
-    service_in_city_cta_order_now: 'Commander ce service maintenant',
-    service_in_city_whatsapp_cta: 'Nous contacter sur WhatsApp',
-    service_in_city_trust_secure_pay: 'Paiement sécurisé et protégé',
-    service_in_city_certified_badge: 'Technicien certifié',
-    service_in_city_rating_line: '⭐ Note {rating} / 5',
-    service_in_city_rating_with_orders: '⭐ {rating} ({orders}+ commandes)',
-    service_in_city_social_hint: 'Retours clients fiables via l’app et le site',
-    service_in_city_includes_title: 'Qu’est-ce que comprend le service ?',
-    service_in_city_local_overview: 'Aperçu local pour {city}',
-    service_in_city_how_title: 'Comment ça marche ?',
-    service_in_city_how_step1: 'Réserver',
-    service_in_city_how_step1_desc: 'Choisissez le service et un créneau via l’app ou le site.',
-    service_in_city_how_step2: 'Le technicien arrive',
-    service_in_city_how_step2_desc: 'Un technicien certifié se rend à votre adresse à l’heure convenue.',
-    service_in_city_how_step3: 'Profitez de la garantie',
-    service_in_city_how_step3_desc: 'Intervention réalisée selon nos standards, avec garantie claire.',
-    service_in_city_why_title: 'Pourquoi Tashyik ?',
-    service_in_city_why_1_title: 'Techniciens certifiés',
-    service_in_city_why_1_desc: 'Sélection rigoureuse et suivi de la qualité.',
-    service_in_city_why_2_title: 'Paiement sécurisé',
-    service_in_city_why_2_desc: 'Options fiables dont Tabby et Tamara quand disponibles.',
-    service_in_city_why_3_title: 'Garantie service',
-    service_in_city_why_3_desc: 'Durée de garantie indiquée clairement avant validation.',
-    service_in_city_why_4_title: 'Suivi dédié',
-    service_in_city_why_4_desc: 'Une équipe suit votre commande jusqu’à la clôture.',
-    service_in_city_reviews_title: 'Avis clients',
-    service_in_city_rev1_name: 'Mohammed A. (client)',
-    service_in_city_rev1_text: 'Excellente expérience — ponctuel, soigné, professionnel.',
-    service_in_city_rev2_name: 'Noura S. (cliente)',
-    service_in_city_rev2_text: 'Tarifs clairs dès le départ ; réservation simple dans l’app.',
-    service_in_city_rev3_name: 'Khalid M. (client)',
-    service_in_city_rev3_text: 'Service professionnel ; je recommande Tashyik.',
-    service_in_city_default_bullet1: 'Visite et diagnostic sur place.',
-    service_in_city_default_bullet2: 'Réparation ou entretien selon les normes de sécurité.',
-    service_in_city_default_bullet3: 'Remise avec notes et détails de garantie si applicable.',
-    service_in_city_related_title: 'Autres services à {city}',
-    service_in_city_sidebar_summary: 'Service et lieu',
-    service_in_city_price_label: 'À partir de',
+    hero_title: "Entretien à domicile de confiance à {city}",
+    hero_h1_maintenance: "Services de maintenance à {city}",
+    hero_compact_subtitle: "Techniciens certifiés pour clim, électricité, plomberie et plus — réservation rapide, qualité fiable.",
+    hero_subtitle: "Réservez des techniciens certifiés pour clim, électricité, plomberie, électroménager et plus — réponse rapide et qualité garantie.",
+    browse_services: "Parcourir les services",
+    schema_description: "Couverture Tashyik pour la maintenance à domicile à {city}, Arabie saoudite.",
+    popular_services: "Services populaires dans cette ville",
+    available_in: "Disponible à",
+    index_title: "Villes desservies",
+    index_subtitle: "Choisissez une ville pour voir les services populaires et réserver un technicien certifié.",
+    service_links_truncated: "Affichage de {shown} sur {total} services mis en avant. Parcourez toutes les catégories pour le catalogue complet.",
+    view_city_hub: "Tous les services à {city}",
+    browse_by_city: "Parcourir par ville",
+    services_heading: "Services à {city}",
+    services_search_label: "Rechercher un service",
+    services_search_placeholder: "Rechercher par nom de service…",
+    city_search_result_count: "Affichage de {filtered} résultat(s) sur {total}",
+    city_search_no_results_for: "Aucun résultat pour «{q}»",
+    city_categories_filter_aria: "Filtrer les services par catégorie",
+    districts_heading: "Quartiers principaux de {city}",
+    districts_intro: "Nous couvrons les principaux quartiers de {city} avec des délais d’intervention rapides.",
+    services_results_range: "Affichage de {from}–{to} sur {total}",
+    services_no_results: "Aucun service ne correspond à votre recherche.",
+    services_none_in_city: "Aucun service n’est encore listé pour cette ville.",
+    pagination_label: "Pages de résultats",
+    pagination_prev: "Précédent",
+    pagination_next: "Suivant",
+    hero_cta_app: "Télécharger l’application",
+    hero_cta_call: "Nous appeler",
+    price_currency: "SAR",
+    index_browse_categories: "Parcourir toutes les catégories",
+    index_filter_placeholder: "Filtrer les villes…",
+    index_card_subtitle: "Services d’entretien à domicile",
+    index_secondary_hint: "Vous préférez parcourir par type de service plutôt que par ville ?",
+    index_filter_no_match: "Aucune ville ne correspond au filtre.",
+    service_in_city_cta_order: "Commander ce service",
+    service_in_city_cta_order_now: "Commander ce service maintenant",
+    service_in_city_whatsapp_cta: "Nous contacter sur WhatsApp",
+    service_in_city_trust_secure_pay: "Paiement sécurisé et protégé",
+    service_in_city_certified_badge: "Technicien certifié",
+    service_in_city_rating_line: "⭐ Note {rating} / 5",
+    service_in_city_rating_with_orders: "⭐ {rating} ({orders}+ commandes)",
+    service_in_city_social_hint: "Retours clients fiables via l’app et le site",
+    service_in_city_includes_title: "Qu’est-ce que comprend le service ?",
+    service_in_city_local_overview: "Aperçu local pour {city}",
+    service_in_city_how_title: "Comment ça marche ?",
+    service_in_city_how_step1: "Réserver",
+    service_in_city_how_step1_desc: "Choisissez le service et un créneau via l’app ou le site.",
+    service_in_city_how_step2: "Le technicien arrive",
+    service_in_city_how_step2_desc: "Un technicien certifié se rend à votre adresse à l’heure convenue.",
+    service_in_city_how_step3: "Profitez de la garantie",
+    service_in_city_how_step3_desc: "Intervention réalisée selon nos standards, avec garantie claire.",
+    service_in_city_why_title: "Pourquoi Tashyik ?",
+    service_in_city_why_1_title: "Techniciens certifiés",
+    service_in_city_why_1_desc: "Sélection rigoureuse et suivi de la qualité.",
+    service_in_city_why_2_title: "Paiement sécurisé",
+    service_in_city_why_2_desc: "Options fiables dont Tabby et Tamara quand disponibles.",
+    service_in_city_why_3_title: "Garantie service",
+    service_in_city_why_3_desc: "Durée de garantie indiquée clairement avant validation.",
+    service_in_city_why_4_title: "Suivi dédié",
+    service_in_city_why_4_desc: "Une équipe suit votre commande jusqu’à la clôture.",
+    service_in_city_reviews_title: "Avis clients",
+    service_in_city_rev1_name: "Mohammed A. (client)",
+    service_in_city_rev1_text: "Excellente expérience — ponctuel, soigné, professionnel.",
+    service_in_city_rev2_name: "Noura S. (cliente)",
+    service_in_city_rev2_text: "Tarifs clairs dès le départ ; réservation simple dans l’app.",
+    service_in_city_rev3_name: "Khalid M. (client)",
+    service_in_city_rev3_text: "Service professionnel ; je recommande Tashyik.",
+    service_in_city_default_bullet1: "Visite et diagnostic sur place.",
+    service_in_city_default_bullet2: "Réparation ou entretien selon les normes de sécurité.",
+    service_in_city_default_bullet3: "Remise avec notes et détails de garantie si applicable.",
+    service_in_city_related_title: "Autres services à {city}",
+    service_in_city_sidebar_summary: "Service et lieu",
+    service_in_city_price_label: "À partir de"
   },
   service: {
-    order_service: 'Commander le service maintenant',
+    order_service: "Commander le service maintenant",
     actions: {
-      order_now: 'Commander !',
-      view_details: 'Voir les détails',
+      order_now: "Commander !",
+      view_details: "Voir les détails"
     },
-    highlight_1: 'Techniciens certifiés et spécialisés',
-    highlight_2: 'Paiement sécurisé',
-    highlight_3: 'Qualité garantie',
+    highlight_1: "Techniciens certifiés et spécialisés",
+    highlight_2: "Paiement sécurisé",
+    highlight_3: "Qualité garantie",
     highlights: {
-      title: 'Que ferons-nous pour vous ?',
-    },
+      title: "Que ferons-nous pour vous ?"
+    }
   },
   order: {
-    id: 'Numéro de commande',
-    title: 'Détails de la commande',
+    id: "Numéro de commande",
+    title: "Détails de la commande",
     actions: {
-      view_details: 'Voir les détails',
+      view_details: "Voir les détails",
       rate: "Évaluer l'expérience",
-      order_again: 'Commander à nouveau',
+      order_again: "Commander à nouveau",
       cancel: {
-        title: 'Annuler et rembourser',
-        description: "Attendez 15 minutes avant d'annuler la commande.",
-      },
+        title: "Annuler et rembourser",
+        description: "Attendez 15 minutes avant d'annuler la commande."
+      }
     },
     summary: {
-      title: 'Résumé',
-      service: 'Service',
-      quantity: 'Quantité',
-      date: 'Date',
-      status: 'Statut',
-      description: 'Description',
-      visit_cost: 'Visite',
-      subtotal: 'Sous-total',
-      tax: 'Taxe ({rate}%)',
-      wallet_balance: 'Portefeuille',
-      total: 'Total à payer',
-      pay: 'Payer maintenant',
-      confirm: 'Confirmer',
+      title: "Résumé",
+      service: "Service",
+      quantity: "Quantité",
+      date: "Date",
+      status: "Statut",
+      description: "Description",
+      visit_cost: "Visite",
+      subtotal: "Sous-total",
+      tax: "Taxe ({rate}%)",
+      wallet_balance: "Portefeuille",
+      total: "Total à payer",
+      pay: "Payer maintenant",
+      confirm: "Confirmer"
     },
     status: {
-      title: 'Statut de la commande',
-      new: 'Visible par les techniciens',
-      confirmed: 'Confirmée',
-      on_the_way: 'Technicien en chemin',
-      arrived: 'Technicien arrivé',
-      started: 'Travaux en cours',
-      completed: 'Terminée',
+      title: "Statut de la commande",
+      new: "Visible par les techniciens",
+      confirmed: "Confirmée",
+      on_the_way: "Technicien en chemin",
+      arrived: "Technicien arrivé",
+      started: "Travaux en cours",
+      completed: "Terminée"
     },
     service_provider: {
-      title: 'Technicien',
-      phone: 'Téléphone',
+      title: "Technicien",
+      phone: "Téléphone",
       actions: {
-        view_on_map: 'Voir sur la carte',
-        call: 'Appeler',
-        whatsapp: 'WhatsApp',
-      },
+        view_on_map: "Voir sur la carte",
+        call: "Appeler",
+        whatsapp: "WhatsApp"
+      }
     },
     invoice: {
-      title: 'Facture',
-      price: 'Prix service',
-      tax: 'TVA ({rate}%)',
-      total: 'Total',
-      view_details: 'Voir plus',
-      hide_details: 'Masquer',
-      visit_cost: 'Frais visite',
-      coupons: 'Codes promo',
-      wallet_balance: 'Solde utilisé',
+      title: "Facture",
+      price: "Prix service",
+      tax: "TVA ({rate}%)",
+      total: "Total",
+      view_details: "Voir plus",
+      hide_details: "Masquer",
+      visit_cost: "Frais visite",
+      coupons: "Codes promo",
+      wallet_balance: "Solde utilisé"
     },
     canceled: {
-      title: 'Commande annulée',
-      subtitle: 'Le montant a été remboursé sur votre portefeuille.',
+      title: "Commande annulée",
+      subtitle: "Le montant a été remboursé sur votre portefeuille."
     },
     extra: {
-      title: 'Services supplémentaires',
-      unpaid: 'Non payé',
-      paid: 'Payé',
-      view_details: 'Voir détails',
+      title: "Services supplémentaires",
+      unpaid: "Non payé",
+      paid: "Payé",
+      view_details: "Voir détails",
       invoice: {
-        title: 'Détails extra',
-        price: 'Prix service extra',
-        tax: 'Taxe extra',
-        materials: 'Prix matériaux',
-      },
-    },
+        title: "Détails extra",
+        price: "Prix service extra",
+        tax: "Taxe extra",
+        materials: "Prix matériaux"
+      }
+    }
   },
   review: {
-    title: 'Évaluation',
-    price: 'Coût',
-    rate: 'Quelle est votre satisfaction globale ?',
-    notes: 'Remarques (optionnel)',
-    notes_placeholder: 'Vos suggestions...',
+    title: "Évaluation",
+    price: "Coût",
+    rate: "Quelle est votre satisfaction globale ?",
+    notes: "Remarques (optionnel)",
+    notes_placeholder: "Vos suggestions...",
     actions: {
-      send: 'Envoyer',
-      skip: 'Passer',
-    },
+      send: "Envoyer",
+      skip: "Passer"
+    }
   },
   about: {
     hero: {
-      title: 'Tashyik – Servir avec professionnalisme',
-      description: 'Plateforme saoudienne connectant particuliers et techniciens pour une maintenance sûre et rapide.',
+      title: "Tashyik – Servir avec professionnalisme",
+      description: "Plateforme saoudienne connectant particuliers et techniciens pour une maintenance sûre et rapide.",
       subtitle: {
-        part_1: 'Qui',
-        part_2: 'Sommes-nous ?',
+        part_1: "Qui",
+        part_2: "Sommes-nous ?"
       },
       actions: {
-        discover: 'Découvrir notre histoire',
+        discover: "Découvrir notre histoire"
       },
       highlight: {
-        title: 'Fiabilité totale',
-        subtitle: 'Techniciens vérifiés',
-      },
+        title: "Fiabilité totale",
+        subtitle: "Techniciens vérifiés"
+      }
     },
     story: {
-      title: 'Notre Histoire',
-      paragraph_1: 'Tashyik est née de la volonté de simplifier la vie quotidienne en centralisant les services de maintenance.',
-      paragraph_2: 'Nous aspirons à créer une communauté technique saoudienne de haute qualité.',
+      title: "Notre Histoire",
+      paragraph_1: "Tashyik est née de la volonté de simplifier la vie quotidienne en centralisant les services de maintenance.",
+      paragraph_2: "Nous aspirons à créer une communauté technique saoudienne de haute qualité."
     },
     features: {
       title: {
-        part_1: 'Pourquoi',
-        part_2: 'Tashyik ?',
+        part_1: "Pourquoi",
+        part_2: "Tashyik ?"
       },
       subtitle: "Plus qu'une application, un partenaire de confiance pour votre maison.",
       feature_1: {
-        title: 'Experts Certifiés',
-        description: "Une sélection rigoureuse pour garantir l'excellence.",
+        title: "Experts Certifiés",
+        description: "Une sélection rigoureuse pour garantir l'excellence."
       },
       feature_2: {
-        title: 'Réponse Rapide',
-        description: 'Le technicien le plus proche intervient en un temps record.',
+        title: "Réponse Rapide",
+        description: "Le technicien le plus proche intervient en un temps record."
       },
       feature_3: {
-        title: 'Paiement Sûr',
-        description: 'Méthodes de paiement protégées par les derniers standards.',
+        title: "Paiement Sûr",
+        description: "Méthodes de paiement protégées par les derniers standards."
       },
       feature_4: {
-        title: 'Suivi Réel',
-        description: "Transparence totale sur l'état de votre demande.",
-      },
+        title: "Suivi Réel",
+        description: "Transparence totale sur l'état de votre demande."
+      }
     },
     stats_1: {
-      title: '3 800+',
-      subtitle: 'Experts Certifiés',
+      title: "3 800+",
+      subtitle: "Experts Certifiés"
     },
     stats_2: {
-      title: '632 000+',
-      subtitle: 'Services Réalisés',
+      title: "632 000+",
+      subtitle: "Services Réalisés"
     },
     stats_3: {
-      title: '4.8',
-      subtitle: 'Satisfaction Client',
+      title: "4.8",
+      subtitle: "Satisfaction Client"
     },
     audience: {
-      title: 'Qui servons-nous ?',
+      title: "Qui servons-nous ?",
       subtitle: "Tashyik s'adapte à tous vos besoins de maintenance.",
       individuals: {
-        title: 'Propriétaires',
-        description: "Pour ceux qui veulent la paix d'esprit sans perdre de temps.",
+        title: "Propriétaires",
+        description: "Pour ceux qui veulent la paix d'esprit sans perdre de temps."
       },
       institutions: {
-        title: 'Établissements',
-        description: 'Solutions pour garantir la continuité de vos activités.',
+        title: "Établissements",
+        description: "Solutions pour garantir la continuité de vos activités."
       },
       service_providers: {
-        title: 'Techniciens',
-        description: 'Le cœur de notre service. Nous valorisons votre travail.',
-      },
-    },
+        title: "Techniciens",
+        description: "Le cœur de notre service. Nous valorisons votre travail."
+      }
+    }
   },
   contact: {
-    title: 'Contactez-nous',
-    subtitle: 'Notre équipe est à votre écoute',
+    title: "Contactez-nous",
+    subtitle: "Notre équipe est à votre écoute",
     hero: {
-      title: 'Bonjour ! Comment aider ?',
-      description: 'Remplissez le formulaire et nous reviendrons vers vous.',
+      title: "Bonjour ! Comment aider ?",
+      description: "Remplissez le formulaire et nous reviendrons vers vous."
     },
     inputs: {
       name: {
-        title: 'Nom complet',
-        placeholder: 'Votre nom',
+        title: "Nom complet",
+        placeholder: "Votre nom"
       },
       subject: {
-        title: 'Sujet',
-        placeholder: 'Maintenance, demande, réclamation...',
+        title: "Sujet",
+        placeholder: "Maintenance, demande, réclamation..."
       },
       message: {
-        title: 'Votre message',
-        placeholder: 'Dites-nous tout...',
-      },
+        title: "Votre message",
+        placeholder: "Dites-nous tout..."
+      }
     },
     actions: {
-      send: 'Envoyer le message',
+      send: "Envoyer le message"
     },
     info: {
-      whatsapp: 'WhatsApp',
-      phone: 'Appeler',
-      email: 'E-mail',
+      whatsapp: "WhatsApp",
+      phone: "Appeler",
+      email: "E-mail"
     },
     more_info: {
-      title: 'Couverture globale',
-      subtitle: "Présents dans toutes les régions d'Arabie Saoudite !",
+      title: "Couverture globale",
+      subtitle: "Présents dans toutes les régions d'Arabie Saoudite !"
     },
     map: {
-      title: 'Notre emplacement',
-      subtitle: 'Visitez notre siège à Riyad',
+      title: "Notre emplacement",
+      subtitle: "Visitez notre siège à Riyad"
     },
-    message_sent: 'Envoyé avec succès',
+    message_sent: "Envoyé avec succès"
   },
   articles: {
     seo: {
-      title: 'Articles - Tashyik',
-      description: 'Lisez les derniers articles et obtenez des conseils sur l\'entretien de la maison, le soin des appareils électroménagers et les meilleures pratiques pour entretenir votre habitation.',
+      title: "Articles - Tashyik",
+      description: "Lisez les derniers articles et obtenez des conseils sur l'entretien de la maison, le soin des appareils électroménagers et les meilleures pratiques pour entretenir votre habitation."
     },
     hero: {
-      title: 'Articles',
-      subtitle: 'Conseils et informations utiles concernant l\'entretien et la maintenance de votre maison',
+      title: "Articles",
+      subtitle: "Conseils et informations utiles concernant l'entretien et la maintenance de votre maison"
     },
-    featured_badge: 'Article vedette',
-    read_more: 'En savoir plus',
-    share: 'Partager l\'article',
-    empty: 'Aucun article disponible pour le moment',
-    related: 'Articles connexes',
+    featured_badge: "Article vedette",
+    read_more: "En savoir plus",
+    share: "Partager l'article",
+    empty: "Aucun article disponible pour le moment",
+    related: "Articles connexes"
   },
   institution: {
-    title: 'Manage Employees',
-    subtitle: 'View performance and statistics of institution employees',
-    seo_title: 'Gérer les employés',
-    summary: { active_members: 'Active Employees', this_month_orders: 'Orders This Month', this_month_earnings: 'Earnings This Month', balance: 'Current Balance' },
-    member: { total_orders: 'Total Orders', completed_orders: 'Completed Orders', this_month: 'This Month', earnings: 'Earnings', joined: 'Joined' },
-    empty: { title: 'No employees', subtitle: 'No employees have been added to the institution yet.' },
-    status: { active: 'Active', pending: 'Pending', inactive: 'Inactive' },
-    filter: { all: 'All', search: 'Search by name or phone...', results: '{count} results', no_results: 'No results found', clear: 'Clear filters' },
-    sort: { name: 'Sort by name', earnings: 'Highest earnings', orders: 'Most orders', this_month: 'Most active this month' },
+    title: "Gérer les employés",
+    subtitle: "View performance and statistics of institution employees",
+    seo_title: "Gérer les employés",
+    summary: {
+      active_members: "Active Employees",
+      this_month_orders: "Orders This Month",
+      this_month_earnings: "Earnings This Month",
+      balance: "Current Balance"
+    },
+    member: {
+      total_orders: "Total Orders",
+      completed_orders: "Completed Orders",
+      this_month: "This Month",
+      earnings: "Earnings",
+      joined: "Joined"
+    },
+    empty: {
+      title: "No employees",
+      subtitle: "No employees have been added to the institution yet."
+    },
+    status: {
+      active: "Active",
+      pending: "Pending",
+      inactive: "Inactive"
+    },
+    filter: {
+      all: "All",
+      search: "Search by name or phone...",
+      results: "{count} results",
+      no_results: "No results found",
+      clear: "Clear filters"
+    },
+    sort: {
+      name: "Sort by name",
+      earnings: "Highest earnings",
+      orders: "Most orders",
+      this_month: "Most active this month"
+    }
   },
-  back_to_home: 'Retour à l\'accueil',
-  select_address: 'Sélectionner une adresse',
-  residence_name: 'Nom sur la pièce d\'identité/Iqama',
-  residence_number: 'Numéro d\'identité/Iqama',
-  residence_image: 'Copie de la pièce d\'identité/Iqama',
-  national_address_image: 'Copie de l\'adresse nationale',
-  tax_registration_number: 'Numéro d\'immatriculation fiscale',
-  address_name: 'Nom de l\'adresse',
-  building_number: 'Numéro du bâtiment',
-  apartment_number: 'Numéro d\'appartement',
-  button: 'S\'inscrire maintenant',
-  linked_institution: 'Rattaché à',
-  active_members: 'Employés actifs',
-  this_month_orders: 'Commandes ce mois-ci',
-  this_month_earnings: 'Revenus ce mois-ci',
-  balance: 'Solde actuel',
-  total_orders: 'Total des commandes',
-  completed_orders: 'Commandes terminées',
-  this_month: 'Ce mois-ci',
-  earnings: 'Revenus',
-  joined: 'Inscrit le',
-  active: 'Actif',
-  pending: 'En attente',
-  inactive: 'Inactif',
-  results: '{count} résultats',
-  no_results: 'Aucun résultat',
-  clear: 'Effacer les filtres',
+  chatbot: {
+    title: "Tashyik Chat",
+    subtitle: "We are here to help you",
+    welcome: "Welcome! How can we help you?",
+    placeholder: "Type your message...",
+    new_chat: "New Chat",
+    send: "Envoyer",
+    close: "Fermer",
+    typing: "Typing...",
+    error_network: "Unable to connect. Please check your connection and try again.",
+    error_server: "Server error occurred. Please try again later.",
+    error_generic: "An unexpected error occurred. Please try again.",
+    retry: "Try again",
+    messages_count: "messages",
+    suggestion_1: "Exemple: Puis-je réserver un service d'électricien rapide ?",
+    suggestion_2: "Exemple: Comment demander l'entretien d'un climatiseur ?"
+  }
 } as const;
