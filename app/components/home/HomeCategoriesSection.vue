@@ -38,8 +38,8 @@
       </div>
 
       <div v-else>
-        <div class="grid grid-cols-3 gap-1 md:gap-5">
-          <CategoryLink v-for="category in top6Categories" :key="category.id" :category="category" />
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 items-stretch">
+          <CategoryLink v-for="category in categories.slice(0, 8)" :key="category.id" :category="category" />
         </div>
       </div>
 

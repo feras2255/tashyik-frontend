@@ -70,12 +70,13 @@
 
         <!-- Scroll container -->
         <div ref="scrollRef" class="overflow-x-auto pb-2 scrollbar-hide">
-          <div class="flex gap-4" style="width: max-content;">
+          <div class="flex gap-4 items-stretch h-full" style="width: max-content;">
             <HomeCollectionServiceCard
               v-for="service in displayServices"
               :key="service.id"
               :service="service"
               style="width: 260px; flex: 0 0 260px;"
+              class="h-full"
             />
           </div>
         </div>

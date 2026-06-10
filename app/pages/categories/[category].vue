@@ -267,8 +267,8 @@
     </div>
 
     <!-- Services -->
-    <div class="flex flex-row flex-nowrap gap-4 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-8" style="display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;">
-      <ServiceCard v-for="service of services" :key="service.id" :service />
+    <div class="flex flex-row gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 lg:gap-8 md:overflow-visible">
+      <ServiceCard v-for="service of services" :key="service.id" :service class="shrink-0" />
     </div>
 
     <!-- No services -->

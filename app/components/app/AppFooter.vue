@@ -35,7 +35,7 @@
           <AppLogo class="h-12" />
           <p v-if="description" v-text="description" class="text-sm leading-relaxed text-gray-500 font-medium"></p>
           <p v-else class="text-sm leading-relaxed text-gray-500 font-medium">
-            احجز فني صيانة منزلية موثوقًا به في دقائق! نوفر أفضل الفنيين المعتمدين في المملكة العربية السعودية لخدمات الكهرباء والسباكة والنجارة والتكييف، بالإضافة إلى أكثر من <span class="text-brand-700 font-bold">300 خدمة أخرى.</span>
+            {{ $t('footer.description_1') }}<span class="text-brand-700 font-bold">{{ $t('footer.description_2') }}</span>
           </p>
           <div class="flex items-center gap-3">
             <a v-if="social_links?.facebook" :href="social_links?.facebook" aria-label="Facebook" target="_blank" rel="nofollow" class="flex items-center justify-center w-10 h-10 bg-brand-700 text-white rounded-xl hover:bg-brand-800 transition-colors">
@@ -104,12 +104,12 @@
 
         <!-- Column 3: Important Links -->
         <div class="flex flex-col gap-4">
-          <h3 class="text-gray-900 font-bold text-lg">روابط هامة</h3>
+          <h3 class="text-gray-900 font-bold text-lg">{{ $t('footer.important_links') }}</h3>
           <ul class="flex flex-col gap-3 text-sm font-medium">
-            <li><NuxtLinkLocale :to="{ name: 'privacy-policy' }" class="hover:text-brand-700 transition-colors">سياسة الخصوصية</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale :to="{ name: 'terms-and-conditions' }" class="hover:text-brand-700 transition-colors">الشروط والأحكام</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="#" class="hover:text-brand-700 transition-colors">الأسئلة الشائعة</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="#" class="hover:text-brand-700 transition-colors">اتصل بنا</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale :to="{ name: 'privacy-policy' }" class="hover:text-brand-700 transition-colors">{{ $t('footer.privacy_policy') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale :to="{ name: 'terms-and-conditions' }" class="hover:text-brand-700 transition-colors">{{ $t('footer.terms_and_conditions') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="#" class="hover:text-brand-700 transition-colors">{{ $t('footer.faq') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="#" class="hover:text-brand-700 transition-colors">{{ $t('footer.contact_us_link') }}</NuxtLinkLocale></li>
           </ul>
         </div>
 

@@ -1,506 +1,892 @@
 export default {
   seo: {
-    login: { title: 'Mag-login' },
-    register: { title: 'Gumawa ng Account' },
-    service_provider_register: { title: 'Magrehistro bilang Service Provider' },
-    orders: { title: 'Aking Mga Order', view: { title: 'Mga Detalye ng Order' } },
-    addresses: { title: 'Aking Mga Address', create: { title: 'Magdagdag ng Bagong Address' }, edit: { title: 'I-edit ang Address' } },
-    profile: { title: 'Personal na Profile' },
-    forgot_password: { title: 'Nakalimutan ang Password' },
-    reset_password: { title: 'I-reset ang Password' },
+    login: {
+      title: "Mag-login"
+    },
+    register: {
+      title: "Gumawa ng Account"
+    },
+    service_provider_register: {
+      title: "Magrehistro bilang Service Provider"
+    },
+    orders: {
+      title: "Aking Mga Order",
+      view: {
+        title: "Mga Detalye ng Order"
+      }
+    },
+    addresses: {
+      title: "Aking Mga Address",
+      create: {
+        title: "Magdagdag ng Bagong Address"
+      },
+      edit: {
+        title: "I-edit ang Address"
+      }
+    },
+    profile: {
+      title: "Personal na Profile"
+    },
+    forgot_password: {
+      title: "Nakalimutan ang Password"
+    },
+    reset_password: {
+      title: "I-reset ang Password"
+    },
     service_provider: {
-      title: 'Sumali bilang Technician',
-      description: 'Magrehistro bilang isang sumusuportang tagapagbigay ng serbisyo. Mag-alok ng air conditioning, kuryente, pagtutubero, kagamitan, carpentry, pagpipinta, satellite, paglilinis, pagkontrol ng peste at magaan na serbisyo sa bahay nang ligtas at madali.',
+      title: "Sumali bilang Technician",
+      description: "Magrehistro bilang isang sumusuportang tagapagbigay ng serbisyo. Mag-alok ng air conditioning, kuryente, pagtutubero, kagamitan, carpentry, pagpipinta, satellite, paglilinis, pagkontrol ng peste at magaan na serbisyo sa bahay nang ligtas at madali."
     },
     categories: {
-      title: 'Mga Kategorya',
-      description: 'Pumili mula sa mga kategorya ng pagpapanatili ng bahay tulad ng pagtutubero, kuryente, air conditioning at pagkukumpuni ng appliance. Mag-book ng maaasahang technician nang mabilis at may kumpiyansa.',
+      title: "Mga Kategorya",
+      description: "Pumili mula sa mga kategorya ng pagpapanatili ng bahay tulad ng pagtutubero, kuryente, air conditioning at pagkukumpuni ng appliance. Mag-book ng maaasahang technician nang mabilis at may kumpiyansa."
     },
     services: {
-      title: 'Mga Serbisyo',
-      description: 'Tingnan ang lahat ng home maintenance services, hanapin ang kailangan mo, at mag-book ng certified technician nang mabilis.',
+      title: "Mga Serbisyo",
+      description: "Tingnan ang lahat ng home maintenance services, hanapin ang kailangan mo, at mag-book ng certified technician nang mabilis."
     },
     cities_index: {
-      title: 'Mga lungsod na pinaglilingkuran namin',
-      description:
-        'Tingnan ang coverage ng home maintenance sa mga lungsod ng Saudi at buksan ang mga lokal na service page para sa iyong lugar.',
+      title: "Mga lungsod na pinaglilingkuran namin",
+      description: "Tingnan ang coverage ng home maintenance sa mga lungsod ng Saudi at buksan ang mga lokal na service page para sa iyong lugar."
     },
     about: {
-      title: 'Tungkol sa Amin',
-      description: 'Saudi platform na dalubhasa sa pagkonekta sa iyo sa mga akreditadong technician para sa lahat ng serbisyo sa bahay. Mabilis, ligtas at maginhawa. Ang aming layunin ay kapayapaan ng isip at kalidad sa bahay.',
+      title: "Tungkol sa Amin",
+      description: "Saudi platform na dalubhasa sa pagkonekta sa iyo sa mga akreditadong technician para sa lahat ng serbisyo sa bahay. Mabilis, ligtas at maginhawa. Ang aming layunin ay kapayapaan ng isip at kalidad sa bahay."
     },
     contact: {
-      title: 'Makipag-ugnayan sa Amin',
-      description: 'Handa ang aming team na tumanggap ng mga mensahe at tumugon nang mabilis. Punan ang mga detalye at makikipag-ugnayan kami upang tulungan ka.',
+      title: "Makipag-ugnayan sa Amin",
+      description: "Handa ang aming team na tumanggap ng mga mensahe at tumugon nang mabilis. Punan ang mga detalye at makikipag-ugnayan kami upang tulungan ka."
     },
     home: {
-      title: 'Tashyik | Mag-book ng certified home maintenance technician sa Saudi Arabia',
-      description: 'Mag-book ng mapagkakatiwalaang technician para sa AC, plumbing, kuryente at appliance repair sa bawat Saudi city. Mabilis na serbisyo, certified warranty, transparent na presyo.',
-    },
+      title: "Tashyik | Mag-book ng certified home maintenance technician sa Saudi Arabia",
+      description: "Mag-book ng mapagkakatiwalaang technician para sa AC, plumbing, kuryente at appliance repair sa bawat Saudi city. Mabilis na serbisyo, certified warranty, transparent na presyo."
+    }
   },
   a11y: {
-    open_user_menu: 'Buksan ang menu ng user',
-    open_main_menu: 'Buksan ang pangunahing menu',
-    close_menu: 'Isara ang menu',
-    notifications: 'Mga Notification',
-    language: 'Wika',
-    breadcrumb: 'Breadcrumb',
-    contact_whatsapp: 'Makipag-ugnayan sa WhatsApp',
-    coupon_code: 'Coupon code',
+    open_user_menu: "Buksan ang menu ng user",
+    open_main_menu: "Buksan ang pangunahing menu",
+    close_menu: "Isara ang menu",
+    notifications: "Mga Notification",
+    language: "Wika",
+    breadcrumb: "Breadcrumb",
+    contact_whatsapp: "Makipag-ugnayan sa WhatsApp",
+    coupon_code: "Coupon code",
+    show_password: "Show password",
+    hide_password: "Hide password",
+    chatbot: "Open chat"
   },
   common: {
-    brand: 'Tashyik',
-    account: 'Account',
-    next: 'Susunod',
-    back: 'Bumalik',
-    short_description: 'Mga Serbisyo sa Pagpapanatili ng Bahay',
-    order_service: 'Mag-order ng Serbisyo',
-    load_more: 'Mag-load Pa',
-    save: 'I-save',
-    select_type: 'Pumili ng Uri',
-    select_categories: 'Pumili ng Kategorya',
-    individual: 'Indibidwal',
-    institution: 'Institusyon',
-    company: 'Kumpanya',
-    update: 'I-update',
-    delete: 'Tanggalin',
-    updated_successfully: 'Matagumpay na Na-update',
-    page_not_found: 'Hindi Nahanap ang Pahina',
-    something_went_wrong: 'May naganap na error',
-    or: 'o',
-    request_under_review: 'Kasalukuyang sinusuri ang iyong kahilingan',
-    back_to_home: 'Bumalik sa Home',
-    no_price: 'Napagkasunduang Presyo',
-    select_city: 'Pumili ng Lungsod',
-    search_for_services: 'Maghanap ng mga serbisyo...',
-    search: 'Hanapin',
-    promotion: 'Diskwento {percentage}%',
-    warranty: 'Warranty ng {duration}',
-    all: 'Lahat',
-    wallet_balance: 'Balanse sa Wallet',
-    optional: 'Opsyonal',
-    select_address: 'Pumili ng Address',
-    done: 'Tapos na',
-    loading: 'Naglo-load…',
+    maintenance: "Pagpapanatili",
+    brand: "Tashyik",
+    account: "Account",
+    next: "Susunod",
+    back: "Bumalik",
+    short_description: "Mga Serbisyo sa Pagpapanatili ng Bahay",
+    order_service: "Mag-order ng Serbisyo",
+    load_more: "Mag-load Pa",
+    save: "I-save",
+    select_type: "Pumili ng Uri",
+    select_categories: "Pumili ng Kategorya",
+    individual: "Indibidwal",
+    institution: "Institusyon",
+    company: "Kumpanya",
+    update: "I-update",
+    delete: "Tanggalin",
+    updated_successfully: "Matagumpay na Na-update",
+    page_not_found: "Hindi Nahanap ang Pahina",
+    something_went_wrong: "May naganap na error",
+    or: "o",
+    request_under_review: "Kasalukuyang sinusuri ang iyong kahilingan",
+    back_to_home: "Bumalik sa Home",
+    no_price: "Napagkasunduang Presyo",
+    select_city: "Pumili ng Lungsod",
+    search_for_services: "Maghanap ng mga serbisyo...",
+    search: "Hanapin",
+    promotion: "Diskwento {percentage}%",
+    warranty: "Warranty ng {duration}",
+    all: "Lahat",
+    wallet_balance: "Balanse sa Wallet",
+    optional: "Opsyonal",
+    select_address: "Pumili ng Address",
+    done: "Tapos na",
+    loading: "Naglo-load…",
+    order_now: "Mag-order Ngayon",
+    send: "Ipadala",
+    close: "Isara"
   },
   alt: {
-    category: 'Kategorya {category}',
-    service: 'Serbisyo {service}',
+    category: "Kategorya {category}",
+    service: "Serbisyo {service}"
   },
   home: {
     hero: {
-      title: 'Ang Tashyik ay bukas na sa Saudi Arabia!',
-      subtitle: { part_1: 'Nandito kami', part_2: 'upang gawing madali ang buhay mo' },
-      highlight_1: 'Mga Akreditadong Technician',
-      highlight_2: 'Tumutugon sa loob ng ilang minuto',
-      description: 'Nag-aalok kami ng kumpletong serbisyo sa pagpapanatili ng bahay. Direkta sa iyong pintuan nang mabilis at madali.',
-      actions: { browse_categories: 'Tingnan ang Kategorya', request_custom_service: 'Humiling ng Pasadyang Serbisyo' },
+      title: "Ang Tashyik ay bukas na sa Saudi Arabia!",
+      subtitle: {
+        part_1: "Nandito kami",
+        part_2: "upang gawing madali ang buhay mo",
+        part_3: "Lahat ng serbisyo sa bahay mo sa isang lugar"
+      },
+      search_placeholder: "Anong serbisyo ang kailangan mo?",
+      search_button: "Maghanap Ngayon",
+      rating_badge: "4.9 Rating ng Customer",
+      response_badge: "Tugon sa loob ng ilang minuto",
+      technicians_badge: "500+ Sertipikadong Teknisyan",
+      highlight_1: "Mga Akreditadong Technician",
+      highlight_2: "Tumutugon sa loob ng ilang minuto",
+      description: "Nag-aalok kami ng kumpletong serbisyo sa pagpapanatili ng bahay. Direkta sa iyong pintuan nang mabilis at madali.",
+      actions: {
+        browse_categories: "Tingnan ang Kategorya",
+        request_custom_service: "Humiling ng Pasadyang Serbisyo"
+      }
     },
-    categories: { title: 'Lahat ng kailangan mo ay nandito!', action: 'Tingnan Lahat ng Kategorya' },
+    categories: {
+      title: "Lahat ng kailangan mo ay nandito!",
+      action: "Tingnan Lahat ng Kategorya",
+      huge_discounts: "Malaking Diskwento"
+    },
+    offers: {
+      title: "Eksklusibong Limitadong Oras na Alok",
+      description: "Samantalahin ang pinakamahusay na mga diskwento sa mga serbisyo sa pagpapanatili ng bahay kasama ang mga nangungunang propesyonal na teknisyan.",
+      free_inspection: "Libreng Inspeksyon",
+      discount_on_service: "{percentage}% Off sa {name}",
+      free_inspection_for: "Libreng Inspeksyon para sa {name}",
+      first_order_maintenance: "Pagpapanatili ng appliances sa unang order",
+      plumbing_saving: "Tipid sa pagtutubero"
+    },
+    top_rated: {
+      title: "Pinakamataas na Rating",
+      provider_1: {
+        name: "Nangungunang Teknisyan ng AC",
+        title: "Espesyalista sa AC"
+      },
+      provider_2: {
+        name: "Nangungunang Elektrisyan",
+        title: "Espesyalista sa Elektrikal"
+      },
+      provider_3: {
+        name: "Nangungunang Teknisyan ng Appliances",
+        title: "Espesyalista sa Pag-aayos ng Appliances"
+      }
+    },
     features: {
-      title: 'Bakit libu-libong customer ang nagtitiwala sa amin?',
-      subtitle: 'Ipinagmamalaki namin ang tiwala ng aming mga customer dahil nagbibigay kami ng maaasahang serbisyo.',
-      feature_1: { title: '+300', description: 'Serbisyo sa Bahay' },
-      feature_2: { title: '3,800+', description: 'Professional Technician' },
-      feature_3: { title: '632,000+', description: 'Natapos na Trabaho' },
-      feature_4: { title: '25+', description: 'Lungsod na Pinaglilingkuran' },
-      feature_5: { title: '4.8', description: 'Average na Pagsusuri' },
+      title: "Bakit piliin ang Tashyik?",
+      fast_support: {
+        title: "Mabilis na Suporta",
+        description: "Ang aming support team ay available 24/7 upang sagutin ang iyong mga katanungan at lutasin ang iyong mga problema."
+      },
+      clear_prices: {
+        title: "Malinaw na Presyo",
+        description: "Walang nakatagong bayad — ang mga presyo ay itinakda nang maaga para alam mo ang gastos bago mag-book."
+      },
+      trusted_techs: {
+        title: "Pinagkakatiwalaang Technicians",
+        description: "Lahat ng mga technician ay sumasailalim sa masusing background checks at pagsusuri sa propesyonal na kakayahan."
+      },
+      instant_booking: {
+        title: "Instant Booking",
+        description: "Ilang click lang at papunta na ang technician mo sa iyong bahay sa napagkasunduang oras."
+      },
+      real_reviews: {
+        title: "Tunay na Reviews",
+        description: "Lahat ng rating ay mula sa mga totoong customer na talagang nakaranas ng serbisyo."
+      },
+      warranty: {
+        title: "Service Warranty",
+        description: "Nagbibigay kami ng warranty na hanggang 30 araw sa lahat ng natapos na maintenance services."
+      }
+    },
+    newsletter: {
+      title: "Huwag palampasin ang anumang bagong alok!",
+      description: "Mag-subscribe sa aming newsletter upang makatanggap ng pinakabagong mga diskwento at eksklusibong alok.",
+      placeholder: "Iyong email address",
+      subscribe: "Mag-subscribe"
+    },
+    collections: {
+      view_all: "Tingnan lahat ng serbisyo",
+      season_badge: "Alok sa panahon"
     },
     reviews: {
-      title: 'Mga Boses mula sa Customer!',
-      item_1: { name: 'Fahad Al-Anzi', body: 'Napakagandang app! Tumawag ako ng technician at nakarating agad. Malinis ang trabaho at makatwiran ang presyo.', date: 'Nakaraang linggo' },
-      item_2: { name: 'Sarah Al-Qahtani', body: 'Kahanga-hangang karanasan! Nakipag-ugnayan ako sa suporta at nakatanggap ng mabilis na tulong.', date: '2 araw na nakalipas' },
-      item_3: { name: 'Mohammed Al-Sulaimani', body: 'Mabilis at propesyonal na technician. Natapos ang pag-aayos sa aircon nang mabilis.', date: 'Kahapon' },
+      title: "Mga Boses mula sa Customer!",
+      item_1: {
+        name: "Fahad Al-Anzi",
+        tag: "Pagpapanatili",
+        body: "Napakagandang app! Tumawag ako ng technician at nakarating agad. Malinis ang trabaho at makatwiran ang presyo.",
+        date: "Nakaraang linggo"
+      },
+      item_2: {
+        name: "Sarah Al-Qahtani",
+        tag: "Pagpapanatili",
+        body: "Kahanga-hangang karanasan! Nakipag-ugnayan ako sa suporta at nakatanggap ng mabilis na tulong.",
+        date: "2 araw na nakalipas"
+      },
+      item_3: {
+        name: "Mohammed Al-Sulaimani",
+        tag: "Pagpapanatili",
+        body: "Mabilis at propesyonal na technician. Natapos ang pag-aayos sa aircon nang mabilis.",
+        date: "Kahapon"
+      },
+      item_4: {
+        name: "Nasser Al-Otaibi",
+        tag: "Electrical Maintenance",
+        body: "Propesyonal na trabaho at tamang oras. Ipinaliwanag ng teknisyan ang isyu nang malinaw at tinapos ang serbisyo nang mabilis habang pinapanatiling malinis ang lugar. Salamat!",
+        date: "Tatlong araw ang nakalipas"
+      }
     },
-    questions: { title: 'Mga Katangungan na Maaaring Itanong Mo!' },
+    questions: {
+      title: "Mga Katangungan na Maaaring Itanong Mo!"
+    }
   },
   download_app: {
-    title: 'Pinagsasama ang lahat ng serbisyo sa bahay.. sa isang app!',
-    subtitle: 'I-download ang app at tumawag nang madali. Lahat ng hakbang mula sa iyong telepono sa isang click.',
-    get_it_on: 'Makuha sa',
-    download_on_the: 'I-download sa',
-    highlight_1: 'Mag-order sa ilang segundo',
-    highlight_2: 'Ligtas ang pagbabayad',
-    highlight_3: 'Sundan ang technician',
+    title_1: "Lahat ng serbisyo sa bahay mo ngayon..",
+    title_2: "sa isang app!",
+    title: "Pinagsasama ang lahat ng serbisyo sa bahay.. sa isang app!",
+    subtitle: "I-download ang app at tumawag nang madali. Lahat ng hakbang mula sa iyong telepono sa isang click.",
+    get_it_on: "Makuha sa",
+    download_on_the: "I-download sa",
+    highlight_1: "Mag-order sa ilang segundo",
+    highlight_2: "Ligtas ang pagbabayad",
+    highlight_3: "Sundan ang technician"
   },
   footer: {
-    copyright: 'Lahat ng karapatan ay nakalaan',
-    developed_by: 'Binuo ni',
-    developer: 'Pengembang',
-    contact_us: { title: 'Makipag-ugnayan sa Amin', support: 'Suporta sa Customer 24/7' },
-    resources: 'Mahalagang Link',
-    download_app: 'I-download ang App',
-    saudi_business_center: 'Na-verify sa Business Platform',
-    popular_services: 'Mga Sikat na Serbisyo',
-    popular_cities: 'Mga Lungsod na Pinaglilingkuran',
-    see_all_services: 'Tingnan ang lahat ng serbisyo',
-    see_all_cities: 'Tingnan ang lahat ng lungsod',
+    important_links: "Mahahalagang Link",
+    privacy_policy: "Patakaran sa Privacy",
+    terms_and_conditions: "Mga Tuntunin at Kundisyon",
+    faq: "FAQ",
+    contact_us_link: "Makipag-ugnayan sa Amin",
+    copyright: "Lahat ng karapatan ay nakalaan",
+    developed_by: "Binuo ni",
+    developer: "Pengembang",
+    contact_us: {
+      title: "Makipag-ugnayan sa Amin",
+      support: "Suporta sa Customer 24/7"
+    },
+    resources: "Mahalagang Link",
+    download_app: "I-download ang App",
+    saudi_business_center: "Na-verify sa Business Platform",
+    popular_services: "Mga Sikat na Serbisyo",
+    popular_cities: "Mga Lungsod na Pinaglilingkuran",
+    see_all_services: "Tingnan ang lahat ng serbisyo",
+    see_all_cities: "Tingnan ang lahat ng lungsod"
   },
   navigation: {
-    home: 'Home',
-    login: 'Mag-login',
-    register: 'Magrehistro',
-    about: 'Tungkol sa Amin',
-    categories: 'Mga Kategorya',
-    services: 'Mga Serbisyo',
-    download_app: 'I-download ang App',
-    contact: 'Makipag-ugnayan',
-    articles: 'Mga Artikulo',
-    cities: 'Mga Lungsod',
-    logout: 'Mag-logout',
-    privacy_policy: 'Patakaran sa Privacy',
-    terms_and_conditions: 'Tuntunin at Kundisyon',
-    service_provider: 'Magrehistro bilang Service Provider',
-    profile: { title: 'Aking Account', subtitle: 'Pamahalaan ang personal na impormasyon' },
-    orders: { title: 'Aking Mga Order', subtitle: 'Sundan ang iyong mga order' },
-    addresses: { title: 'Aking Address', subtitle: 'Pamahalaan ang mga address' },
+    home: "Home",
+    login: "Mag-login",
+    register: "Magrehistro",
+    about: "Tungkol sa Amin",
+    categories: "Mga Kategorya",
+    services: "Mga Serbisyo",
+    download_app: "I-download ang App",
+    contact: "Makipag-ugnayan",
+    articles: "Mga Artikulo",
+    cities: "Mga Lungsod",
+    logout: "Mag-logout",
+    privacy_policy: "Patakaran sa Privacy",
+    terms_and_conditions: "Tuntunin at Kundisyon",
+    service_provider: "Magrehistro bilang Service Provider",
+    profile: {
+      title: "Aking Account",
+      subtitle: "Pamahalaan ang personal na impormasyon"
+    },
+    orders: {
+      title: "Aking Mga Order",
+      subtitle: "Sundan ang iyong mga order"
+    },
+    addresses: {
+      title: "Aking Address",
+      subtitle: "Pamahalaan ang mga address"
+    },
+    institution_members: {
+      title: "Pamahalaan ang mga Empleyado",
+      subtitle: "Tingnan at pamahalaan ang mga empleyado ng institusyon"
+    }
   },
   guest: {
     login: {
-      title: 'Maligayang Pagdating!',
-      subtitle: 'Mag-login upang isagawa ang iyong kahilingan nang madali',
-      forgot_password: 'Nakalimutan ang rhesrtaward?',
-      sign_in: 'Mag-sign in',
-      sign_up: 'Gumawa ng Bagong Account',
-      no_account: 'Wala pang account?',
+      title: "Maligayang Pagdating!",
+      subtitle: "Mag-login upang isagawa ang iyong kahilingan nang madali",
+      forgot_password: "Nakalimutan ang rhesrtaward?",
+      sign_in: "Mag-sign in",
+      sign_up: "Gumawa ng Bagong Account",
+      no_account: "Wala pang account?"
     },
     register: {
-      customer: { title: 'Gumawa ng Bagong Account', subtitle: 'Gumawa ng account at mag-order nang madali' },
-      service_provider: {
-        title: 'Gumawa ng Account Ngayon',
-        subtitle: 'Magrehistro bilang technician at magsimulang tumanggap ng trabaho',
-        applied: { title: 'Matagumpay na Pagpaparehistro', subtitle: 'Sinusuri na ang iyong kahilingan' },
+      customer: {
+        title: "Gumawa ng Bagong Account",
+        subtitle: "Gumawa ng account at mag-order nang madali"
       },
-      title: 'Gumawa ng Bagong Account',
-      create_account: 'Gumawa ng Account',
-      have_account: 'May account na ba?',
-      sign_in: 'Mag-sign in',
+      service_provider: {
+        title: "Gumawa ng Account Ngayon",
+        subtitle: "Magrehistro bilang technician at magsimulang tumanggap ng trabaho",
+        applied: {
+          title: "Matagumpay na Pagpaparehistro",
+          subtitle: "Sinusuri na ang iyong kahilingan"
+        }
+      },
+      title: "Gumawa ng Bagong Account",
+      create_account: "Gumawa ng Account",
+      have_account: "May account na ba?",
+      sign_in: "Mag-sign in"
     },
     forgot_password: {
-      title: 'Nakalimutan ang Password?',
-      subtitle: 'Ilagay ang iyong email para padalhan ka ng verification code',
-      send_otp: 'Magpadala ng Code',
-      otp_subtitle: 'Ilagay ang code na ipinadala sa iyong email',
-      otp_label: 'OTP code',
-      verify_otp: 'Patunayan ang Code',
-      resend_otp: 'Ipadala muli ang Code',
-      success_message: 'Naipadala na ang code sa iyong email',
-      back_to_login: 'Bumalik sa pag-login',
+      title: "Nakalimutan ang Password?",
+      subtitle: "Ilagay ang iyong email para padalhan ka ng verification code",
+      send_otp: "Magpadala ng Code",
+      otp_subtitle: "Ilagay ang code na ipinadala sa iyong email",
+      otp_label: "OTP code",
+      verify_otp: "Patunayan ang Code",
+      resend_otp: "Ipadala muli ang Code",
+      success_message: "Naipadala na ang code sa iyong email",
+      back_to_login: "Bumalik sa pag-login"
     },
     reset_password: {
-      title: 'I-reset ang Password',
-      subtitle: 'Ilagay ang iyong bagong password',
-      reset_button: 'I-reset',
-      success_message: 'Matagumpay na na-reset. Maaari ka nang mag-login.',
-    },
+      title: "I-reset ang Password",
+      subtitle: "Ilagay ang iyong bagong password",
+      reset_button: "I-reset",
+      success_message: "Matagumpay na na-reset. Maaari ka nang mag-login."
+    }
   },
   inputs: {
-    email: 'Email',
-    email_optional: 'Email (Opsyonal)',
-    name: 'Ano ang pangalan mo?',
-    phone: 'Numero ng Telepono',
-    password: 'Password',
-    current_password: 'Kasalukuyang Password',
-    new_password: 'Bagong Password',
-    password_confirmation: 'I-kumpirma ang Password',
-    remember_me: 'Tandaan Ako',
-    city: 'Saan ka nakatira?',
-    entity_type: 'Uri ng Account',
-    categories: 'Mga Kategorya',
-    residence_name: 'Pangalan sa ID/Iqama',
-    residence_number: 'Numero ng ID/Iqama',
-    residence_image: 'Kopya ng ID/Iqama',
-    commercial_registration_number: 'Commercial Registration Number',
-    commercial_registration_image: 'Kopya ng Commercial Registration',
-    bank_name: 'Pangalan ng Bangko',
-    iban: 'IBAN',
-    personal_picture: 'Larawan ng Profile',
-    national_address_image: 'Kopya ng National Address',
-    tax_registration_number: 'Numero ng rehistro sa buwis',
-    address: { title: 'Address', placeholder: 'Hal. Sukhumvit Road' },
-    type_address_name: { title: 'Pangalan ng Address', placeholder: 'Hal. Bahay' },
-    landmark: { title: 'Landmark', placeholder: 'Hal. Malapit sa gas station' },
-    address_name: 'Pangalan ng Address',
-    building_number: 'Numero ng Gusali',
-    floor_number: 'Palapag',
-    apartment_number: 'Numero ng Apartment',
+    email: "Email",
+    email_optional: "Email (Opsyonal)",
+    name: "Ano ang pangalan mo?",
+    phone: "Numero ng Telepono",
+    password: "Password",
+    current_password: "Kasalukuyang Password",
+    new_password: "Bagong Password",
+    password_confirmation: "I-kumpirma ang Password",
+    remember_me: "Tandaan Ako",
+    city: "Saan ka nakatira?",
+    entity_type: "Uri ng Account",
+    categories: "Mga Kategorya",
+    residence_name: "Pangalan sa ID/Iqama",
+    residence_number: "Numero ng ID/Iqama",
+    residence_image: "Kopya ng ID/Iqama",
+    commercial_registration_number: "Commercial Registration Number",
+    commercial_registration_image: "Kopya ng Commercial Registration",
+    bank_name: "Pangalan ng Bangko",
+    iban: "IBAN",
+    personal_picture: "Larawan ng Profile",
+    national_address_image: "Kopya ng National Address",
+    tax_registration_number: "Numero ng rehistro sa buwis",
+    address: {
+      title: "Address",
+      placeholder: "Hal. Sukhumvit Road"
+    },
+    type_address_name: {
+      title: "Pangalan ng Address",
+      placeholder: "Hal. Bahay"
+    },
+    landmark: {
+      title: "Landmark",
+      placeholder: "Hal. Malapit sa gas station"
+    },
+    address_name: "Pangalan ng Address",
+    building_number: "Numero ng Gusali",
+    floor_number: "Palapag",
+    apartment_number: "Numero ng Apartment"
   },
   services: {
-    index_eyebrow: 'Lahat ng serbisyo',
-    index_title: 'Hanapin ang tamang home service',
-    index_subtitle: 'Maghanap sa mga serbisyo ng Tashyik, mag-filter ayon sa specialty, at mag-book ng certified technician nang hindi muna pumapasok sa categories.',
-    index_support_title: 'Kailangan ng tulong sa pagpili ng serbisyo?',
-    index_search_label: 'Maghanap ng serbisyo',
-    index_search_placeholder: 'Hanapin ayon sa pangalan, problema, o keyword...',
-    index_filter_by_category: 'I-filter ayon sa kategorya',
-    index_result_count: 'Ipinapakita ang {count} sa {total} serbisyo',
-    index_clear_filters: 'I-clear ang filters',
-    empty: { title: 'Walang nahanap na serbisyo', subtitle: 'Subukang maghanap ng iba' },
+    index_eyebrow: "Lahat ng serbisyo",
+    index_title: "Hanapin ang tamang home service",
+    index_subtitle: "Maghanap sa mga serbisyo ng Tashyik, mag-filter ayon sa specialty, at mag-book ng certified technician nang hindi muna pumapasok sa categories.",
+    index_support_title: "Kailangan ng tulong sa pagpili ng serbisyo?",
+    index_search_label: "Maghanap ng serbisyo",
+    index_search_placeholder: "Hanapin ayon sa pangalan, problema, o keyword...",
+    index_filter_by_category: "I-filter ayon sa kategorya",
+    index_result_count: "Ipinapakita ang {count} sa {total} serbisyo",
+    index_clear_filters: "I-clear ang filters",
+    empty: {
+      title: "Walang nahanap na serbisyo",
+      subtitle: "Subukang maghanap ng iba"
+    },
     invoice: {
-      title: 'Tingnan ang Invoice',
-      service: 'Serbisyo',
-      service_price: 'Presyo ng Serbisyo',
-      visit_cost: 'Bayad sa Pagbisita',
-      subtotal: 'Subtotal',
-      tax: 'Buwis',
-      wallet_balance: 'Balanse sa Wallet',
-      total: 'Kabuuan',
-      pay: 'Magbayad',
-      request: 'Kumpirmahin ang Order',
+      title: "Tingnan ang Invoice",
+      service: "Serbisyo",
+      service_price: "Presyo ng Serbisyo",
+      visit_cost: "Bayad sa Pagbisita",
+      subtotal: "Subtotal",
+      tax: "Buwis",
+      wallet_balance: "Balanse sa Wallet",
+      total: "Kabuuan",
+      pay: "Magbayad",
+      request: "Kumpirmahin ang Order"
     },
     custom_service: {
-      title: 'Hindi sigurado sa serbisyo?',
-      subtitle: 'Ipaliwanag ang iyong problema at kumuha ng quote mula sa isang dalubhasang technician.',
-      action: 'Humiling ng Pasadyang Serbisyo',
-    },
+      title: "Hindi sigurado sa serbisyo?",
+      subtitle: "Ipaliwanag ang iyong problema at kumuha ng quote mula sa isang dalubhasang technician.",
+      action: "Humiling ng Pasadyang Serbisyo"
+    }
   },
   orders: {
-    name: 'Aking Mga Order',
-    navigation: { new: 'Bago', in_progress: 'Isinasagawa', completed: 'Tapos na' },
-    empty: { title: 'Walang Order', subtitle: 'Walang nahanap na kasaysayan ng order', view_services: 'Mag-order Ngayon' },
-    make: {
-      title: 'Humiling ng Serbisyo',
-      address: 'Address ng Serbisyo',
-      details: { title: 'Mga Detalye ng Serbisyo', description: 'Tukuyin ang iyong problema...' },
-      coupons: { title: 'Mayroon ka bang discount code?', placeholder: 'Ilagay ang code', apply: 'Gamitin' },
-      summary: { title: 'Buod ng Order' },
+    name: "Aking Mga Order",
+    navigation: {
+      new: "Bago",
+      in_progress: "Isinasagawa",
+      completed: "Tapos na"
     },
+    empty: {
+      title: "Walang Order",
+      subtitle: "Walang nahanap na kasaysayan ng order",
+      view_services: "Mag-order Ngayon"
+    },
+    make: {
+      title: "Humiling ng Serbisyo",
+      address: "Address ng Serbisyo",
+      details: {
+        title: "Mga Detalye ng Serbisyo",
+        description: "Tukuyin ang iyong problema..."
+      },
+      coupons: {
+        title: "Mayroon ka bang discount code?",
+        placeholder: "Ilagay ang code",
+        apply: "Gamitin"
+      },
+      summary: {
+        title: "Buod ng Order"
+      }
+    }
   },
   notifications: {
-    title: 'Mga Notification',
-    no_notifications: 'Walang Notification',
+    title: "Mga Notification",
+    no_notifications: "Walang Notification"
   },
   addresses: {
-    title: 'Aking Mga Address',
-    heading: { title: 'Mga Naka-save na Address', subtitle: 'Pamahalaan ang iyong mga address.', action: 'Magdagdag ng Address' },
-    new: { title: 'Magdagdag ng Bagong Address', subtitle: 'Itakda ang iyong lokasyon sa mapa.' },
-    create: { title: 'Magdagdag ng Address', heading: { title: 'Magdagdag ng Bagong Address', subtitle: 'Mangyaring pumili ng lokasyon' }, save: 'I-save ang Address' },
-    edit: { title: 'I-edit ang Address', heading: { title: 'I-edit ang Address', subtitle: 'I-update ang lokasyon at impormasyon' }, save: 'I-update ang Address' },
-    form: { title: 'Detalye ng Address', options: { home: 'Bahay', work: 'Trabaho', other: 'Iba pa' } },
+    title: "Aking Mga Address",
+    heading: {
+      title: "Mga Naka-save na Address",
+      subtitle: "Pamahalaan ang iyong mga address.",
+      action: "Magdagdag ng Address"
+    },
+    new: {
+      title: "Magdagdag ng Bagong Address",
+      subtitle: "Itakda ang iyong lokasyon sa mapa."
+    },
+    create: {
+      title: "Magdagdag ng Address",
+      heading: {
+        title: "Magdagdag ng Bagong Address",
+        subtitle: "Mangyaring pumili ng lokasyon"
+      },
+      save: "I-save ang Address"
+    },
+    edit: {
+      title: "I-edit ang Address",
+      heading: {
+        title: "I-edit ang Address",
+        subtitle: "I-update ang lokasyon at impormasyon"
+      },
+      save: "I-update ang Address"
+    },
+    form: {
+      title: "Detalye ng Address",
+      options: {
+        home: "Bahay",
+        work: "Trabaho",
+        other: "Iba pa"
+      }
+    }
   },
   address: {
-    details: 'Gusali {building_number}, Apartment {apartment_number}, Palapag {floor_number}',
-    mark_as_default: 'Itakda bilang default',
+    details: "Gusali {building_number}, Apartment {apartment_number}, Palapag {floor_number}",
+    mark_as_default: "Itakda bilang default"
   },
   profile: {
-    name: 'Profile',
-    header: { title: 'Mga Setting ng Profile', subtitle: 'I-edit ang iyong profile at password' },
-    information: 'Impormasyon ng Profile',
-    update_password: 'I-update ang Password',
-    delete_account: 'Tanggalin ang Account',
+    name: "Profile",
+    header: {
+      title: "Mga Setting ng Profile",
+      subtitle: "I-edit ang iyong profile at password"
+    },
+    information: "Impormasyon ng Profile",
+    linked_institution: "Works at",
+    update_password: "I-update ang Password",
+    delete_account: "Tanggalin ang Account"
   },
   service_provider: {
     h1: {
-      title: 'Magrehistro bilang Technician Kasama Namin',
-      description: 'Ikaw ba ay may kasanayan sa pagpapanatili ng bahay? Sumali sa amin at mag-alok ng iyong serbisyo sa propesyonal na paraan.',
+      title: "Magrehistro bilang Technician Kasama Namin",
+      description: "Ikaw ba ay may kasanayan sa pagpapanatili ng bahay? Sumali sa amin at mag-alok ng iyong serbisyo sa propesyonal na paraan."
     },
     h2: {
-      title: 'Magsimula Ngayon',
-      description: 'Tumatanggap kami ng mga service provider sa iba\'t ibang field:',
-      items: ['Aircon', 'Kuryente', 'Pagtutubero', 'Kagamitan sa Bahay', 'Carpentry', 'Pagpipinta', 'Satellite', 'Paglilinis', 'Peste', 'Mga Serbisyo sa Bahay'],
+      title: "Magsimula Ngayon",
+      description: "Tumatanggap kami ng mga service provider sa iba't ibang field:",
+      items: [
+        "Aircon",
+        "Kuryente",
+        "Pagtutubero",
+        "Kagamitan sa Bahay",
+        "Carpentry",
+        "Pagpipinta",
+        "Satellite",
+        "Paglilinis",
+        "Peste",
+        "Mga Serbisyo sa Bahay"
+      ]
     },
-    button: 'Magrehistro Ngayon',
+    button: "Magrehistro Ngayon"
   },
   categories: {
-    title: 'Lahat ng serbisyo sa pagpapanatili na kailangan mo',
-    subtitle: 'Pumili at mag-book ng propesyonal technician nang madali',
-    banner: { title: 'Handa nang magsimula sa Tashyik?', subtitle: 'I-download ang app at kumuha ng unang serbisyo.' },
+    title: "Lahat ng serbisyo sa pagpapanatili na kailangan mo",
+    subtitle: "Pumili at mag-book ng propesyonal technician nang madali",
+    banner: {
+      title: "Handa nang magsimula sa Tashyik?",
+      subtitle: "I-download ang app at kumuha ng unang serbisyo."
+    }
   },
   cities: {
-    hero_title: 'Layanan Tashyik',
-    hero_h1_maintenance: 'Layanan perawatan rumah',
-    hero_compact_subtitle: 'Cepat, tepercaya, tersedia di kota Anda',
-    hero_subtitle:
-      'Pesan layanan dari ahli terverifikasi',
-    browse_services: 'Jelajahi layanan',
-    schema_description: 'Platform profesional untuk layanan rumah terpercaya',
-    popular_services: 'Mga sikat na serbisyo sa lungsod na ito',
-    available_in: 'Available sa {city}',
-    index_title: 'Mga lungsod na pinaglilingkuran namin',
-    index_subtitle: 'Pumili ng lungsod para makita ang mga sikat na home maintenance service at mag-book ng certified technician.',
-    service_links_truncated:
-      'Buka untuk melihat layanan lainnya',
-    view_city_hub: 'Lihat pusat kota',
-    browse_by_city: 'Jelajahi berdasarkan kota',
-    services_heading: 'Semua layanan',
-    services_search_label: 'Cari layanan',
-    services_search_placeholder: 'Ketik nama layanan',
-    city_search_result_count: '{count} hasil di {city}',
-    city_search_no_results_for: 'Tidak ada hasil untuk "{q}"',
-    city_categories_filter_aria: 'Filter kategori',
-    districts_heading: 'Mga pangunahing distrito sa {city}',
-    districts_intro: 'Sineserbisyuhan namin ang mga pangunahing distrito sa {city} nang mabilis.',
-    services_results_range: 'Menampilkan {shown} dari {total} ({filtered} difilter)',
-    services_no_results: 'Layanan tidak ditemukan',
-    services_none_in_city: 'Belum ada layanan di kota ini',
-    pagination_label: 'Navigasi halaman',
-    pagination_prev: 'Previous',
-    pagination_next: 'Next',
-    hero_cta_app: 'Unduh aplikasi',
-    hero_cta_call: 'Telepon sekarang',
-    price_currency: 'SAR',
-    index_browse_categories: 'Jelajahi kategori',
-    index_filter_placeholder: 'Filter kategori',
-    index_card_subtitle: 'Layanan cepat dan tepercaya',
-    index_secondary_hint: 'Pilih sesuai kebutuhan Anda',
-    index_filter_no_match: 'Tidak ada kategori yang cocok',
-    service_in_city_cta_order: 'Pesan layanan',
-    service_in_city_cta_order_now: 'Pesan sekarang',
-    service_in_city_whatsapp_cta: 'Pesan via WhatsApp',
-    service_in_city_trust_secure_pay: 'Pembayaran aman terjamin',
-    service_in_city_certified_badge: 'Profesional tersertifikasi',
-    service_in_city_rating_line: 'Rating {rating} dari {orders} pesanan',
-    service_in_city_rating_with_orders: '{rating} ({orders} pesanan)',
-    service_in_city_social_hint: 'Dipercaya oleh ribuan pelanggan',
-    service_in_city_includes_title: 'Termasuk dalam layanan ini',
-    service_in_city_local_overview: 'Lokal na pangkalahatang ideya para sa {city}',
-    service_in_city_how_title: 'Cara kerjanya',
-    service_in_city_how_step1: 'Book',
-    service_in_city_how_step1_desc: 'Pilih layanan dan jadwal',
-    service_in_city_how_step2: 'Penugasan ahli',
-    service_in_city_how_step2_desc: 'Ahli terverifikasi akan ditugaskan untuk Anda',
-    service_in_city_how_step3: 'Pekerjaan selesai',
-    service_in_city_how_step3_desc: 'Bayar aman setelah pekerjaan selesai',
-    service_in_city_why_title: 'Mengapa memilih kami',
-    service_in_city_why_1_title: 'Tim terverifikasi',
-    service_in_city_why_1_desc: 'Setiap teknisi diperiksa dan dilatih',
-    service_in_city_why_2_title: 'Datang tepat waktu',
-    service_in_city_why_2_desc: 'Layanan hadir sesuai jadwal',
-    service_in_city_why_3_title: 'Harga transparan',
-    service_in_city_why_3_desc: 'Tanpa biaya tersembunyi',
-    service_in_city_why_4_title: 'Dukungan berkualitas',
-    service_in_city_why_4_desc: 'Bantuan tetap tersedia setelah layanan',
-    service_in_city_reviews_title: 'Ulasan pelanggan',
-    service_in_city_rev1_name: 'Rafi Pratama',
-    service_in_city_rev1_text: 'Layanannya sangat bagus dan tim datang tepat waktu.',
-    service_in_city_rev2_name: 'Nadia Putri',
-    service_in_city_rev2_text: 'Pemesanan mudah dan hasilnya memuaskan.',
-    service_in_city_rev3_name: 'Ilham Saputra',
-    service_in_city_rev3_text: 'Profesional dan harganya masuk akal.',
-    service_in_city_default_bullet1: 'Respon cepat',
-    service_in_city_default_bullet2: 'Ahli berpengalaman',
-    service_in_city_default_bullet3: 'Jaminan layanan',
-    service_in_city_related_title: 'Layanan terkait',
-    service_in_city_sidebar_summary: 'Layanan tepercaya di kota Anda',
-    service_in_city_price_label: 'From',
+    hero_title: "Layanan Tashyik",
+    hero_h1_maintenance: "Layanan perawatan rumah",
+    hero_compact_subtitle: "Cepat, tepercaya, tersedia di kota Anda",
+    hero_subtitle: "Pesan layanan dari ahli terverifikasi",
+    browse_services: "Jelajahi layanan",
+    schema_description: "Platform profesional untuk layanan rumah terpercaya",
+    popular_services: "Mga sikat na serbisyo sa lungsod na ito",
+    available_in: "Available sa {city}",
+    index_title: "Mga lungsod na pinaglilingkuran namin",
+    index_subtitle: "Pumili ng lungsod para makita ang mga sikat na home maintenance service at mag-book ng certified technician.",
+    service_links_truncated: "Buka untuk melihat layanan lainnya",
+    view_city_hub: "Lihat pusat kota",
+    browse_by_city: "Jelajahi berdasarkan kota",
+    services_heading: "Semua layanan",
+    services_search_label: "Cari layanan",
+    services_search_placeholder: "Ketik nama layanan",
+    city_search_result_count: "{count} hasil di {city}",
+    city_search_no_results_for: "Tidak ada hasil untuk \"{q}\"",
+    city_categories_filter_aria: "Filter kategori",
+    districts_heading: "Mga pangunahing distrito sa {city}",
+    districts_intro: "Sineserbisyuhan namin ang mga pangunahing distrito sa {city} nang mabilis.",
+    services_results_range: "Menampilkan {shown} dari {total} ({filtered} difilter)",
+    services_no_results: "Layanan tidak ditemukan",
+    services_none_in_city: "Belum ada layanan di kota ini",
+    pagination_label: "Navigasi halaman",
+    pagination_prev: "Nakaraan",
+    pagination_next: "Susunod",
+    hero_cta_app: "Unduh aplikasi",
+    hero_cta_call: "Telepon sekarang",
+    price_currency: "SAR",
+    index_browse_categories: "Jelajahi kategori",
+    index_filter_placeholder: "Filter kategori",
+    index_card_subtitle: "Layanan cepat dan tepercaya",
+    index_secondary_hint: "Pilih sesuai kebutuhan Anda",
+    index_filter_no_match: "Tidak ada kategori yang cocok",
+    service_in_city_cta_order: "Pesan layanan",
+    service_in_city_cta_order_now: "Pesan sekarang",
+    service_in_city_whatsapp_cta: "Pesan via WhatsApp",
+    service_in_city_trust_secure_pay: "Pembayaran aman terjamin",
+    service_in_city_certified_badge: "Profesional tersertifikasi",
+    service_in_city_rating_line: "Rating {rating} dari {orders} pesanan",
+    service_in_city_rating_with_orders: "{rating} ({orders} pesanan)",
+    service_in_city_social_hint: "Dipercaya oleh ribuan pelanggan",
+    service_in_city_includes_title: "Termasuk dalam layanan ini",
+    service_in_city_local_overview: "Lokal na pangkalahatang ideya para sa {city}",
+    service_in_city_how_title: "Cara kerjanya",
+    service_in_city_how_step1: "Mag-book",
+    service_in_city_how_step1_desc: "Pilih layanan dan jadwal",
+    service_in_city_how_step2: "Penugasan ahli",
+    service_in_city_how_step2_desc: "Ahli terverifikasi akan ditugaskan untuk Anda",
+    service_in_city_how_step3: "Pekerjaan selesai",
+    service_in_city_how_step3_desc: "Bayar aman setelah pekerjaan selesai",
+    service_in_city_why_title: "Mengapa memilih kami",
+    service_in_city_why_1_title: "Tim terverifikasi",
+    service_in_city_why_1_desc: "Setiap teknisi diperiksa dan dilatih",
+    service_in_city_why_2_title: "Datang tepat waktu",
+    service_in_city_why_2_desc: "Layanan hadir sesuai jadwal",
+    service_in_city_why_3_title: "Harga transparan",
+    service_in_city_why_3_desc: "Tanpa biaya tersembunyi",
+    service_in_city_why_4_title: "Dukungan berkualitas",
+    service_in_city_why_4_desc: "Bantuan tetap tersedia setelah layanan",
+    service_in_city_reviews_title: "Ulasan pelanggan",
+    service_in_city_rev1_name: "Rafi Pratama",
+    service_in_city_rev1_text: "Layanannya sangat bagus dan tim datang tepat waktu.",
+    service_in_city_rev2_name: "Nadia Putri",
+    service_in_city_rev2_text: "Pemesanan mudah dan hasilnya memuaskan.",
+    service_in_city_rev3_name: "Ilham Saputra",
+    service_in_city_rev3_text: "Profesional dan harganya masuk akal.",
+    service_in_city_default_bullet1: "Respon cepat",
+    service_in_city_default_bullet2: "Ahli berpengalaman",
+    service_in_city_default_bullet3: "Jaminan layanan",
+    service_in_city_related_title: "Layanan terkait",
+    service_in_city_sidebar_summary: "Layanan tepercaya di kota Anda",
+    service_in_city_price_label: "From"
   },
   service: {
-    order_service: 'Mag-order Ngayon',
-    actions: { order_now: 'Mag-order!', view_details: 'Tingnan ang Detalye' },
-    highlight_1: 'Eksperto at Sertipikadong Technician',
-    highlight_2: 'Ligtas na Pagbabayad',
-    highlight_3: 'Kalidad na Ganting',
-    highlights: { title: 'Ano ang gagawin namin para sa iyo?' },
+    order_service: "Mag-order Ngayon",
+    actions: {
+      order_now: "Mag-order!",
+      view_details: "Tingnan ang Detalye"
+    },
+    highlight_1: "Eksperto at Sertipikadong Technician",
+    highlight_2: "Ligtas na Pagbabayad",
+    highlight_3: "Kalidad na Ganting",
+    highlights: {
+      title: "Ano ang gagawin namin para sa iyo?"
+    }
   },
   order: {
-    id: 'ID ng Order',
-    title: 'Detalye ng Order',
-    actions: { view_details: 'Tingnan ang Detalye', rate: 'Suriin ang Serbisyo', order_again: 'Mag-order Muli', cancel: { title: 'Kanselahin at Refund', description: 'Kailangan mong maghintay ng 15 minuto bago kanselahin.' } },
-    summary: { title: 'Buod ng Order', service: 'Serbisyo', quantity: 'Dami', date: 'Petsa ng Order', status: 'Katayuan', description: 'Detalye ng Problema', visit_cost: 'Bayad sa Pagbisita', subtotal: 'Subtotal', tax: 'Buwis ({rate}%)', wallet_balance: 'Balanse sa Wallet', total: 'Kabuuan', pay: 'Magbayad Ngayon', confirm: 'Kumpirmahin' },
-    status: { title: 'Katayuan ng Order', new: 'Naghahanap ng technician', confirmed: 'Nakumpirma', on_the_way: 'Technician ay papunta', arrived: 'Technician ay dumating', started: 'Isinasagawa', completed: 'Natapos' },
-    service_provider: { title: 'Technician', phone: 'Telepono', actions: { view_on_map: 'Tingnan sa Mapa', call: 'Tumawag', whatsapp: 'WhatsApp' } },
-    invoice: { title: 'Detalye ng Invoice', price: 'Presyo', tax: 'VAT ({rate}%)', total: 'Kabuuan', view_details: 'Detalye', hide_details: 'Itago ang Detalye', visit_cost: 'Bayad sa Pagbisita', coupons: 'Discount Code', wallet_balance: 'Balanse sa Wallet' },
-    canceled: { title: 'Kanselado ang Order', subtitle: 'Ibinalik ang pondo sa iyong wallet' },
-    extra: { title: 'Karagdagang Serbisyo', unpaid: 'Hindi Bayad', paid: 'Bayad na', view_details: 'Detalye', invoice: { title: 'Detalye ng Karagdagang Serbisyo', price: 'Presyo ng Serbisyo', tax: 'Buwis', materials: 'Materyales' } },
+    id: "ID ng Order",
+    title: "Detalye ng Order",
+    actions: {
+      view_details: "Tingnan ang Detalye",
+      rate: "Suriin ang Serbisyo",
+      order_again: "Mag-order Muli",
+      cancel: {
+        title: "Kanselahin at Refund",
+        description: "Kailangan mong maghintay ng 15 minuto bago kanselahin."
+      }
+    },
+    summary: {
+      title: "Buod ng Order",
+      service: "Serbisyo",
+      quantity: "Dami",
+      date: "Petsa ng Order",
+      status: "Katayuan",
+      description: "Detalye ng Problema",
+      visit_cost: "Bayad sa Pagbisita",
+      subtotal: "Subtotal",
+      tax: "Buwis ({rate}%)",
+      wallet_balance: "Balanse sa Wallet",
+      total: "Kabuuan",
+      pay: "Magbayad Ngayon",
+      confirm: "Kumpirmahin"
+    },
+    status: {
+      title: "Katayuan ng Order",
+      new: "Naghahanap ng technician",
+      confirmed: "Nakumpirma",
+      on_the_way: "Technician ay papunta",
+      arrived: "Technician ay dumating",
+      started: "Isinasagawa",
+      completed: "Natapos"
+    },
+    service_provider: {
+      title: "Technician",
+      phone: "Telepono",
+      actions: {
+        view_on_map: "Tingnan sa Mapa",
+        call: "Tumawag",
+        whatsapp: "WhatsApp"
+      }
+    },
+    invoice: {
+      title: "Detalye ng Invoice",
+      price: "Presyo",
+      tax: "VAT ({rate}%)",
+      total: "Kabuuan",
+      view_details: "Detalye",
+      hide_details: "Itago ang Detalye",
+      visit_cost: "Bayad sa Pagbisita",
+      coupons: "Discount Code",
+      wallet_balance: "Balanse sa Wallet"
+    },
+    canceled: {
+      title: "Kanselado ang Order",
+      subtitle: "Ibinalik ang pondo sa iyong wallet"
+    },
+    extra: {
+      title: "Karagdagang Serbisyo",
+      unpaid: "Hindi Bayad",
+      paid: "Bayad na",
+      view_details: "Detalye",
+      invoice: {
+        title: "Detalye ng Karagdagang Serbisyo",
+        price: "Presyo ng Serbisyo",
+        tax: "Buwis",
+        materials: "Materyales"
+      }
+    }
   },
   review: {
-    title: 'Suriin ang Serbisyo',
-    price: 'Presyo',
-    rate: 'Gaano ka nasisiyahan?',
-    notes: 'Komento (Opsyonal)',
-    notes_placeholder: 'Ilagay ang iyong mungkahi...',
-    actions: { send: 'Ipadala Pagsusuri', skip: 'Laktawan' },
+    title: "Suriin ang Serbisyo",
+    price: "Presyo",
+    rate: "Gaano ka nasisiyahan?",
+    notes: "Komento (Opsyonal)",
+    notes_placeholder: "Ilagay ang iyong mungkahi...",
+    actions: {
+      send: "Ipadala Pagsusuri",
+      skip: "Laktawan"
+    }
   },
   about: {
-    hero: { title: 'Tashyik - Serbisyo na Propesyonal', description: 'Platform na nag-uugnay sa iyo sa mga technician.', subtitle: { part_1: 'Sino', part_2: 'Kami?' }, actions: { discover: 'Mas Kilalanin Kami' }, highlight: { title: '100% Maaasahan', subtitle: 'Mga Na-verify na Technician' } },
-    story: { title: 'Ang Aming Kuwento', paragraph_1: 'Sinimulan namin ang Tashyik upang padaliin ang buhay ng tao.', paragraph_2: 'Ang aming paningin ay lumikha ng isang propesyonal na komunidad.' },
-    features: { title: { part_1: 'Bakit Piliin ang', part_2: 'Tashyik?' }, subtitle: 'Hindi lang kami isang app, kami ay iyong maaasahang kasosyo.', feature_1: { title: 'Birtud na Propesyonal', description: 'Pumipili kami ng mabuti.' }, feature_2: { title: 'Mabilis', description: 'Darating kami agad.' }, feature_3: { title: 'Ligtas', description: 'Ligtas na paraan ng pagbabayad.' }, feature_4: { title: 'Real-time', description: 'Sundan ang iyong order ng diretso.' } },
-    stats_1: { title: '3,800+', subtitle: 'Technician' }, stats_2: { title: '632,000+', subtitle: 'Completed Orders' }, stats_3: { title: '4.8', subtitle: 'Customer Score' },
-    audience: { title: 'Saan Kami Naglilingkod?', subtitle: 'Kahit anong kailangan, nariyan ang Tashyik.', individuals: { title: 'May-ari ng Bahay', description: 'Para sa iyo ang kaginhawaan.' }, institutions: { title: 'Institusyon', description: 'Tuloy-tuloy ang negosyo.' }, service_providers: { title: 'Technician', description: 'Kumita kasama namin.' } },
+    hero: {
+      title: "Tashyik - Serbisyo na Propesyonal",
+      description: "Platform na nag-uugnay sa iyo sa mga technician.",
+      subtitle: {
+        part_1: "Sino",
+        part_2: "Kami?"
+      },
+      actions: {
+        discover: "Mas Kilalanin Kami"
+      },
+      highlight: {
+        title: "100% Maaasahan",
+        subtitle: "Mga Na-verify na Technician"
+      }
+    },
+    story: {
+      title: "Ang Aming Kuwento",
+      paragraph_1: "Sinimulan namin ang Tashyik upang padaliin ang buhay ng tao.",
+      paragraph_2: "Ang aming paningin ay lumikha ng isang propesyonal na komunidad."
+    },
+    features: {
+      title: {
+        part_1: "Bakit Piliin ang",
+        part_2: "Tashyik?"
+      },
+      subtitle: "Hindi lang kami isang app, kami ay iyong maaasahang kasosyo.",
+      feature_1: {
+        title: "Birtud na Propesyonal",
+        description: "Pumipili kami ng mabuti."
+      },
+      feature_2: {
+        title: "Mabilis",
+        description: "Darating kami agad."
+      },
+      feature_3: {
+        title: "Ligtas",
+        description: "Ligtas na paraan ng pagbabayad."
+      },
+      feature_4: {
+        title: "Real-time",
+        description: "Sundan ang iyong order ng diretso."
+      }
+    },
+    stats_1: {
+      title: "3,800+",
+      subtitle: "Technician"
+    },
+    stats_2: {
+      title: "632,000+",
+      subtitle: "Completed Orders"
+    },
+    stats_3: {
+      title: "4.8",
+      subtitle: "Customer Score"
+    },
+    audience: {
+      title: "Saan Kami Naglilingkod?",
+      subtitle: "Kahit anong kailangan, nariyan ang Tashyik.",
+      individuals: {
+        title: "May-ari ng Bahay",
+        description: "Para sa iyo ang kaginhawaan."
+      },
+      institutions: {
+        title: "Institusyon",
+        description: "Tuloy-tuloy ang negosyo."
+      },
+      service_providers: {
+        title: "Technician",
+        description: "Kumita kasama namin."
+      }
+    }
   },
   contact: {
-    title: 'Makipag-ugnayan Direkta sa Amin', subtitle: 'Handa ang aming koponan na tulungan ka.',
-    hero: { title: 'Kamusta! Paano kami makakatulong?', description: 'Maaari kang sumulat at mabilis kaming tutugon.' },
-    inputs: { name: { title: 'Pangalan', placeholder: 'Ilagay ang iyong pangalan' }, subject: { title: 'Paksa', placeholder: 'Katanungan, Reklamo, atbp.' }, message: { title: 'Mensahe', placeholder: 'Isulat ang iyong mensahe dito...' } },
-    actions: { send: 'Ipadala ang Mensahe' },
-    info: { whatsapp: 'WhatsApp', phone: 'Telepono', email: 'Email' },
-    more_info: { title: 'Sinasaklaw ang lahat', subtitle: 'Buong Saudi Arabia' },
-    map: { title: 'Aming Lokasyon', subtitle: 'Bisitahin ang aming opisina sa Riyadh' },
-    message_sent: 'Matagumpay na Naipadala ang Mensahe',
+    title: "Makipag-ugnayan Direkta sa Amin",
+    subtitle: "Handa ang aming koponan na tulungan ka.",
+    hero: {
+      title: "Kamusta! Paano kami makakatulong?",
+      description: "Maaari kang sumulat at mabilis kaming tutugon."
+    },
+    inputs: {
+      name: {
+        title: "Pangalan",
+        placeholder: "Ilagay ang iyong pangalan"
+      },
+      subject: {
+        title: "Paksa",
+        placeholder: "Katanungan, Reklamo, atbp."
+      },
+      message: {
+        title: "Mensahe",
+        placeholder: "Isulat ang iyong mensahe dito..."
+      }
+    },
+    actions: {
+      send: "Ipadala ang Mensahe"
+    },
+    info: {
+      whatsapp: "WhatsApp",
+      phone: "Telepono",
+      email: "Email"
+    },
+    more_info: {
+      title: "Sinasaklaw ang lahat",
+      subtitle: "Buong Saudi Arabia"
+    },
+    map: {
+      title: "Aming Lokasyon",
+      subtitle: "Bisitahin ang aming opisina sa Riyadh"
+    },
+    message_sent: "Matagumpay na Naipadala ang Mensahe"
   },
   articles: {
-    seo: { title: 'Mga Artikulo - Tashyik', description: 'Basahin ang mga pinakabagong artikulo at kumuha ng mga tip sa pagpapanatili ng bahay.' },
-    hero: { title: 'Mga Artikulo', subtitle: 'Mga kapaki-pakinabang na tip at impormasyon.' },
-    featured_badge: 'Itinatampok na Artikulo', read_more: 'Magbasa Pa', share: 'Ibahagi ang Artikulo', empty: 'Walang mga artikulong magagamit sa ngayon', related: 'Mga Kaugnay na Artikulo',
+    seo: {
+      title: "Mga Artikulo - Tashyik",
+      description: "Basahin ang mga pinakabagong artikulo at kumuha ng mga tip sa pagpapanatili ng bahay."
+    },
+    hero: {
+      title: "Mga Artikulo",
+      subtitle: "Mga kapaki-pakinabang na tip at impormasyon."
+    },
+    featured_badge: "Itinatampok na Artikulo",
+    read_more: "Magbasa Pa",
+    share: "Ibahagi ang Artikulo",
+    empty: "Walang mga artikulong magagamit sa ngayon",
+    related: "Mga Kaugnay na Artikulo"
   },
   institution: {
-    title: 'Pamahalaan ang mga Empleyado',
-    subtitle: 'Tingnan ang performance ng mga empleyado ng institusyon',
-    seo_title: 'Layanan rumah profesional di {city}',
-    summary: { active_members: 'Mga Aktibong Empleyado', this_month_orders: 'Mga Order Ngayong Buwan', this_month_earnings: 'Kita Ngayong Buwan', balance: 'Kasalukuyang Balanse' },
-    member: { total_orders: 'Kabuuang Order', completed_orders: 'Nakumpletong Order', this_month: 'Ngayong Buwan', earnings: 'Mga Kita', joined: 'Sumali Noong' },
-    empty: { title: 'Walang empleyado', subtitle: 'Wala pang mga empleyadong naidagdag sa institusyon.' },
-    status: { active: 'Aktibo', pending: 'Nakabinbin', inactive: 'Hindi Aktibo' },
-    filter: { all: 'Lahat', search: 'Maghanap ayon sa pangalan o telepono...', results: '{count} mga resulta', no_results: 'Walang nahanap na resulta', clear: 'Tanggalin ang filter' },
-    sort: { name: 'Pagsunud-sunurin ayon sa pangalan', earnings: 'Pinakamataas na kita', orders: 'Pinakamaraming order', this_month: 'Pinakaaktibo ngayong buwan' },
+    title: "Pamahalaan ang mga Empleyado",
+    subtitle: "Tingnan ang performance ng mga empleyado ng institusyon",
+    seo_title: "Layanan rumah profesional di {city}",
+    summary: {
+      active_members: "Mga Aktibong Empleyado",
+      this_month_orders: "Mga Order Ngayong Buwan",
+      this_month_earnings: "Kita Ngayong Buwan",
+      balance: "Kasalukuyang Balanse"
+    },
+    member: {
+      total_orders: "Kabuuang Order",
+      completed_orders: "Nakumpletong Order",
+      this_month: "Ngayong Buwan",
+      earnings: "Mga Kita",
+      joined: "Sumali Noong"
+    },
+    empty: {
+      title: "Walang empleyado",
+      subtitle: "Wala pang mga empleyadong naidagdag sa institusyon."
+    },
+    status: {
+      active: "Aktibo",
+      pending: "Nakabinbin",
+      inactive: "Hindi Aktibo"
+    },
+    filter: {
+      all: "Lahat",
+      search: "Maghanap ayon sa pangalan o telepono...",
+      results: "{count} mga resulta",
+      no_results: "Walang nahanap na resulta",
+      clear: "Tanggalin ang filter"
+    },
+    sort: {
+      name: "Pagsunud-sunurin ayon sa pangalan",
+      earnings: "Pinakamataas na kita",
+      orders: "Pinakamaraming order",
+      this_month: "Pinakaaktibo ngayong buwan"
+    }
   },
-  part_1: 'Bahagi 1',
-  part_2: 'Bahagi 2',
-  browse_categories: 'I-browse ang mga kategorya',
-  request_custom_service: 'Humiling ng custom na serbisyo',
-  body: 'Nilalaman',
-  date: 'Mula {from} hanggang {to}',
-  support: 'Suporta',
-  placeholder: 'Mag-type dito',
-  new: 'Bago',
-  in_progress: 'Isinasagawa',
-  completed: 'Natapos',
-  view_services: 'Tingnan ang mga serbisyo',
-  apply: 'Ilapat',
-  work: 'Trabaho',
-  other: 'Iba pa',
-  order_now: 'Umorder ngayon',
-  view_details: 'Tingnan ang detalye',
-  order_again: 'Umorder muli',
-  quantity: 'Dami',
-  status: 'Katayuan',
-  confirm: 'Kumpirmahin',
-  confirmed: 'Nakumpirma',
-  on_the_way: 'Papunta na',
-  arrived: 'Dumating na',
-  started: 'Nagsimula na',
-  view_on_map: 'Tingnan sa mapa',
-  call: 'Tumawag',
-  whatsapp: 'WhatsApp',
-  hide_details: 'Itago ang detalye',
-  coupons: 'Mga kupon',
-  unpaid: 'Hindi pa bayad',
-  paid: 'Bayad na',
-  materials: 'Mga materyales',
-  send: 'Ipadala',
-  skip: 'Laktawan',
-  discover: 'Tuklasin',
-  paragraph_1: 'Mabilis at maaasahang serbisyo para sa bahay.',
-  paragraph_2: 'Mag-book ng propesyonal sa ilang pindot lang.',
-  featured_badge: 'Tampok',
-  read_more: 'Magbasa pa',
-  share: 'Ibahagi',
-  empty: 'Walang laman',
-  related: 'Kaugnay',
-  linked_institution: 'Institusi na naka-link',
-  active_members: 'Anggota aktif',
-  this_month_orders: 'Pesanan bulan ini',
-  this_month_earnings: 'Penghasilan bulan ini',
-  balance: 'Saldo',
-  total_orders: 'Total pesanan',
-  completed_orders: 'Pesanan selesai',
-  this_month: 'Bulan ini',
-  earnings: 'Penghasilan',
-  joined: 'Bergabung',
-  active: 'Aktif',
-  pending: 'Menunggu',
-  inactive: 'Tidak aktif',
-  results: 'Hasil',
-  no_results: 'Tidak ada hasil',
-  clear: 'Bersihkan',
+  chatbot: {
+    title: "Tashyik Chat",
+    subtitle: "We are here to help you",
+    welcome: "Welcome! How can we help you?",
+    placeholder: "Type your message...",
+    new_chat: "New Chat",
+    send: "Ipadala",
+    close: "Isara",
+    typing: "Typing...",
+    error_network: "Unable to connect. Please check your connection and try again.",
+    error_server: "Server error occurred. Please try again later.",
+    error_generic: "An unexpected error occurred. Please try again.",
+    retry: "Try again",
+    messages_count: "messages",
+    suggestion_1: "Halimbawa: Maaari ba akong mag-book ng mabilis na serbisyo ng electrician?",
+    suggestion_2: "Halimbawa: Paano ako hihiling ng AC maintenance?"
+  }
 } as const;

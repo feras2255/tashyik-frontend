@@ -202,8 +202,8 @@ const handleKeyDown = (e) => {
           <p class="text-sm text-slate-700 leading-7">{{ $t('chatbot.welcome') || 'مرحباً! اطلب تقريرًا سريعًا عن خدمتك أو استفسارك وسأوفر لك ملخصاً واضحاً.' }}</p>
         </div>
         <div class="grid gap-3">
-          <div class="rounded-3xl bg-brand-50 border border-brand-200 p-3 text-sm text-brand-700">مثال: هل يمكنني تأمين خدمة فني كهربائي سريع؟</div>
-          <div class="rounded-3xl bg-brand-50 border border-brand-200 p-3 text-sm text-brand-700">مثال: كيف أطلب خدمة صيانة مكيف؟</div>
+          <button @click="messageInput = $t('chatbot.suggestion_1') || 'مثال: هل يمكنني تأمين خدمة فني كهربائي سريع؟'; handleSendMessage()" class="rounded-3xl bg-brand-50 border border-brand-200 p-3 text-sm text-brand-700 text-start hover:bg-brand-100 transition-colors">{{ $t('chatbot.suggestion_1') || 'مثال: هل يمكنني تأمين خدمة فني كهربائي سريع؟' }}</button>
+          <button @click="messageInput = $t('chatbot.suggestion_2') || 'مثال: كيف أطلب خدمة صيانة مكيف؟'; handleSendMessage()" class="rounded-3xl bg-brand-50 border border-brand-200 p-3 text-sm text-brand-700 text-start hover:bg-brand-100 transition-colors">{{ $t('chatbot.suggestion_2') || 'مثال: كيف أطلب خدمة صيانة مكيف؟' }}</button>
         </div>
       </div>
 
