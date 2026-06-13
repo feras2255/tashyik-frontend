@@ -34,37 +34,18 @@
 
 <template>
   <main>
-    <!-- Hero Section -->
     <HomeHeroSection />
 
-  <!-- Offers / Discounts Section -->
-  <HomeOffersSection />
-
-  <!-- Categories Section -->
-  <HomeCategoriesSection />
-
-  <!-- Featured Collection (first one, teaser) -->
-  <HomeCollectionsSection :start="0" :end="1" :max-services="5" />
-
-  <!-- Remaining Collections -->
-  <HomeCollectionsSection :start="1" :max-services="10" />
-
-  <!-- Features -->
-  <HomeFeaturesSection />
-
-  <!-- Newsletter Section -->
-  <HomeNewsletterSection />
-
-  <!-- Reviews Section -->
-  <HomeReviewsSection />
-
-  <!-- Top Rated Section -->
-  <HomeTopRatedSection />
-
-  <!-- Download App -->
-  <DownloadAppSection />
-
-    <!-- Questions Section -->
+    <HomeOffersSection />
+    <HomeCategoriesSection />
+    <HomeCollectionsSection :start="0" :end="1" :max-services="5" />
+    <HomeCollectionsSection :start="1" :max-services="10" />
     <HomeQuestionsSection />
+
+    <HomeFeaturesSection />
+    <HomeNewsletterSection />
+    <HomeReviewsSection />
+    <HomeTopRatedSection />
+    <DownloadAppSection />
   </main>
 </template>

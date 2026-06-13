@@ -9,7 +9,7 @@
   --color-brand-200: #dec1df;
   --color-brand-300: #c99bc8;
   --color-brand-400: #b070ae;
-  --color-brand-500: #7A3E98;
+  --color-brand-500: #7a3e98;
   --color-brand-600: #673180;
   --color-brand-700: #552769;
   --color-brand-800: #462255;
@@ -53,6 +53,7 @@ button:disabled:hover {
 }
 
 @import './ckeditor-content.css';
+@import './home-shimmer.css';
 
 .scrollbar-hide {
   -ms-overflow-style: none;

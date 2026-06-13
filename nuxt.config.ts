@@ -30,9 +30,7 @@ function loadPrerenderRoutes(): string[] {
       return [];
     }
 
-    return parsed
-      .filter((entry): entry is string => typeof entry === 'string' && entry.startsWith('/'))
-      .slice(0, 100);
+    return parsed.filter((entry): entry is string => typeof entry === 'string' && entry.startsWith('/')).slice(0, 100);
   } catch {
     return [];
   }
@@ -60,9 +58,7 @@ const siteBaseUrl = 'https://www.tashyik.com';
 /** Locale home paths — live SSR only (prerender bakes default-locale Arabic HTML). */
 const localeHomeRoutes = ['/en', '/hi', '/bn', '/ur', '/tl', '/id', '/fr'];
 
-const localeHomeRouteRules = Object.fromEntries(
-  localeHomeRoutes.map((path) => [path, { prerender: false }]),
-);
+const localeHomeRouteRules = Object.fromEntries(localeHomeRoutes.map((path) => [path, { prerender: false }]));
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -74,12 +70,12 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
     server: {
       watch: {
-        ignored: ['**/back-end*', '**/*.zip', '**/*.crdownload', '**/back-end*/**']
-      }
-    }
+        ignored: ['**/back-end*', '**/*.zip', '**/*.crdownload', '**/back-end*/**'],
+      },
+    },
   },
 
-  modules: ['@nuxtjs/i18n', 'nuxt-swiper', '@pinia/nuxt', '@nuxt/scripts', '@nuxt/fonts'],
+  modules: ['@nuxt/eslint', '@nuxtjs/i18n', 'nuxt-swiper', '@pinia/nuxt', '@nuxt/scripts', '@nuxt/fonts'],
 
   /**
    * `inlineStyles: true` can cause a visible “CSS flash” on hard refresh in dev: critical CSS inlines
@@ -125,7 +121,7 @@ export default defineNuxtConfig({
           'cache-control': 'public, max-age=31536000, immutable',
         },
       },
-      '/': { prerender: false },
+      '/': { prerender: false, swr: 300 },
       ...localeHomeRouteRules,
       '/**': {
         headers: securityHeaders,

@@ -9,13 +9,13 @@
   });
 
   const serviceSlug = computed(() => resolveEntitySlug(props.service));
-  const { fetchServiceBySlug } = useServiceFetchers();
-
-  const fetchedDescription = ref('');
 
   function stripTags(html) {
     if (!html) return '';
-    return String(html).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    return String(html)
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 
   const snippetPlain = computed(() => {
@@ -25,23 +25,7 @@
     if (props.service.description) {
       return stripTags(props.service.description).slice(0, 280);
     }
-    if (fetchedDescription.value) {
-      return stripTags(fetchedDescription.value).slice(0, 280);
-    }
     return '';
-  });
-
-  onMounted(async () => {
-    if (!props.service.description && !props.service.card_description && serviceSlug.value) {
-      try {
-        const res = await fetchServiceBySlug(serviceSlug.value);
-        if (res?.data?.description) {
-          fetchedDescription.value = res.data.description;
-        }
-      } catch {
-        // silently ignore
-      }
-    }
   });
 </script>
 
@@ -52,11 +36,11 @@
   >
     <!-- Image -->
     <div class="relative bg-gray-100 w-full aspect-[4/3] overflow-hidden shrink-0">
-      <img
+      <AppLazyImage
         :src="service.image"
         :alt="service.name"
-        loading="lazy"
-        class="w-full h-full object-center object-cover transition-transform duration-500 group-hover:scale-105"
+        wrapper-class="absolute inset-0"
+        img-class="w-full h-full object-center object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
       <!-- Discount Badge -->
@@ -70,7 +54,6 @@
 
     <!-- Content -->
     <div class="flex flex-col p-4 md:p-5 bg-white grow text-center">
-
       <!-- Name -->
       <h3 class="text-base md:text-lg font-bold text-gray-900 text-center line-clamp-1 mb-1">
         {{ service.name }}
@@ -80,10 +63,10 @@
       <p v-if="snippetPlain" class="text-sm text-gray-500 text-center line-clamp-2 mb-3 leading-relaxed min-h-[40px]">
         {{ snippetPlain }}
       </p>
-      <div v-else class="min-h-[40px] mb-3"></div>
+      <div v-else class="min-h-[40px] mb-3" />
 
       <!-- Spacer -->
-      <div class="grow"></div>
+      <div class="grow" />
 
       <!-- Price Row -->
       <div class="flex items-center justify-center gap-3 mt-2 mb-4">
@@ -100,7 +83,10 @@
       </div>
 
       <!-- Action Button -->
-      <div class="mt-auto w-full flex items-center justify-center text-white font-medium hover:opacity-90 transition-opacity" style="height: 48px; border-radius: 12px; background: #7A3E98;">
+      <div
+        class="mt-auto w-full flex items-center justify-center text-white font-medium hover:opacity-90 transition-opacity"
+        style="height: 48px; border-radius: 12px; background: #7a3e98"
+      >
         {{ $t('common.order_now') }}
       </div>
     </div>
