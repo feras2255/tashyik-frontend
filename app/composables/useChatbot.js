@@ -2,6 +2,7 @@ export function useChatbot() {
   const apiFetch = useApiFetchClient();
   const runtimeConfig = useRuntimeConfig();
   const token = useCookie('token', { default: () => null });
+  const isChatOpen = useState('chatbot_is_open', () => false);
 
   // State
   const conversations = ref([]);
@@ -63,6 +64,20 @@ export function useChatbot() {
       localStorage.removeItem('chatbot_conversation_uuid');
       localStorage.setItem('chatbot_guest_token', guestToken.value);
     }
+  };
+
+  const openChat = () => {
+    if (!isChatOpen.value) {
+      initializeGuestToken();
+      isChatOpen.value = true;
+    }
+  };
+
+  const toggleChat = () => {
+    if (!isChatOpen.value) {
+      initializeGuestToken();
+    }
+    isChatOpen.value = !isChatOpen.value;
   };
 
   // Generate UUID v4
@@ -282,6 +297,7 @@ export function useChatbot() {
     isLoading,
     isSending,
     chatError,
+    isChatOpen,
 
     // Methods
     sendMessage,
@@ -295,5 +311,7 @@ export function useChatbot() {
     clearChat,
     clearChatError,
     initializeGuestToken,
+    openChat,
+    toggleChat,
   };
 }

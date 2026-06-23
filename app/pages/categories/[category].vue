@@ -5,7 +5,7 @@
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
   const switchLocalePath = useSwitchLocalePath();
-  const salesIq = useSalesIq();
+  const { openChat } = useChatbot();
   const route = useRoute();
   const apiFetch = useApiFetchClient();
   const { fetchServicesPage } = useServiceFetchers();
@@ -305,7 +305,7 @@
     <div class="bg-brand-50 rounded-lg py-16 px-6 text-center flex flex-col gap-3 items-center">
       <h3 v-text="$t('services.custom_service.title')" class="text-2xl md:text-3xl text-gray-800 font-medium"></h3>
       <p v-text="$t('services.custom_service.subtitle')" class="md:text-lg text-gray-500 max-w-lg mb-6"></p>
-      <ButtonsFilled @click="salesIq.openChat" class="w-fit">
+      <ButtonsFilled @click="openChat" class="w-fit">
         {{ $t('services.custom_service.action') }}
       </ButtonsFilled>
     </div>

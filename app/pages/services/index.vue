@@ -4,7 +4,7 @@
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
-  const salesIq = useSalesIq();
+  const { openChat } = useChatbot();
   const { fetchServicesPage, fetchCategories } = useServiceFetchers();
   const { pricingWindowKey } = useSaudiPricingWindowKey();
 
@@ -250,7 +250,7 @@
             <button
               type="button"
               class="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-200"
-              @click="salesIq.openChat"
+              @click="openChat"
             >
               {{ t('services.custom_service.action') }}
             </button>
