@@ -1,5 +1,5 @@
 <script setup>
-  const salesIq = useSalesIq();
+  const { openChat } = useChatbot();
   const router = useRouter();
   const localePath = useLocalePath();
 
@@ -52,7 +52,7 @@
             >
               {{ $t('home.hero.actions.browse_categories') }}
             </NuxtLinkLocale>
-            <ButtonsOutline class="min-h-12" @click="salesIq.openChat">
+            <ButtonsOutline class="min-h-12" @click="openChat">
               {{ $t('home.hero.actions.request_custom_service') }}
             </ButtonsOutline>
           </div>

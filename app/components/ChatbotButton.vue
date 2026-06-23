@@ -1,15 +1,5 @@
 <script setup>
-import { ref } from 'vue';
-
-const isChatOpen = ref(false);
-const { initializeGuestToken } = useChatbot();
-
-const toggleChat = () => {
-  if (!isChatOpen.value) {
-    initializeGuestToken();
-  }
-  isChatOpen.value = !isChatOpen.value;
-};
+const { isChatOpen, toggleChat } = useChatbot();
 </script>
 
 <template>
