@@ -81,7 +81,9 @@
           </div>
           <!-- Content -->
           <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
-            <p class="text-sm md:text-base font-medium opacity-90 mb-2">{{ $t('home.offers.free_inspection') }}</p>
+            <p v-if="discountedServices[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">
+              {{ discountedServices[0]?.badge }}
+            </p>
             <h3 class="text-2xl md:text-4xl font-bold leading-tight">
               {{
                 $t('home.offers.discount_on_service', {
@@ -105,9 +107,14 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
             <div class="absolute bottom-0 start-0 end-0 p-4 text-white z-10">
-              <p class="text-xs font-medium opacity-90 mb-1">{{ $t('home.offers.first_order_maintenance') }}</p>
+              <p v-if="discountedServices[1]?.badge" class="text-xs font-medium opacity-90 mb-1">{{ discountedServices[1]?.badge }}</p>
               <h3 class="text-base md:text-lg font-bold leading-tight">
-                {{ $t('home.offers.free_inspection_for', { name: discountedServices[1]?.name }) }}
+                {{
+                  $t('home.offers.discount_on_service', {
+                    percentage: discountedServices[1]?.price?.discount_percintage,
+                    name: discountedServices[1]?.name,
+                  })
+                }}
               </h3>
             </div>
           </div>
@@ -121,7 +128,7 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
             <div class="absolute bottom-0 start-0 end-0 p-4 text-white z-10">
-              <p class="text-xs font-medium opacity-90 mb-1">{{ $t('home.offers.plumbing_saving') }}</p>
+              <p v-if="discountedServices[2]?.badge" class="text-xs font-medium opacity-90 mb-1">{{ discountedServices[2]?.badge }}</p>
               <h3 class="text-base md:text-lg font-bold leading-tight">
                 {{
                   $t('home.offers.discount_on_service', {
