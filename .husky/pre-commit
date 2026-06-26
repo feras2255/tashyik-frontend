@@ -1,2 +1,1 @@
-npx --no-install nuxt prepare
 npx --no-install lint-staged
