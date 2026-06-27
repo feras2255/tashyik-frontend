@@ -39,7 +39,13 @@ export function applyLayoutPayload(layoutStore, authStore, payload) {
 export function isHomeRoute(route) {
   const name = String(route?.name ?? '');
 
-  return name === 'index' || name.endsWith('___index');
+  if (name === 'index' || name.startsWith('index___')) {
+    return true;
+  }
+
+  const path = String(route?.path ?? '/').replace(/\/$/, '') || '/';
+
+  return path === '/' || /^\/(en|hi|bn|ur|tl|id|fr)$/.test(path);
 }
 
 /**
@@ -55,6 +61,7 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
   const fallbackData = ref(null);
   const fallbackPending = ref(false);
   const fallbackStarted = ref(false);
+  const homeFetchAttempted = ref(false);
 
   async function runFallback() {
     if (!fallbackFetcher || fallbackStarted.value || import.meta.server) {
@@ -94,11 +101,16 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
           return;
         }
 
-        const slice = homePageData?.value?.[sliceKey];
-        const homeReady = homeSliceReady(slice);
-        const homeFailed = Boolean(homePageError?.value) || (!homePagePending?.value && homePageData?.value == null);
+        if (homePagePending?.value || homePageError?.value || homePageData?.value != null) {
+          homeFetchAttempted.value = true;
+        }
 
-        if (!homeReady && (homeFailed || !homePagePending?.value) && !fallbackStarted.value) {
+        const slice = homePageData?.value?.[sliceKey];
+        if (homeSliceReady(slice) || !homeFetchAttempted.value || homePagePending?.value) {
+          return;
+        }
+
+        if (!fallbackStarted.value && (Boolean(homePageError?.value) || homePageData?.value == null)) {
           runFallback();
         }
       },

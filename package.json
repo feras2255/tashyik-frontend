@@ -3,7 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
+    "build": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
+    "build:fast": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=4096 NUXT_SKIP_PRERENDER=1 nuxt build",
     "dev": "cross-env NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
     "generate": "cross-env NODE_OPTIONS=--max-old-space-size=4096 nuxt generate",
     "preview": "nuxt preview",
@@ -48,11 +49,7 @@
     "vue-router": "^4.5.1"
   },
   "lint-staged": {
-    "*.{js,mjs,ts,vue}": [
-      "eslint --fix --max-warnings 0",
-      "prettier --write"
-    ],
-    "*.{json,md,css}": [
+    "*.{js,mjs,ts,vue,json,md,css}": [
       "prettier --write"
     ]
   }

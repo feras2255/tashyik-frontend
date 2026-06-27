@@ -21,11 +21,13 @@
       refresh: refreshHomePage,
     } = useAsyncData(
       () => `home-page-${locale.value}-${route.fullPath}`,
-      () => apiFetch('/general/home'),
+      () => apiFetch('/general/home', { cache: 'no-store' }),
       {
         lazy: true,
         // Do not block SSR — the document must not wait 10–15s for /general/home.
         server: false,
+        // Always refetch on home visit so dashboard offer order changes show immediately.
+        getCachedData: () => null,
       },
     );
 

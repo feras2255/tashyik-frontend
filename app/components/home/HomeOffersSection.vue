@@ -1,59 +1,43 @@
 <script setup>
-  const { fetchServicesPage } = useServiceFetchers();
-  const homePageData = useHomePageData();
-  const homePagePending = useHomePagePending();
+  const apiFetch = useApiFetchClient();
 
-  function hasPromotionalOffer(service) {
-    return Boolean(service?.price?.has_discount || service?.has_promotion || Number(service?.price?.discount_percintage) > 0);
-  }
-
-  const { data: fetchedOffers, pending: offersPending } = useAsyncData(
-    'home-discounted-services',
+  // Curated offers from /general/home only — never /services (returns wrong auto-picked list).
+  const { data: discountedServicesRef, pending: offersPending } = useHomeSection(
+    'discounted_services',
     async () => {
-      const fromHome = homePageData?.value?.discounted_services;
-      if (Array.isArray(fromHome) && fromHome.length) {
-        return fromHome;
-      }
+      const response = await apiFetch('/general/home', { cache: 'no-store' });
+      const list = response?.discounted_services;
 
-      const res = await fetchServicesPage({ page: 1, perPage: 24 });
-      const services = res?.data || [];
-      return services.filter(hasPromotionalOffer).slice(0, 7);
-    },
-    {
-      lazy: true,
-      server: false,
+      return Array.isArray(list) ? list : [];
     },
   );
 
-  watch(
-    homePageData,
-    (home) => {
-      const fromHome = home?.discounted_services;
-      if (Array.isArray(fromHome) && fromHome.length) {
-        fetchedOffers.value = fromHome;
-      }
-    },
-    { immediate: true },
-  );
+  const discountedServices = computed(() => {
+    const list = discountedServicesRef.value;
 
-  const discountedServices = computed(() => fetchedOffers.value ?? []);
+    return Array.isArray(list) ? list : [];
+  });
   const offerCount = computed(() => discountedServices.value.length);
 
-  const bannerOffers = computed(() => {
-    if (offerCount.value >= 3) {
-      return discountedServices.value.slice(0, 3);
+  /** How many top items use the hero banner layout (rest render as price cards). */
+  const bannerCount = computed(() => {
+    const count = offerCount.value;
+    if (count <= 2) {
+      return count;
+    }
+    if (count <= 4) {
+      return 1;
+    }
+    if (count <= 5) {
+      return 2;
     }
 
-    return [];
+    return 3;
   });
 
-  const cardOffers = computed(() => {
-    if (offerCount.value >= 3) {
-      return discountedServices.value.slice(3);
-    }
+  const bannerOffers = computed(() => discountedServices.value.slice(0, bannerCount.value));
 
-    return discountedServices.value;
-  });
+  const cardOffers = computed(() => discountedServices.value.slice(bannerCount.value));
 
   const cardsGridClass = computed(() => {
     const count = cardOffers.value.length;
@@ -75,7 +59,7 @@
       return false;
     }
 
-    return offersPending.value || Boolean(homePagePending?.value);
+    return offersPending.value;
   });
 
   const showSection = computed(() => showSkeleton.value || discountedServices.value.length > 0);
@@ -145,8 +129,68 @@
         </div>
       </div>
 
-      <!-- 3+ offers: hero banner grid (first 3) -->
-      <div v-else-if="offerCount >= 3" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
+      <!-- 3–4 offers: one hero, rest as cards below -->
+      <div v-else-if="bannerCount === 1 && offerCount >= 3" class="flex flex-col gap-4">
+        <div v-if="bannerOffers[0]" class="relative rounded-2xl overflow-hidden group h-64 md:h-[360px]">
+          <AppLazyImage
+            :src="bannerOffers[0].image"
+            :alt="bannerOffers[0].name"
+            wrapper-class="absolute inset-0"
+            img-class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+          <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
+            {{ $t('home.collections.season_badge') }}
+          </div>
+          <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
+            <p v-if="bannerOffers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ bannerOffers[0]?.badge }}</p>
+            <h3 class="text-2xl md:text-3xl font-bold leading-tight">
+              {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[0])) }}
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 offers: two hero banners -->
+      <div v-else-if="bannerCount === 2" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[360px]">
+        <div v-if="bannerOffers[0]" class="relative rounded-2xl overflow-hidden group flex-1 lg:flex-[1.6] h-64 lg:h-full">
+          <AppLazyImage
+            :src="bannerOffers[0].image"
+            :alt="bannerOffers[0].name"
+            wrapper-class="absolute inset-0"
+            img-class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+          <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
+            {{ $t('home.collections.season_badge') }}
+          </div>
+          <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
+            <p v-if="bannerOffers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ bannerOffers[0]?.badge }}</p>
+            <h3 class="text-2xl md:text-3xl font-bold leading-tight">
+              {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[0])) }}
+            </h3>
+          </div>
+        </div>
+
+        <div v-if="bannerOffers[1]" class="relative rounded-2xl overflow-hidden group flex-1 h-64 lg:h-full">
+          <AppLazyImage
+            :src="bannerOffers[1].image"
+            :alt="bannerOffers[1].name"
+            wrapper-class="absolute inset-0"
+            img-class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+          <div class="absolute bottom-0 start-0 end-0 p-4 md:p-6 text-white z-10">
+            <p v-if="bannerOffers[1]?.badge" class="text-xs font-medium opacity-90 mb-1">{{ bannerOffers[1]?.badge }}</p>
+            <h3 class="text-base md:text-xl font-bold leading-tight">
+              {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[1])) }}
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6–7 offers: three hero banners -->
+      <div v-else-if="bannerCount === 3" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
         <div v-if="bannerOffers[0]" class="relative rounded-2xl overflow-hidden group flex-1 lg:flex-[1.8] h-64 lg:h-full">
           <AppLazyImage
             :src="bannerOffers[0].image"
@@ -200,8 +244,8 @@
         </div>
       </div>
 
-      <!-- Cards row (items 4–7, or all items when count < 3) -->
-      <div v-if="cardOffers.length" :class="[cardsGridClass, offerCount >= 3 ? 'mt-4' : '']">
+      <!-- Cards row (remaining offers with price + order button) -->
+      <div v-if="cardOffers.length" :class="[cardsGridClass, bannerOffers.length ? 'mt-4' : '']">
         <HomeOfferServiceCard
           v-for="service in cardOffers"
           :key="service.id"
