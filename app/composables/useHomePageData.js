@@ -1,6 +1,7 @@
 export const HOME_PAGE_DATA_KEY = 'home-page-data';
 export const HOME_PAGE_PENDING_KEY = 'home-page-pending';
 export const HOME_PAGE_ERROR_KEY = 'home-page-error';
+export const HOME_PAGE_REFRESH_KEY = 'home-page-refresh';
 
 /**
  * Aggregated homepage payload from the default layout (lazy-loaded on index routes).
@@ -18,6 +19,10 @@ export function useHomePagePending() {
 
 export function useHomePageError() {
   return inject(HOME_PAGE_ERROR_KEY, ref(null));
+}
+
+export function useHomePageRefresh() {
+  return inject(HOME_PAGE_REFRESH_KEY, null);
 }
 
 export function applyLayoutPayload(layoutStore, authStore, payload) {
@@ -61,7 +66,6 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
   const fallbackData = ref(null);
   const fallbackPending = ref(false);
   const fallbackStarted = ref(false);
-  const homeFetchAttempted = ref(false);
 
   async function runFallback() {
     if (!fallbackFetcher || fallbackStarted.value || import.meta.server) {
@@ -101,16 +105,11 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
           return;
         }
 
-        if (homePagePending?.value || homePageError?.value || homePageData?.value != null) {
-          homeFetchAttempted.value = true;
-        }
-
         const slice = homePageData?.value?.[sliceKey];
-        if (homeSliceReady(slice) || !homeFetchAttempted.value || homePagePending?.value) {
-          return;
-        }
+        const homeReady = homeSliceReady(slice);
+        const homeFailed = Boolean(homePageError?.value) || (!homePagePending?.value && homePageData?.value == null);
 
-        if (!fallbackStarted.value && (Boolean(homePageError?.value) || homePageData?.value == null)) {
+        if (!homeReady && (homeFailed || !homePagePending?.value) && !fallbackStarted.value) {
           runFallback();
         }
       },

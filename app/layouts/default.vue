@@ -9,84 +9,97 @@
   const route = useRoute();
   const alternateLocales = ref();
 
-  const onHomePage = isHomeRoute(route);
+  const apiFetch = useApiFetchClient();
+  const onHomePage = computed(() => isHomeRoute(route));
   const homeFetchFailed = ref(false);
 
-  if (onHomePage) {
-    const apiFetch = useApiFetchClient();
-    const {
-      data: homePageData,
-      pending: homePagePending,
-      error: homePageError,
-      refresh: refreshHomePage,
-    } = useAsyncData(
-      () => `home-page-${locale.value}-${route.fullPath}`,
-      () => apiFetch('/general/home', { cache: 'no-store' }),
-      {
-        lazy: true,
-        // Do not block SSR — the document must not wait 10–15s for /general/home.
-        server: false,
-        // Always refetch on home visit so dashboard offer order changes show immediately.
-        getCachedData: () => null,
-      },
-    );
-
-    watch(
-      homePageData,
-      (value) => {
-        if (value?.layout) {
-          applyLayoutPayload(layoutStore, authStore, value.layout);
-          homeFetchFailed.value = false;
-        }
-      },
-      { immediate: true },
-    );
-
-    watch(homePageError, async (error) => {
-      if (!error || !import.meta.client) {
-        return;
+  const {
+    data: homePageData,
+    pending: homePagePending,
+    error: homePageError,
+    refresh: refreshHomePage,
+  } = useAsyncData(
+    () => `home-page-${locale.value}-${route.fullPath}`,
+    () => {
+      if (!isHomeRoute(route)) {
+        return null;
       }
 
-      homeFetchFailed.value = true;
-      console.error('Failed to load /general/home, falling back to /general/layout:', error);
+      return apiFetch('/general/home', { cache: 'no-store' });
+    },
+    {
+      lazy: true,
+      // Do not block SSR — the document must not wait 10–15s for /general/home.
+      server: false,
+      // Always refetch on home visit so dashboard offer order changes show immediately.
+      getCachedData: () => null,
+      watch: [() => locale.value, () => route.fullPath],
+    },
+  );
+
+  watch(
+    homePageData,
+    (value) => {
+      if (value?.layout) {
+        applyLayoutPayload(layoutStore, authStore, value.layout);
+        homeFetchFailed.value = false;
+      }
+    },
+    { immediate: true },
+  );
+
+  watch(homePageError, async (error) => {
+    if (!error || !import.meta.client || !onHomePage.value) {
+      return;
+    }
+
+    homeFetchFailed.value = true;
+    console.error('Failed to load /general/home, falling back to /general/layout:', error);
+
+    try {
+      await loadLayout();
+    } catch (layoutError) {
+      console.error('Failed to load layout fallback:', layoutError);
+    }
+  });
+
+  watch(onHomePage, (isHome, wasHome) => {
+    if (isHome && wasHome === false && import.meta.client) {
+      refreshHomePage();
+    }
+  });
+
+  if (import.meta.client) {
+    onMounted(async () => {
+      if (layoutStore.logo?.light_mode) {
+        return;
+      }
 
       try {
         await loadLayout();
       } catch (layoutError) {
-        console.error('Failed to load layout fallback:', layoutError);
+        console.error('Failed to load layout bootstrap:', layoutError);
       }
     });
-
-    if (import.meta.client) {
-      onMounted(async () => {
-        if (layoutStore.logo?.light_mode) {
-          return;
-        }
-
-        try {
-          await loadLayout();
-        } catch (layoutError) {
-          console.error('Failed to load layout bootstrap:', layoutError);
-        }
-      });
-    }
-
-    provide(HOME_PAGE_DATA_KEY, homePageData);
-    provide(HOME_PAGE_PENDING_KEY, homePagePending);
-    provide(HOME_PAGE_ERROR_KEY, homePageError);
-
-    if (import.meta.client) {
-      watch(locale, () => {
-        homeFetchFailed.value = false;
-        refreshHomePage();
-      });
-    }
-  } else {
+  } else if (!onHomePage.value) {
     await loadLayout();
+  }
 
-    if (import.meta.client) {
-      watch(locale, () => loadLayout());
-    }
+  provide(HOME_PAGE_DATA_KEY, homePageData);
+  provide(HOME_PAGE_PENDING_KEY, homePagePending);
+  provide(HOME_PAGE_ERROR_KEY, homePageError);
+  provide(HOME_PAGE_REFRESH_KEY, refreshHomePage);
+
+  if (import.meta.client) {
+    watch(locale, () => {
+      homeFetchFailed.value = false;
+
+      if (onHomePage.value) {
+        refreshHomePage();
+      } else {
+        loadLayout();
+      }
+    });
   }
 
   const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
