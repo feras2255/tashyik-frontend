@@ -6,13 +6,10 @@
   const { register } = useAuthStore();
 
   const credentials = reactive({
-    // Basic information
     city: '',
     name: '',
     email: '',
     phone: '',
-    password: '',
-    password_confirmation: '',
     account_type: 'user',
   });
 
@@ -30,7 +27,6 @@
     loader.value = true;
     errors.value = {};
 
-    // Send null instead of empty string for optional email
     const payload = { ...credentials };
     if (!payload.email) payload.email = null;
 
@@ -64,42 +60,24 @@
     </div>
 
     <form @submit.prevent="handleRegister()" class="space-y-6">
-      <!-- Name -->
       <div>
         <InputsLabel for="name" :name="$t('inputs.name')" />
         <InputsDefault v-model="credentials.name" id="name" required />
         <InputsError :message="errors?.name?.[0]" />
       </div>
 
-      <!-- Phone -->
       <div>
         <InputsLabel for="phone" :name="$t('inputs.phone')" />
-        <InputsDefault v-model="credentials.phone" id="phone" placeholder="05xxxxxxxx" required />
+        <InputsDefault v-model="credentials.phone" id="phone" :placeholder="$t('inputs.phone_placeholder')" type="tel" required />
         <InputsError :message="errors?.phone?.[0]" />
       </div>
 
-      <!-- Email (Optional) -->
       <div>
         <InputsLabel for="email" :name="$t('inputs.email_optional')" />
         <InputsDefault v-model="credentials.email" id="email" type="email" autocomplete="email" />
         <InputsError :message="errors?.email?.[0]" />
       </div>
 
-      <!-- Password -->
-      <div>
-        <InputsLabel for="password" :name="$t('inputs.password')" />
-        <InputsDefault v-model="credentials.password" id="password" type="password" placeholder="••••••••" autocomplete="new-password" required />
-        <InputsError :message="errors?.password?.[0]" />
-      </div>
-
-      <!-- Confirm password -->
-      <div>
-        <InputsLabel for="password_confirmation" :name="$t('inputs.password_confirmation')" />
-        <InputsDefault v-model="credentials.password_confirmation" id="password_confirmation" type="password" placeholder="••••••••" autocomplete="new-password" required />
-        <InputsError :message="errors?.password_confirmation?.[0]" />
-      </div>
-
-      <!-- City -->
       <div>
         <InputsLabel for="city" :name="$t('inputs.city')" />
         <InputsSelect v-model="credentials.city" id="city" required>
@@ -112,7 +90,6 @@
       <ButtonsPrimary type="submit" class="w-full" :name="$t('guest.register.create_account')" :loader />
     </form>
 
-    <!-- Sign Up Link -->
     <div class="text-center mt-6">
       <p class="text-gray-600">
         {{ $t('guest.register.have_account') }}

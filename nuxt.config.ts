@@ -131,6 +131,13 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      script: [
+        {
+          key: 'tashyik-vue-chat-flag',
+          innerHTML: 'window.__TASHYIK_VUE_CHAT_ACTIVE__=true;',
+          tagPriority: 'critical',
+        },
+      ],
       link: [
         { rel: 'preconnect', href: 'https://api.tashyik.com', crossorigin: '' },
         { rel: 'dns-prefetch', href: 'https://api.tashyik.com' },
@@ -185,7 +192,7 @@ export default defineNuxtConfig({
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || '',
       keywords: '',
       salesIqKey: '',
-      whatsappLink: '',
+      whatsappLink: process.env.NUXT_PUBLIC_WHATSAPP_LINK || '',
       /** Twitter @handle for twitter:site (optional). */
       twitterSite: process.env.NUXT_PUBLIC_TWITTER_SITE || '',
       saudiBusinessCenterCertificate: '',

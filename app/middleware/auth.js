@@ -1,6 +1,11 @@
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (to) => {
   const auth = useAuthStore();
   const localePath = useLocalePath();
+  const { token } = useAuthToken();
+
+  if (!token.value) {
+    return navigateTo(localePath({ name: 'login', query: { redirect: to.path } }));
+  }
 
   await auth.fetchUser();
 

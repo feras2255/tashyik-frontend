@@ -2,7 +2,7 @@
   const { t } = useI18n();
   const { description } = useLayoutStore();
 
-  const heroImageSrc = '/images/home-hero-section-622.webp';
+  const heroImageSrc = '/images/about-hero-section.webp?v=2';
 
   useHead({
     link: [

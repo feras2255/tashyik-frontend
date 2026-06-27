@@ -13,22 +13,26 @@ export const useLayoutStore = defineStore('layout', () => {
     try {
       const response = await useApiFetch('/general/layout');
 
-      auth.user = response.user;
-      logo.value = response.logo;
-      description.value = response.description;
-      site_name.value = response.site_name ?? null;
-      default_og_image.value = response.default_og_image ?? null;
-      twitter_site.value = response.twitter_site ?? null;
-      mobile_app_links.value = response.mobile_app_links;
-      contact_info.value = response.contact_info;
-      social_links.value = response.social_links;
+      applyLayoutFields(
+        {
+          logo,
+          description,
+          site_name,
+          default_og_image,
+          twitter_site,
+          mobile_app_links,
+          contact_info,
+          social_links,
+        },
+        auth,
+        response,
+      );
     } catch (error) {
       console.error('Failed to fetch layout:', error);
     }
   }
 
   return {
-    // state
     logo,
     description,
     site_name,
@@ -37,8 +41,6 @@ export const useLayoutStore = defineStore('layout', () => {
     mobile_app_links,
     contact_info,
     social_links,
-
-    // actions
     load,
   };
 });

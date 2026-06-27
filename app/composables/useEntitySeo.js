@@ -58,7 +58,10 @@ function formatKeywords(value, localeCode) {
   }
 
   if (Array.isArray(value)) {
-    return value.map((item) => String(item).trim()).filter(Boolean).join(', ');
+    return value
+      .map((item) => String(item).trim())
+      .filter(Boolean)
+      .join(', ');
   }
 
   if (typeof value === 'string') {
@@ -93,7 +96,7 @@ export function useEntitySeo(options) {
 
   const ogType = options.ogType === 'article' ? 'article' : 'website';
 
-  const brand = computed(() => t('common.brand'));
+  const brand = useSiteBrand();
   const shortDesc = computed(() => t('common.short_description'));
 
   const canonicalUrl = computed(() => {
@@ -206,12 +209,8 @@ export function useEntitySeo(options) {
     }
 
     const fromEntity =
-      resolveImageUrl(e.og_image) ||
-      resolveImageUrl(e.image) ||
-      resolveImageUrl(e.featured_image_lg) ||
-      resolveImageUrl(e.featured_image);
-    const fromParent =
-      resolveImageUrl(parentCategory.value?.og_image) || resolveImageUrl(parentCategory.value?.image);
+      resolveImageUrl(e.og_image) || resolveImageUrl(e.image) || resolveImageUrl(e.featured_image_lg) || resolveImageUrl(e.featured_image);
+    const fromParent = resolveImageUrl(parentCategory.value?.og_image) || resolveImageUrl(parentCategory.value?.image);
 
     return fromEntity || fromParent || defaultOgImage.value;
   });
@@ -222,9 +221,7 @@ export function useEntitySeo(options) {
     const list = locales?.value || [];
     const codes = list.map((l) => (typeof l === 'string' ? l : l.code)).filter(Boolean);
 
-    return codes
-      .filter((code) => code !== locale.value)
-      .map((code) => OG_LOCALE_BY_CODE[code] || code);
+    return codes.filter((code) => code !== locale.value).map((code) => OG_LOCALE_BY_CODE[code] || code);
   });
 
   useSeoMeta({

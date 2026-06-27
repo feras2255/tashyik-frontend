@@ -2,6 +2,7 @@
   const { t } = useI18n();
   const route = useRoute();
   const config = useRuntimeConfig();
+  const siteBrand = useSiteBrand();
 
   const siteUrl = computed(() => (config.public.appUrl || 'https://www.tashyik.com').replace(/\/$/, ''));
 
@@ -12,17 +13,28 @@
   const globalJsonLd = computed(() => {
     const base = siteUrl.value;
     const social = layout.social_links || {};
-    const sameAs = [social.facebook, social.twitter, social.instagram, social.snapchat, social.tiktok].filter(
-      (u) => u && String(u).trim(),
-    );
+    const extraSocialUrls = Array.isArray(social.extra) ? social.extra.map((link) => link?.url).filter(Boolean) : [];
+    const sameAs = [
+      social.facebook,
+      social.instagram,
+      social.twitter,
+      social.youtube,
+      social.tiktok,
+      social.snapchat,
+      social.linkedin,
+      social.telegram,
+      social.whatsapp,
+      layout.contact_info?.whatsapp_link,
+      ...extraSocialUrls,
+    ].filter((u) => u && String(u).trim());
 
     const organization = {
       '@type': 'Organization',
       '@id': `${base}/#organization`,
-      name: t('common.brand'),
+      name: siteBrand.value,
       url: base,
       logo: `${base}/images/og.webp`,
-      description: t('common.short_description'),
+      description: layout.description?.trim() || t('common.short_description'),
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'SA',
@@ -36,7 +48,7 @@
     const website = {
       '@type': 'WebSite',
       '@id': `${base}/#website`,
-      name: t('common.brand'),
+      name: siteBrand.value,
       url: base,
       publisher: { '@id': `${base}/#organization` },
       potentialAction: {
@@ -55,9 +67,9 @@
     });
   });
 
-  useHead({
+  useHead(() => ({
     titleTemplate: (titleChunk) => {
-      const brand = t('common.brand');
+      const brand = siteBrand.value;
       const isHome = route.path === '/' || /^\/(ar|en|hi|bn|ur|tl|id|fr)\/?$/.test(route.path);
 
       if (isHome) {
@@ -75,16 +87,16 @@
 
       return `${titleChunk} - ${brand}`;
     },
-    meta: [{ property: 'og:site_name', content: t('common.brand') }],
+    meta: [{ property: 'og:site_name', content: siteBrand.value }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
       {
         key: 'global-schema-org',
         type: 'application/ld+json',
-        innerHTML: globalJsonLd,
+        innerHTML: globalJsonLd.value,
       },
     ],
-  });
+  }));
 
   useSeoMeta({
     twitterSite,

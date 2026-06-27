@@ -3,8 +3,6 @@
   const loader = ref(false);
   const credentials = reactive({
     phone: '',
-    password: '',
-    remember: false,
   });
   const errors = ref({});
   const { login } = useAuthStore();
@@ -21,6 +19,7 @@
 
   async function handleLogin() {
     loader.value = true;
+    errors.value = {};
 
     const validationErrors = await login(credentials);
 
@@ -40,30 +39,22 @@
     </div>
 
     <form @submit.prevent="handleLogin()" class="space-y-6">
-      <!-- Phone -->
       <div>
         <InputsLabel for="phone" :name="$t('inputs.phone')" />
-        <InputsDefault v-model="credentials.phone" id="phone" autocomplete="phone" required />
+        <InputsDefault
+          v-model="credentials.phone"
+          id="phone"
+          type="tel"
+          :placeholder="$t('inputs.phone_placeholder')"
+          autocomplete="tel"
+          required
+        />
         <InputsError :message="errors?.phone?.[0]" />
-      </div>
-
-      <!-- Password -->
-      <div>
-        <InputsLabel for="password" :name="$t('inputs.password')" />
-        <InputsPassword v-model="credentials.password" id="password" placeholder="••••••••" autocomplete="current-password" required />
-        <InputsError :message="errors?.password?.[0]" />
-      </div>
-
-      <!-- Remember Me -->
-      <div class="flex flex-wrap items-center justify-between gap-2">
-        <InputsCheckbox v-model="credentials.remember" id="remembers" :name="$t('inputs.remember_me')" />
-        <NuxtLinkLocale :to="{ name: 'forgot-password' }" class="text-gray-500 text-sm hover:text-brand-600 transition-colors">{{ $t('guest.login.forgot_password') }}</NuxtLinkLocale>
       </div>
 
       <ButtonsPrimary type="submit" class="w-full" :name="$t('guest.login.sign_in')" :loader />
     </form>
 
-    <!-- Sign Up Link -->
     <div class="text-center mt-6">
       <p class="text-gray-600">
         <span class="block w-full mb-4" v-text="$t('guest.login.no_account')"></span>

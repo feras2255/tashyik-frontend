@@ -94,6 +94,12 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
       return value.length > 0;
     }
 
+    if (value && typeof value === 'object') {
+      if (Array.isArray(value.services) || Array.isArray(value.cities)) {
+        return (value.services?.length ?? 0) > 0 || (value.cities?.length ?? 0) > 0;
+      }
+    }
+
     return value != null && value !== false;
   }
 

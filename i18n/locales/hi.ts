@@ -1,892 +1,899 @@
 export default {
   seo: {
     login: {
-      title: "लॉगिन करें"
+      title: 'लॉगिन करें',
     },
     register: {
-      title: "खाता बनाएं"
+      title: 'खाता बनाएं',
     },
     service_provider_register: {
-      title: "सेवा प्रदाता खाता बनाएं"
+      title: 'सेवा प्रदाता खाता बनाएं',
     },
     orders: {
-      title: "मेरे ऑर्डर",
+      title: 'मेरे ऑर्डर',
       view: {
-        title: "ऑर्डर का विवरण"
-      }
+        title: 'ऑर्डर का विवरण',
+      },
     },
     addresses: {
-      title: "मेरे पते",
+      title: 'मेरे पते',
       create: {
-        title: "नया पता जोड़ें"
+        title: 'नया पता जोड़ें',
       },
       edit: {
-        title: "पता संपादित करें"
-      }
+        title: 'पता संपादित करें',
+      },
     },
     profile: {
-      title: "व्यक्तिगत प्रोफ़ाइल"
+      title: 'व्यक्तिगत प्रोफ़ाइल',
     },
     forgot_password: {
-      title: "पासवर्ड भूल गए"
+      title: 'पासवर्ड भूल गए',
     },
     reset_password: {
-      title: "पासवर्ड रीसेट करें"
+      title: 'पासवर्ड रीसेट करें',
     },
     service_provider: {
-      title: "तकनीशियन के रूप में हमसे जुड़ें",
-      description: "होम सर्विस प्रदाता के रूप में पंजीकरण करें और एसी, बिजली, प्लंबिंग, घरेलू उपकरण, बढ़ईगीरी, पेंटिंग, सैटेलाइट, सफाई, कीट नियंत्रण और घरेलू सहायता सेवाएं आसानी और सुरक्षा से प्रदान करें।"
+      title: 'तकनीशियन के रूप में हमसे जुड़ें',
+      description:
+        'होम सर्विस प्रदाता के रूप में पंजीकरण करें और एसी, बिजली, प्लंबिंग, घरेलू उपकरण, बढ़ईगीरी, पेंटिंग, सैटेलाइट, सफाई, कीट नियंत्रण और घरेलू सहायता सेवाएं आसानी और सुरक्षा से प्रदान करें।',
     },
     categories: {
-      title: "श्रेणियां",
-      description: "होम रखरखाव श्रेणियों को ब्राउज़ करें, जिसमें प्लंबिंग, बिजली, एसी और घरेलू उपकरणों की मरम्मत शामिल है। जल्दी और गारंटी के साथ होम तकनीशियन बुक करें।"
+      title: 'श्रेणियां',
+      description:
+        'होम रखरखाव श्रेणियों को ब्राउज़ करें, जिसमें प्लंबिंग, बिजली, एसी और घरेलू उपकरणों की मरम्मत शामिल है। जल्दी और गारंटी के साथ होम तकनीशियन बुक करें।',
     },
     services: {
-      title: "सेवाएं",
-      description: "सभी होम रखरखाव सेवाएं देखें, अपनी जरूरत की सेवा खोजें, और प्रमाणित तकनीशियन जल्दी बुक करें।"
+      title: 'सेवाएं',
+      description: 'सभी होम रखरखाव सेवाएं देखें, अपनी जरूरत की सेवा खोजें, और प्रमाणित तकनीशियन जल्दी बुक करें।',
     },
     cities_index: {
-      title: "जिन शहरों में हम सेवा देते हैं",
-      description: "सऊदी शहरों में घरेलू रखरखाव कवरेज देखें और अपने क्षेत्र के लिए स्थानीय सेवा पेज खोलें।"
+      title: 'जिन शहरों में हम सेवा देते हैं',
+      description: 'सऊदी शहरों में घरेलू रखरखाव कवरेज देखें और अपने क्षेत्र के लिए स्थानीय सेवा पेज खोलें।',
     },
     about: {
-      title: "हमारे बारे में",
-      description: "एक सऊदी प्लेटफ़ॉर्म जो आपको सभी घरेलू रखरखाव सेवाओं के लिए प्रमाणित तकनीशियनों से जल्दी, सुरक्षित और आसानी से जोड़ने में विशेषज्ञता रखता है। हमारा लक्ष्य आपको मानसिक शांति प्रदान करना और आपके घर की गुणवत्ता सुनिश्चित करना है।"
+      title: 'हमारे बारे में',
+      description:
+        'एक सऊदी प्लेटफ़ॉर्म जो आपको सभी घरेलू रखरखाव सेवाओं के लिए प्रमाणित तकनीशियनों से जल्दी, सुरक्षित और आसानी से जोड़ने में विशेषज्ञता रखता है। हमारा लक्ष्य आपको मानसिक शांति प्रदान करना और आपके घर की गुणवत्ता सुनिश्चित करना है।',
     },
     contact: {
-      title: "संपर्क करें",
-      description: "हमारी टीम आपका संदेश प्राप्त करने और यथाशीघ्र उत्तर देने के लिए तैयार है। विवरण भरें, और हम आपकी सहायता या आपके अनुरोध को पूरा करने के लिए आपसे सीधे संपर्क करेंगे।"
+      title: 'संपर्क करें',
+      description:
+        'हमारी टीम आपका संदेश प्राप्त करने और यथाशीघ्र उत्तर देने के लिए तैयार है। विवरण भरें, और हम आपकी सहायता या आपके अनुरोध को पूरा करने के लिए आपसे सीधे संपर्क करेंगे।',
     },
     home: {
-      title: "Tashyik | सऊदी अरब में प्रमाणित घरेलू रखरखाव तकनीशियन बुक करें",
-      description: "सऊदी अरब के हर शहर में AC, प्लंबिंग, बिजली और उपकरण मरम्मत के लिए विश्वसनीय तकनीशियन बुक करें। तेज़ सेवा, प्रमाणित वारंटी, पारदर्शी मूल्य।"
-    }
+      title: 'Tashyik | सऊदी अरब में प्रमाणित घरेलू रखरखाव तकनीशियन बुक करें',
+      description:
+        'सऊदी अरब के हर शहर में AC, प्लंबिंग, बिजली और उपकरण मरम्मत के लिए विश्वसनीय तकनीशियन बुक करें। तेज़ सेवा, प्रमाणित वारंटी, पारदर्शी मूल्य।',
+    },
   },
   a11y: {
-    open_user_menu: "उपयोगकर्ता मेनू खोलें",
-    open_main_menu: "मुख्य मेनू खोलें",
-    close_menu: "मेनू बंद करें",
-    notifications: "सूचनाएं",
-    language: "भाषा",
-    breadcrumb: "ब्रेडक्रंब",
-    contact_whatsapp: "व्हाट्सऐप पर संपर्क करें",
-    coupon_code: "कूपन कोड",
-    show_password: "Show password",
-    hide_password: "Hide password",
-    chatbot: "Open chat"
+    open_user_menu: 'उपयोगकर्ता मेनू खोलें',
+    open_main_menu: 'मुख्य मेनू खोलें',
+    close_menu: 'मेनू बंद करें',
+    notifications: 'सूचनाएं',
+    language: 'भाषा',
+    breadcrumb: 'ब्रेडक्रंब',
+    contact_whatsapp: 'व्हाट्सऐप पर संपर्क करें',
+    coupon_code: 'कूपन कोड',
+    show_password: 'Show password',
+    hide_password: 'Hide password',
+    chatbot: 'Open chat',
   },
   common: {
-    maintenance: "रखरखाव",
-    brand: "Tashyik",
-    account: "खाता",
-    next: "अगला",
-    back: "पीछे",
-    short_description: "घरेलू रखरखाव सेवाएं",
-    order_service: "सेवा का अनुरोध करें",
-    load_more: "और लोड करें",
-    save: "सहेजें",
-    select_type: "प्रकार चुनें",
-    select_categories: "श्रेणियां चुनें",
-    individual: "व्यक्तिगत",
-    institution: "संस्थान",
-    company: "कंपनी",
-    update: "अपडेट करें",
-    delete: "हटाएं",
-    updated_successfully: "सफलतापूर्वक अपडेट किया गया",
-    page_not_found: "पेज नहीं मिला",
-    something_went_wrong: "कुछ गलत हो गया",
-    or: "या",
-    request_under_review: "आपका अनुरोध समीक्षा के अधीन है",
-    back_to_home: "होम पेज पर वापस जाएं",
-    no_price: "मूल्य समझौते के अनुसार",
-    select_city: "शहर चुनें",
-    search_for_services: "सेवाएं खोजें...",
-    search: "खोजें",
-    promotion: "{percentage}% की छूट",
-    warranty: "{duration} की वारंटी",
-    all: "सभी",
-    wallet_balance: "वॉलेट बैलेंस",
-    optional: "वैकल्पिक",
-    select_address: "पता चुनें",
-    done: "हो गया",
-    loading: "लोड हो रहा है…",
-    order_now: "अभी ऑर्डर करें",
-    send: "भेजें",
-    close: "बंद करें"
+    maintenance: 'रखरखाव',
+    brand: 'Tashyik',
+    account: 'खाता',
+    next: 'अगला',
+    back: 'पीछे',
+    short_description: 'घरेलू रखरखाव सेवाएं',
+    order_service: 'सेवा का अनुरोध करें',
+    load_more: 'और लोड करें',
+    save: 'सहेजें',
+    select_type: 'प्रकार चुनें',
+    select_categories: 'श्रेणियां चुनें',
+    individual: 'व्यक्तिगत',
+    institution: 'संस्थान',
+    company: 'कंपनी',
+    update: 'अपडेट करें',
+    delete: 'हटाएं',
+    updated_successfully: 'सफलतापूर्वक अपडेट किया गया',
+    page_not_found: 'पेज नहीं मिला',
+    something_went_wrong: 'कुछ गलत हो गया',
+    or: 'या',
+    request_under_review: 'आपका अनुरोध समीक्षा के अधीन है',
+    back_to_home: 'होम पेज पर वापस जाएं',
+    no_price: 'मूल्य समझौते के अनुसार',
+    select_city: 'शहर चुनें',
+    search_for_services: 'सेवाएं खोजें...',
+    search: 'खोजें',
+    promotion: '{percentage}% की छूट',
+    warranty: '{duration} की वारंटी',
+    all: 'सभी',
+    wallet_balance: 'वॉलेट बैलेंस',
+    optional: 'वैकल्पिक',
+    select_address: 'पता चुनें',
+    done: 'हो गया',
+    loading: 'लोड हो रहा है…',
+    order_now: 'अभी ऑर्डर करें',
+    send: 'भेजें',
+    close: 'बंद करें',
   },
   alt: {
-    category: "{category} श्रेणी",
-    service: "{service} सेवा"
+    category: '{category} श्रेणी',
+    service: '{service} सेवा',
   },
   home: {
     hero: {
-      title: "Tashyik अब सऊदी अरब में है!",
+      title: 'Tashyik अब सऊदी अरब में है!',
       subtitle: {
-        part_1: "हम यहाँ हैं",
-        part_2: "आपके जीवन को आसान बनाने के लिए",
-        part_3: "आपकी सभी घरेलू सेवाएँ एक ही स्थान पर"
+        part_1: 'हम यहाँ हैं',
+        part_2: 'आपके जीवन को आसान बनाने के लिए',
+        part_3: 'आपकी सभी घरेलू सेवाएँ एक ही स्थान पर',
       },
-      search_placeholder: "आपको कौन सी सेवा चाहिए?",
-      search_button: "अभी खोजें",
-      rating_badge: "4.9 ग्राहक रेटिंग",
-      response_badge: "मिनटों में जवाब",
-      technicians_badge: "500+ प्रमाणित तकनीशियन",
-      highlight_1: "प्रमाणित तकनीशियन",
-      highlight_2: "मिनटों में जवाब",
-      description: "हम आपको एकीकृत घरेलू रखरखाव सेवाएं प्रदान करते हैं जो जल्दी और आसानी से आपके दरवाजे तक पहुंचाई जाती हैं।",
+      search_placeholder: 'आपको कौन सी सेवा चाहिए?',
+      search_button: 'अभी खोजें',
+      rating_badge: '4.9 ग्राहक रेटिंग',
+      response_badge: 'मिनटों में जवाब',
+      technicians_badge: '500+ प्रमाणित तकनीशियन',
+      highlight_1: 'प्रमाणित तकनीशियन',
+      highlight_2: 'मिनटों में जवाब',
+      description: 'हम आपको एकीकृत घरेलू रखरखाव सेवाएं प्रदान करते हैं जो जल्दी और आसानी से आपके दरवाजे तक पहुंचाई जाती हैं।',
       actions: {
-        browse_categories: "श्रेणियां ब्राउज़ करें",
-        request_custom_service: "कस्टम सेवा का अनुरोध करें"
-      }
+        browse_categories: 'श्रेणियां ब्राउज़ करें',
+        request_custom_service: 'कस्टम सेवा का अनुरोध करें',
+      },
     },
     categories: {
-      title: "आपकी ज़रूरत की हर चीज़ यहाँ है!",
-      action: "सभी श्रेणियां देखें",
-      huge_discounts: "भारी छूट"
+      title: 'आपकी ज़रूरत की हर चीज़ यहाँ है!',
+      action: 'सभी श्रेणियां देखें',
+      huge_discounts: 'भारी छूट',
     },
     offers: {
-      title: "विशेष सीमित समय के ऑफ़र",
-      description: "शीर्ष पेशेवर तकनीशियनों के साथ घरेलू रखरखाव सेवाओं पर सर्वोत्तम छूट का लाभ उठाएं।",
-      free_inspection: "मुफ्त निरीक्षण",
-      discount_on_service: "{name} पर {percentage}% की छूट",
-      free_inspection_for: "{name} के लिए मुफ्त निरीक्षण",
-      first_order_maintenance: "पहले ऑर्डर से घरेलू उपकरणों का रखरखाव",
-      plumbing_saving: "प्लंबिंग बचत"
+      title: 'विशेष सीमित समय के ऑफ़र',
+      description: 'शीर्ष पेशेवर तकनीशियनों के साथ घरेलू रखरखाव सेवाओं पर सर्वोत्तम छूट का लाभ उठाएं।',
+      free_inspection: 'मुफ्त निरीक्षण',
+      discount_on_service: '{name} पर {percentage}% की छूट',
+      free_inspection_for: '{name} के लिए मुफ्त निरीक्षण',
+      first_order_maintenance: 'पहले ऑर्डर से घरेलू उपकरणों का रखरखाव',
+      plumbing_saving: 'प्लंबिंग बचत',
     },
     top_rated: {
-      title: "शीर्ष रेटेड",
+      title: 'शीर्ष रेटेड',
       provider_1: {
-        name: "शीर्ष एसी तकनीशियन",
-        title: "एयर कंडीशनिंग विशेषज्ञ"
+        name: 'शीर्ष एसी तकनीशियन',
+        title: 'एयर कंडीशनिंग विशेषज्ञ',
       },
       provider_2: {
-        name: "शीर्ष इलेक्ट्रीशियन",
-        title: "विद्युत मरम्मत विशेषज्ञ"
+        name: 'शीर्ष इलेक्ट्रीशियन',
+        title: 'विद्युत मरम्मत विशेषज्ञ',
       },
       provider_3: {
-        name: "शीर्ष उपकरण तकनीशियन",
-        title: "उपकरण मरम्मत विशेषज्ञ"
-      }
+        name: 'शीर्ष उपकरण तकनीशियन',
+        title: 'उपकरण मरम्मत विशेषज्ञ',
+      },
     },
     features: {
-      title: "तशयीक को क्यों चुनें?",
+      title: 'तशयीक को क्यों चुनें?',
       fast_support: {
-        title: "त्वरित सहायता",
-        description: "हमारी सहायता टीम आपके सवालों के जवाब देने और आपकी समस्याओं को हल करने के लिए 24/7 उपलब्ध है।"
+        title: 'त्वरित सहायता',
+        description: 'हमारी सहायता टीम आपके सवालों के जवाब देने और आपकी समस्याओं को हल करने के लिए 24/7 उपलब्ध है।',
       },
       clear_prices: {
-        title: "स्पष्ट कीमतें",
-        description: "कोई छिपी हुई फीस नहीं — कीमतें पहले से तय होती हैं ताकि आप बुकिंग से पहले लागत जान सकें।"
+        title: 'स्पष्ट कीमतें',
+        description: 'कोई छिपी हुई फीस नहीं — कीमतें पहले से तय होती हैं ताकि आप बुकिंग से पहले लागत जान सकें।',
       },
       trusted_techs: {
-        title: "विश्वसनीय तकनीशियन",
-        description: "सभी तकनीशियनों की गहन पृष्ठभूमि की जाँच और पेशेवर कौशल परीक्षण किया जाता है।"
+        title: 'विश्वसनीय तकनीशियन',
+        description: 'सभी तकनीशियनों की गहन पृष्ठभूमि की जाँच और पेशेवर कौशल परीक्षण किया जाता है।',
       },
       instant_booking: {
-        title: "त्वरित बुकिंग",
-        description: "बस कुछ ही क्लिक और आपका तकनीशियन तय समय पर आपके घर के रास्ते पर है।"
+        title: 'त्वरित बुकिंग',
+        description: 'बस कुछ ही क्लिक और आपका तकनीशियन तय समय पर आपके घर के रास्ते पर है।',
       },
       real_reviews: {
-        title: "असली समीक्षाएँ",
-        description: "सभी रेटिंग वास्तविक ग्राहकों से हैं जिन्होंने वास्तव में सेवा का अनुभव किया है।"
+        title: 'असली समीक्षाएँ',
+        description: 'सभी रेटिंग वास्तविक ग्राहकों से हैं जिन्होंने वास्तव में सेवा का अनुभव किया है।',
       },
       warranty: {
-        title: "सेवा वारंटी",
-        description: "हम सभी पूर्ण किए गए रखरखाव सेवाओं पर 30 दिनों तक की वारंटी प्रदान करते हैं।"
-      }
+        title: 'सेवा वारंटी',
+        description: 'हम सभी पूर्ण किए गए रखरखाव सेवाओं पर 30 दिनों तक की वारंटी प्रदान करते हैं।',
+      },
     },
     newsletter: {
-      title: "कोई नया ऑफ़र न चूकें!",
-      description: "नवीनतम छूट और विशेष सौदे सीधे अपने इनबॉक्स में प्राप्त करने के लिए हमारे न्यूज़लेटर के सदस्य बनें।",
-      placeholder: "आपका ईमेल पता",
-      subscribe: "सदस्य बनें"
+      title: 'कोई नया ऑफ़र न चूकें!',
+      description: 'नवीनतम छूट और विशेष सौदे सीधे अपने इनबॉक्स में प्राप्त करने के लिए हमारे न्यूज़लेटर के सदस्य बनें।',
+      placeholder: 'आपका ईमेल पता',
+      subscribe: 'सदस्य बनें',
     },
     collections: {
-      view_all: "सभी सेवाएँ देखें",
-      season_badge: "सीज़न ऑफ़र"
+      view_all: 'सभी सेवाएँ देखें',
+      season_badge: 'सीज़न ऑफ़र',
     },
     reviews: {
-      title: "हमारे ग्राहक क्या कहते हैं!",
+      title: 'हमारे ग्राहक क्या कहते हैं!',
       item_1: {
-        name: "फहद अल-अंजी",
-        tag: "रखरखाव",
-        body: "बेहतरीन ऐप! मैंने एसी तकनीशियन का अनुरोध किया और वह एक घंटे के भीतर आ गया। काम साफ था और कीमत बहुत वाजिब थी। अत्यधिक अनुशंसित! 👍",
-        date: "एक सप्ताह पहले"
+        name: 'फहद अल-अंजी',
+        tag: 'रखरखाव',
+        body: 'बेहतरीन ऐप! मैंने एसी तकनीशियन का अनुरोध किया और वह एक घंटे के भीतर आ गया। काम साफ था और कीमत बहुत वाजिब थी। अत्यधिक अनुशंसित! 👍',
+        date: 'एक सप्ताह पहले',
       },
       item_2: {
-        name: "सारा अल-कहतानी",
-        tag: "रखरखाव",
-        body: "एक शानदार अनुभव! मैंने सपोर्ट से संपर्क किया और मुझे त्वरित प्रतिक्रिया और उत्कृष्ट सहायता मिली। सेवा उम्मीदों से बढ़कर थी!",
-        date: "दो दिन पहले"
+        name: 'सारा अल-कहतानी',
+        tag: 'रखरखाव',
+        body: 'एक शानदार अनुभव! मैंने सपोर्ट से संपर्क किया और मुझे त्वरित प्रतिक्रिया और उत्कृष्ट सहायता मिली। सेवा उम्मीदों से बढ़कर थी!',
+        date: 'दो दिन पहले',
       },
       item_3: {
-        name: "मोहम्मद अल-सुलेमानी",
-        tag: "रखरखाव",
-        body: "एक विशिष्ट एप्लिकेशन, तकनीशियन पेशेवर और तेज़ हैं। मैंने दो घंटे से भी कम समय में अपना एसी ठीक कर लिया।",
-        date: "कल"
+        name: 'मोहम्मद अल-सुलेमानी',
+        tag: 'रखरखाव',
+        body: 'एक विशिष्ट एप्लिकेशन, तकनीशियन पेशेवर और तेज़ हैं। मैंने दो घंटे से भी कम समय में अपना एसी ठीक कर लिया।',
+        date: 'कल',
       },
       item_4: {
-        name: "नासर अल-ओताबी",
-        tag: "विद्युत रखरखाव",
-        body: "पेशेवर काम और सही समय। तकनीशियन ने समस्या को स्पष्ट रूप से समझाया और जगह को साफ रखते हुए जल्दी से सेवा समाप्त कर दी। धन्यवाद!",
-        date: "तीन दिन पहले"
-      }
+        name: 'नासर अल-ओताबी',
+        tag: 'विद्युत रखरखाव',
+        body: 'पेशेवर काम और सही समय। तकनीशियन ने समस्या को स्पष्ट रूप से समझाया और जगह को साफ रखते हुए जल्दी से सेवा समाप्त कर दी। धन्यवाद!',
+        date: 'तीन दिन पहले',
+      },
     },
     questions: {
-      title: "अक्सर पूछे जाने वाले प्रश्न"
-    }
+      title: 'अक्सर पूछे जाने वाले प्रश्न',
+    },
   },
   download_app: {
-    title_1: "अब आपकी सभी घरेलू सेवाएँ..",
-    title_2: "एक ही ऐप में!",
-    title: "आपकी सभी घरेलू सेवाएं.. एक ऐप में!",
-    subtitle: "ऐप डाउनलोड करें और किसी भी समय पूरी सुविधा के साथ अपनी ज़रूरत की सेवा का अनुरोध करें, सब कुछ आपके फोन से एक क्लिक में।",
-    get_it_on: "यहाँ से प्राप्त करें",
-    download_on_the: "यहाँ से डाउनलोड करें",
-    highlight_1: "सेकंडों में सेवा का अनुरोध",
-    highlight_2: "सुरक्षित और गारंटीकृत भुगतान",
-    highlight_3: "रीयल-टाइम में तकनीशियन को ट्रैक करें"
+    title_1: 'अब आपकी सभी घरेलू सेवाएँ..',
+    title_2: 'एक ही ऐप में!',
+    title: 'आपकी सभी घरेलू सेवाएं.. एक ऐप में!',
+    subtitle: 'ऐप डाउनलोड करें और किसी भी समय पूरी सुविधा के साथ अपनी ज़रूरत की सेवा का अनुरोध करें, सब कुछ आपके फोन से एक क्लिक में।',
+    get_it_on: 'यहाँ से प्राप्त करें',
+    download_on_the: 'यहाँ से डाउनलोड करें',
+    highlight_1: 'सेकंडों में सेवा का अनुरोध',
+    highlight_2: 'सुरक्षित और गारंटीकृत भुगतान',
+    highlight_3: 'रीयल-टाइम में तकनीशियन को ट्रैक करें',
   },
   footer: {
-    important_links: "महत्वपूर्ण लिंक",
-    privacy_policy: "गोपनीयता नीति",
-    terms_and_conditions: "नियम और शर्तें",
-    faq: "अक्सर पूछे जाने वाले प्रश्न",
-    contact_us_link: "संपर्क करें",
-    copyright: "सर्वाधिकार सुरक्षित",
-    developed_by: "द्वारा विकसित",
-    developer: "डेवलपर",
+    important_links: 'महत्वपूर्ण लिंक',
+    privacy_policy: 'गोपनीयता नीति',
+    terms_and_conditions: 'नियम और शर्तें',
+    faq: 'अक्सर पूछे जाने वाले प्रश्न',
+    contact_us_link: 'संपर्क करें',
+    copyright: 'सर्वाधिकार सुरक्षित',
+    developed_by: 'द्वारा विकसित',
+    developer: 'डेवलपर',
     contact_us: {
-      title: "संपर्क करें",
-      support: "ग्राहक सहायता 24/7 उपलब्ध है"
+      title: 'संपर्क करें',
+      support: 'ग्राहक सहायता 24/7 उपलब्ध है',
     },
-    resources: "महत्वपूर्ण लिंक",
-    download_app: "ऐप डाउनलोड करें",
-    saudi_business_center: "बिजनेस प्लेटफॉर्म पर सत्यापित",
-    popular_services: "लोकप्रिय सेवाएं",
-    popular_cities: "लोकप्रिय शहर",
-    see_all_services: "सभी सेवाएं देखें",
-    see_all_cities: "सभी शहर देखें"
+    resources: 'महत्वपूर्ण लिंक',
+    download_app: 'ऐप डाउनलोड करें',
+    saudi_business_center: 'बिजनेस प्लेटफॉर्म पर सत्यापित',
+    popular_services: 'लोकप्रिय सेवाएं',
+    popular_cities: 'लोकप्रिय शहर',
+    see_all_services: 'सभी सेवाएं देखें',
+    see_all_cities: 'सभी शहर देखें',
   },
   navigation: {
-    home: "होम",
-    login: "लॉगिन",
-    register: "पंजीकरण",
-    about: "हमारे बारे में",
-    categories: "श्रेणियां",
-    services: "सेवाएं",
-    download_app: "ऐप डाउनलोड करें",
-    contact: "संपर्क करें",
-    articles: "लेख",
-    cities: "शहर",
-    logout: "लॉग आउट",
-    privacy_policy: "गोपनीयता नीति",
-    terms_and_conditions: "नियम और शर्तें",
-    service_provider: "सेवा प्रदाता के रूप में पंजीकरण करें",
+    home: 'होम',
+    login: 'लॉगिन',
+    register: 'पंजीकरण',
+    about: 'हमारे बारे में',
+    categories: 'श्रेणियां',
+    services: 'सेवाएं',
+    download_app: 'ऐप डाउनलोड करें',
+    contact: 'संपर्क करें',
+    articles: 'लेख',
+    cities: 'शहर',
+    logout: 'लॉग आउट',
+    privacy_policy: 'गोपनीयता नीति',
+    terms_and_conditions: 'नियम और शर्तें',
+    service_provider: 'सेवा प्रदाता के रूप में पंजीकरण करें',
     profile: {
-      title: "मेरा खाता",
-      subtitle: "अपनी व्यक्तिगत जानकारी प्रबंधित करें"
+      title: 'मेरा खाता',
+      subtitle: 'अपनी व्यक्तिगत जानकारी प्रबंधित करें',
     },
     orders: {
-      title: "मेरे ऑर्डर",
-      subtitle: "अपने ऑर्डर और खरीदारी ट्रैक करें"
+      title: 'मेरे ऑर्डर',
+      subtitle: 'अपने ऑर्डर और खरीदारी ट्रैक करें',
     },
     addresses: {
-      title: "मेरे पते",
-      subtitle: "अपने सहेजे गए पते प्रबंधित करें"
+      title: 'मेरे पते',
+      subtitle: 'अपने सहेजे गए पते प्रबंधित करें',
     },
     institution_members: {
-      title: "कर्मचारियों का प्रबंधन करें",
-      subtitle: "संस्थान के कर्मचारियों को देखें और प्रबंधित करें"
-    }
+      title: 'कर्मचारियों का प्रबंधन करें',
+      subtitle: 'संस्थान के कर्मचारियों को देखें और प्रबंधित करें',
+    },
   },
   guest: {
     login: {
-      title: "स्वागत है!",
-      subtitle: "लॉगिन करें और अपने अनुरोध आसानी से पूरे करें।",
-      forgot_password: "पासवर्ड भूल गए?",
-      sign_in: "साइन इन करें",
-      sign_up: "नया खाता बनाएं",
-      no_account: "खाता नहीं है?"
+      title: 'स्वागत है!',
+      subtitle: 'लॉगिन करें और अपने अनुरोध आसानी से पूरे करें।',
+      forgot_password: 'पासवर्ड भूल गए?',
+      sign_in: 'साइन इन करें',
+      sign_up: 'नया खाता बनाएं',
+      no_account: 'खाता नहीं है?',
     },
     register: {
       customer: {
-        title: "नया खाता बनाएं",
-        subtitle: "अपना खाता बनाएं और आसानी से सेवाओं का अनुरोध करें।"
+        title: 'नया खाता बनाएं',
+        subtitle: 'अपना खाता बनाएं और आसानी से सेवाओं का अनुरोध करें।',
       },
       service_provider: {
-        title: "अभी अपना खाता बनाएं",
-        subtitle: "तकनीशियन के रूप में पंजीकरण करें और रखरखाव अनुरोध प्राप्त करना शुरू करें।",
+        title: 'अभी अपना खाता बनाएं',
+        subtitle: 'तकनीशियन के रूप में पंजीकरण करें और रखरखाव अनुरोध प्राप्त करना शुरू करें।',
         applied: {
-          title: "सफलतापूर्वक पंजीकृत",
-          subtitle: "आपका पंजीकरण अनुरोध वर्तमान में समीक्षा के अधीन है।"
-        }
+          title: 'सफलतापूर्वक पंजीकृत',
+          subtitle: 'आपका पंजीकरण अनुरोध वर्तमान में समीक्षा के अधीन है।',
+        },
       },
-      title: "पंजीकरण",
-      create_account: "खाता बनाएं",
-      have_account: "पहले से ही खाता है?",
-      sign_in: "साइन इन करें"
+      title: 'पंजीकरण',
+      create_account: 'खाता बनाएं',
+      have_account: 'पहले से ही खाता है?',
+      sign_in: 'साइन इन करें',
     },
     forgot_password: {
-      title: "पासवर्ड भूल गए?",
-      subtitle: "अपना ईमेल दर्ज करें और हम आपको सत्यापन कोड भेजेंगे।",
-      send_otp: "सत्यापन कोड भेजें",
-      otp_subtitle: "अपने ईमेल पर भेजा गया सत्यापन कोड दर्ज करें।",
-      otp_label: "सत्यापन कोड",
-      verify_otp: "कोड सत्यापित करें",
-      resend_otp: "कोड दोबारा भेजें",
-      success_message: "आपके ईमेल पर सत्यापन कोड भेजा गया है।",
-      back_to_login: "लॉगिन पर वापस जाएं"
+      title: 'पासवर्ड भूल गए?',
+      subtitle: 'अपना ईमेल दर्ज करें और हम आपको सत्यापन कोड भेजेंगे।',
+      send_otp: 'सत्यापन कोड भेजें',
+      otp_subtitle: 'अपने ईमेल पर भेजा गया सत्यापन कोड दर्ज करें।',
+      otp_label: 'सत्यापन कोड',
+      verify_otp: 'कोड सत्यापित करें',
+      resend_otp: 'कोड दोबारा भेजें',
+      success_message: 'आपके ईमेल पर सत्यापन कोड भेजा गया है।',
+      back_to_login: 'लॉगिन पर वापस जाएं',
     },
     reset_password: {
-      title: "पासवर्ड रीसेट करें",
-      subtitle: "अपना नया पासवर्ड दर्ज करें।",
-      reset_button: "पासवर्ड रीसेट करें",
-      success_message: "पासवर्ड सफलतापूर्वक रीसेट हो गया। अब आप नए पासवर्ड से लॉगिन कर सकते हैं।"
-    }
+      title: 'पासवर्ड रीसेट करें',
+      subtitle: 'अपना नया पासवर्ड दर्ज करें।',
+      reset_button: 'पासवर्ड रीसेट करें',
+      success_message: 'पासवर्ड सफलतापूर्वक रीसेट हो गया। अब आप नए पासवर्ड से लॉगिन कर सकते हैं।',
+    },
   },
   inputs: {
-    email: "ईमेल",
-    email_optional: "ईमेल (वैकल्पिक)",
-    name: "आपका नाम क्या है?",
-    phone: "फ़ोन नंबर",
-    password: "पासवर्ड",
-    current_password: "वर्तमान पासवर्ड",
-    new_password: "नया पासवर्ड",
-    password_confirmation: "पासवर्ड की पुष्टि करें",
-    remember_me: "मुझे याद रखें",
-    city: "आप कहाँ रहते हैं?",
-    entity_type: "खाते का प्रकार",
-    categories: "श्रेणियां",
-    residence_name: "आईडी/इकामा पर नाम",
-    residence_number: "आईडी/इकामा नंबर",
-    residence_image: "आईडी/इकामा की प्रति",
-    commercial_registration_number: "सीआर नंबर",
-    commercial_registration_image: "सीआर की प्रति",
-    bank_name: "बैंक का नाम",
-    iban: "आईबीएएन (IBAN)",
-    personal_picture: "प्रोफ़ाइल तस्वीर",
-    national_address_image: "राष्ट्रीय पते की प्रति",
-    tax_registration_number: "कर पंजीकरण संख्या",
+    email: 'ईमेल',
+    email_optional: 'ईमेल (वैकल्पिक)',
+    name: 'आपका नाम क्या है?',
+    phone: 'फ़ोन नंबर',
+    phone_placeholder: '05xxxxxxxx',
+    password: 'पासवर्ड',
+    current_password: 'वर्तमान पासवर्ड',
+    new_password: 'नया पासवर्ड',
+    password_confirmation: 'पासवर्ड की पुष्टि करें',
+    remember_me: 'मुझे याद रखें',
+    city: 'आप कहाँ रहते हैं?',
+    entity_type: 'खाते का प्रकार',
+    categories: 'श्रेणियां',
+    residence_name: 'आईडी/इकामा पर नाम',
+    residence_number: 'आईडी/इकामा नंबर',
+    residence_image: 'आईडी/इकामा की प्रति',
+    commercial_registration_number: 'सीआर नंबर',
+    commercial_registration_image: 'सीआर की प्रति',
+    bank_name: 'बैंक का नाम',
+    iban: 'आईबीएएन (IBAN)',
+    personal_picture: 'प्रोफ़ाइल तस्वीर',
+    national_address_image: 'राष्ट्रीय पते की प्रति',
+    tax_registration_number: 'कर पंजीकरण संख्या',
     address: {
-      title: "पता",
-      placeholder: "उदा: रियाद अल सलीहीन सेंट, रियाद"
+      title: 'पता',
+      placeholder: 'उदा: रियाद अल सलीहीन सेंट, रियाद',
     },
     type_address_name: {
-      title: "पते का शीर्षक",
-      placeholder: "उदा: नया घर"
+      title: 'पते का शीर्षक',
+      placeholder: 'उदा: नया घर',
     },
     landmark: {
-      title: "पास का लैंडमार्क",
-      placeholder: "उदा: गैस स्टेशन के पास"
+      title: 'पास का लैंडमार्क',
+      placeholder: 'उदा: गैस स्टेशन के पास',
     },
-    address_name: "पते का नाम",
-    building_number: "भवन संख्या",
-    floor_number: "मंजिल संख्या",
-    apartment_number: "अपार्टमेंट संख्या"
+    address_name: 'पते का नाम',
+    building_number: 'भवन संख्या',
+    floor_number: 'मंजिल संख्या',
+    apartment_number: 'अपार्टमेंट संख्या',
   },
   services: {
-    index_eyebrow: "सभी सेवाएं",
-    index_title: "सही होम सेवा खोजें",
-    index_subtitle: "Tashyik सेवाओं में खोजें, विशेषज्ञता के अनुसार फ़िल्टर करें, और श्रेणियों में जाए बिना प्रमाणित तकनीशियन बुक करें।",
-    index_support_title: "सही सेवा चुनने में मदद चाहिए?",
-    index_search_label: "सेवाएं खोजें",
-    index_search_placeholder: "सेवा नाम, समस्या या कीवर्ड से खोजें...",
-    index_filter_by_category: "श्रेणी के अनुसार फ़िल्टर करें",
-    index_result_count: "{total} में से {count} सेवाएं दिख रही हैं",
-    index_clear_filters: "फ़िल्टर साफ़ करें",
+    index_eyebrow: 'सभी सेवाएं',
+    index_title: 'सही होम सेवा खोजें',
+    index_subtitle: 'Tashyik सेवाओं में खोजें, विशेषज्ञता के अनुसार फ़िल्टर करें, और श्रेणियों में जाए बिना प्रमाणित तकनीशियन बुक करें।',
+    index_support_title: 'सही सेवा चुनने में मदद चाहिए?',
+    index_search_label: 'सेवाएं खोजें',
+    index_search_placeholder: 'सेवा नाम, समस्या या कीवर्ड से खोजें...',
+    index_filter_by_category: 'श्रेणी के अनुसार फ़िल्टर करें',
+    index_result_count: '{total} में से {count} सेवाएं दिख रही हैं',
+    index_clear_filters: 'फ़िल्टर साफ़ करें',
     empty: {
-      title: "कोई सेवा नहीं मिली",
-      subtitle: "अधिक सेवाएं देखने के लिए श्रेणी या खोज शब्द बदलने का प्रयास करें।"
+      title: 'कोई सेवा नहीं मिली',
+      subtitle: 'अधिक सेवाएं देखने के लिए श्रेणी या खोज शब्द बदलने का प्रयास करें।',
     },
     invoice: {
-      title: "इनवॉइस देखें",
-      service: "सेवा",
-      service_price: "सेवा मूल्य",
-      visit_cost: "विजिट शुल्क",
-      subtotal: "उप-योग",
-      tax: "टैक्स",
-      wallet_balance: "वॉलेट बैलेंस",
-      total: "कुल योग",
-      pay: "भुगतान करें",
-      request: "सेवा का अनुरोध करें"
+      title: 'इनवॉइस देखें',
+      service: 'सेवा',
+      service_price: 'सेवा मूल्य',
+      visit_cost: 'विजिट शुल्क',
+      subtotal: 'उप-योग',
+      tax: 'टैक्स',
+      wallet_balance: 'वॉलेट बैलेंस',
+      total: 'कुल योग',
+      pay: 'भुगतान करें',
+      request: 'सेवा का अनुरोध करें',
     },
     custom_service: {
-      title: "सही सेवा के बारे में अनिश्चित हैं?",
-      subtitle: "अपनी समस्या का वर्णन करें, और आपको विशेषज्ञ तकनीशियनों से कोटेशन मिलेंगे।",
-      action: "कस्टम सेवा का अनुरोध करें"
-    }
+      title: 'सही सेवा के बारे में अनिश्चित हैं?',
+      subtitle: 'अपनी समस्या का वर्णन करें, और आपको विशेषज्ञ तकनीशियनों से कोटेशन मिलेंगे।',
+      action: 'कस्टम सेवा का अनुरोध करें',
+    },
   },
   orders: {
-    name: "मेरे ऑर्डर",
+    name: 'मेरे ऑर्डर',
     navigation: {
-      new: "नया",
-      in_progress: "प्रगति पर",
-      completed: "पूरा हो गया"
+      new: 'नया',
+      in_progress: 'प्रगति पर',
+      completed: 'पूरा हो गया',
     },
     empty: {
-      title: "कोई ऑर्डर नहीं",
-      subtitle: "कोई ऑर्डर नहीं मिला।",
-      view_services: "अभी सेवा का अनुरोध करें"
+      title: 'कोई ऑर्डर नहीं',
+      subtitle: 'कोई ऑर्डर नहीं मिला।',
+      view_services: 'अभी सेवा का अनुरोध करें',
     },
     make: {
-      title: "सेवा अनुरोध",
-      address: "सेवा का पता",
+      title: 'सेवा अनुरोध',
+      address: 'सेवा का पता',
       details: {
-        title: "सेवा विवरण",
-        description: "समस्या का विवरण..."
+        title: 'सेवा विवरण',
+        description: 'समस्या का विवरण...',
       },
       coupons: {
-        title: "डिस्काउंट कोड है?",
-        placeholder: "कोड दर्ज करें",
-        apply: "लागू करें"
+        title: 'डिस्काउंट कोड है?',
+        placeholder: 'कोड दर्ज करें',
+        apply: 'लागू करें',
       },
       summary: {
-        title: "ऑर्डर सारांश"
-      }
-    }
+        title: 'ऑर्डर सारांश',
+      },
+    },
   },
   notifications: {
-    title: "सूचनाएं",
-    no_notifications: "कोई सूचना नहीं"
+    title: 'सूचनाएं',
+    no_notifications: 'कोई सूचना नहीं',
   },
   addresses: {
-    title: "मेरे पते",
+    title: 'मेरे पते',
     heading: {
-      title: "मेरे सहेजे गए पते",
-      subtitle: "अपने पते प्रबंधित करें या नया पता जोड़ें।",
-      action: "नया पता जोड़ें"
+      title: 'मेरे सहेजे गए पते',
+      subtitle: 'अपने पते प्रबंधित करें या नया पता जोड़ें।',
+      action: 'नया पता जोड़ें',
     },
     new: {
-      title: "नया पता",
-      subtitle: "मानचित्र पर अपना स्थान सेट करें ताकि तकनीशियन आप तक आसानी से पहुँच सके।"
+      title: 'नया पता',
+      subtitle: 'मानचित्र पर अपना स्थान सेट करें ताकि तकनीशियन आप तक आसानी से पहुँच सके।',
     },
     create: {
-      title: "पता जोड़ें",
+      title: 'पता जोड़ें',
       heading: {
-        title: "नया पता जोड़ें",
-        subtitle: "कृपया मानचित्र पर अपना स्थान चुनें।"
+        title: 'नया पता जोड़ें',
+        subtitle: 'कृपया मानचित्र पर अपना स्थान चुनें।',
       },
-      save: "पता सहेजना सुनिश्चित करें"
+      save: 'पता सहेजना सुनिश्चित करें',
     },
     edit: {
-      title: "पता संपादित करें",
+      title: 'पता संपादित करें',
       heading: {
-        title: "पता संपादित करें",
-        subtitle: "कृपया मानचित्र पर अपना स्थान अपडेट करें।"
+        title: 'पता संपादित करें',
+        subtitle: 'कृपया मानचित्र पर अपना स्थान अपडेट करें।',
       },
-      save: "पता अपडेट करें"
+      save: 'पता अपडेट करें',
     },
     form: {
-      title: "पते का विवरण",
+      title: 'पते का विवरण',
       options: {
-        home: "घर",
-        work: "काम",
-        other: "अन्य"
-      }
-    }
+        home: 'घर',
+        work: 'काम',
+        other: 'अन्य',
+      },
+    },
   },
   address: {
-    details: "भवन {building_number}, अपार्टमेंट {apartment_number}, मंजिल {floor_number}",
-    mark_as_default: "डिफ़ॉल्ट पते के रूप में सेट करें"
+    details: 'भवन {building_number}, अपार्टमेंट {apartment_number}, मंजिल {floor_number}',
+    mark_as_default: 'डिफ़ॉल्ट पते के रूप में सेट करें',
   },
   profile: {
-    name: "प्रोफ़ाइल",
+    name: 'प्रोफ़ाइल',
     header: {
-      title: "प्रोफ़ाइल सेटिंग्स",
-      subtitle: "अपनी सेटिंग्स, चित्र और पासवर्ड बदलें।"
+      title: 'प्रोफ़ाइल सेटिंग्स',
+      subtitle: 'अपनी सेटिंग्स, चित्र और पासवर्ड बदलें।',
     },
-    information: "प्रोफ़ाइल जानकारी",
-    linked_institution: "Works at",
-    update_password: "पासवर्ड अपडेट करें",
-    delete_account: "खाता हटाएं"
+    information: 'प्रोफ़ाइल जानकारी',
+    linked_institution: 'Works at',
+    update_password: 'पासवर्ड अपडेट करें',
+    delete_account: 'खाता हटाएं',
   },
   service_provider: {
     h1: {
-      title: "हमारे साथ एसी, बिजली, प्लंबिंग तकनीशियन के रूप में पंजीकरण करें",
-      description: "क्या आपके पास घरेलू सेवाओं में कौशल है? हमसे जुड़ें और पेशेवर रूप से अपनी सेवाएं देना शुरू करें।"
+      title: 'हमारे साथ एसी, बिजली, प्लंबिंग तकनीशियन के रूप में पंजीकरण करें',
+      description: 'क्या आपके पास घरेलू सेवाओं में कौशल है? हमसे जुड़ें और पेशेवर रूप से अपनी सेवाएं देना शुरू करें।',
     },
     h2: {
-      title: "अभी अपनी सेवाएं दें",
-      description: "हम निम्नलिखित क्षेत्रों में सभी तकनीशियनों का स्वागत करते हैं:",
+      title: 'अभी अपनी सेवाएं दें',
+      description: 'हम निम्नलिखित क्षेत्रों में सभी तकनीशियनों का स्वागत करते हैं:',
       items: [
-        "एसी (स्थापना - रखरखाव - सफाई)",
-        "बिजली (वायरिंग - मरम्मत)",
-        "प्लंबिंग (रखरखाव - रिसाव का पता लगाना)",
-        "घरेलू उपकरण (वॉशिंग मशीन - फ्रिज - ओवन)",
-        "बढ़ईगीरी (दरवाजे - फर्नीचर)",
-        "पेंटिंग (आंतरिक और बाहरी)",
-        "सैटेलाइट (स्थापना - प्रोग्रामिंग)",
-        "घर की सफाई",
-        "कीट नियंत्रण",
-        "घरेलू सहायता"
-      ]
+        'एसी (स्थापना - रखरखाव - सफाई)',
+        'बिजली (वायरिंग - मरम्मत)',
+        'प्लंबिंग (रखरखाव - रिसाव का पता लगाना)',
+        'घरेलू उपकरण (वॉशिंग मशीन - फ्रिज - ओवन)',
+        'बढ़ईगीरी (दरवाजे - फर्नीचर)',
+        'पेंटिंग (आंतरिक और बाहरी)',
+        'सैटेलाइट (स्थापना - प्रोग्रामिंग)',
+        'घर की सफाई',
+        'कीट नियंत्रण',
+        'घरेलू सहायता',
+      ],
     },
-    button: "अभी पंजीकरण करें"
+    button: 'अभी पंजीकरण करें',
   },
   categories: {
-    title: "आपके घर के लिए सभी रखरखाव सेवाएं",
-    subtitle: "सही सेवा चुनें और आसानी से प्रमाणित तकनीशियन बुक करें।",
+    title: 'आपके घर के लिए सभी रखरखाव सेवाएं',
+    subtitle: 'सही सेवा चुनें और आसानी से प्रमाणित तकनीशियन बुक करें।',
     banner: {
-      title: "Tashyik के साथ अपना अनुभव शुरू करने के लिए तैयार हैं?",
-      subtitle: "अभी Tashyik ऐप डाउनलोड करें और अपनी पहली सेवा आसानी से प्राप्त करें।"
-    }
+      title: 'Tashyik के साथ अपना अनुभव शुरू करने के लिए तैयार हैं?',
+      subtitle: 'अभी Tashyik ऐप डाउनलोड करें और अपनी पहली सेवा आसानी से प्राप्त करें।',
+    },
   },
   cities: {
-    hero_title: "ताशीएक सेवाएं",
-    hero_h1_maintenance: "घरेलू रखरखाव सेवाएं",
-    hero_compact_subtitle: "तेज़, विश्वसनीय और आपके शहर में",
-    hero_subtitle: "प्रमाणित विशेषज्ञों से सेवा बुक करें",
-    browse_services: "सेवाएं ब्राउज़ करें",
-    schema_description: "विश्वसनीय घरेलू सेवाओं का पेशेवर बाज़ार",
-    popular_services: "इस शहर में लोकप्रिय सेवाएं",
-    available_in: "{city} में उपलब्ध",
-    index_title: "जिन शहरों में हम सेवा देते हैं",
-    index_subtitle: "लोकप्रिय घरेलू रखरखाव सेवाएं देखने और प्रमाणित तकनीशियन बुक करने के लिए शहर चुनें।",
-    service_links_truncated: "और सेवाएं देखने के लिए खोलें",
-    view_city_hub: "शहर हब देखें",
-    browse_by_city: "शहर के अनुसार ब्राउज़ करें",
-    services_heading: "सभी सेवाएं",
-    services_search_label: "सेवाएं खोजें",
-    services_search_placeholder: "सेवा का नाम लिखें",
-    city_search_result_count: "{city} में {count} परिणाम",
-    city_search_no_results_for: "\"{q}\" के लिए कोई परिणाम नहीं",
-    city_categories_filter_aria: "श्रेणी फ़िल्टर",
-    districts_heading: "{city} के मुख्य इलाके",
-    districts_intro: "हम {city} के प्रमुख इलाकों में तेज़ सेवा प्रदान करते हैं।",
-    services_results_range: "{shown}/{total} दिख रहे हैं ({filtered} फ़िल्टर किए गए)",
-    services_no_results: "कोई सेवा नहीं मिली",
-    services_none_in_city: "इस शहर में अभी सेवाएं उपलब्ध नहीं हैं",
-    pagination_label: "पृष्ठ नेविगेशन",
-    pagination_prev: "पिछला",
-    pagination_next: "अगला",
-    hero_cta_app: "ऐप डाउनलोड करें",
-    hero_cta_call: "अभी कॉल करें",
-    price_currency: "SAR",
-    index_browse_categories: "श्रेणियां ब्राउज़ करें",
-    index_filter_placeholder: "श्रेणी फ़िल्टर करें",
-    index_card_subtitle: "तेज़ और भरोसेमंद सेवा",
-    index_secondary_hint: "अपनी ज़रूरत के अनुसार चुनें",
-    index_filter_no_match: "कोई मेल खाती श्रेणी नहीं मिली",
-    service_in_city_cta_order: "सेवा ऑर्डर करें",
-    service_in_city_cta_order_now: "अभी ऑर्डर करें",
-    service_in_city_whatsapp_cta: "व्हाट्सऐप से बुक करें",
-    service_in_city_trust_secure_pay: "सुरक्षित भुगतान की गारंटी",
-    service_in_city_certified_badge: "प्रमाणित पेशेवर",
-    service_in_city_rating_line: "{orders} ऑर्डर से {rating} रेटिंग",
-    service_in_city_rating_with_orders: "{rating} ({orders} ऑर्डर)",
-    service_in_city_social_hint: "हजारों ग्राहकों का भरोसा",
-    service_in_city_includes_title: "इस सेवा में शामिल",
-    service_in_city_local_overview: "{city} के लिए स्थानीय जानकारी",
-    service_in_city_how_title: "यह कैसे काम करता है",
-    service_in_city_how_step1: "बुक करें",
-    service_in_city_how_step1_desc: "अपनी सेवा और समय चुनें",
-    service_in_city_how_step2: "विशेषज्ञ नियुक्ति",
-    service_in_city_how_step2_desc: "सत्यापित विशेषज्ञ आपको असाइन किया जाएगा",
-    service_in_city_how_step3: "काम पूरा",
-    service_in_city_how_step3_desc: "काम के बाद सुरक्षित भुगतान करें",
-    service_in_city_why_title: "हमें क्यों चुनें",
-    service_in_city_why_1_title: "प्रमाणित टीम",
-    service_in_city_why_1_desc: "हर तकनीशियन की जांच और प्रशिक्षण होता है",
-    service_in_city_why_2_title: "समय पर पहुंच",
-    service_in_city_why_2_desc: "निर्धारित समय पर सेवा उपलब्ध",
-    service_in_city_why_3_title: "पारदर्शी कीमतें",
-    service_in_city_why_3_desc: "कोई छिपे शुल्क नहीं",
-    service_in_city_why_4_title: "गुणवत्ता समर्थन",
-    service_in_city_why_4_desc: "सेवा के बाद भी सहायता जारी",
-    service_in_city_reviews_title: "ग्राहक समीक्षाएं",
-    service_in_city_rev1_name: "आरव खान",
-    service_in_city_rev1_text: "बहुत बढ़िया सेवा और समय पर टीम आई।",
-    service_in_city_rev2_name: "सना अली",
-    service_in_city_rev2_text: "बुकिंग आसान थी और परिणाम शानदार रहा।",
-    service_in_city_rev3_name: "रियान मलिक",
-    service_in_city_rev3_text: "पेशेवर व्यवहार और उचित कीमतें।",
-    service_in_city_default_bullet1: "त्वरित प्रतिक्रिया",
-    service_in_city_default_bullet2: "प्रशिक्षित विशेषज्ञ",
-    service_in_city_default_bullet3: "सेवा गारंटी",
-    service_in_city_related_title: "संबंधित सेवाएं",
-    service_in_city_sidebar_summary: "आपके शहर में भरोसेमंद सेवा",
-    service_in_city_price_label: "From"
+    hero_title: 'ताशीएक सेवाएं',
+    hero_h1_maintenance: 'घरेलू रखरखाव सेवाएं',
+    hero_compact_subtitle: 'तेज़, विश्वसनीय और आपके शहर में',
+    hero_subtitle: 'प्रमाणित विशेषज्ञों से सेवा बुक करें',
+    browse_services: 'सेवाएं ब्राउज़ करें',
+    schema_description: 'विश्वसनीय घरेलू सेवाओं का पेशेवर बाज़ार',
+    popular_services: 'इस शहर में लोकप्रिय सेवाएं',
+    available_in: '{city} में उपलब्ध',
+    index_title: 'जिन शहरों में हम सेवा देते हैं',
+    index_subtitle: 'लोकप्रिय घरेलू रखरखाव सेवाएं देखने और प्रमाणित तकनीशियन बुक करने के लिए शहर चुनें।',
+    service_links_truncated: 'और सेवाएं देखने के लिए खोलें',
+    view_city_hub: 'शहर हब देखें',
+    browse_by_city: 'शहर के अनुसार ब्राउज़ करें',
+    services_heading: 'सभी सेवाएं',
+    services_search_label: 'सेवाएं खोजें',
+    services_search_placeholder: 'सेवा का नाम लिखें',
+    city_search_result_count: '{city} में {count} परिणाम',
+    city_search_no_results_for: '"{q}" के लिए कोई परिणाम नहीं',
+    city_categories_filter_aria: 'श्रेणी फ़िल्टर',
+    districts_heading: '{city} के मुख्य इलाके',
+    districts_intro: 'हम {city} के प्रमुख इलाकों में तेज़ सेवा प्रदान करते हैं।',
+    services_results_range: '{shown}/{total} दिख रहे हैं ({filtered} फ़िल्टर किए गए)',
+    services_no_results: 'कोई सेवा नहीं मिली',
+    services_none_in_city: 'इस शहर में अभी सेवाएं उपलब्ध नहीं हैं',
+    pagination_label: 'पृष्ठ नेविगेशन',
+    pagination_prev: 'पिछला',
+    pagination_next: 'अगला',
+    hero_cta_app: 'ऐप डाउनलोड करें',
+    hero_cta_call: 'अभी कॉल करें',
+    price_currency: 'SAR',
+    index_browse_categories: 'श्रेणियां ब्राउज़ करें',
+    index_filter_placeholder: 'श्रेणी फ़िल्टर करें',
+    index_card_subtitle: 'तेज़ और भरोसेमंद सेवा',
+    index_secondary_hint: 'अपनी ज़रूरत के अनुसार चुनें',
+    index_filter_no_match: 'कोई मेल खाती श्रेणी नहीं मिली',
+    service_in_city_cta_order: 'सेवा ऑर्डर करें',
+    service_in_city_cta_order_now: 'अभी ऑर्डर करें',
+    service_in_city_whatsapp_cta: 'व्हाट्सऐप से बुक करें',
+    service_in_city_trust_secure_pay: 'सुरक्षित भुगतान की गारंटी',
+    service_in_city_certified_badge: 'प्रमाणित पेशेवर',
+    service_in_city_rating_line: '{orders} ऑर्डर से {rating} रेटिंग',
+    service_in_city_rating_with_orders: '{rating} ({orders} ऑर्डर)',
+    service_in_city_social_hint: 'हजारों ग्राहकों का भरोसा',
+    service_in_city_includes_title: 'इस सेवा में शामिल',
+    service_in_city_local_overview: '{city} के लिए स्थानीय जानकारी',
+    service_in_city_how_title: 'यह कैसे काम करता है',
+    service_in_city_how_step1: 'बुक करें',
+    service_in_city_how_step1_desc: 'अपनी सेवा और समय चुनें',
+    service_in_city_how_step2: 'विशेषज्ञ नियुक्ति',
+    service_in_city_how_step2_desc: 'सत्यापित विशेषज्ञ आपको असाइन किया जाएगा',
+    service_in_city_how_step3: 'काम पूरा',
+    service_in_city_how_step3_desc: 'काम के बाद सुरक्षित भुगतान करें',
+    service_in_city_why_title: 'हमें क्यों चुनें',
+    service_in_city_why_1_title: 'प्रमाणित टीम',
+    service_in_city_why_1_desc: 'हर तकनीशियन की जांच और प्रशिक्षण होता है',
+    service_in_city_why_2_title: 'समय पर पहुंच',
+    service_in_city_why_2_desc: 'निर्धारित समय पर सेवा उपलब्ध',
+    service_in_city_why_3_title: 'पारदर्शी कीमतें',
+    service_in_city_why_3_desc: 'कोई छिपे शुल्क नहीं',
+    service_in_city_why_4_title: 'गुणवत्ता समर्थन',
+    service_in_city_why_4_desc: 'सेवा के बाद भी सहायता जारी',
+    service_in_city_reviews_title: 'ग्राहक समीक्षाएं',
+    service_in_city_rev1_name: 'आरव खान',
+    service_in_city_rev1_text: 'बहुत बढ़िया सेवा और समय पर टीम आई।',
+    service_in_city_rev2_name: 'सना अली',
+    service_in_city_rev2_text: 'बुकिंग आसान थी और परिणाम शानदार रहा।',
+    service_in_city_rev3_name: 'रियान मलिक',
+    service_in_city_rev3_text: 'पेशेवर व्यवहार और उचित कीमतें।',
+    service_in_city_default_bullet1: 'त्वरित प्रतिक्रिया',
+    service_in_city_default_bullet2: 'प्रशिक्षित विशेषज्ञ',
+    service_in_city_default_bullet3: 'सेवा गारंटी',
+    service_in_city_related_title: 'संबंधित सेवाएं',
+    service_in_city_sidebar_summary: 'आपके शहर में भरोसेमंद सेवा',
+    service_in_city_price_label: 'From',
   },
   service: {
-    order_service: "अभी सेवा ऑर्डर करें",
+    order_service: 'अभी सेवा ऑर्डर करें',
     actions: {
-      order_now: "अभी ऑर्डर करें!",
-      view_details: "विवरण देखें"
+      order_now: 'अभी ऑर्डर करें!',
+      view_details: 'विवरण देखें',
     },
-    highlight_1: "प्रमाणित और विशेष तकनीशियन",
-    highlight_2: "सुरक्षित भुगतान",
-    highlight_3: "गुणवत्ता की गारंटी",
+    highlight_1: 'प्रमाणित और विशेष तकनीशियन',
+    highlight_2: 'सुरक्षित भुगतान',
+    highlight_3: 'गुणवत्ता की गारंटी',
     highlights: {
-      title: "हम आपके लिए क्या करेंगे?"
-    }
+      title: 'हम आपके लिए क्या करेंगे?',
+    },
   },
   order: {
-    id: "ऑर्डर नंबर",
-    title: "ऑर्डर विवरण",
+    id: 'ऑर्डर नंबर',
+    title: 'ऑर्डर विवरण',
     actions: {
-      view_details: "विवरण देखें",
-      rate: "अपने अनुभव को रेट करें",
-      order_again: "फिर से ऑर्डर करें",
+      view_details: 'विवरण देखें',
+      rate: 'अपने अनुभव को रेट करें',
+      order_again: 'फिर से ऑर्डर करें',
       cancel: {
-        title: "रद्द करें और धनवापसी",
-        description: "ऑर्डर रद्द करने से पहले आपको 15 मिनट प्रतीक्षा करनी होगी।"
-      }
+        title: 'रद्द करें और धनवापसी',
+        description: 'ऑर्डर रद्द करने से पहले आपको 15 मिनट प्रतीक्षा करनी होगी।',
+      },
     },
     summary: {
-      title: "सारांश",
-      service: "सेवा",
-      quantity: "मात्रा",
-      date: "तारीख",
-      status: "स्थिति",
-      description: "विवरण",
-      visit_cost: "विजिट शुल्क",
-      subtotal: "उप-योग",
-      tax: "टैक्स ({rate}%)",
-      wallet_balance: "वॉलेट बैलेंस",
-      total: "कुल राशि",
-      pay: "अभी भुगतान करें",
-      confirm: "पुष्टि करें"
+      title: 'सारांश',
+      service: 'सेवा',
+      quantity: 'मात्रा',
+      date: 'तारीख',
+      status: 'स्थिति',
+      description: 'विवरण',
+      visit_cost: 'विजिट शुल्क',
+      subtotal: 'उप-योग',
+      tax: 'टैक्स ({rate}%)',
+      wallet_balance: 'वॉलेट बैलेंस',
+      total: 'कुल राशि',
+      pay: 'अभी भुगतान करें',
+      confirm: 'पुष्टि करें',
     },
     status: {
-      title: "ऑर्डर की स्थिति",
-      new: "तकनीशियनों को दिखाया जा रहा है",
-      confirmed: "पुष्टि की गई",
-      on_the_way: "तकनीशियन रास्ते में है",
-      arrived: "तकनीशियन पहुँच गया है",
-      started: "काम चल रहा है",
-      completed: "पूरा हो गया"
+      title: 'ऑर्डर की स्थिति',
+      new: 'तकनीशियनों को दिखाया जा रहा है',
+      confirmed: 'पुष्टि की गई',
+      on_the_way: 'तकनीशियन रास्ते में है',
+      arrived: 'तकनीशियन पहुँच गया है',
+      started: 'काम चल रहा है',
+      completed: 'पूरा हो गया',
     },
     service_provider: {
-      title: "तकनीशियन",
-      phone: "फ़ोन",
+      title: 'तकनीशियन',
+      phone: 'फ़ोन',
       actions: {
-        view_on_map: "मानचित्र पर देखें",
-        call: "कॉल करें",
-        whatsapp: "व्हाट्सएप पर संदेश भेजें"
-      }
+        view_on_map: 'मानचित्र पर देखें',
+        call: 'कॉल करें',
+        whatsapp: 'व्हाट्सएप पर संदेश भेजें',
+      },
     },
     invoice: {
-      title: "इनवॉइस विवरण",
-      price: "सेवा मूल्य",
-      tax: "जीएसटी/टैक्स ({rate}%)",
-      total: "कुल",
-      view_details: "विवरण देखें",
-      hide_details: "विवरण छिपाएं",
-      visit_cost: "विजिट शुल्क",
-      coupons: "डिस्काउंट कोड",
-      wallet_balance: "वॉलेट बैलेंस"
+      title: 'इनवॉइस विवरण',
+      price: 'सेवा मूल्य',
+      tax: 'जीएसटी/टैक्स ({rate}%)',
+      total: 'कुल',
+      view_details: 'विवरण देखें',
+      hide_details: 'विवरण छिपाएं',
+      visit_cost: 'विजिट शुल्क',
+      coupons: 'डिस्काउंट कोड',
+      wallet_balance: 'वॉलेट बैलेंस',
     },
     canceled: {
-      title: "ऑर्डर रद्द कर दिया गया",
-      subtitle: "राशि आपके वॉलेट बैलेंस में वापस जोड़ दी गई है।"
+      title: 'ऑर्डर रद्द कर दिया गया',
+      subtitle: 'राशि आपके वॉलेट बैलेंस में वापस जोड़ दी गई है।',
     },
     extra: {
-      title: "अतिरिक्त सेवाएं",
-      unpaid: "अवैतनिक",
-      paid: "भुगतान किया गया",
-      view_details: "विवरण देखें",
+      title: 'अतिरिक्त सेवाएं',
+      unpaid: 'अवैतनिक',
+      paid: 'भुगतान किया गया',
+      view_details: 'विवरण देखें',
       invoice: {
-        title: "अतिरिक्त सेवा विवरण",
-        price: "अतिरिक्त सेवा मूल्य",
-        tax: "अतिरिक्त सेवा टैक्स",
-        materials: "सामग्री की कीमत"
-      }
-    }
+        title: 'अतिरिक्त सेवा विवरण',
+        price: 'अतिरिक्त सेवा मूल्य',
+        tax: 'अतिरिक्त सेवा टैक्स',
+        materials: 'सामग्री की कीमत',
+      },
+    },
   },
   review: {
-    title: "सेवा रेटिंग",
-    price: "लागत",
-    rate: "आपका कुल अनुभव कैसा रहा?",
-    notes: "अपनी टिप्पणी लिखें (वैकल्पिक)",
-    notes_placeholder: "अपने सुझाव यहाँ लिखें...",
+    title: 'सेवा रेटिंग',
+    price: 'लागत',
+    rate: 'आपका कुल अनुभव कैसा रहा?',
+    notes: 'अपनी टिप्पणी लिखें (वैकल्पिक)',
+    notes_placeholder: 'अपने सुझाव यहाँ लिखें...',
     actions: {
-      send: "रेटिंग भेजें",
-      skip: "छोड़ें"
-    }
+      send: 'रेटिंग भेजें',
+      skip: 'छोड़ें',
+    },
   },
   about: {
     hero: {
-      title: "Tashyik – पेशेवर सेवा",
-      description: "एक सऊदी प्लेटफ़ॉर्म जो आपको घरेलू रखरखाव के लिए प्रमाणित तकनीशियनों से जोड़ता है।",
+      title: 'Tashyik – पेशेवर सेवा',
+      description: 'एक सऊदी प्लेटफ़ॉर्म जो आपको घरेलू रखरखाव के लिए प्रमाणित तकनीशियनों से जोड़ता है।',
       subtitle: {
-        part_1: "हम",
-        part_2: "कौन हैं?"
+        part_1: 'हम',
+        part_2: 'कौन हैं?',
       },
       actions: {
-        discover: "हमारी कहानी जानें"
+        discover: 'हमारी कहानी जानें',
       },
       highlight: {
-        title: "पूर्ण विश्वसनीयता",
-        subtitle: "सत्यापित तकनीशियन"
-      }
+        title: 'पूर्ण विश्वसनीयता',
+        subtitle: 'सत्यापित तकनीशियन',
+      },
     },
     story: {
-      title: "हमारी कहानी",
-      paragraph_1: "हमने जीवन को सरल बनाने के लिए Tashyik की शुरुआत की।",
-      paragraph_2: "हमारा दृष्टिकोण सिर्फ मरम्मत से परे है; हम गुणवत्तापूर्ण जीवन सुनिश्चित करना चाहते हैं।"
+      title: 'हमारी कहानी',
+      paragraph_1: 'हमने जीवन को सरल बनाने के लिए Tashyik की शुरुआत की।',
+      paragraph_2: 'हमारा दृष्टिकोण सिर्फ मरम्मत से परे है; हम गुणवत्तापूर्ण जीवन सुनिश्चित करना चाहते हैं।',
     },
     features: {
       title: {
-        part_1: "क्यों चुनें",
-        part_2: "Tashyik?"
+        part_1: 'क्यों चुनें',
+        part_2: 'Tashyik?',
       },
-      subtitle: "आपके घर की देखभाल के लिए भरोसेमंद साथी।",
+      subtitle: 'आपके घर की देखभाल के लिए भरोसेमंद साथी।',
       feature_1: {
-        title: "प्रमाणित विशेषज्ञ",
-        description: "हम गुणवत्ता सुनिश्चित करने के लिए तकनीशियनों की सावधानीपूर्वक समीक्षा करते हैं।"
+        title: 'प्रमाणित विशेषज्ञ',
+        description: 'हम गुणवत्ता सुनिश्चित करने के लिए तकनीशियनों की सावधानीपूर्वक समीक्षा करते हैं।',
       },
       feature_2: {
-        title: "त्वरित प्रतिक्रिया",
-        description: "निकटतम तकनीशियन रिकॉर्ड समय में आप तक पहुँचता है।"
+        title: 'त्वरित प्रतिक्रिया',
+        description: 'निकटतम तकनीशियन रिकॉर्ड समय में आप तक पहुँचता है।',
       },
       feature_3: {
-        title: "सुरक्षित भुगतान",
-        description: "सुरक्षा मानकों के साथ सुरक्षित भुगतान के तरीके।"
+        title: 'सुरक्षित भुगतान',
+        description: 'सुरक्षा मानकों के साथ सुरक्षित भुगतान के तरीके।',
       },
       feature_4: {
-        title: "रीयल-टाइम ट्रैकिंग",
-        description: "पारदर्शिता के साथ अपने ऑर्डर की स्थिति ट्रैक करें।"
-      }
+        title: 'रीयल-टाइम ट्रैकिंग',
+        description: 'पारदर्शिता के साथ अपने ऑर्डर की स्थिति ट्रैक करें।',
+      },
     },
     stats_1: {
-      title: "3,800+",
-      subtitle: "प्रमाणित तकनीशियन"
+      title: '3,800+',
+      subtitle: 'प्रमाणित तकनीशियन',
     },
     stats_2: {
-      title: "632,000+",
-      subtitle: "सफल ऑर्डर"
+      title: '632,000+',
+      subtitle: 'सफल ऑर्डर',
     },
     stats_3: {
-      title: "4.8",
-      subtitle: "ग्राहक संतुष्टि"
+      title: '4.8',
+      subtitle: 'ग्राहक संतुष्टि',
     },
     audience: {
-      title: "हम किसकी सेवा करते हैं?",
-      subtitle: "चाहे घर हो या संस्थान, Tashyik सबकी सेवा के लिए है।",
+      title: 'हम किसकी सेवा करते हैं?',
+      subtitle: 'चाहे घर हो या संस्थान, Tashyik सबकी सेवा के लिए है।',
       individuals: {
-        title: "घर के मालिक",
-        description: "उन लोगों के लिए जो मानसिक शांति चाहते हैं।"
+        title: 'घर के मालिक',
+        description: 'उन लोगों के लिए जो मानसिक शांति चाहते हैं।',
       },
       institutions: {
-        title: "संस्थान",
-        description: "व्यवसाय निरंतरता के लिए रखरखाव समाधान।"
+        title: 'संस्थान',
+        description: 'व्यवसाय निरंतरता के लिए रखरखाव समाधान।',
       },
       service_providers: {
-        title: "तकनीशियन",
-        description: "तकनीशियन हमारी सेवा का आधार हैं।"
-      }
-    }
+        title: 'तकनीशियन',
+        description: 'तकनीशियन हमारी सेवा का आधार हैं।',
+      },
+    },
   },
   contact: {
-    title: "संपर्क करें",
-    subtitle: "हमारी टीम आपकी सेवा के लिए तैयार है",
+    title: 'संपर्क करें',
+    subtitle: 'हमारी टीम आपकी सेवा के लिए तैयार है',
     hero: {
-      title: "नमस्ते! हम कैसे मदद कर सकते हैं?",
-      description: "विवरण भरें और हम आपसे संपर्क करेंगे।"
+      title: 'नमस्ते! हम कैसे मदद कर सकते हैं?',
+      description: 'विवरण भरें और हम आपसे संपर्क करेंगे।',
     },
     inputs: {
       name: {
-        title: "पूरा नाम",
-        placeholder: "अपना नाम दर्ज करें"
+        title: 'पूरा नाम',
+        placeholder: 'अपना नाम दर्ज करें',
       },
       subject: {
-        title: "विषय",
-        placeholder: "रखरखाव, पूछताछ, या शिकायत"
+        title: 'विषय',
+        placeholder: 'रखरखाव, पूछताछ, या शिकायत',
       },
       message: {
-        title: "अपना संदेश लिखें",
-        placeholder: "अपना संदेश यहाँ लिखें..."
-      }
+        title: 'अपना संदेश लिखें',
+        placeholder: 'अपना संदेश यहाँ लिखें...',
+      },
     },
     actions: {
-      send: "संदेश भेजें"
+      send: 'संदेश भेजें',
     },
     info: {
-      whatsapp: "व्हाट्सएप",
-      phone: "कॉल करें",
-      email: "ईमेल"
+      whatsapp: 'व्हाट्सएप',
+      phone: 'कॉल करें',
+      email: 'ईमेल',
     },
     more_info: {
-      title: "व्यापक कवरेज",
-      subtitle: "सऊदी अरब के सभी क्षेत्रों में सेवा!"
+      title: 'व्यापक कवरेज',
+      subtitle: 'सऊदी अरब के सभी क्षेत्रों में सेवा!',
     },
     map: {
-      title: "हमारा स्थान",
-      subtitle: "रियाद में हमारे मुख्यालय पर आएं"
+      title: 'हमारा स्थान',
+      subtitle: 'रियाद में हमारे मुख्यालय पर आएं',
     },
-    message_sent: "सफलतापूर्वक भेजा गया"
+    message_sent: 'सफलतापूर्वक भेजा गया',
   },
   articles: {
     seo: {
-      title: "लेख - तशयिक",
-      description: "नवीनतम लेख पढ़ें और घर के रखरखाव, उपकरणों की देखभाल और अपने घर को बनाए रखने के सर्वोत्तम तरीकों के बारे में सुझाव प्राप्त करें।"
+      title: 'लेख - तशयिक',
+      description:
+        'नवीनतम लेख पढ़ें और घर के रखरखाव, उपकरणों की देखभाल और अपने घर को बनाए रखने के सर्वोत्तम तरीकों के बारे में सुझाव प्राप्त करें।',
     },
     hero: {
-      title: "लेख",
-      subtitle: "घर के रखरखाव और आपके घर की देखभाल के बारे में उपयोगी सुझाव और जानकारी"
+      title: 'लेख',
+      subtitle: 'घर के रखरखाव और आपके घर की देखभाल के बारे में उपयोगी सुझाव और जानकारी',
     },
-    featured_badge: "विशिष्ट लेख",
-    read_more: "और पढ़ें",
-    share: "लेख साझा करें",
-    empty: "वर्तमान में कोई लेख नहीं हैं",
-    related: "संबंधित लेख"
+    featured_badge: 'विशिष्ट लेख',
+    read_more: 'और पढ़ें',
+    share: 'लेख साझा करें',
+    empty: 'वर्तमान में कोई लेख नहीं हैं',
+    related: 'संबंधित लेख',
   },
   institution: {
-    title: "Manage Employees",
-    subtitle: "View performance and statistics of institution employees",
-    seo_title: "{city} में पेशेवर घरेलू सेवाएं",
+    title: 'Manage Employees',
+    subtitle: 'View performance and statistics of institution employees',
+    seo_title: '{city} में पेशेवर घरेलू सेवाएं',
     summary: {
-      active_members: "Active Employees",
-      this_month_orders: "Orders This Month",
-      this_month_earnings: "Earnings This Month",
-      balance: "Current Balance"
+      active_members: 'Active Employees',
+      this_month_orders: 'Orders This Month',
+      this_month_earnings: 'Earnings This Month',
+      balance: 'Current Balance',
     },
     member: {
-      total_orders: "Total Orders",
-      completed_orders: "Completed Orders",
-      this_month: "This Month",
-      earnings: "Earnings",
-      joined: "Joined"
+      total_orders: 'Total Orders',
+      completed_orders: 'Completed Orders',
+      this_month: 'This Month',
+      earnings: 'Earnings',
+      joined: 'Joined',
     },
     empty: {
-      title: "No employees",
-      subtitle: "No employees have been added to the institution yet."
+      title: 'No employees',
+      subtitle: 'No employees have been added to the institution yet.',
     },
     status: {
-      active: "Active",
-      pending: "Pending",
-      inactive: "Inactive"
+      active: 'Active',
+      pending: 'Pending',
+      inactive: 'Inactive',
     },
     filter: {
-      all: "All",
-      search: "Search by name or phone...",
-      results: "{count} results",
-      no_results: "No results found",
-      clear: "Clear filters"
+      all: 'All',
+      search: 'Search by name or phone...',
+      results: '{count} results',
+      no_results: 'No results found',
+      clear: 'Clear filters',
     },
     sort: {
-      name: "Sort by name",
-      earnings: "Highest earnings",
-      orders: "Most orders",
-      this_month: "Most active this month"
-    }
+      name: 'Sort by name',
+      earnings: 'Highest earnings',
+      orders: 'Most orders',
+      this_month: 'Most active this month',
+    },
   },
   chatbot: {
-    title: "Tashyik Chat",
-    subtitle: "We are here to help you",
-    welcome: "Welcome! How can we help you?",
-    placeholder: "Type your message...",
-    new_chat: "New Chat",
-    send: "Send",
-    close: "Close",
-    typing: "Typing...",
-    error_network: "Unable to connect. Please check your connection and try again.",
-    error_server: "Server error occurred. Please try again later.",
-    error_generic: "An unexpected error occurred. Please try again.",
-    retry: "Try again",
-    messages_count: "messages",
-    suggestion_1: "उदाहरण: क्या मैं एक तेज़ इलेक्ट्रीशियन सेवा बुक कर सकता हूँ?",
-    suggestion_2: "उदाहरण: मैं एसी रखरखाव के लिए कैसे अनुरोध करूँ?"
-  }
+    title: 'Tashyik Chat',
+    subtitle: 'We are here to help you',
+    welcome: 'Welcome! How can we help you?',
+    placeholder: 'Type your message...',
+    new_chat: 'New Chat',
+    send: 'Send',
+    close: 'Close',
+    typing: 'Typing...',
+    error_network: 'Unable to connect. Please check your connection and try again.',
+    error_server: 'Server error occurred. Please try again later.',
+    error_generic: 'An unexpected error occurred. Please try again.',
+    retry: 'Try again',
+    messages_count: 'messages',
+    suggestion_1: 'उदाहरण: क्या मैं एक तेज़ इलेक्ट्रीशियन सेवा बुक कर सकता हूँ?',
+    suggestion_2: 'उदाहरण: मैं एसी रखरखाव के लिए कैसे अनुरोध करूँ?',
+  },
 } as const;

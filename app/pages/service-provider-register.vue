@@ -6,6 +6,8 @@
   const cities = ref(null);
   const categories = ref(null);
   const applied = ref(false);
+  const auth = useAuthStore();
+  const localePath = useLocalePath();
 
   // Image inputs
   const personal_picture = ref(null);
@@ -19,8 +21,6 @@
     name: '',
     email: '',
     phone: '',
-    password: '',
-    password_confirmation: '',
     account_type: 'service-provider',
 
     // Service provider information
@@ -83,12 +83,21 @@
         formData.append('categories[]', id);
       });
 
-      await useApiFetch('/register', {
+      const response = await useApiFetch('/v1/auth/register', {
         method: 'POST',
         body: formData,
       });
 
-      applied.value = true;
+      auth.setPendingVerification({
+        verification_session: response.verification_session,
+        phone: credentials.phone,
+        phone_masked: response.phone,
+        expires_in: response.expires_in,
+        resend_available_in: response.resend_available_in,
+        flow: 'register',
+      });
+
+      return navigateTo(localePath({ name: 'verify-otp' }));
     } catch (error) {
       // Check for validation errors
       if (error.statusCode === 422) {
@@ -144,15 +153,24 @@
 <template>
   <div>
     <div class="my-10">
-      <h1 v-text="applied ? $t('guest.register.service_provider.applied.title') : $t('guest.register.service_provider.title')" class="text-xl text-gray-800 font-medium text-center"></h1>
-      <p v-text="applied ? $t('guest.register.service_provider.applied.subtitle') : $t('guest.register.service_provider.subtitle')" class="text-gray-600 mt-2 text-center"></p>
+      <h1
+        v-text="applied ? $t('guest.register.service_provider.applied.title') : $t('guest.register.service_provider.title')"
+        class="text-xl text-gray-800 font-medium text-center"
+      ></h1>
+      <p
+        v-text="applied ? $t('guest.register.service_provider.applied.subtitle') : $t('guest.register.service_provider.subtitle')"
+        class="text-gray-600 mt-2 text-center"
+      ></p>
     </div>
 
     <div v-if="applied" class="flex flex-col gap-5">
       <!-- material-symbols:check-circle-outline-rounded -->
       <svg class="w-32 h-32 text-brand-200 mx-auto mb-11" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
         <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
-        <path fill="currentColor" d="m10.6 13.8l-2.15-2.15q-.275-.275-.7-.275t-.7.275t-.275.7t.275.7L9.9 15.9q.3.3.7.3t.7-.3l5.65-5.65q.275-.275.275-.7t-.275-.7t-.7-.275t-.7.275zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12t-2.325-5.675T12 4T6.325 6.325T4 12t2.325 5.675T12 20m0-8" />
+        <path
+          fill="currentColor"
+          d="m10.6 13.8l-2.15-2.15q-.275-.275-.7-.275t-.7.275t-.275.7t.275.7L9.9 15.9q.3.3.7.3t.7-.3l5.65-5.65q.275-.275.275-.7t-.275-.7t-.7-.275t-.7.275zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12t-2.325-5.675T12 4T6.325 6.325T4 12t2.325 5.675T12 20m0-8"
+        />
       </svg>
 
       <NuxtLinkLocale :to="{ name: 'index' }" :aria-label="$t('common.back_to_home')">
@@ -186,22 +204,8 @@
         <!-- Phone -->
         <div>
           <InputsLabel for="phone" :name="$t('inputs.phone')" />
-          <InputsDefault v-model="credentials.phone" id="phone" placeholder="05xxxxxxxx" />
+          <InputsDefault v-model="credentials.phone" id="phone" :placeholder="$t('inputs.phone_placeholder')" />
           <InputsError :message="errors?.phone?.[0]" />
-        </div>
-
-        <!-- Password -->
-        <div>
-          <InputsLabel for="password" :name="$t('inputs.password')" />
-          <InputsDefault v-model="credentials.password" id="password" type="password" placeholder="••••••••" autocomplete="new-password" />
-          <InputsError :message="errors?.password?.[0]" />
-        </div>
-
-        <!-- Confirm password -->
-        <div>
-          <InputsLabel for="password_confirmation" :name="$t('inputs.password_confirmation')" />
-          <InputsDefault v-model="credentials.password_confirmation" id="password_confirmation" type="password" placeholder="••••••••" autocomplete="new-password" />
-          <InputsError :message="errors?.password_confirmation?.[0]" />
         </div>
       </template>
 
@@ -219,7 +223,13 @@
         <!-- Categories -->
         <div>
           <InputsLabel for="categoriesDropdown" :name="$t('inputs.categories')" />
-          <InputsMultiSelect v-model="credentials.categories" id="categoriesDropdown" :options="categories" :max="2" :placeholder="$t('common.select_categories')" />
+          <InputsMultiSelect
+            v-model="credentials.categories"
+            id="categoriesDropdown"
+            :options="categories"
+            :max="2"
+            :placeholder="$t('common.select_categories')"
+          />
           <InputsError :message="errors?.categories?.[0]" />
         </div>
 

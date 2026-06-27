@@ -7,6 +7,7 @@
   const switchLocalePath = useSwitchLocalePath();
   const route = useRoute();
   const layout = useLayoutStore();
+  const siteBrand = useSiteBrand();
   const { fetchCityBySlug, fetchCityServices } = useServiceFetchers();
 
   const searchInput = ref('');
@@ -27,7 +28,11 @@
     }, 300);
   });
 
-  const { data: payload, error: pageError, pending: pagePending } = await useAsyncData(
+  const {
+    data: payload,
+    error: pageError,
+    pending: pagePending,
+  } = await useAsyncData(
     () => `city-page-${route.params.slug}-${locale.value}`,
     async () => {
       const slug = route.params.slug;
@@ -230,7 +235,7 @@
       '@type': 'LocalBusiness',
       '@id': `${pageUrl}#localbusiness`,
       url: pageUrl,
-      name: `${t('common.brand')} — ${city.value.name}`,
+      name: `${siteBrand.value} — ${city.value.name}`,
       description: cityIntro.value || t('cities.schema_description', { city: city.value.name }),
       areaServed: {
         '@type': 'City',
@@ -318,11 +323,7 @@
 </script>
 
 <template>
-  <section
-    v-if="city"
-    class="w-full bg-gray-50/40"
-    :dir="locale === 'ar' ? 'rtl' : 'ltr'"
-  >
+  <section v-if="city" class="w-full bg-gray-50/40" :dir="locale === 'ar' ? 'rtl' : 'ltr'">
     <!-- Compact hero -->
     <div class="border-b border-brand-100/90 bg-gradient-to-b from-brand-50 to-white">
       <div class="container px-4 pb-6 pt-5 md:pb-8 md:pt-6">
@@ -372,8 +373,19 @@
         </label>
         <div class="relative w-full">
           <span class="pointer-events-none absolute inset-y-0 end-3 flex items-center text-gray-400" aria-hidden="true">
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
             </svg>
           </span>
           <input
@@ -397,11 +409,7 @@
             <button
               type="button"
               class="shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-              :class="
-                selectedCategoryId === null
-                  ? 'bg-brand-600 text-white shadow-sm'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              "
+              :class="selectedCategoryId === null ? 'bg-brand-600 text-white shadow-sm' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
               @click="selectedCategoryId = null"
             >
               {{ t('common.all') }}
@@ -411,11 +419,7 @@
               :key="chip.id"
               type="button"
               class="shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-              :class="
-                selectedCategoryId === chip.id
-                  ? 'bg-brand-600 text-white shadow-sm'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              "
+              :class="selectedCategoryId === chip.id ? 'bg-brand-600 text-white shadow-sm' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
               @click="selectedCategoryId = chip.id"
             >
               {{ pickLocalizedName(chip.name) }}
@@ -445,13 +449,8 @@
       </div>
 
       <!-- SEO service links -->
-      <div
-        v-if="serviceLinks.length"
-        class="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm md:p-6"
-      >
-        <h2 class="text-base font-semibold text-gray-900 md:text-lg">
-          {{ t('cities.available_in') }} — {{ city.name }}
-        </h2>
+      <div v-if="serviceLinks.length" class="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm md:p-6">
+        <h2 class="text-base font-semibold text-gray-900 md:text-lg">{{ t('cities.available_in') }} — {{ city.name }}</h2>
         <p v-if="serviceLinksTotal > serviceLinksLimit" class="mt-1 text-sm text-gray-600">
           {{ t('cities.service_links_truncated', { shown: serviceLinksLimit, total: serviceLinksTotal }) }}
         </p>
@@ -459,7 +458,9 @@
           <NuxtLink
             v-for="link in serviceLinks"
             :key="link.slug"
-            :to="localePath({ name: 'services-service-in-city', params: { service: resolveEntitySlug(link), city: resolveEntitySlug(city) } })"
+            :to="
+              localePath({ name: 'services-service-in-city', params: { service: resolveEntitySlug(link), city: resolveEntitySlug(city) } })
+            "
             class="inline-flex rounded-full bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-800 ring-1 ring-inset ring-brand-100 hover:bg-brand-100"
           >
             {{ link.name }}
@@ -468,10 +469,7 @@
       </div>
 
       <!-- Districts -->
-      <div
-        v-if="districtsList.length"
-        class="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm md:p-6"
-      >
+      <div v-if="districtsList.length" class="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm md:p-6">
         <h2 class="text-base font-semibold text-gray-900 md:text-lg">
           {{ t('cities.districts_heading', { city: city.name }) }}
         </h2>
@@ -498,7 +496,7 @@
       <div
         v-else-if="services.length"
         class="flex flex-row flex-nowrap gap-4 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-2 lg:gap-8 xl:grid-cols-3"
-        style="display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;"
+        style="display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch"
       >
         <ServiceCard
           v-for="svc in services"
@@ -514,8 +512,19 @@
         v-else-if="!pagePending && !servicesLoading"
         class="flex min-h-[16rem] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-gray-200 bg-white px-4 py-12 text-center"
       >
-        <svg class="h-14 w-14 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+        <svg
+          class="h-14 w-14 text-gray-300"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+          />
         </svg>
         <p class="text-base font-medium text-gray-700">
           {{ searchTrimmed ? t('cities.city_search_no_results_for', { q: searchTrimmed }) : t('cities.services_none_in_city') }}

@@ -7,6 +7,7 @@
   const localePath = useLocalePath();
   const route = useRoute();
   const layout = useLayoutStore();
+  const siteBrand = useSiteBrand();
   const { fetchServiceCityPayload } = useServiceFetchers();
   const { pricingWindowKey } = useSaudiPricingWindowKey();
 
@@ -114,7 +115,11 @@
       return list;
     }
 
-    return [t('cities.service_in_city_default_bullet1'), t('cities.service_in_city_default_bullet2'), t('cities.service_in_city_default_bullet3')];
+    return [
+      t('cities.service_in_city_default_bullet1'),
+      t('cities.service_in_city_default_bullet2'),
+      t('cities.service_in_city_default_bullet3'),
+    ];
   });
 
   const completedOrders = computed(() => Number(service.value?.completed_orders_count) || 0);
@@ -245,8 +250,7 @@
     const page = cityPage.value;
 
     if (page?.meta_description) {
-      const pageMeta =
-        page.meta_description[locale.value] || page.meta_description.ar || page.meta_description.en;
+      const pageMeta = page.meta_description[locale.value] || page.meta_description.ar || page.meta_description.en;
 
       if (pageMeta != null && String(pageMeta).trim()) {
         return stripHtml(String(pageMeta));
@@ -296,7 +300,7 @@
       },
       provider: {
         '@type': 'LocalBusiness',
-        name: t('common.brand'),
+        name: siteBrand.value,
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'SA',
@@ -421,11 +425,7 @@
 </script>
 
 <template>
-  <section
-    v-if="service && city"
-    :dir="head.htmlAttrs.dir"
-    class="w-full px-4 pb-28 pt-6 md:pb-10 md:pt-8 lg:pb-12"
-  >
+  <section v-if="service && city" :dir="head.htmlAttrs.dir" class="w-full px-4 pb-28 pt-6 md:pb-10 md:pt-8 lg:pb-12">
     <!-- Hero -->
     <div class="container mx-auto max-w-6xl">
       <div class="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
@@ -434,7 +434,10 @@
             class="mb-6 text-gray-600 [&_a]:text-gray-600 [&_a:hover]:text-brand-600"
             :pages="[
               { name: city.name, path: { name: 'cities-slug', params: { slug: resolveEntitySlug(city) } } },
-              { name: service.name, path: { name: 'services-service-in-city', params: { service: resolveEntitySlug(service), city: resolveEntitySlug(city) } } },
+              {
+                name: service.name,
+                path: { name: 'services-service-in-city', params: { service: resolveEntitySlug(service), city: resolveEntitySlug(city) } },
+              },
             ]"
           />
 
@@ -471,8 +474,20 @@
             <div
               class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm"
             >
-              <svg class="h-5 w-5 shrink-0 text-brand-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+              <svg
+                class="h-5 w-5 shrink-0 text-brand-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                />
               </svg>
               {{ t('cities.service_in_city_certified_badge') }}
             </div>
@@ -490,8 +505,20 @@
             fetchpriority="high"
           />
           <div v-else class="flex h-full w-full items-center justify-center text-gray-400">
-            <svg class="h-20 w-20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3A1.5 1.5 0 0 0 1.5 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008H12V8.25Z" />
+            <svg
+              class="h-20 w-20"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3A1.5 1.5 0 0 0 1.5 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008H12V8.25Z"
+              />
             </svg>
           </div>
         </div>
@@ -502,17 +529,11 @@
     <div class="container mx-auto mt-10 max-w-6xl lg:mt-14">
       <div class="grid gap-10 lg:grid-cols-12 lg:gap-10">
         <article class="min-w-0 space-y-10 lg:col-span-8">
-          <section
-            v-if="cityPageBody"
-            class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8"
-          >
+          <section v-if="cityPageBody" class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
             <h2 class="text-lg font-semibold text-gray-900 md:text-xl">
               {{ t('cities.service_in_city_local_overview', { city: city.name }) }}
             </h2>
-            <div
-              class="prose prose-sm mt-4 max-w-none text-gray-700 md:prose-base"
-              v-html="cityPageBody"
-            />
+            <div class="prose prose-sm mt-4 max-w-none text-gray-700 md:prose-base" v-html="cityPageBody" />
           </section>
 
           <section class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
@@ -521,8 +542,18 @@
             </h2>
             <ul class="mt-5 space-y-3 text-gray-700" role="list">
               <li v-for="(item, idx) in includesItems" :key="idx" class="flex gap-3">
-                <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-600" aria-hidden="true">
-                  <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <span
+                  class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-600"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="h-3.5 w-3.5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2.5"
+                    stroke="currentColor"
+                  >
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
                 </span>
@@ -539,11 +570,7 @@
               {{ howSteps.map((s) => s.title).join(' ← ') }}
             </p>
             <div class="mt-6 grid gap-6 sm:grid-cols-3">
-              <div
-                v-for="(step, i) in howSteps"
-                :key="i"
-                class="rounded-xl border border-gray-100 bg-gray-50/80 p-5 text-center"
-              >
+              <div v-for="(step, i) in howSteps" :key="i" class="rounded-xl border border-gray-100 bg-gray-50/80 p-5 text-center">
                 <div
                   class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-brand-500 text-sm font-bold text-white shadow-sm"
                 >
@@ -565,18 +592,72 @@
                 :key="idx"
                 class="flex gap-4 rounded-xl border border-gray-100 bg-gray-50/60 p-5 shadow-sm"
               >
-                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-brand-500 shadow-sm ring-1 ring-gray-100">
-                  <svg v-if="idx === 0" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                <div
+                  class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-brand-500 shadow-sm ring-1 ring-gray-100"
+                >
+                  <svg
+                    v-if="idx === 0"
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+                    />
                   </svg>
-                  <svg v-else-if="idx === 1" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+                  <svg
+                    v-else-if="idx === 1"
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"
+                    />
                   </svg>
-                  <svg v-else-if="idx === 2" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                  <svg
+                    v-else-if="idx === 2"
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                    />
                   </svg>
-                  <svg v-else class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                  <svg
+                    v-else
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
+                    />
                   </svg>
                 </div>
                 <div>
@@ -600,9 +681,7 @@
                 <div class="flex gap-0.5 text-amber-400" aria-label="5">
                   <span v-for="s in 5" :key="s" aria-hidden="true">★</span>
                 </div>
-                <blockquote class="mt-3 flex-1 text-sm leading-relaxed text-gray-700">
-                  “{{ rev.text }}”
-                </blockquote>
+                <blockquote class="mt-3 flex-1 text-sm leading-relaxed text-gray-700">“{{ rev.text }}”</blockquote>
                 <figcaption class="mt-4 text-sm font-semibold text-gray-900">— {{ rev.name }}</figcaption>
               </figure>
             </div>
@@ -642,10 +721,7 @@
                   {{ service.price.after_discount }}
                   <span class="text-lg font-normal text-gray-600">{{ service.price.currency }}</span>
                 </p>
-                <del
-                  v-if="service.price.has_discount && service.price.original > 0"
-                  class="mt-1 block text-sm text-gray-400"
-                >
+                <del v-if="service.price.has_discount && service.price.original > 0" class="mt-1 block text-sm text-gray-400">
                   {{ service.price.original }} {{ service.price.currency }}
                 </del>
               </div>
@@ -672,7 +748,13 @@
                 rel="noopener noreferrer"
                 class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-brand-500 bg-transparent py-3.5 text-base font-medium text-brand-500 hover:bg-brand-100/50 focus:z-10 focus:outline-none focus:ring-4 focus:ring-brand-100"
               >
-                <svg class="h-5 w-5 shrink-0 text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg
+                  class="h-5 w-5 shrink-0 text-green-600"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
                   <path
                     fill-rule="evenodd"
                     d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648l.379.243A8 8 0 1 0 12 4M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.96 9.96 0 0 1 2 12"
@@ -740,7 +822,13 @@
             class="inline-flex shrink-0 items-center justify-center rounded-lg border border-brand-500 px-3 py-3 text-brand-500 hover:bg-brand-100/50 focus:outline-none focus:ring-4 focus:ring-brand-100"
             :aria-label="t('cities.service_in_city_whatsapp_cta')"
           >
-            <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <svg
+              class="h-6 w-6 text-green-600"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
               <path
                 fill-rule="evenodd"
                 d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648l.379.243A8 8 0 1 0 12 4M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.96 9.96 0 0 1 2 12"

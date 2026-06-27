@@ -136,14 +136,11 @@
       </main>
 
       <ClientOnly>
-        <!-- Chatbot Button -->
+        <!-- Integrated chat (legacy embed suppressed via plugins/suppress-legacy-chat.client.js) -->
         <ChatbotButton />
 
         <!-- Whatsapp button -->
         <WhatsappButton />
-
-        <!-- Zoho SalesIQ -->
-        <ZohoSalesIQ />
       </ClientOnly>
 
       <AppFooter />

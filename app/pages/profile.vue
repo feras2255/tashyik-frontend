@@ -29,7 +29,6 @@
         </div>
 
         <ProfileInformation />
-        <ProfilePassword />
         <ProfileDelete />
       </div>
     </div>
