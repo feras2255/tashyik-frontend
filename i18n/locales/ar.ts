@@ -503,6 +503,7 @@ export default {
       subtitle: 'قم بتغيير إعدادات ملفك الشخصي وصورة ملفك الشخصي وكلمة المرور.',
     },
     information: 'معلومات الملف الشخصي',
+    change_phone: 'تغيير رقم الهاتف',
     linked_institution: 'تابع لـ',
     update_password: 'تحديث كلمة المرور',
     delete_account: 'حذف الحساب',

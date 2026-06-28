@@ -7,14 +7,13 @@
   const image = ref({});
   const fileInput = ref(null);
   const selectedImage = ref(null);
+  const showPhoneModal = ref(false);
   const credentials = reactive({
     name: '',
-    phone: '',
     email: '',
   });
 
   credentials.name = auth.user?.name ?? '';
-  credentials.phone = auth.user?.phone ?? '';
   credentials.email = auth.user?.email || '';
   image.value.previewUrl = auth.user?.picture;
 
@@ -152,8 +151,16 @@
         <!-- Phone -->
         <div>
           <InputsLabel for="phone" :name="$t('inputs.phone')" />
-          <InputsDefault v-model="credentials.phone" id="phone" required />
-          <InputsError :message="errors?.phone?.[0]" />
+          <div class="flex items-center gap-4">
+            <InputsDefault :model-value="auth.user?.phone" id="phone" disabled class="bg-gray-100 text-gray-500 cursor-not-allowed" />
+            <button
+              type="button"
+              @click="showPhoneModal = true"
+              class="text-sm font-medium text-violet-600 hover:text-violet-700 whitespace-nowrap shrink-0 px-3 py-2 border border-violet-200 rounded-lg bg-violet-50 hover:bg-violet-100 transition-colors"
+            >
+              {{ $t('profile.change_phone') }}
+            </button>
+          </div>
         </div>
 
         <!-- Email -->
@@ -169,5 +176,16 @@
         </div>
       </form>
     </div>
+
+    <ProfilePhoneChangeModal
+      v-if="showPhoneModal"
+      @close="showPhoneModal = false"
+      @success="
+        (msg) => {
+          status = msg;
+          setTimeout(() => (status = null), 3000);
+        }
+      "
+    />
   </div>
 </template>

@@ -507,6 +507,7 @@ export default {
       subtitle: 'Change your profile settings, picture, and password.',
     },
     information: 'Profile Information',
+    change_phone: 'Change Phone Number',
     linked_institution: 'Works at',
     update_password: 'Update Password',
     delete_account: 'Delete Account',
