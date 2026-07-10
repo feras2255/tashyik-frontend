@@ -9,15 +9,33 @@
   });
 
   const apiFetch = useApiFetchClient();
-  const { data: fetchedQuestions, pending: questionsPending } = useHomeSection('questions', async () => {
+  const homePageData = useHomePageData();
+
+  const loadedQuestions = ref([]);
+  const questionsPending = ref(false);
+
+  async function loadQuestions() {
+    if (!props.fetchGeneral || (Array.isArray(props.items) && props.items.length)) {
+      return;
+    }
+
+    const fromHome = unwrapListPayload(readInjectedRef(homePageData)?.questions);
+    if (fromHome.length) {
+      loadedQuestions.value = fromHome;
+      return;
+    }
+
+    questionsPending.value = true;
+
     try {
-      const response = await apiFetch('/general/questions');
-      return response.data ?? [];
+      loadedQuestions.value = unwrapListPayload(await apiFetch('/general/questions'));
     } catch (error) {
       console.error('Failed to get questions:', error);
-      return [];
+      loadedQuestions.value = [];
+    } finally {
+      questionsPending.value = false;
     }
-  });
+  }
 
   const questions = computed(() => {
     if (Array.isArray(props.items) && props.items.length) {
@@ -28,19 +46,41 @@
       }));
     }
 
-    if (!props.fetchGeneral) {
-      return [];
-    }
-
-    const raw = fetchedQuestions.value;
-    return Array.isArray(raw) ? raw : [];
+    return loadedQuestions.value;
   });
 
-  onMounted(() => {
-    useFlowbite(() => {
+  const showSkeleton = computed(() => props.fetchGeneral && !questions.value.length && questionsPending.value);
+
+  function setupAccordions() {
+    useFlowbite(({ initAccordions }) => {
       initAccordions();
     });
+  }
+
+  onMounted(async () => {
+    await loadQuestions();
+    setupAccordions();
   });
+
+  watch(homePageData, () => {
+    if (!import.meta.client || loadedQuestions.value.length) {
+      return;
+    }
+
+    loadQuestions();
+  });
+
+  watch(
+    questions,
+    (list) => {
+      if (!import.meta.client || !list?.length) {
+        return;
+      }
+
+      nextTick(() => setupAccordions());
+    },
+    { flush: 'post' },
+  );
 
   const faqJsonLd = computed(() => {
     const list = questions.value;
@@ -79,7 +119,7 @@
 </script>
 
 <template>
-  <HomeQuestionsSkeleton v-if="questionsPending && !questions.length && fetchGeneral" />
+  <HomeQuestionsSkeleton v-if="showSkeleton" />
 
   <div v-else id="accordion-collapse" data-accordion="collapse" class="flex flex-col gap-5">
     <div v-for="question in questions" :key="question.id" :class="headingClass">

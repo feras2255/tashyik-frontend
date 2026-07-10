@@ -20,7 +20,9 @@ function getApiBaseUrl(config) {
   try {
     const u = new URL(publicBase);
 
-    if (u.hostname === 'api.localhost' || u.hostname.endsWith('.local.test')) {
+    // Only rewrite on the server — the browser can resolve api.localhost when hosts are set,
+    // and Laravel API routes require the correct Host header (not bare 127.0.0.1).
+    if (import.meta.server && (u.hostname === 'api.localhost' || u.hostname.endsWith('.local.test'))) {
       u.hostname = '127.0.0.1';
 
       return u.href.replace(/\/$/, '');
@@ -95,15 +97,16 @@ export function useApiFetch(path, options = {}, useFetchFunction = false) {
     headers.Authorization = `Bearer ${token.value}`;
   }
 
-  const key = options.key || hash(['api', unref(typeof path === 'function' ? path() : path), unref(options.query || {}), $i18n.locale.value]);
+  const key =
+    options.key || hash(['api', unref(typeof path === 'function' ? path() : path), unref(options.query || {}), $i18n.locale.value]);
 
   return useFetchFunction
     ? useFetch(path, {
-      baseURL,
-      watch: options.watch ?? [() => unref($i18n.locale)],
-      key,
-      ...options,
-      headers,
-    })
+        baseURL,
+        watch: options.watch ?? [() => unref($i18n.locale)],
+        key,
+        ...options,
+        headers,
+      })
     : apiFetch(path, options);
 }

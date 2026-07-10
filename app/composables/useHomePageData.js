@@ -53,6 +53,31 @@ export function isHomeRoute(route) {
   return path === '/' || /^\/(en|hi|bn|ur|tl|id|fr)$/.test(path);
 }
 
+/** Normalize list API payloads: `[...]` or Laravel `{ data: [...] }`. */
+export function unwrapListPayload(raw) {
+  if (Array.isArray(raw)) {
+    return raw;
+  }
+
+  if (raw && typeof raw === 'object' && Array.isArray(raw.data)) {
+    return raw.data;
+  }
+
+  return [];
+}
+
+export function readInjectedRef(source) {
+  if (source == null) {
+    return null;
+  }
+
+  if (typeof source === 'object' && 'value' in source) {
+    return source.value;
+  }
+
+  return source;
+}
+
 /**
  * Read one homepage slice. Uses /general/home on index; falls back to individual API if home fails.
  */
@@ -94,6 +119,10 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
       return value.length > 0;
     }
 
+    if (value && typeof value === 'object' && Array.isArray(value.data)) {
+      return value.data.length > 0;
+    }
+
     if (value && typeof value === 'object') {
       if (Array.isArray(value.services) || Array.isArray(value.cities)) {
         return (value.services?.length ?? 0) > 0 || (value.cities?.length ?? 0) > 0;
@@ -111,11 +140,13 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
           return;
         }
 
-        const slice = homePageData?.value?.[sliceKey];
+        const payload = readInjectedRef(homePageData);
+        const slice = payload?.[sliceKey];
         const homeReady = homeSliceReady(slice);
-        const homeFailed = Boolean(homePageError?.value) || (!homePagePending?.value && homePageData?.value == null);
+        const pending = Boolean(readInjectedRef(homePagePending));
+        const homeFailed = Boolean(readInjectedRef(homePageError)) || (!pending && payload == null);
 
-        if (!homeReady && (homeFailed || !homePagePending?.value) && !fallbackStarted.value) {
+        if (!homeReady && (homeFailed || !pending) && !fallbackStarted.value) {
           runFallback();
         }
       },
@@ -125,7 +156,13 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
 
   const data = computed(() => {
     if (onHome) {
-      return homePageData?.value?.[sliceKey] ?? fallbackData.value;
+      const slice = readInjectedRef(homePageData)?.[sliceKey];
+
+      if (homeSliceReady(slice)) {
+        return unwrapListPayload(slice);
+      }
+
+      return fallbackData.value;
     }
 
     return fallbackData.value;
@@ -137,7 +174,7 @@ export function useHomeSection(sliceKey, fallbackFetcher = null) {
         return fallbackPending.value;
       }
 
-      return Boolean(homePagePending?.value);
+      return Boolean(readInjectedRef(homePagePending));
     }
 
     return fallbackPending.value;
