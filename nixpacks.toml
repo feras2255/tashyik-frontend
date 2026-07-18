@@ -6,18 +6,16 @@ nixPkgs = ["nodejs_22", "npm-10_x"]
 
 [phases.install]
 cmds = [
-  "npm install -g pnpm@9",
-  "rm -rf node_modules package-lock.json",
-  "pnpm install --no-frozen-lockfile"
+  "rm -rf node_modules package-lock.json pnpm-lock.yaml",
+  "npx pnpm@9 install --no-frozen-lockfile"
 ]
 
 [phases.build]
 # Re-run install after Nixpacks re-COPY between phases (keeps node_modules for nuxt/vite).
 cmds = [
-  "npm install -g pnpm@9",
-  "rm -rf package-lock.json",
-  "pnpm install --no-frozen-lockfile",
-  "NODE_ENV=production pnpm run build"
+  "rm -rf package-lock.json pnpm-lock.yaml",
+  "npx pnpm@9 install --no-frozen-lockfile",
+  "NODE_ENV=production npx pnpm@9 run build"
 ]
 
 [start]
