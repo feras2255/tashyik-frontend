@@ -19,7 +19,7 @@ COPY . .
 
 # Build the Nuxt 4 application
 # This generates the output in the .output directory
-RUN pnpm run build
+RUN pnpm run build:fast
 
 # Stage 2: Production
 FROM node:22-slim AS runner
