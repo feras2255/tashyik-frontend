@@ -5,11 +5,15 @@ NIXPACKS_NODE_VERSION = "22"
 nixPkgs = ["nodejs_22", "npm-10_x"]
 
 [phases.install]
-cmds = ["npm install --include=dev"]
+cmds = [
+  "rm -rf node_modules package-lock.json",
+  "npm install --include=dev"
+]
 
 [phases.build]
 # Re-run install after Nixpacks re-COPY between phases (keeps node_modules for nuxt/vite).
 cmds = [
+  "rm -rf package-lock.json",
   "npm install --include=dev",
   "NODE_ENV=production npm run build"
 ]
