@@ -9,7 +9,8 @@ nixPkgs = ["nodejs_22", "npm-10_x"]
 cmds = ["npm ci"]
 
 [phases.build]
-cmds = ["npm run build"]
+# Re-run install after Nixpacks re-COPY between phases (keeps node_modules for vite/nuxt).
+cmds = ["npm ci", "npm run build"]
 
 [start]
 cmd = "npm run start"
