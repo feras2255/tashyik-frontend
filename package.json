@@ -11,6 +11,7 @@
     "start": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare && (husky || true)",
     "optimize:images": "node scripts/optimize-hero-images.mjs",
+    "assets:upload-r2": "node scripts/upload-static-assets-to-r2.mjs",
     "seo:meta-smoke": "node scripts/seo-meta-smoke.mjs",
     "deploy:production": "node scripts/deploy-production.mjs",
     "lint": "eslint --ext .js,.mjs,.ts,.vue --max-warnings 0 .",
@@ -20,6 +21,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1092.0",
     "@nuxt/eslint": "^1.16.0",
     "@nuxt/eslint-config": "^0.5.7",
     "baseline-browser-mapping": "^2.10.27",

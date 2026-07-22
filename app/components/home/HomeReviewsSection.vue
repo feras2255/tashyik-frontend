@@ -1,5 +1,6 @@
 <script setup>
   const { t } = useI18n();
+  const { staticAsset } = useStaticAsset();
 
   const reviews = [
     {
@@ -7,28 +8,28 @@
       body: t('home.reviews.item_1.body'),
       date: t('home.reviews.item_1.date'),
       tag: t('home.reviews.item_1.tag'),
-      image: '/images/review-1.webp',
+      image: staticAsset('review-1.webp'),
     },
     {
       name: t('home.reviews.item_2.name'),
       body: t('home.reviews.item_2.body'),
       date: t('home.reviews.item_2.date'),
       tag: t('home.reviews.item_2.tag'),
-      image: '/images/review-2.webp',
+      image: staticAsset('review-2.webp'),
     },
     {
       name: t('home.reviews.item_3.name'),
       body: t('home.reviews.item_3.body'),
       date: t('home.reviews.item_3.date'),
       tag: t('home.reviews.item_3.tag'),
-      image: '/images/review-3.webp',
+      image: staticAsset('review-3.webp'),
     },
     {
       name: t('home.reviews.item_4.name'),
       body: t('home.reviews.item_4.body'),
       date: t('home.reviews.item_4.date'),
       tag: t('home.reviews.item_4.tag'),
-      image: '/images/review-1.webp',
+      image: staticAsset('review-1.webp'),
     },
   ];
 </script>

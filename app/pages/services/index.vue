@@ -20,7 +20,8 @@
   const syncingFromPayload = ref(false);
   const servicesPerPage = 12;
 
-  const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
+  const { staticAsset } = useStaticAsset();
+  const defaultOg = computed(() => staticAsset('og.webp'));
 
   useSeoMeta({
     title: t('seo.services.title'),
@@ -35,7 +36,11 @@
     twitterImage: defaultOg,
   });
 
-  const { data: payload, error: pageError, pending: pagePending } = await useAsyncData(
+  const {
+    data: payload,
+    error: pageError,
+    pending: pagePending,
+  } = await useAsyncData(
     () => `services-index-${locale.value}-${pricingWindowKey.value}-${route.query.q || ''}`,
     async () => {
       const [categoriesRes, servicesRes] = await Promise.all([
@@ -63,7 +68,7 @@
         currentPage.value = 1;
         await loadServices({ reset: true });
       }
-    }
+    },
   );
 
   if (pageError.value) {
@@ -101,9 +106,13 @@
 
   const activeCategoryId = computed(() => selectedCategoryId.value ?? selectedParentId.value);
 
-  const selectedParentCategory = computed(() => parentCategoryChips.value.find((category) => category.id === selectedParentId.value) ?? null);
+  const selectedParentCategory = computed(
+    () => parentCategoryChips.value.find((category) => category.id === selectedParentId.value) ?? null,
+  );
 
-  const selectedSubcategory = computed(() => visibleSubcategories.value.find((category) => category.id === selectedCategoryId.value) ?? null);
+  const selectedSubcategory = computed(
+    () => visibleSubcategories.value.find((category) => category.id === selectedCategoryId.value) ?? null,
+  );
 
   const resultTotal = computed(() => payload.value?.meta?.total ?? services.value.length);
   const hasMoreServices = computed(() => currentPage.value < lastPage.value);
@@ -269,8 +278,19 @@
               </label>
               <div class="relative w-full">
                 <span class="pointer-events-none absolute inset-y-0 end-3 flex items-center text-gray-400" aria-hidden="true">
-                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  <svg
+                    class="h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    />
                   </svg>
                 </span>
                 <input
@@ -324,7 +344,9 @@
                   :key="category.id"
                   type="button"
                   class="inline-flex shrink-0 items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-                  :class="selectedParentId === category.id ? 'bg-brand-600 text-white shadow-sm' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                  :class="
+                    selectedParentId === category.id ? 'bg-brand-600 text-white shadow-sm' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  "
                   @click="selectParentCategory(category.id)"
                 >
                   <span>{{ category.name }}</span>
@@ -344,7 +366,11 @@
                     :key="subcategory.id"
                     type="button"
                     class="rounded-xl px-4 py-2.5 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-                    :class="selectedCategoryId === subcategory.id ? 'bg-white text-brand-700 shadow-sm ring-1 ring-brand-200' : 'text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-sm'"
+                    :class="
+                      selectedCategoryId === subcategory.id
+                        ? 'bg-white text-brand-700 shadow-sm ring-1 ring-brand-200'
+                        : 'text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-sm'
+                    "
                     @click="selectSubcategory(subcategory.id)"
                   >
                     {{ subcategory.name }}
@@ -365,9 +391,7 @@
               </div>
               <div>
                 <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">{{ t('navigation.services') }}</dt>
-                <dd class="mt-1 text-lg font-semibold text-brand-700">
-                  {{ services.length }} / {{ resultTotal }}
-                </dd>
+                <dd class="mt-1 text-lg font-semibold text-brand-700">{{ services.length }} / {{ resultTotal }}</dd>
               </div>
             </dl>
             <button
@@ -392,22 +416,30 @@
         <AppSpinner />
       </div>
 
-      <div v-else-if="services.length" class="flex flex-row items-stretch gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 lg:gap-8 md:overflow-visible">
-        <ServiceCard
-          v-for="service in services"
-          :key="service.id"
-          :service="service"
-          :highlight-query="activeQuery"
-          class="shrink-0"
-        />
+      <div
+        v-else-if="services.length"
+        class="flex flex-row items-stretch gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 lg:gap-8 md:overflow-visible"
+      >
+        <ServiceCard v-for="service in services" :key="service.id" :service="service" :highlight-query="activeQuery" class="shrink-0" />
       </div>
 
       <div
         v-else
         class="flex min-h-[16rem] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-gray-200 bg-white px-4 py-12 text-center"
       >
-        <svg class="h-14 w-14 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+        <svg
+          class="h-14 w-14 text-gray-300"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+          />
         </svg>
         <h2 class="text-xl font-semibold text-gray-700">
           {{ t('services.empty.title') }}

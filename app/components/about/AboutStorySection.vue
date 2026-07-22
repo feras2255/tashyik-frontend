@@ -1,7 +1,11 @@
+<script setup>
+  const { staticAsset } = useStaticAsset();
+</script>
+
 <template>
   <section class="bg-brand-50" id="story-section">
     <div class="container px-4 flex flex-col lg:grid grid-cols-2 gap-10 py-12 md:py-20">
-      <img class="max-h-[500px]" src="/images/about-story-section.webp" loading="lazy" alt="About story section" />
+      <img class="max-h-[500px]" :src="staticAsset('about-story-section.webp')" loading="lazy" alt="About story section" />
       <div class="block my-auto">
         <div class="flex flex-col gap-4 md:gap-4 xl:gap-6">
           <h3 v-text="$t('about.story.title')" class="text-gray-800 font-medium text-xl md:text-2xl xl:text-3xl"></h3>

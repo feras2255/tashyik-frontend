@@ -8,6 +8,7 @@
   const route = useRoute();
   const layout = useLayoutStore();
   const siteBrand = useSiteBrand();
+  const { staticAsset } = useStaticAsset();
   const { fetchServiceBySlug } = useServiceFetchers();
   const { pricingWindowKey } = useSaudiPricingWindowKey();
   const galleryContainer = ref(null);
@@ -486,7 +487,14 @@
               <p v-else class="mt-6 text-sm text-gray-600">{{ t('common.no_price') }}</p>
 
               <div class="mt-4">
-                <img class="h-6 shrink-0" src="/images/tabby-tamara.webp" alt="Tabby & Tamara" loading="lazy" width="120" height="24" />
+                <img
+                  class="h-6 shrink-0"
+                  :src="staticAsset('tabby-tamara.webp')"
+                  alt="Tabby & Tamara"
+                  loading="lazy"
+                  width="120"
+                  height="24"
+                />
               </div>
 
               <NuxtLinkLocale :to="orderLink" class="mt-6 block w-full">

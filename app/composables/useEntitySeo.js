@@ -128,14 +128,14 @@ export function useEntitySeo(options) {
     return `${base}${switchLocalePath(locale.value)}`;
   });
 
+  const { staticAsset } = useStaticAsset();
+
   const defaultOgImage = computed(() => {
     if (layout.default_og_image) {
       return layout.default_og_image;
     }
 
-    const base = (config.public.appUrl || 'https://www.tashyik.com').replace(/\/$/, '');
-
-    return `${base}/images/og.webp`;
+    return staticAsset('og.webp');
   });
 
   const displayName = computed(() => {

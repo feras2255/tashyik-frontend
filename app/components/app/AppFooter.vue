@@ -18,7 +18,8 @@
   const appStoreBadge =
     'static-color flex h-11 w-full max-w-[11.5rem] items-center gap-2.5 rounded-xl border border-gray-200 bg-white px-3 shadow-sm transition-colors hover:bg-gray-50';
 
-  const logoSrc = computed(() => logo.value?.light_mode ?? '/images/logo-light-mode.webp');
+  const { staticAsset } = useStaticAsset();
+  const logoSrc = computed(() => logo.value?.light_mode || staticAsset('logo-light-mode.webp'));
 
   const socialLinkClass = (type) => {
     const base = 'static-color flex size-9 min-h-10 min-w-10 shrink-0 items-center justify-center rounded-lg transition-colors';

@@ -6,7 +6,8 @@
   const localePath = useLocalePath();
   const apiFetch = useApiFetchClient();
 
-  const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
+  const { staticAsset } = useStaticAsset();
+  const defaultOg = computed(() => staticAsset('og.webp'));
 
   useSeoMeta({
     title: t('seo.cities_index.title'),
@@ -118,7 +119,9 @@
 
         <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end">
           <div class="flex max-w-3xl flex-col gap-4 md:gap-5">
-            <span class="inline-flex w-fit rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm ring-1 ring-brand-100">
+            <span
+              class="inline-flex w-fit rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm ring-1 ring-brand-100"
+            >
               {{ t('navigation.cities') }}
             </span>
             <h1 class="text-3xl font-bold tracking-tight text-gray-900 md:text-5xl">
@@ -150,8 +153,19 @@
                 <p class="mt-1 text-3xl font-bold text-gray-900">{{ cityCount }}</p>
               </div>
               <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600" aria-hidden="true">
-                <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503-12.62 3.17-1.585A.75.75 0 0 1 19.5 3.715v13.57a.75.75 0 0 1-.415.67l-3.588 1.794a.75.75 0 0 1-.67 0l-5.66-2.83a.75.75 0 0 0-.67 0l-3.17 1.585A.75.75 0 0 1 4.5 17.835V4.265a.75.75 0 0 1 .415-.67l3.588-1.794a.75.75 0 0 1 .67 0l5.66 2.83a.75.75 0 0 0 .67 0Z" />
+                <svg
+                  class="h-7 w-7"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 6.75V15m6-6v8.25m.503-12.62 3.17-1.585A.75.75 0 0 1 19.5 3.715v13.57a.75.75 0 0 1-.415.67l-3.588 1.794a.75.75 0 0 1-.67 0l-5.66-2.83a.75.75 0 0 0-.67 0l-3.17 1.585A.75.75 0 0 1 4.5 17.835V4.265a.75.75 0 0 1 .415-.67l3.588-1.794a.75.75 0 0 1 .67 0l5.66 2.83a.75.75 0 0 0 .67 0Z"
+                  />
                 </svg>
               </span>
             </div>
@@ -175,13 +189,32 @@
                 :aria-label="t('services.index_clear_filters')"
                 @click="clearCityFilter"
               >
-                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <svg
+                  class="h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
               </button>
               <span class="pointer-events-none absolute inset-y-0 end-3 flex items-center text-gray-400" aria-hidden="true">
-                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                <svg
+                  class="h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
                 </svg>
               </span>
             </div>
@@ -207,13 +240,30 @@
               class="group relative flex h-full min-h-[11rem] overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2"
               :aria-label="t('cities.view_city_hub', { city: c.name })"
             >
-              <span class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-500 via-brand-300 to-amber-300 opacity-80 transition group-hover:opacity-100" aria-hidden="true"></span>
+              <span
+                class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-500 via-brand-300 to-amber-300 opacity-80 transition group-hover:opacity-100"
+                aria-hidden="true"
+              ></span>
 
               <span class="flex h-full w-full flex-col">
                 <span class="mb-5 flex items-start justify-between gap-4">
-                  <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 ring-1 ring-brand-100 transition group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600" aria-hidden="true">
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7.5-4.108 7.5-11.25a7.5 7.5 0 0 0-15 0C4.5 16.892 12 21 12 21Z" />
+                  <span
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 ring-1 ring-brand-100 transition group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.6"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 21s7.5-4.108 7.5-11.25a7.5 7.5 0 0 0-15 0C4.5 16.892 12 21 12 21Z"
+                      />
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                     </svg>
                   </span>
@@ -229,10 +279,22 @@
                   {{ t('cities.index_card_subtitle') }}
                 </span>
 
-                <span class="mt-auto flex items-center justify-between gap-4 border-t border-gray-100 pt-5 text-sm font-semibold text-brand-600 group-hover:text-brand-700">
+                <span
+                  class="mt-auto flex items-center justify-between gap-4 border-t border-gray-100 pt-5 text-sm font-semibold text-brand-600 group-hover:text-brand-700"
+                >
                   <span>{{ t('cities.view_city_hub', { city: c.name }) }}</span>
-                  <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600 transition group-hover:bg-brand-600 group-hover:text-white" aria-hidden="true">
-                    <svg class="h-4 w-4 transition group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                  <span
+                    class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600 transition group-hover:bg-brand-600 group-hover:text-white"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      class="h-4 w-4 transition group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.8"
+                      stroke="currentColor"
+                    >
                       <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                     </svg>
                   </span>
@@ -245,8 +307,20 @@
           v-else
           class="mx-auto flex max-w-2xl flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-gray-200 bg-white px-6 py-12 text-center shadow-sm"
         >
-          <svg class="h-14 w-14 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          <svg
+            class="h-14 w-14 text-gray-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
           </svg>
           <p class="text-base font-medium text-gray-700">
             {{ hasFilter ? t('cities.index_filter_no_match') : t('cities.services_none_in_city') }}
@@ -261,7 +335,9 @@
           </button>
         </div>
 
-        <div class="mx-auto flex max-w-4xl flex-col items-start gap-4 rounded-2xl border border-brand-100 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
+        <div
+          class="mx-auto flex max-w-4xl flex-col items-start gap-4 rounded-2xl border border-brand-100 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between"
+        >
           <p class="max-w-xl text-sm leading-relaxed text-gray-700 md:text-base">
             {{ t('cities.index_secondary_hint') }}
           </p>

@@ -190,6 +190,8 @@ export default defineNuxtConfig({
     public: {
       appUrl: process.env.NUXT_PUBLIC_APP_URL || (isProd ? siteBaseUrl : ''),
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || '',
+      /** Cloudflare R2 public folder for frontend static images (`assets/`). */
+      assetsBaseUrl: process.env.NUXT_PUBLIC_ASSETS_BASE_URL || 'https://r2media.tashyik.com/assets',
       keywords: '',
       salesIqKey: '',
       whatsappLink: process.env.NUXT_PUBLIC_WHATSAPP_LINK || '',

@@ -102,7 +102,8 @@
     });
   }
 
-  const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
+  const { staticAsset } = useStaticAsset();
+  const defaultOg = computed(() => staticAsset('og.webp'));
 
   useSeoMeta({
     ogImage: defaultOg,

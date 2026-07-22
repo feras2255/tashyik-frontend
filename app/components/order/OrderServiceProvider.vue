@@ -5,17 +5,32 @@
       required: true,
     },
   });
+
+  const { staticAsset } = useStaticAsset();
 </script>
 
 <template>
-  <section v-if="order.service_provider?.id" class="order-2 bg-white h-fit rounded-xl py-5 sm:py-8 px-6 shadow col-span-4 flex flex-col gap-5 xl:sticky top-28">
+  <section
+    v-if="order.service_provider?.id"
+    class="order-2 bg-white h-fit rounded-xl py-5 sm:py-8 px-6 shadow col-span-4 flex flex-col gap-5 xl:sticky top-28"
+  >
     <div class="inline-flex items-center gap-4">
-      <img class="w-16 h-16 rounded-full" src="/images/service-provider.webp" :alt="$t('order.service_provider.title')" />
+      <img class="w-16 h-16 rounded-full" :src="staticAsset('service-provider.webp')" :alt="$t('order.service_provider.title')" />
       <div class="flex flex-col gap-1">
         <div class="text-sm inline-flex items-center gap-1 text-gray-500 stroke-gray-500">
           <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.6673 14V12.6667C12.6673 11.9594 12.3864 11.2811 11.8863 10.781C11.3862 10.281 10.7079 10 10.0007 10H6.00065C5.29341 10 4.61513 10.281 4.11503 10.781C3.61494 11.2811 3.33398 11.9594 3.33398 12.6667V14" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M8.00065 7.33333C9.47341 7.33333 10.6673 6.13943 10.6673 4.66667C10.6673 3.19391 9.47341 2 8.00065 2C6.52789 2 5.33398 3.19391 5.33398 4.66667C5.33398 6.13943 6.52789 7.33333 8.00065 7.33333Z" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M12.6673 14V12.6667C12.6673 11.9594 12.3864 11.2811 11.8863 10.781C11.3862 10.281 10.7079 10 10.0007 10H6.00065C5.29341 10 4.61513 10.281 4.11503 10.781C3.61494 11.2811 3.33398 11.9594 3.33398 12.6667V14"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M8.00065 7.33333C9.47341 7.33333 10.6673 6.13943 10.6673 4.66667C10.6673 3.19391 9.47341 2 8.00065 2C6.52789 2 5.33398 3.19391 5.33398 4.66667C5.33398 6.13943 6.52789 7.33333 8.00065 7.33333Z"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
           <span v-text="$t('order.service_provider.title')"></span>
         </div>
@@ -30,10 +45,17 @@
     <!-- View on map -->
     <a :href="order.service_provider?.map_url" target="_blank" class="max-w-md">
       <div class="w-full h-fit relative max-sm:text-sm">
-        <img class="w-full rounded-lg" src="/images/service-provider-map.webp" alt="..." />
-        <button class="absolute bottom-4 start-4 bg-white rounded-lg px-4 py-3 font-medium text-brand-500 stroke-brand-500 inline-flex items-center gap-2">
+        <img class="w-full rounded-lg" :src="staticAsset('service-provider-map.webp')" alt="..." />
+        <button
+          class="absolute bottom-4 start-4 bg-white rounded-lg px-4 py-3 font-medium text-brand-500 stroke-brand-500 inline-flex items-center gap-2"
+        >
           <svg class="max-sm:w-4 w-5 max-sm:h-4 h-5" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 7.33331L14.6667 1.33331L8.66667 14L7.33333 8.66665L2 7.33331Z" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M2 7.33331L14.6667 1.33331L8.66667 14L7.33333 8.66665L2 7.33331Z"
+              stroke-width="1.33333"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
           {{ $t('order.service_provider.actions.view_on_map') }}
         </button>

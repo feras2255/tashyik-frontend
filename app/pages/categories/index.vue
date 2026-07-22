@@ -6,7 +6,8 @@
   const localePath = useLocalePath();
   const categories = ref(null);
 
-  const defaultOg = computed(() => `${config.public.appUrl?.replace(/\/$/, '') || 'https://www.tashyik.com'}/images/og.webp`);
+  const { staticAsset } = useStaticAsset();
+  const defaultOg = computed(() => staticAsset('og.webp'));
 
   useSeoMeta({
     title: t('seo.categories.title'),
@@ -60,16 +61,10 @@
       <h1 v-text="$t('categories.title')" class="text-3xl md:text-4xl text-gray-800 font-medium"></h1>
       <h2 v-text="$t('categories.subtitle')" class="text-lg md:text-xl text-gray-500"></h2>
       <div class="flex flex-wrap gap-4">
-        <NuxtLinkLocale
-          :to="{ name: 'services' }"
-          class="text-brand-600 hover:text-brand-700 font-medium text-base w-fit"
-        >
+        <NuxtLinkLocale :to="{ name: 'services' }" class="text-brand-600 hover:text-brand-700 font-medium text-base w-fit">
           {{ $t('navigation.services') }}
         </NuxtLinkLocale>
-        <NuxtLinkLocale
-          :to="{ name: 'cities' }"
-          class="text-brand-600 hover:text-brand-700 font-medium text-base w-fit"
-        >
+        <NuxtLinkLocale :to="{ name: 'cities' }" class="text-brand-600 hover:text-brand-700 font-medium text-base w-fit">
           {{ $t('cities.browse_by_city') }}
         </NuxtLinkLocale>
       </div>

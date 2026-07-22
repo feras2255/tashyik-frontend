@@ -7,6 +7,7 @@
   const siteUrl = computed(() => (config.public.appUrl || 'https://www.tashyik.com').replace(/\/$/, ''));
 
   const layout = useLayoutStore();
+  const { staticAsset } = useStaticAsset();
 
   const twitterSite = computed(() => config.public.twitterSite || layout.twitter_site || undefined);
 
@@ -33,7 +34,7 @@
       '@id': `${base}/#organization`,
       name: siteBrand.value,
       url: base,
-      logo: `${base}/images/og.webp`,
+      logo: staticAsset('og.webp'),
       description: layout.description?.trim() || t('common.short_description'),
       address: {
         '@type': 'PostalAddress',

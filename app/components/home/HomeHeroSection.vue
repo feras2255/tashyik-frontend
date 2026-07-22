@@ -12,9 +12,11 @@
     }
   }
 
+  const { staticAsset } = useStaticAsset();
+
   /** Primary display ~622×512 (mobile / split layout); full asset for large viewports. */
-  const heroSrcDefault = '/images/about-hero-section.webp?v=2';
-  const heroSrcLarge = '/images/about-hero-section.webp?v=2';
+  const heroSrcDefault = staticAsset('about-hero-section.webp', 'v=2');
+  const heroSrcLarge = staticAsset('about-hero-section.webp', 'v=2');
   const heroWidth = 622;
   const heroHeight = 512;
   const heroWidthLarge = 1176;

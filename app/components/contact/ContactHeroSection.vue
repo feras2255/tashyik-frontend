@@ -1,3 +1,7 @@
+<script setup>
+  const { staticAsset } = useStaticAsset();
+</script>
+
 <template>
   <section class="bg-brand-50">
     <div class="container px-4 flex flex-col lg:grid grid-cols-2 py-10">
@@ -8,7 +12,7 @@
         </div>
       </div>
       <div class="w-fit mt-10 mb-5 lg:m-5 lg:mt-0 md:p-5">
-        <img class="max-h-[500px]" src="/images/contact-hero-section.webp" alt="Contact hero section" />
+        <img class="max-h-[500px]" :src="staticAsset('contact-hero-section.webp')" alt="Contact hero section" />
       </div>
     </div>
   </section>

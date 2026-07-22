@@ -2,7 +2,8 @@
   const { t } = useI18n();
   const { description } = useLayoutStore();
 
-  const heroImageSrc = '/images/about-hero-section.webp?v=2';
+  const { staticAsset } = useStaticAsset();
+  const heroImageSrc = staticAsset('about-hero-section.webp', 'v=2');
 
   useHead({
     link: [

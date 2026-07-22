@@ -8,6 +8,7 @@
   const route = useRoute();
   const layout = useLayoutStore();
   const siteBrand = useSiteBrand();
+  const { staticAsset } = useStaticAsset();
   const { fetchServiceCityPayload } = useServiceFetchers();
   const { pricingWindowKey } = useSaudiPricingWindowKey();
 
@@ -728,7 +729,14 @@
               <p v-else class="mt-6 text-sm text-gray-600">{{ t('common.no_price') }}</p>
 
               <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
-                <img class="h-6 shrink-0" src="/images/tabby-tamara.webp" alt="Tabby & Tamara" loading="lazy" width="120" height="24" />
+                <img
+                  class="h-6 shrink-0"
+                  :src="staticAsset('tabby-tamara.webp')"
+                  alt="Tabby & Tamara"
+                  loading="lazy"
+                  width="120"
+                  height="24"
+                />
               </div>
 
               <div v-if="service.warranty_duration" class="mt-5">
