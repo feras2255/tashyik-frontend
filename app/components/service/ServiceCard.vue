@@ -96,7 +96,7 @@
 <template>
   <NuxtLinkLocale
     :to="detailsTo"
-    class="group relative flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden w-[220px] md:w-full h-full"
+    class="group relative flex h-full w-[220px] min-w-[220px] flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg md:w-full md:min-w-0"
     :aria-label="displayName"
   >
     <!-- Image -->
@@ -111,7 +111,11 @@
       />
       <div v-else class="flex h-full w-full items-center justify-center text-gray-400">
         <svg class="h-14 w-14" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3A1.5 1.5 0 0 0 1.5 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008H12V8.25Z" />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3A1.5 1.5 0 0 0 1.5 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008H12V8.25Z"
+          />
         </svg>
       </div>
 
@@ -129,19 +133,22 @@
 
     <!-- Content -->
     <div class="flex flex-col p-4 md:p-5 bg-white grow text-center">
-
       <!-- Badge (Custom Badge) -->
       <div v-if="service.badge" class="mb-2">
-        <span class="inline-flex items-center gap-1 whitespace-nowrap rounded border border-brand-100 bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand-700">
+        <span
+          class="inline-flex items-center gap-1 whitespace-nowrap rounded border border-brand-100 bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand-700"
+        >
           <svg class="h-3.5 w-3.5 shrink-0 text-brand-500" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+            />
           </svg>
           {{ service.badge }}
         </span>
       </div>
 
       <!-- Name -->
-      <h3 class="text-base md:text-lg font-bold text-gray-900 text-center line-clamp-1 mb-1">
+      <h3 class="mb-1 line-clamp-2 text-center text-base font-bold leading-snug text-gray-900 md:text-lg" dir="auto">
         <template v-for="(seg, i) in nameSegments" :key="i">
           <mark v-if="seg.mark" class="rounded bg-brand-100 px-0.5 text-brand-900">{{ seg.text }}</mark>
           <span v-else>{{ seg.text }}</span>
@@ -150,7 +157,7 @@
 
       <!-- Description -->
       <div class="mb-3">
-        <p v-if="snippetPlain" class="text-sm text-gray-500 text-center line-clamp-2 leading-relaxed min-h-[40px]">
+        <p v-if="snippetPlain" class="line-clamp-2 min-h-[40px] text-center text-sm leading-relaxed text-gray-500" dir="auto">
           {{ snippetPlain }}
         </p>
         <div v-else class="min-h-[40px]"></div>
@@ -173,11 +180,10 @@
         </del>
       </div>
 
-      <!-- Action Button -->
-      <!-- We use .prevent so clicking the button can optionally navigate to orderTo if needed, 
-           but since the parent is a NuxtLink to detailsTo, maybe we should stop propagation? 
-           For OfferServiceCard, the button is just a styled div. We'll do the same. -->
-      <div class="mt-auto w-full flex items-center justify-center text-white font-medium hover:opacity-90 transition-opacity" style="height: 48px; border-radius: 12px; background: #7A3E98;">
+      <!-- Action Button (parent NuxtLink handles navigation to details) -->
+      <div
+        class="mt-auto flex h-12 w-full items-center justify-center rounded-xl bg-brand-500 text-base font-medium text-white transition-opacity group-hover:bg-brand-600"
+      >
         {{ $t('service.actions.order_now') }}
       </div>
     </div>

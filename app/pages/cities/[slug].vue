@@ -492,11 +492,12 @@
         <AppSpinner />
       </div>
 
-      <!-- Grid: match category page (3 cols at xl), ServiceCard -->
+      <!-- Grid: mobile carousel → responsive grid (same pattern as services/categories) -->
       <div
         v-else-if="services.length"
-        class="flex flex-row flex-nowrap gap-4 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-2 lg:gap-8 xl:grid-cols-3"
-        style="display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch"
+        class="flex flex-row items-stretch gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 lg:gap-8 md:overflow-visible"
+        role="list"
+        :aria-busy="servicesLoading"
       >
         <ServiceCard
           v-for="svc in services"
@@ -504,6 +505,7 @@
           :service="svc"
           :city-slug="resolveEntitySlug(city)"
           :highlight-query="searchTrimmed"
+          class="shrink-0"
         />
       </div>
 
@@ -532,16 +534,28 @@
       </div>
 
       <!-- Load more -->
-      <div v-if="hasMore && !pagePending && !servicesLoading" class="flex justify-center pt-2">
+      <div v-if="hasMore && !pagePending && services.length" class="flex justify-center pt-2">
         <button
           type="button"
-          class="inline-flex items-center gap-2 rounded-xl border border-brand-200 bg-white px-6 py-3 text-base font-semibold text-brand-700 shadow-sm transition hover:border-brand-300 hover:bg-brand-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-100"
+          class="inline-flex min-h-[48px] items-center gap-2 rounded-xl border border-brand-200 bg-white px-6 py-3 text-base font-semibold text-brand-700 shadow-sm transition hover:border-brand-300 hover:bg-brand-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-100 disabled:cursor-not-allowed disabled:opacity-60"
+          :disabled="servicesLoading"
           @click="loadMore"
         >
-          {{ t('common.load_more') }}
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-          </svg>
+          <AppSpinner v-if="servicesLoading" class="h-5 w-5" />
+          <template v-else>
+            {{ t('common.load_more') }}
+            <svg
+              class="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </template>
         </button>
       </div>
     </div>
