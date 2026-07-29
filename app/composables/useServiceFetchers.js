@@ -20,8 +20,14 @@ export function useServiceFetchers() {
     });
   }
 
-  async function fetchServiceBySlug(slug) {
-    return apiFetch(`/services/${slug}`);
+  async function fetchServiceBySlug(slug, { city = null } = {}) {
+    const query = {};
+
+    if (city) {
+      query.city = city;
+    }
+
+    return apiFetch(`/services/${slug}`, Object.keys(query).length ? { query } : undefined);
   }
 
   async function fetchCategories() {
@@ -55,7 +61,7 @@ export function useServiceFetchers() {
 
   async function fetchServiceCityPayload(serviceSlug, citySlug, { relatedPerPage = 24 } = {}) {
     const [svcRes, cityRes, relatedRes, cityPageRes] = await Promise.all([
-      fetchServiceBySlug(serviceSlug),
+      fetchServiceBySlug(serviceSlug, { city: citySlug }),
       fetchCityBySlug(citySlug),
       fetchCityServices(citySlug, { perPage: relatedPerPage }),
       fetchServiceCityPage(serviceSlug, citySlug),

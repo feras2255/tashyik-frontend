@@ -30,6 +30,7 @@
       await useApiFetch('/reviews', {
         method: 'POST',
         body: {
+          order_id: props.order.id,
           service_provider: props.order.service_provider.id,
           rating: rate.value,
           body: notes.value,

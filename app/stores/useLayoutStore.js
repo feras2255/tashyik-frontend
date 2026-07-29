@@ -8,6 +8,7 @@ export const useLayoutStore = defineStore('layout', () => {
   const mobile_app_links = ref(null);
   const contact_info = ref({});
   const social_links = ref({});
+  const night_pricing_window = ref(null);
 
   async function load() {
     try {
@@ -23,6 +24,7 @@ export const useLayoutStore = defineStore('layout', () => {
           mobile_app_links,
           contact_info,
           social_links,
+          night_pricing_window,
         },
         auth,
         response,
@@ -41,6 +43,7 @@ export const useLayoutStore = defineStore('layout', () => {
     mobile_app_links,
     contact_info,
     social_links,
+    night_pricing_window,
     load,
   };
 });

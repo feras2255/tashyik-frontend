@@ -54,6 +54,7 @@ export function applyLayoutFields(layoutStore, authStore, payload, options = {})
   assignLayoutField(layoutStore, 'twitter_site', layout.twitter_site ?? null);
   assignLayoutField(layoutStore, 'mobile_app_links', layout.mobile_app_links ?? null);
   assignLayoutField(layoutStore, 'contact_info', layout.contact_info ?? {});
+  assignLayoutField(layoutStore, 'night_pricing_window', layout.night_pricing_window ?? null);
 
   if (!options.skipSocialLinks) {
     assignLayoutField(layoutStore, 'social_links', layout.social_links ?? {});
