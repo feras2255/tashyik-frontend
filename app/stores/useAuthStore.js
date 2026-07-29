@@ -132,7 +132,13 @@ export const useAuthStore = defineStore('auth', () => {
       return navigateTo(route.query.redirect ?? localePath({ name: 'index' }));
     } catch (error) {
       if (Number(error.status) === 422) {
-        return extractValidationErrors(error);
+        const validationErrors = extractValidationErrors(error);
+
+        if (validationErrors?.verification_session?.length) {
+          clearPendingVerification();
+        }
+
+        return validationErrors;
       }
 
       console.error('Failed to verify OTP:', error);

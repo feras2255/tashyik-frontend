@@ -61,6 +61,10 @@
 
     if (validationErrors) {
       errors.value = validationErrors;
+
+      if (validationErrors.verification_session?.length) {
+        return navigateTo(localePath({ name: 'login' }));
+      }
     }
 
     loader.value = false;
