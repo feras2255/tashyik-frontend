@@ -21,5 +21,9 @@ Disallow: /institution
 Disallow: /*/institution
 Disallow: /services/*/order
 Disallow: /*/services/*/order
+Disallow: /services/*/in/archived-*
+Disallow: /*/services/*/in/archived-*
+Disallow: /cities/archived-*
+Disallow: /*/cities/archived-*
 
 Sitemap: https://www.tashyik.com/sitemaps/index.xml

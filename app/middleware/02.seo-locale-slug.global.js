@@ -1,3 +1,5 @@
+import { isArchivedCitySlug } from '~/utils/seoSlug';
+
 const LOCALE_SLUG_CHECKS = [
   {
     match: (name) => String(name).includes('services-service-in-city'),
@@ -54,6 +56,10 @@ export default defineNuxtRouteMiddleware(async (to) => {
     const currentSlug = to.params[param];
 
     if (!currentSlug || typeof currentSlug !== 'string') {
+      continue;
+    }
+
+    if (type === 'cities' && isArchivedCitySlug(currentSlug)) {
       continue;
     }
 

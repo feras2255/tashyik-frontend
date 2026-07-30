@@ -1,3 +1,5 @@
+import { isArchivedCitySlug } from '~/utils/seoSlug';
+
 export function useServiceFetchers() {
   const apiFetch = useApiFetchClient();
 
@@ -60,6 +62,14 @@ export function useServiceFetchers() {
   }
 
   async function fetchServiceCityPayload(serviceSlug, citySlug, { relatedPerPage = 24 } = {}) {
+    if (isArchivedCitySlug(citySlug)) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found',
+        fatal: true,
+      });
+    }
+
     const [svcRes, cityRes, relatedRes, cityPageRes] = await Promise.all([
       fetchServiceBySlug(serviceSlug, { city: citySlug }),
       fetchCityBySlug(citySlug),

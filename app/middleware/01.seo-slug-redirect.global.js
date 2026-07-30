@@ -1,3 +1,5 @@
+import { isArchivedCitySlug } from '~/utils/seoSlug';
+
 const ENTITY_SLUG_CHECKS = [
   {
     match: (name) => String(name).includes('services-service-in-city'),
@@ -28,6 +30,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const nuxtApp = useNuxtApp();
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
+  const { t } = useI18n();
   const { lookup } = useSlugRedirectLookup();
 
   const routeName = String(to.name || '');
@@ -54,21 +57,30 @@ export default defineNuxtRouteMiddleware(async (to) => {
 
     const redirect = await lookup(apiBase, type, currentSlug, locale);
 
-    if (!redirect?.new_slug || redirect.new_slug === currentSlug) {
-      continue;
+    if (redirect?.new_slug && redirect.new_slug !== currentSlug) {
+      const target = localePath({
+        name: to.name,
+        params: {
+          ...to.params,
+          [param]: redirect.new_slug,
+        },
+        query: to.query,
+      });
+
+      return navigateTo(target, {
+        redirectCode: Number(redirect.http_status) || 301,
+      });
     }
 
-    const target = localePath({
-      name: to.name,
-      params: {
-        ...to.params,
-        [param]: redirect.new_slug,
-      },
-      query: to.query,
-    });
-
-    return navigateTo(target, {
-      redirectCode: Number(redirect.http_status) || 301,
-    });
+    // No redirect for archived city → cheap 404 (skip page + heavy API fan-out).
+    if (type === 'cities' && isArchivedCitySlug(currentSlug)) {
+      return abortNavigation(
+        createError({
+          statusCode: 404,
+          statusMessage: t('common.page_not_found'),
+          fatal: true,
+        }),
+      );
+    }
   }
 });

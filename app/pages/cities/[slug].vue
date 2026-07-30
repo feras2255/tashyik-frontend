@@ -1,5 +1,5 @@
 <script setup>
-  import { resolveEntitySlug } from '~/utils/seoSlug';
+  import { isArchivedCitySlug, resolveEntitySlug } from '~/utils/seoSlug';
 
   const { t, locale } = useI18n();
   const config = useRuntimeConfig();
@@ -9,6 +9,14 @@
   const layout = useLayoutStore();
   const siteBrand = useSiteBrand();
   const { fetchCityBySlug, fetchCityServices } = useServiceFetchers();
+
+  if (isArchivedCitySlug(route.params.slug)) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: t('common.page_not_found'),
+      fatal: true,
+    });
+  }
 
   const searchInput = ref('');
   const selectedCategoryId = ref(null);
