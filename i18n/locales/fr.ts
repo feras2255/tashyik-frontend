@@ -679,6 +679,14 @@ export default {
         whatsapp: 'WhatsApp',
       },
     },
+    tracking: {
+      title: 'Suivi en direct',
+      loading: 'Chargement de la carte…',
+      live: 'En direct',
+      stale: 'Position peut-être obsolète',
+      distance: '{km} km',
+      eta: 'Environ {minutes} min',
+    },
     invoice: {
       title: 'Facture',
       price: 'Prix service',

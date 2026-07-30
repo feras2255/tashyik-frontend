@@ -676,6 +676,14 @@ export default {
         whatsapp: 'Kirim Pesan WhatsApp',
       },
     },
+    tracking: {
+      title: 'Pelacakan langsung',
+      loading: 'Memuat peta…',
+      live: 'Langsung',
+      stale: 'Lokasi mungkin sudah usang',
+      distance: '{km} km',
+      eta: 'Sekitar {minutes} mnt',
+    },
     invoice: {
       title: 'Detail Faktur',
       price: 'Harga Layanan',

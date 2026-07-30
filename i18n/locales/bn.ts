@@ -676,6 +676,14 @@ export default {
         whatsapp: 'হোয়াটসঅ্যাপে মেসেজ দিন',
       },
     },
+    tracking: {
+      title: 'Live tracking',
+      loading: 'Loading map…',
+      live: 'Live',
+      stale: 'Location may be outdated',
+      distance: '{km} km away',
+      eta: 'About {minutes} min',
+    },
     invoice: {
       title: 'ইনভয়েস বিবরণ',
       price: 'সার্ভিস মূল্য',

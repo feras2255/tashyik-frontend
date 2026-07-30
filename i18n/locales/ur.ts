@@ -671,6 +671,14 @@ export default {
         whatsapp: 'واٹس ایپ کریں',
       },
     },
+    tracking: {
+      title: 'Live tracking',
+      loading: 'Loading map…',
+      live: 'Live',
+      stale: 'Location may be outdated',
+      distance: '{km} km away',
+      eta: 'About {minutes} min',
+    },
     invoice: {
       title: 'انوائس',
       price: 'سروس کی قیمت',

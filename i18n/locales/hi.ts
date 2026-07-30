@@ -672,6 +672,14 @@ export default {
         whatsapp: 'व्हाट्सएप पर संदेश भेजें',
       },
     },
+    tracking: {
+      title: 'Live tracking',
+      loading: 'Loading map…',
+      live: 'Live',
+      stale: 'Location may be outdated',
+      distance: '{km} km away',
+      eta: 'About {minutes} min',
+    },
     invoice: {
       title: 'इनवॉइस विवरण',
       price: 'सेवा मूल्य',

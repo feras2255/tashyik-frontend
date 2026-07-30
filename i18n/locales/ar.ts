@@ -674,6 +674,14 @@ export default {
         whatsapp: 'راسله واتساب',
       },
     },
+    tracking: {
+      title: 'التتبع المباشر',
+      loading: 'جاري تحميل الخريطة…',
+      live: 'مباشر',
+      stale: 'قد يكون الموقع قديماً',
+      distance: 'يبعد {km} كم',
+      eta: 'حوالي {minutes} دقيقة',
+    },
     invoice: {
       title: 'تفاصيل الفاتورة',
       price: 'سعر الخدمة',
