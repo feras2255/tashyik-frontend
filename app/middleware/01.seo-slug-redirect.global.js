@@ -27,18 +27,18 @@ const ENTITY_SLUG_CHECKS = [
 ];
 
 export default defineNuxtRouteMiddleware(async (to) => {
-  const nuxtApp = useNuxtApp();
-  const config = useRuntimeConfig();
-  const localePath = useLocalePath();
-  const { t } = useI18n();
-  const { lookup } = useSlugRedirectLookup();
-
   const routeName = String(to.name || '');
   const rule = ENTITY_SLUG_CHECKS.find((entry) => entry.match(routeName));
 
+  // Homepage and non-entity routes must exit before any i18n/API composables.
   if (!rule) {
     return;
   }
+
+  const nuxtApp = useNuxtApp();
+  const config = useRuntimeConfig();
+  const localePath = useLocalePath();
+  const { lookup } = useSlugRedirectLookup();
 
   const apiBase = String(config.public.apiBaseUrl || '').replace(/\/$/, '');
 
@@ -77,7 +77,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
       return abortNavigation(
         createError({
           statusCode: 404,
-          statusMessage: t('common.page_not_found'),
+          statusMessage: 'Not Found',
           fatal: true,
         }),
       );
