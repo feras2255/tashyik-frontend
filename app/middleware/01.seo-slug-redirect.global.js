@@ -55,6 +55,17 @@ export default defineNuxtRouteMiddleware(async (to) => {
       continue;
     }
 
+    // Cheap 404 before any API call — archived cities were flooding /seo/*.
+    if (type === 'cities' && isArchivedCitySlug(currentSlug)) {
+      return abortNavigation(
+        createError({
+          statusCode: 404,
+          statusMessage: 'Not Found',
+          fatal: true,
+        }),
+      );
+    }
+
     const redirect = await lookup(apiBase, type, currentSlug, locale);
 
     if (redirect?.new_slug && redirect.new_slug !== currentSlug) {
@@ -70,17 +81,6 @@ export default defineNuxtRouteMiddleware(async (to) => {
       return navigateTo(target, {
         redirectCode: Number(redirect.http_status) || 301,
       });
-    }
-
-    // No redirect for archived city → cheap 404 (skip page + heavy API fan-out).
-    if (type === 'cities' && isArchivedCitySlug(currentSlug)) {
-      return abortNavigation(
-        createError({
-          statusCode: 404,
-          statusMessage: 'Not Found',
-          fatal: true,
-        }),
-      );
     }
   }
 });
