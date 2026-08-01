@@ -12,10 +12,13 @@
   useSeoMeta({ title: t('seo.orders.view.title') });
   useNoIndexSeo();
 
-  try {
+  async function loadOrder() {
     const response = await useApiFetch(`/user/orders/${route.params.order}`);
-
     order.value = response;
+  }
+
+  try {
+    await loadOrder();
   } catch (error) {
     if ([403, 404].includes(error.statusCode)) {
       throw createError({
@@ -32,6 +35,14 @@
     if (!order.value.can_review) return;
 
     reviewModal.value = true;
+  }
+
+  async function onCompletionUpdated() {
+    try {
+      await loadOrder();
+    } catch (error) {
+      console.error('Failed to refresh order:', error);
+    }
   }
 </script>
 
@@ -58,6 +69,9 @@
 
         <!-- Cancel section -->
         <OrderCancel :order />
+
+        <!-- Customer completion confirmation -->
+        <OrderCompletionConfirm :order @updated="onCompletionUpdated" />
       </div>
 
       <div v-if="order.status == 'completed'" class="flex flex-col md:flex-row gap-4">
