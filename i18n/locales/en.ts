@@ -674,6 +674,7 @@ export default {
     completion: {
       title: 'Confirm order completion',
       description: 'The technician marked the job as done. Confirm the service was completed, or reject with a reason.',
+      need_confirm_badge: 'Needs your confirmation',
       note_label: 'Note',
       note_placeholder: 'Write a note (optional when confirming, required when rejecting)',
       note_required: 'Please enter a rejection reason before continuing',

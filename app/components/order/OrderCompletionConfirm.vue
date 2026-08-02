@@ -13,8 +13,9 @@
   const errorMessage = ref('');
   const showRejectConfirm = ref(false);
 
-  const isPending = computed(() => props.order.status === 'pending-customer-confirmation');
-  const canUndo = computed(() => Boolean(props.order.can_undo_reject));
+  /** Prefer API need_confirm (0/1) for UI; fall back to status for older responses. */
+  const needsConfirm = computed(() => Number(props.order.need_confirm) === 1 || props.order.status === 'pending-customer-confirmation');
+  const canUndo = computed(() => Boolean(props.order.can_undo_reject) && !needsConfirm.value);
 
   async function refreshOrder() {
     emit('updated');
@@ -31,6 +32,7 @@
         method: 'POST',
         body: { note: note.value || null },
       });
+      note.value = '';
       await refreshOrder();
     } catch (error) {
       errorMessage.value = error?.data?.message || error?.statusMessage || 'Error';
@@ -61,6 +63,7 @@
         body: { note: note.value.trim() },
       });
       showRejectConfirm.value = false;
+      note.value = '';
       await refreshOrder();
     } catch (error) {
       errorMessage.value = error?.data?.message || error?.statusMessage || 'Error';
@@ -89,9 +92,17 @@
 </script>
 
 <template>
-  <section v-if="isPending || canUndo" class="bg-white rounded-xl p-5 md:p-6 shadow col-span-12 flex flex-col gap-4">
-    <template v-if="isPending">
-      <span class="text-xl md:text-2xl font-medium text-gray-800">{{ $t('order.completion.title') }}</span>
+  <section
+    v-if="needsConfirm || canUndo"
+    class="bg-white rounded-xl p-5 md:p-6 shadow col-span-12 flex flex-col gap-4 border border-amber-100 ring-1 ring-amber-50"
+  >
+    <template v-if="needsConfirm">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xl md:text-2xl font-medium text-gray-800">{{ $t('order.completion.title') }}</span>
+        <span class="rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700">
+          {{ $t('order.completion.need_confirm_badge') }}
+        </span>
+      </div>
       <p class="text-gray-500">{{ $t('order.completion.description') }}</p>
 
       <label class="flex flex-col gap-2">

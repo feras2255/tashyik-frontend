@@ -52,6 +52,9 @@
       <AppBreadcrumb :pages="[{ path: localePath({ name: 'orders' }), name: $t('orders.name') }, { name: $t('order.title') }]" />
 
       <div class="flex flex-col xl:grid grid-cols-12 gap-6">
+        <!-- Customer completion confirmation (need_confirm == 1) -->
+        <OrderCompletionConfirm :order @updated="onCompletionUpdated" />
+
         <!-- Status section -->
         <OrderStatus :order />
 
@@ -69,9 +72,6 @@
 
         <!-- Cancel section -->
         <OrderCancel :order />
-
-        <!-- Customer completion confirmation -->
-        <OrderCompletionConfirm :order @updated="onCompletionUpdated" />
       </div>
 
       <div v-if="order.status == 'completed'" class="flex flex-col md:flex-row gap-4">

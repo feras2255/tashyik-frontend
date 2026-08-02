@@ -7,6 +7,7 @@
   });
 
   const firstOrder = computed(() => ['service-provider-on-the-way', 'service-provider-arrived'].includes(props.order.status));
+  const needsConfirm = computed(() => Number(props.order.need_confirm) === 1 || props.order.status === 'pending-customer-confirmation');
 </script>
 
 <template>
@@ -38,6 +39,7 @@
         <!-- New or in progress status -->
         <div
           v-if="
+            needsConfirm ||
             ['new', 'service-provider-on-the-way', 'service-provider-arrived', 'started', 'pending-customer-confirmation'].includes(
               order.status,
             )
@@ -59,12 +61,13 @@
               </clipPath>
             </defs>
           </svg>
-          <span v-if="order.status == 'new'" v-text="$t('order.status.new')" class="font-medium"></span>
-          <span v-if="order.status == 'service-provider-on-the-way'" v-text="$t('order.status.on_the_way')" class="font-medium"></span>
-          <span v-if="order.status == 'service-provider-arrived'" v-text="$t('order.status.arrived')" class="font-medium"></span>
-          <span v-if="order.status == 'started'" v-text="$t('order.status.started')" class="font-medium"></span>
+          <span v-if="needsConfirm" v-text="$t('order.status.pending_customer_confirmation')" class="font-medium"></span>
+          <span v-else-if="order.status == 'new'" v-text="$t('order.status.new')" class="font-medium"></span>
+          <span v-else-if="order.status == 'service-provider-on-the-way'" v-text="$t('order.status.on_the_way')" class="font-medium"></span>
+          <span v-else-if="order.status == 'service-provider-arrived'" v-text="$t('order.status.arrived')" class="font-medium"></span>
+          <span v-else-if="order.status == 'started'" v-text="$t('order.status.started')" class="font-medium"></span>
           <span
-            v-if="order.status == 'pending-customer-confirmation'"
+            v-else-if="order.status == 'pending-customer-confirmation'"
             v-text="$t('order.status.pending_customer_confirmation')"
             class="font-medium"
           ></span>

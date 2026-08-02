@@ -669,6 +669,7 @@ export default {
     completion: {
       title: 'تأكيد إكمال الطلب',
       description: 'أنهى الفني تنفيذ الطلب. أكّد إن الخدمة اكتملت فعلاً، أو ارفض مع ذكر السبب.',
+      need_confirm_badge: 'يحتاج تأكيدك',
       note_label: 'ملاحظة',
       note_placeholder: 'اكتب ملاحظة (اختيارية عند التأكيد، مطلوبة عند الرفض)',
       note_required: 'اكتب سبب الرفض قبل المتابعة',

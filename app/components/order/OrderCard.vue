@@ -1,10 +1,12 @@
 <script setup>
-  defineProps({
+  const props = defineProps({
     order: {
       type: Object,
       required: true,
     },
   });
+
+  const needsConfirm = computed(() => Number(props.order.need_confirm) === 1 || props.order.status === 'pending-customer-confirmation');
 </script>
 
 <template>
@@ -15,6 +17,12 @@
 
       <!-- Price -->
       <span class="md:text-lg text-brand-500 font-medium" v-text="`${order.grand_total ?? order.total} ${order.currency}`" />
+    </div>
+
+    <div v-if="needsConfirm" class="inline-flex">
+      <span class="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700">
+        {{ $t('order.completion.need_confirm_badge') }}
+      </span>
     </div>
 
     <!-- Date -->
