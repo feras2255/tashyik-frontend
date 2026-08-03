@@ -14,7 +14,8 @@
 
   async function loadOrder() {
     const response = await useApiFetch(`/user/orders/${route.params.order}`);
-    order.value = response;
+    // Envelope keeps boolean status; order payload is under data.
+    order.value = response?.data ?? response;
   }
 
   try {
