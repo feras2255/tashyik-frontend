@@ -47,9 +47,9 @@
     }
 
     throw createError({
-        statusCode: 500,
-        statusMessage: error.message || 'Failed to fetch summary',
-        fatal: true,
+      statusCode: 500,
+      statusMessage: error.message || 'Failed to fetch summary',
+      fatal: true,
     });
   }
 
@@ -132,7 +132,15 @@
 
 <template>
   <div class="container px-2 py-8 md:py-12 space-y-8">
-    <AppBreadcrumb :pages="[{ path: localePath({ name: 'services-service', params: { service: resolveEntitySlug(summary.service) } }), name: summary.service.name }, { name: $t('orders.make.title') }]" />
+    <AppBreadcrumb
+      :pages="[
+        {
+          path: localePath({ name: 'services-service', params: { service: resolveEntitySlug(summary.service) } }),
+          name: summary.service.name,
+        },
+        { name: $t('orders.make.title') },
+      ]"
+    />
 
     <div class="flex flex-col lg:grid grid-cols-12 gap-6 text-gray-500">
       <div class="col-span-7 flex flex-col gap-6">
@@ -161,20 +169,39 @@
             <span v-text="summary.service.name" class="truncate"></span>
             <div class="inline-flex items-center gap-3">
               <!-- ic:baseline-plus -->
-              <svg @click="increaseQuantity" class="cursor-pointer w-7 h-7 p-1 text-brand-500 bg-brand-100 hover:bg-brand-200 rounded-md" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+              <svg
+                @click="increaseQuantity"
+                class="cursor-pointer w-7 h-7 p-1 text-brand-500 bg-brand-100 hover:bg-brand-200 rounded-md"
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
                 <!-- Icon from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE -->
                 <path fill="currentColor" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" />
               </svg>
               <span v-text="quantity" class="font-medium mt-1"></span>
               <!-- material-symbols:remove -->
-              <svg @click="decreaseQuantity" class="cursor-pointer w-7 h-7 p-1 text-brand-500 border border-brand-500 hover:bg-brand-50 rounded-md" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+              <svg
+                @click="decreaseQuantity"
+                class="cursor-pointer w-7 h-7 p-1 text-brand-500 border border-brand-500 hover:bg-brand-50 rounded-md"
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
                 <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
                 <path fill="currentColor" d="M5 13v-2h14v2z" />
               </svg>
             </div>
           </div>
           <hr class="border-dashed border-gray-200" />
-          <textarea v-model="description" :placeholder="$t('orders.make.details.description')" class="rounded-lg p-5 border border-gray-200 bg-gray-50 focus:ring-4 ring-brand-50" rows="4"></textarea>
+          <textarea
+            v-model="description"
+            :placeholder="$t('orders.make.details.description')"
+            class="rounded-lg p-5 border border-gray-200 bg-gray-50 focus:ring-4 ring-brand-50"
+            rows="4"
+          ></textarea>
         </section>
 
         <!-- Coupons section -->
@@ -182,8 +209,19 @@
           <h3 class="md:text-xl font-medium inline-flex gap-2 items-center">
             <svg class="w-6 h-6 stroke-brand-400" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_11625_4936)">
-                <path d="M10.4877 2.15496C10.1752 1.84238 9.75134 1.66672 9.30935 1.66663H3.33268C2.89065 1.66663 2.46673 1.84222 2.15417 2.15478C1.84161 2.46734 1.66602 2.89127 1.66602 3.33329V9.30996C1.66611 9.75195 1.84177 10.1758 2.15435 10.4883L9.40768 17.7416C9.78644 18.118 10.2987 18.3292 10.8327 18.3292C11.3666 18.3292 11.8789 18.118 12.2577 17.7416L17.741 12.2583C18.1174 11.8795 18.3286 11.3673 18.3286 10.8333C18.3286 10.2993 18.1174 9.78705 17.741 9.40829L10.4877 2.15496Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M6.25065 6.66671C6.48077 6.66671 6.66732 6.48016 6.66732 6.25004C6.66732 6.01992 6.48077 5.83337 6.25065 5.83337C6.02053 5.83337 5.83398 6.01992 5.83398 6.25004C5.83398 6.48016 6.02053 6.66671 6.25065 6.66671Z" fill="#BB98D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M10.4877 2.15496C10.1752 1.84238 9.75134 1.66672 9.30935 1.66663H3.33268C2.89065 1.66663 2.46673 1.84222 2.15417 2.15478C1.84161 2.46734 1.66602 2.89127 1.66602 3.33329V9.30996C1.66611 9.75195 1.84177 10.1758 2.15435 10.4883L9.40768 17.7416C9.78644 18.118 10.2987 18.3292 10.8327 18.3292C11.3666 18.3292 11.8789 18.118 12.2577 17.7416L17.741 12.2583C18.1174 11.8795 18.3286 11.3673 18.3286 10.8333C18.3286 10.2993 18.1174 9.78705 17.741 9.40829L10.4877 2.15496Z"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6.25065 6.66671C6.48077 6.66671 6.66732 6.48016 6.66732 6.25004C6.66732 6.01992 6.48077 5.83337 6.25065 5.83337C6.02053 5.83337 5.83398 6.01992 5.83398 6.25004C5.83398 6.48016 6.02053 6.66671 6.25065 6.66671Z"
+                  fill="#BB98D6"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </g>
               <defs>
                 <clipPath id="clip0_11625_4936">
@@ -196,8 +234,20 @@
           <form @submit.prevent="handleCoupon">
             <label for="coupon-code" class="sr-only" v-text="$t('a11y.coupon_code')"></label>
             <div class="relative">
-              <input v-model="coupon" type="text" id="coupon-code" class="block w-full p-3 md:p-4 text-gray-800 border border-gray-200 rounded-lg bg-transparent focus:ring-brand-100 focus:border-brand-100 placeholder:text-gray-400 max-md:text-sm" :placeholder="$t('orders.make.coupons.placeholder')" required autocomplete="off" />
-              <button v-text="$t('orders.make.coupons.apply')" type="submit" class="text-white absolute top-0 end-0 h-full bg-brand-500 hover:bg-brand-600 focus:ring-4 focus:outline-none focus:ring-brand-100 rounded-e-lg max-md:text-sm px-7 py-1"></button>
+              <input
+                v-model="coupon"
+                type="text"
+                id="coupon-code"
+                class="block w-full p-3 md:p-4 text-gray-800 border border-gray-200 rounded-lg bg-transparent focus:ring-brand-100 focus:border-brand-100 placeholder:text-gray-400 max-md:text-sm"
+                :placeholder="$t('orders.make.coupons.placeholder')"
+                required
+                autocomplete="off"
+              />
+              <button
+                v-text="$t('orders.make.coupons.apply')"
+                type="submit"
+                class="text-white absolute top-0 end-0 h-full bg-brand-500 hover:bg-brand-600 focus:ring-4 focus:outline-none focus:ring-brand-100 rounded-e-lg max-md:text-sm px-7 py-1"
+              ></button>
             </div>
           </form>
         </section>
@@ -211,10 +261,23 @@
 
           <h3 v-text="$t('orders.make.summary.title')" class="md:text-xl font-medium"></h3>
 
-          <!-- Visit cost -->
-          <div class="inline-flex justify-between gap-3">
-            <span v-text="$t('order.summary.visit_cost')"></span>
-            <span v-text="`${summary.visit_cost} ${summary.currency}`" class="font-medium"></span>
+          <!-- Service fee -->
+          <div v-if="Number(summary.visit_cost) > 0" class="flex flex-col gap-1">
+            <div class="inline-flex justify-between gap-3">
+              <span v-text="$t('order.summary.visit_cost')"></span>
+              <span v-text="`${summary.visit_cost} ${summary.currency}`" class="font-medium"></span>
+            </div>
+            <p
+              v-if="summary.visit_fee_credit_info?.eligible && !summary.visit_fee_credit_info?.credited"
+              v-text="
+                $t('order.summary.visit_fee_credit_note', {
+                  amount: summary.visit_fee_credit_info.credit_amount,
+                  min: summary.visit_fee_credit_info.extras_min_price,
+                  currency: summary.currency,
+                })
+              "
+              class="text-xs text-gray-500"
+            ></p>
           </div>
 
           <!-- Subtotal -->
@@ -253,7 +316,12 @@
             {{ $t('order.summary.pay') }}
           </ButtonsFilled>
           <ButtonsFilled v-else>
-            <a v-if="summary.payment_link" :href="summary.payment_link" v-text="$t('order.summary.pay')" class="w-full h-full static-color"></a>
+            <a
+              v-if="summary.payment_link"
+              :href="summary.payment_link"
+              v-text="$t('order.summary.pay')"
+              class="w-full h-full static-color"
+            ></a>
             <span v-else v-text="$t('order.summary.confirm')" class="w-full h-full" @click="confirmOrder"></span>
           </ButtonsFilled>
         </section>
