@@ -15,7 +15,9 @@
 
   /** Prefer API need_confirm (0/1) for UI; fall back to status for older responses. */
   const needsConfirm = computed(() => Number(props.order.need_confirm) === 1 || props.order.status === 'pending-customer-confirmation');
-  const canUndo = computed(() => Boolean(props.order.can_undo_reject) && !needsConfirm.value);
+  const isRejected = computed(() => props.order.status === 'rejected');
+  const canUndo = computed(() => Boolean(props.order.can_undo_reject) && isRejected.value);
+  const showSection = computed(() => needsConfirm.value || isRejected.value);
 
   async function refreshOrder() {
     emit('updated');
@@ -93,8 +95,9 @@
 
 <template>
   <section
-    v-if="needsConfirm || canUndo"
+    v-if="showSection"
     class="bg-white rounded-xl p-5 md:p-6 shadow col-span-12 flex flex-col gap-4 border border-amber-100 ring-1 ring-amber-50"
+    :class="{ 'border-red-100 ring-red-50': isRejected && !needsConfirm }"
   >
     <template v-if="needsConfirm">
       <div class="flex flex-wrap items-center gap-2">
@@ -137,14 +140,21 @@
       </div>
     </template>
 
-    <template v-else-if="canUndo">
-      <span class="text-xl md:text-2xl font-medium text-gray-800">{{ $t('order.completion.rejected_title') }}</span>
-      <p class="text-gray-500">{{ $t('order.completion.rejected_description') }}</p>
+    <template v-else-if="isRejected">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xl md:text-2xl font-medium text-gray-800">{{ $t('order.completion.rejected_title') }}</span>
+        <span class="rounded-full bg-red-50 px-2.5 py-0.5 text-xs font-medium text-red-700">
+          {{ $t('order.status.rejected') }}
+        </span>
+      </div>
+      <p class="text-gray-500">
+        {{ canUndo ? $t('order.completion.rejected_description') : $t('order.completion.rejected_final_description') }}
+      </p>
       <p v-if="order.customer_completion_note" class="rounded-xl bg-gray-100 p-4 text-gray-700 whitespace-pre-wrap">
         {{ order.customer_completion_note }}
       </p>
       <p v-if="errorMessage" class="text-sm text-red-600">{{ errorMessage }}</p>
-      <ButtonsOutline :disabled="loader" @click="undoReject">
+      <ButtonsOutline v-if="canUndo" :disabled="loader" @click="undoReject">
         {{ $t('order.completion.undo_reject') }}
       </ButtonsOutline>
     </template>

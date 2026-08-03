@@ -671,6 +671,7 @@ export default {
       started: 'Work in progress',
       pending_customer_confirmation: 'Awaiting your confirmation',
       completed: 'Completed',
+      rejected: 'Rejected',
     },
     completion: {
       title: 'Confirm order completion',
@@ -685,7 +686,8 @@ export default {
       reject_confirm_action: 'Yes, reject completion',
       cancel: 'Cancel',
       rejected_title: 'Completion rejected',
-      rejected_description: 'You can undo within 30 minutes, or wait for the technician to finish and request confirmation again.',
+      rejected_description: 'You can undo this rejection within 30 minutes.',
+      rejected_final_description: 'This order was marked as rejected. Rating is not available for rejected orders.',
       undo_reject: 'Undo rejection',
     },
     service_provider: {

@@ -671,6 +671,7 @@ export default {
       arrived: 'Technicien arrivé',
       started: 'Travaux en cours',
       completed: 'Terminée',
+      rejected: 'Rejetée',
     },
     service_provider: {
       title: 'Technicien',

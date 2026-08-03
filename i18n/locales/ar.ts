@@ -666,6 +666,7 @@ export default {
       started: 'جاري العمل',
       pending_customer_confirmation: 'في انتظار تأكيدك',
       completed: 'اكتمل',
+      rejected: 'مرفوض',
     },
     completion: {
       title: 'تأكيد إكمال الطلب',
@@ -680,7 +681,8 @@ export default {
       reject_confirm_action: 'نعم، رفض الإكمال',
       cancel: 'إلغاء',
       rejected_title: 'تم رفض الإكمال',
-      rejected_description: 'يمكنك التراجع خلال 30 دقيقة، أو انتظار الفني ليكمل العمل ويطلب التأكيد مرة أخرى.',
+      rejected_description: 'يمكنك التراجع عن الرفض خلال 30 دقيقة.',
+      rejected_final_description: 'هذا الطلب تم رفضه. التقييم غير متاح للطلبات المرفوضة.',
       undo_reject: 'تراجع عن الرفض',
     },
     service_provider: {

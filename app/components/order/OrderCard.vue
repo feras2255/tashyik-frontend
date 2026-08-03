@@ -7,6 +7,7 @@
   });
 
   const needsConfirm = computed(() => Number(props.order.need_confirm) === 1 || props.order.status === 'pending-customer-confirmation');
+  const isRejected = computed(() => props.order.status === 'rejected');
 </script>
 
 <template>
@@ -22,6 +23,11 @@
     <div v-if="needsConfirm" class="inline-flex">
       <span class="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700">
         {{ $t('order.completion.need_confirm_badge') }}
+      </span>
+    </div>
+    <div v-else-if="isRejected" class="inline-flex">
+      <span class="rounded-full bg-red-50 px-2.5 py-1 text-xs font-medium text-red-700">
+        {{ $t('order.status.rejected') }}
       </span>
     </div>
 

@@ -663,6 +663,7 @@ export default {
       arrived: 'ٹیکنیشن پہنچ گیا ہے',
       started: 'کام جاری ہے',
       completed: 'مکمل ہو گیا',
+      rejected: 'مسترد',
     },
     service_provider: {
       title: 'ٹیکنیشن',

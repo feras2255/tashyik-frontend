@@ -94,6 +94,21 @@
           <span v-text="$t('order.status.completed')" class="font-medium"></span>
         </div>
 
+        <!-- Rejected status -->
+        <div v-else-if="order.status == 'rejected'" class="inline-flex gap-2 items-center text-red-600 stroke-red-600">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 18.3333C14.6024 18.3333 18.3333 14.6023 18.3333 9.99996C18.3333 5.39759 14.6024 1.66663 10 1.66663C5.39763 1.66663 1.66667 5.39759 1.66667 9.99996C1.66667 14.6023 5.39763 18.3333 10 18.3333Z"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path d="M12.5 7.5L7.5 12.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M7.5 7.5L12.5 12.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span v-text="$t('order.status.rejected')" class="font-medium"></span>
+        </div>
+
         <!-- Other / cancelled -->
         <div v-else class="inline-flex gap-2 items-center text-gray-500">
           <span class="font-medium">{{ order.status }}</span>

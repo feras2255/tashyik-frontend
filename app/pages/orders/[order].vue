@@ -75,9 +75,13 @@
         <OrderCancel :order />
       </div>
 
-      <div v-if="order.status == 'completed'" class="flex flex-col md:flex-row gap-4">
-        <!-- Rate -->
-        <ButtonsFilled v-if="order.service_provider?.id" @click="openReviewModal" :disabled="!order.can_review">
+      <div v-if="order.status == 'completed' || order.status == 'rejected'" class="flex flex-col md:flex-row gap-4">
+        <!-- Rate (confirmed completion only) -->
+        <ButtonsFilled
+          v-if="order.status == 'completed' && order.service_provider?.id"
+          @click="openReviewModal"
+          :disabled="!order.can_review"
+        >
           {{ $t('order.actions.rate') }}
         </ButtonsFilled>
 
@@ -89,7 +93,7 @@
         </NuxtLinkLocale>
 
         <!-- Review modal -->
-        <OrderReviewModal :order :notes :reviewModal @hide-modal="reviewModal = false" />
+        <OrderReviewModal v-if="order.status == 'completed'" :order :notes :reviewModal @hide-modal="reviewModal = false" />
       </div>
     </div>
   </div>

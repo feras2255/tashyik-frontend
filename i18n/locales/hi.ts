@@ -664,6 +664,7 @@ export default {
       arrived: 'तकनीशियन पहुँच गया है',
       started: 'काम चल रहा है',
       completed: 'पूरा हो गया',
+      rejected: 'अस्वीकृत',
     },
     service_provider: {
       title: 'तकनीशियन',

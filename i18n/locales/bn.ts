@@ -668,6 +668,7 @@ export default {
       arrived: 'টেকনিশিয়ান পৌঁছেছেন',
       started: 'কাজ চলছে',
       completed: 'সম্পন্ন হয়েছে',
+      rejected: 'প্রত্যাখ্যান করা হয়েছে',
     },
     service_provider: {
       title: 'টেকনিশিয়ান',

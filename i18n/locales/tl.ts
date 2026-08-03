@@ -669,6 +669,7 @@ export default {
       arrived: 'Technician ay dumating',
       started: 'Isinasagawa',
       completed: 'Natapos',
+      rejected: 'Tinanggihan',
     },
     service_provider: {
       title: 'Technician',

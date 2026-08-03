@@ -668,6 +668,7 @@ export default {
       arrived: 'Teknisi telah sampai',
       started: 'Pengerjaan sedang berlangsung',
       completed: 'Selesai',
+      rejected: 'Ditolak',
     },
     service_provider: {
       title: 'Teknisi',
