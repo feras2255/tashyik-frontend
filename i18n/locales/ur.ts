@@ -681,6 +681,9 @@ export default {
       stale: 'Location may be outdated',
       distance: '{km} km away',
       eta: 'About {minutes} min',
+      technician: 'Technician',
+      destination: 'Your location',
+      route_start: 'Route start',
     },
     invoice: {
       title: 'انوائس',

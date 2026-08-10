@@ -701,6 +701,9 @@ export default {
       stale: 'قد يكون الموقع قديماً',
       distance: 'يبعد {km} كم',
       eta: 'حوالي {minutes} دقيقة',
+      technician: 'الفني',
+      destination: 'موقعك',
+      route_start: 'بداية المسار',
     },
     invoice: {
       title: 'تفاصيل الفاتورة',

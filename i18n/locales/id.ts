@@ -686,6 +686,9 @@ export default {
       stale: 'Lokasi mungkin sudah usang',
       distance: '{km} km',
       eta: 'Sekitar {minutes} mnt',
+      technician: 'Teknisi',
+      destination: 'Lokasi Anda',
+      route_start: 'Awal rute',
     },
     invoice: {
       title: 'Detail Faktur',

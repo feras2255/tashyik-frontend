@@ -689,6 +689,9 @@ export default {
       stale: 'Position peut-être obsolète',
       distance: '{km} km',
       eta: 'Environ {minutes} min',
+      technician: 'Technicien',
+      destination: 'Votre position',
+      route_start: 'Début du trajet',
     },
     invoice: {
       title: 'Facture',
