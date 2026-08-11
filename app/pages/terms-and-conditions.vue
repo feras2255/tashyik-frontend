@@ -1,4 +1,6 @@
 <script setup>
+  import { sanitizeRichHtml } from '~/utils/sanitizeHtml';
+
   const page = ref(null);
 
   try {
@@ -8,6 +10,8 @@
   } catch (error) {
     console.error('Failed to load page:', error);
   }
+
+  const sanitizedBody = computed(() => sanitizeRichHtml(page.value?.body || ''));
 
   useSeoMeta({
     title: page.value.name,
@@ -20,6 +24,6 @@
 <template>
   <section class="text-center py-16 bg-gradient-to-r from-primary-50 to-accent-50 px-3 md:px-10 container">
     <h1 v-text="page.name" class="text-brand-500 text-3xl font-heading font-bold text-scimaPrimary mb-6"></h1>
-    <div v-html="page.body" class="text-lg mt-2 text-gray-900 leading-8"></div>
+    <div v-html="sanitizedBody" class="text-lg mt-2 text-gray-900 leading-8"></div>
   </section>
 </template>

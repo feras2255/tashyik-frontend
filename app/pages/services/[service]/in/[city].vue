@@ -1,5 +1,6 @@
 <script setup>
   import { resolveEntitySlug } from '~/utils/seoSlug';
+  import { sanitizeRichHtml } from '~/utils/sanitizeHtml';
 
   const head = useLocaleHead();
   const { t, locale } = useI18n();
@@ -77,11 +78,9 @@
     }
 
     const body = page.body;
-    if (typeof body === 'string') {
-      return body;
-    }
+    const raw = typeof body === 'string' ? body : body[locale.value] || body.ar || body.en || '';
 
-    return body[locale.value] || body.ar || body.en || '';
+    return sanitizeRichHtml(raw);
   });
 
   const heroLead = computed(() => {

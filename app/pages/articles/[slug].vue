@@ -1,5 +1,6 @@
 <script setup>
   import { resolveEntitySlug } from '~/utils/seoSlug';
+  import { sanitizeRichHtml } from '~/utils/sanitizeHtml';
 
   const route = useRoute();
   const { t, locale } = useI18n();
@@ -22,6 +23,8 @@
   }
 
   const article = computed(() => articleData.value?.data || articleData.value);
+
+  const sanitizedBody = computed(() => sanitizeRichHtml(article.value?.body || ''));
 
   useEntitySeo({
     entity: article,
@@ -215,7 +218,7 @@
           <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 lg:p-14 mb-8">
             <div
               class="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-p:leading-relaxed prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-strong:text-gray-800 ck-content"
-              v-html="article.body"
+              v-html="sanitizedBody"
             ></div>
           </article>
 
