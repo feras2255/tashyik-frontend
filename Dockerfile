@@ -3,6 +3,9 @@ FROM node:22-slim AS builder
 
 WORKDIR /app
 
+# Lockfile was generated with npm 11; node:22-slim ships npm 10 which rejects npm ci.
+RUN npm install -g npm@11.6.2
+
 # Copy package configurations (lockfile required for reproducible npm ci)
 COPY package.json package-lock.json ./
 
