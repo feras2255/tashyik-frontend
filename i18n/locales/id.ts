@@ -267,7 +267,7 @@ export default {
     copyright_suffix: 'Layanan perawatan rumah di Arab Saudi',
     powered_by: 'powered by',
     developed_by: 'Dijalankan oleh',
-    developer: 'Pengembang',
+    developer: 'Trafik Plus',
     contact_us: {
       title: 'Hubungi Kami',
       support: 'Dukungan pelanggan tersedia 24/7',

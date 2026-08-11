@@ -266,7 +266,7 @@ export default {
     copyright_suffix: 'सऊदी अरब में होम मेंटेनेंस सेवाएं',
     powered_by: 'powered by',
     developed_by: 'द्वारा विकसित',
-    developer: 'डेवलपर',
+    developer: 'Trafik Plus',
     contact_us: {
       title: 'संपर्क करें',
       support: 'ग्राहक सहायता 24/7 उपलब्ध है',

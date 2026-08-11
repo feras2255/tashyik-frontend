@@ -267,7 +267,7 @@ export default {
     copyright_suffix: 'সৌদি আরবে হোম মেইনটেন্যান্স সেবা',
     powered_by: 'powered by',
     developed_by: 'কারিগরি সহযোগিতায়',
-    developer: 'ডেভেলপার',
+    developer: 'Trafik Plus',
     contact_us: {
       title: 'যোগাযোগ করুন',
       support: 'গ্রাহক সহায়তা ২৪/৭ উপলব্ধ',

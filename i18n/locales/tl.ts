@@ -269,7 +269,7 @@ export default {
     copyright_suffix: 'Mga serbisyo sa home maintenance sa Saudi Arabia',
     powered_by: 'powered by',
     developed_by: 'Binuo ni',
-    developer: 'Pengembang',
+    developer: 'Trafik Plus',
     contact_us: {
       title: 'Makipag-ugnayan sa Amin',
       support: 'Suporta sa Customer 24/7',

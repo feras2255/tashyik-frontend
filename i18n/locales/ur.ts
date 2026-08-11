@@ -265,7 +265,7 @@ export default {
     copyright_suffix: 'سعودی عرب میں گھریلو مینٹیننس سروسز',
     powered_by: 'powered by',
     developed_by: 'بذریعہ',
-    developer: 'ڈویلپر',
+    developer: 'Trafik Plus',
     contact_us: {
       title: 'رابطہ کریں',
       support: 'کسٹمر سپورٹ 24/7 دستیاب ہے',

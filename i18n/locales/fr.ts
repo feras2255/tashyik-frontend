@@ -269,7 +269,7 @@ export default {
     copyright_suffix: "Services d'entretien à domicile en Arabie saoudite",
     powered_by: 'powered by',
     developed_by: 'Réalisé par',
-    developer: 'Par Traffic Plus',
+    developer: 'Trafik Plus',
     contact_us: {
       title: 'Contactez-nous',
       support: 'Support client disponible 24/7',
