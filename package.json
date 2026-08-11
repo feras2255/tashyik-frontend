@@ -31,7 +31,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.4.0",
     "prettier": "^3.4.2",
-    "sharp": "^0.34.1"
+    "sharp": "^0.35.3"
   },
   "dependencies": {
     "@googlemaps/markerclusterer": "^2.6.2",

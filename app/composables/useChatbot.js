@@ -1,7 +1,7 @@
 export function useChatbot() {
   const apiFetch = useApiFetchClient();
   const runtimeConfig = useRuntimeConfig();
-  const token = useCookie('token', { default: () => null });
+  const { token } = useAuthToken();
   const isChatOpen = useState('chatbot_is_open', () => false);
 
   // State

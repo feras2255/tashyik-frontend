@@ -34,6 +34,20 @@ function getApiBaseUrl(config) {
   return publicBase;
 }
 
+function buildApiHeaders(token, locale, options = {}) {
+  const headers = {
+    ...options?.headers,
+    accept: 'application/json',
+    'X-App-Language': unref(locale),
+  };
+
+  if (token.value) {
+    headers.Authorization = `Bearer ${token.value}`;
+  }
+
+  return headers;
+}
+
 /**
  * Returns a plain $fetch wrapper bound to the current request context.
  * Safe to call inside useAsyncData callbacks (unlike useApiFetch, which re-enters composables).
@@ -41,21 +55,12 @@ function getApiBaseUrl(config) {
 export function useApiFetchClient() {
   const nuxtApp = useNuxtApp();
   const config = useRuntimeConfig();
-  const token = useCookie('token', { default: () => null });
+  const { token } = useAuthToken();
   const baseURL = getApiBaseUrl(config);
 
   return async function apiFetch(path, options = {}) {
     const locale = nuxtApp.$i18n?.locale;
-    const headers = {
-      ...options?.headers,
-      accept: 'application/json',
-      'X-App-Language': unref(locale),
-    };
-
-    if (token.value) {
-      headers.Authorization = `Bearer ${token.value}`;
-    }
-
+    const headers = buildApiHeaders(token, locale, options);
     const resolvedPath = typeof path === 'function' ? path() : path;
 
     try {
@@ -83,19 +88,10 @@ export function useApiFetchClient() {
 export function useApiFetch(path, options = {}, useFetchFunction = false) {
   const { $i18n } = useNuxtApp();
   const config = useRuntimeConfig();
-  const token = useCookie('token', { default: () => null });
+  const { token } = useAuthToken();
   const baseURL = getApiBaseUrl(config);
   const apiFetch = useApiFetchClient();
-
-  const headers = {
-    ...options?.headers,
-    accept: 'application/json',
-    'X-App-Language': $i18n.locale.value,
-  };
-
-  if (token.value) {
-    headers.Authorization = `Bearer ${token.value}`;
-  }
+  const headers = buildApiHeaders(token, $i18n.locale, options);
 
   const key =
     options.key || hash(['api', unref(typeof path === 'function' ? path() : path), unref(options.query || {}), $i18n.locale.value]);

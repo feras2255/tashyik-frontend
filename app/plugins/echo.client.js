@@ -29,7 +29,7 @@ export default defineNuxtPlugin(() => {
     authEndpoint: `${apiBase}/broadcasting/auth`,
     authorizer: (channel) => ({
       authorize: (socketId, callback) => {
-        const token = useCookie('token', { default: () => null }).value;
+        const { token } = useAuthToken();
 
         $fetch(`${apiBase}/broadcasting/auth`, {
           method: 'POST',
@@ -39,7 +39,7 @@ export default defineNuxtPlugin(() => {
           },
           headers: {
             Accept: 'application/json',
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+            ...(token.value ? { Authorization: `Bearer ${token.value}` } : {}),
           },
         })
           .then((response) => callback(null, response))
