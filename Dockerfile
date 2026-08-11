@@ -3,23 +3,18 @@ FROM node:22-slim AS builder
 
 WORKDIR /app
 
-# Install pnpm globally to bypass any npm bugs with Linux optional dependencies
-RUN npm install -g pnpm@9
+# Copy package configurations (lockfile required for reproducible npm ci)
+COPY package.json package-lock.json ./
 
-# Copy package configurations
-COPY package.json ./
-# Optional copy in case they exist locally to help with caching
-COPY package-lock.json* pnpm-lock.yaml* ./
-
-# Install dependencies
-RUN pnpm install
+# Install dependencies from the lockfile
+RUN npm ci
 
 # Copy all source files
 COPY . .
 
-# Build the Nuxt 4 application
+# Build the Nuxt application
 # This generates the output in the .output directory
-RUN pnpm run build:fast
+RUN npm run build:fast
 
 # Stage 2: Production
 FROM node:22-slim AS runner
