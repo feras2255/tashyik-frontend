@@ -256,12 +256,18 @@ export default {
     highlight_3: 'Suivi du technicien en temps réel',
   },
   footer: {
+    our_apps: 'Nos applications',
+    service_areas: 'Zones de service',
+    our_services: 'Nos services',
+    about_us: 'À propos de nous',
     important_links: 'Liens Importants',
     privacy_policy: 'Politique de Confidentialité',
     terms_and_conditions: 'Termes et Conditions',
     faq: 'FAQ',
     contact_us_link: 'Nous Contacter',
     copyright: 'Tous droits réservés',
+    copyright_suffix: "Services d'entretien à domicile en Arabie saoudite",
+    powered_by: 'powered by',
     developed_by: 'Réalisé par',
     developer: 'Par Traffic Plus',
     contact_us: {

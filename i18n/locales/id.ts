@@ -254,12 +254,18 @@ export default {
     highlight_3: 'Lacak teknisi secara real-time',
   },
   footer: {
+    our_apps: 'Aplikasi Kami',
+    service_areas: 'Area Layanan',
+    our_services: 'Layanan Kami',
+    about_us: 'Tentang Kami',
     important_links: 'Tautan Penting',
     privacy_policy: 'Kebijakan Privasi',
     terms_and_conditions: 'Syarat & Ketentuan',
     faq: 'FAQ',
     contact_us_link: 'Hubungi Kami',
     copyright: 'Seluruh hak cipta dilindungi undang-undang',
+    copyright_suffix: 'Layanan perawatan rumah di Arab Saudi',
+    powered_by: 'powered by',
     developed_by: 'Dijalankan oleh',
     developer: 'Pengembang',
     contact_us: {

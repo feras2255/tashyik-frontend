@@ -253,12 +253,18 @@ export default {
     highlight_3: 'रीयल-टाइम में तकनीशियन को ट्रैक करें',
   },
   footer: {
+    our_apps: 'हमारे ऐप्स',
+    service_areas: 'सेवा क्षेत्र',
+    our_services: 'हमारी सेवाएं',
+    about_us: 'हमारे बारे में',
     important_links: 'महत्वपूर्ण लिंक',
     privacy_policy: 'गोपनीयता नीति',
     terms_and_conditions: 'नियम और शर्तें',
     faq: 'अक्सर पूछे जाने वाले प्रश्न',
     contact_us_link: 'संपर्क करें',
     copyright: 'सर्वाधिकार सुरक्षित',
+    copyright_suffix: 'सऊदी अरब में होम मेंटेनेंस सेवाएं',
+    powered_by: 'powered by',
     developed_by: 'द्वारा विकसित',
     developer: 'डेवलपर',
     contact_us: {

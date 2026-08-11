@@ -252,12 +252,18 @@ export default {
     highlight_3: 'ٹیکنیشن کو لائیو ٹریک کریں',
   },
   footer: {
+    our_apps: 'ہماری ایپس',
+    service_areas: 'سروس ایریاز',
+    our_services: 'ہماری سروسز',
+    about_us: 'ہمارے بارے میں',
     important_links: 'اہم لنکس',
     privacy_policy: 'رازداری کی پالیسی',
     terms_and_conditions: 'شرائط و ضوابط',
     faq: 'عمومی سوالات',
     contact_us_link: 'ہم سے رابطہ کریں',
     copyright: 'تمام حقوق محفوظ ہیں',
+    copyright_suffix: 'سعودی عرب میں گھریلو مینٹیننس سروسز',
+    powered_by: 'powered by',
     developed_by: 'بذریعہ',
     developer: 'ڈویلپر',
     contact_us: {

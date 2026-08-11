@@ -254,12 +254,18 @@ export default {
     highlight_3: 'রিয়েল-টাইমে টেকনিশিয়ান ট্র্যাক করুন',
   },
   footer: {
+    our_apps: 'আমাদের অ্যাপ',
+    service_areas: 'সেবা এলাকা',
+    our_services: 'আমাদের সেবা',
+    about_us: 'আমাদের সম্পর্কে',
     important_links: 'গুরুত্বপূর্ণ লিঙ্ক',
     privacy_policy: 'গোপনীয়তা নীতি',
     terms_and_conditions: 'শর্তাবলী',
     faq: 'সচরাচর জিজ্ঞাস্য',
     contact_us_link: 'আমাদের সাথে যোগাযোগ করুন',
     copyright: 'সর্বস্বত্ব সংরক্ষিত',
+    copyright_suffix: 'সৌদি আরবে হোম মেইনটেন্যান্স সেবা',
+    powered_by: 'powered by',
     developed_by: 'কারিগরি সহযোগিতায়',
     developer: 'ডেভেলপার',
     contact_us: {

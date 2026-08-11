@@ -256,12 +256,18 @@ export default {
     highlight_3: 'Sundan ang technician',
   },
   footer: {
+    our_apps: 'Aming Mga App',
+    service_areas: 'Mga Lugar ng Serbisyo',
+    our_services: 'Aming Mga Serbisyo',
+    about_us: 'Tungkol sa Amin',
     important_links: 'Mahahalagang Link',
     privacy_policy: 'Patakaran sa Privacy',
     terms_and_conditions: 'Mga Tuntunin at Kundisyon',
     faq: 'FAQ',
     contact_us_link: 'Makipag-ugnayan sa Amin',
     copyright: 'Lahat ng karapatan ay nakalaan',
+    copyright_suffix: 'Mga serbisyo sa home maintenance sa Saudi Arabia',
+    powered_by: 'powered by',
     developed_by: 'Binuo ni',
     developer: 'Pengembang',
     contact_us: {
