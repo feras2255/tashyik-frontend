@@ -8,6 +8,8 @@
   const siteBrand = useSiteBrand();
   const { logo, description, social_links, mobile_app_links, contact_info } = storeToRefs(layoutStore);
   const { hubLinks } = useFooterHubLinks();
+  const { te } = useI18n();
+  const hasFooterI18nDescription = computed(() => te('footer.description_1'));
 
   const headingClass = 'mb-5 text-[15px] font-bold leading-snug text-brand-800';
   const linkClass =
@@ -221,10 +223,10 @@
             />
           </NuxtLinkLocale>
 
-          <p v-if="description" class="mb-6 max-w-md text-sm leading-7 text-gray-600" v-text="description" />
-          <p v-else class="mb-6 max-w-md text-sm leading-7 text-gray-600">
+          <p v-if="hasFooterI18nDescription" class="mb-6 max-w-md text-sm leading-7 text-gray-600">
             {{ $t('footer.description_1') }}<span class="font-bold text-brand-700">{{ $t('footer.description_2') }}</span>
           </p>
+          <p v-else-if="description" class="mb-6 max-w-md text-sm leading-7 text-gray-600" v-text="description" />
 
           <div v-if="footerSocialItems.length" class="mb-6 flex flex-wrap items-center gap-3">
             <a

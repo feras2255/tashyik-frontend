@@ -66,7 +66,7 @@ export default {
     home: {
       title: 'Tashyik | Mag-book ng certified home maintenance technician sa Saudi Arabia',
       description:
-        'Mag-book ng mapagkakatiwalaang technician para sa AC, plumbing, kuryente at appliance repair sa bawat Saudi city. Mabilis na serbisyo, certified warranty, transparent na presyo.',
+        'Mag-book ng maaasahang technician sa Tashyik sa loob ng ilang minuto. Electrical, plumbing, carpentry, aircon, painting at 1,000+ serbisyo | 90+ lungsod | 3,800+ propesyonal | 4.8⭐ | ligtas na bayad at Gold Guarantee.',
     },
   },
   a11y: {
@@ -256,6 +256,10 @@ export default {
     highlight_3: 'Sundan ang technician',
   },
   footer: {
+    description_1:
+      'Mag-book ng maaasahang home maintenance technician sa loob ng ilang minuto sa Tashyik! Nagbibigay kami ng mga certified technician sa Saudi Arabia para sa electrical, plumbing, carpentry, aircon, painting, at higit sa ',
+    description_2:
+      '1,000 serbisyo sa bahay. +3,800 propesyonal na technician sa +90 lungsod | 4.8 ⭐ rating | Ligtas na bayad pagkatapos ng serbisyo at Gold Guarantee sa bawat trabaho.',
     our_apps: 'Aming Mga App',
     service_areas: 'Mga Lugar ng Serbisyo',
     our_services: 'Aming Mga Serbisyo',
