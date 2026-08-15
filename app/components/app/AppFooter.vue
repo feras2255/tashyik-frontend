@@ -8,8 +8,8 @@
   const siteBrand = useSiteBrand();
   const { logo, description, social_links, mobile_app_links, contact_info } = storeToRefs(layoutStore);
   const { hubLinks } = useFooterHubLinks();
-  const { te } = useI18n();
-  const hasFooterI18nDescription = computed(() => te('footer.description_1'));
+  const { te, locale } = useI18n();
+  const hasFooterI18nDescription = computed(() => te('footer.description_1', locale.value));
 
   const headingClass = 'mb-5 text-[15px] font-bold leading-snug text-brand-800';
   const linkClass =
