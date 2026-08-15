@@ -153,11 +153,11 @@ export default {
     offers: {
       title: 'Offres Exclusives à Durée Limitée',
       description:
-        'Profitez des meilleures réductions sur les services d`entretien à domicile avec les meilleurs techniciens professionnels.',
+        "Profitez des meilleures réductions sur les services d'entretien à domicile avec les meilleurs techniciens professionnels.",
       free_inspection: 'Inspection Gratuite',
       discount_on_service: '{percentage}% de réduction sur {name}',
       free_inspection_for: 'Inspection Gratuite pour {name}',
-      first_order_maintenance: 'Entretien d`appareils électroménagers dès la première commande',
+      first_order_maintenance: "Entretien d'appareils électroménagers dès la première commande",
       plumbing_saving: 'Économies en plomberie',
     },
     top_rated: {
@@ -207,7 +207,7 @@ export default {
       description:
         'Abonnez-vous à notre newsletter pour recevoir les dernières réductions et offres exclusives directement dans votre boîte de réception.',
       placeholder: 'Votre adresse e-mail',
-      subscribe: 'S`abonner',
+      subscribe: "S'abonner",
     },
     collections: {
       view_all: 'Voir tous les services',
@@ -236,7 +236,7 @@ export default {
       item_4: {
         name: 'Nasser Al-Otaibi',
         tag: 'Maintenance Électrique',
-        body: 'Travail professionnel et timing parfait. Le technicien a expliqué le problème clairement et a terminé le service rapidement tout en gardant l`endroit propre. Merci !',
+        body: "Travail professionnel et timing parfait. Le technicien a expliqué le problème clairement et a terminé le service rapidement tout en gardant l'endroit propre. Merci !",
         date: 'Il y a trois jours',
       },
     },
@@ -256,6 +256,10 @@ export default {
     highlight_3: 'Suivi du technicien en temps réel',
   },
   footer: {
+    description_1:
+      "Réservez un technicien de maintenance à domicile de confiance en quelques minutes avec Tashyik ! Nous fournissons des techniciens certifiés en Arabie saoudite pour l'électricité, la plomberie, la menuiserie, la climatisation, la peinture et plus de ",
+    description_2:
+      '1 000 services à domicile. +3 800 professionnels dans +90 villes | note 4,8 ⭐ | Paiement sécurisé après la prestation et garantie Gold sur chaque service.',
     our_apps: 'Nos applications',
     service_areas: 'Zones de service',
     our_services: 'Nos services',
@@ -311,7 +315,7 @@ export default {
     },
     institution_members: {
       title: 'Gérer les employés',
-      subtitle: 'Voir et gérer les employés de l`institution',
+      subtitle: "Voir et gérer les employés de l'institution",
     },
   },
   guest: {

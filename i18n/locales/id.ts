@@ -254,6 +254,10 @@ export default {
     highlight_3: 'Lacak teknisi secara real-time',
   },
   footer: {
+    description_1:
+      'Pesan teknisi perawatan rumah terpercaya dalam hitungan menit bersama Tashyik! Kami menyediakan teknisi bersertifikat di Arab Saudi untuk listrik, pipa, pertukangan, AC, pengecatan, dan lebih dari ',
+    description_2:
+      '1.000 layanan rumah. +3.800 profesional di +90 kota | rating 4,8 ⭐ | Pembayaran aman setelah layanan selesai dan Jaminan Emas pada setiap layanan.',
     our_apps: 'Aplikasi Kami',
     service_areas: 'Area Layanan',
     our_services: 'Layanan Kami',
