@@ -254,8 +254,9 @@ export default {
   },
   footer: {
     description_1:
-      'Tashyik is the leading platform to book a trusted home maintenance technician in minutes! We provide certified technicians across Saudi Arabia for electrical, plumbing, carpentry, and AC services, plus over ',
-    description_2: '300 other services.',
+      'Tashyik is the leading platform to book a trusted home maintenance technician in minutes! We provide certified technicians across Saudi Arabia for electrical, plumbing, carpentry, AC, painting, and over ',
+    description_2:
+      '1,000 home services. +3,800 professionals in +90 cities | 4.8 ⭐ rating | Secure pay-after-service and a Gold Guarantee on every job.',
     our_apps: 'Our Apps',
     service_areas: 'Service Areas',
     our_services: 'Our Services',
