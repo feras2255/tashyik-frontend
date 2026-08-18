@@ -6,7 +6,11 @@
         <div class="h-5 w-72 max-w-full rounded-lg home-shimmer" />
       </div>
 
-      <div class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
+      <div class="lg:hidden flex gap-3 overflow-hidden">
+        <div v-for="tile in 2" :key="tile" class="shrink-0 grow-0 basis-[85%] rounded-2xl home-shimmer aspect-[3/2]" />
+      </div>
+
+      <div class="hidden lg:flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
         <div class="rounded-2xl home-shimmer flex-1 lg:flex-[1.8] h-64 lg:h-full min-h-[16rem]" />
 
         <div class="flex flex-col gap-4 flex-1 lg:flex-[0.8] h-auto lg:h-full">
@@ -15,7 +19,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
+      <div class="hidden lg:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
         <div v-for="card in 4" :key="card" class="rounded-2xl border border-gray-100 overflow-hidden bg-white">
           <div class="aspect-[4/3] home-shimmer" />
           <div class="p-4 flex flex-col gap-2">

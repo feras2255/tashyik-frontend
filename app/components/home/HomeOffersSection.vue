@@ -1,4 +1,6 @@
 <script setup>
+  import { resolveEntitySlug } from '~/utils/seoSlug';
+
   const { locale } = useI18n();
   const apiFetch = useApiFetchClient();
 
@@ -75,6 +77,16 @@
 
   const offerBannerCompactClass =
     'relative rounded-2xl overflow-hidden group aspect-[3/2] w-full md:aspect-auto md:h-48 lg:h-auto lg:flex-1';
+
+  const mobileTileClass = computed(() =>
+    offerCount.value === 1
+      ? 'static-color snap-start shrink-0 grow-0 basis-full relative rounded-2xl overflow-hidden aspect-[3/2] group'
+      : 'static-color snap-start shrink-0 grow-0 basis-[85%] relative rounded-2xl overflow-hidden aspect-[3/2] group',
+  );
+
+  function offerServiceTo(service) {
+    return { name: 'services-service', params: { service: resolveEntitySlug(service) } };
+  }
 </script>
 
 <template>
@@ -91,125 +103,110 @@
         </p>
       </div>
 
-      <!-- 1 offer: single hero -->
       <div
-        v-if="offerCount === 1 && offers[0]"
-        class="relative rounded-2xl overflow-hidden group aspect-[3/2] w-full md:aspect-auto md:h-[420px]"
+        class="lg:hidden flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1 overscroll-x-contain"
+        role="region"
+        :aria-label="$t('home.offers.title')"
       >
-        <AppLazyImage :src="offers[0].image" :alt="offers[0].name" wrapper-class="absolute inset-0" :img-class="offerBannerImageClass" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-        <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
-          {{ $t('home.collections.season_badge') }}
-        </div>
-        <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
-          <p v-if="offers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ offers[0]?.badge }}</p>
-          <h3 class="text-2xl md:text-4xl font-bold leading-tight">
-            {{ $t('home.offers.discount_on_service', discountHeadline(offers[0])) }}
-          </h3>
-        </div>
-      </div>
-
-      <!-- 2 offers: equal split -->
-      <div v-else-if="offerCount === 2" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div
-          v-for="service in offers"
-          :key="service.id"
-          class="relative rounded-2xl overflow-hidden group aspect-[3/2] w-full md:aspect-auto md:h-80"
-        >
+        <NuxtLinkLocale v-for="(service, index) in offers" :key="service.id" :to="offerServiceTo(service)" :class="mobileTileClass">
           <AppLazyImage :src="service.image" :alt="service.name" wrapper-class="absolute inset-0" :img-class="offerBannerImageClass" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+          <div
+            v-if="index === 0"
+            class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10"
+          >
+            {{ $t('home.collections.season_badge') }}
+          </div>
           <div class="absolute bottom-0 start-0 end-0 p-5 text-white z-10">
             <p v-if="service?.badge" class="text-xs font-medium opacity-90 mb-1">{{ service?.badge }}</p>
-            <h3 class="text-lg md:text-2xl font-bold leading-tight">
+            <h3 class="text-lg font-bold leading-tight">
               {{ $t('home.offers.discount_on_service', discountHeadline(service)) }}
             </h3>
           </div>
-        </div>
+        </NuxtLinkLocale>
       </div>
 
-      <!-- 3–4 offers: one hero, rest as cards below -->
-      <div v-else-if="bannerCount === 1 && offerCount >= 3" class="flex flex-col gap-4">
-        <div v-if="bannerOffers[0]" :class="[offerBannerHeroClass, 'md:h-[360px]']">
-          <AppLazyImage
-            :src="bannerOffers[0].image"
-            :alt="bannerOffers[0].name"
-            wrapper-class="absolute inset-0"
-            :img-class="offerBannerImageClass"
-          />
+      <div class="hidden lg:flex lg:flex-col lg:gap-10">
+        <!-- 1 offer: single hero -->
+        <div
+          v-if="offerCount === 1 && offers[0]"
+          class="relative rounded-2xl overflow-hidden group aspect-[3/2] w-full md:aspect-auto md:h-[420px]"
+        >
+          <AppLazyImage :src="offers[0].image" :alt="offers[0].name" wrapper-class="absolute inset-0" :img-class="offerBannerImageClass" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
           <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
             {{ $t('home.collections.season_badge') }}
           </div>
           <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
-            <p v-if="bannerOffers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ bannerOffers[0]?.badge }}</p>
-            <h3 class="text-2xl md:text-3xl font-bold leading-tight">
-              {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[0])) }}
-            </h3>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5 offers: two hero banners -->
-      <div v-else-if="bannerCount === 2" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[360px]">
-        <div v-if="bannerOffers[0]" :class="[offerBannerHeroClass, 'flex-1 lg:flex-[1.6]']">
-          <AppLazyImage
-            :src="bannerOffers[0].image"
-            :alt="bannerOffers[0].name"
-            wrapper-class="absolute inset-0"
-            :img-class="offerBannerImageClass"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-          <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
-            {{ $t('home.collections.season_badge') }}
-          </div>
-          <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
-            <p v-if="bannerOffers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ bannerOffers[0]?.badge }}</p>
-            <h3 class="text-2xl md:text-3xl font-bold leading-tight">
-              {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[0])) }}
-            </h3>
-          </div>
-        </div>
-
-        <div v-if="bannerOffers[1]" :class="[offerBannerHeroClass, 'flex-1']">
-          <AppLazyImage
-            :src="bannerOffers[1].image"
-            :alt="bannerOffers[1].name"
-            wrapper-class="absolute inset-0"
-            :img-class="offerBannerImageClass"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
-          <div class="absolute bottom-0 start-0 end-0 p-4 md:p-6 text-white z-10">
-            <p v-if="bannerOffers[1]?.badge" class="text-xs font-medium opacity-90 mb-1">{{ bannerOffers[1]?.badge }}</p>
-            <h3 class="text-base md:text-xl font-bold leading-tight">
-              {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[1])) }}
-            </h3>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6–7 offers: three hero banners -->
-      <div v-else-if="bannerCount === 3" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
-        <div v-if="bannerOffers[0]" :class="[offerBannerHeroClass, 'flex-1 lg:flex-[1.8]']">
-          <AppLazyImage
-            :src="bannerOffers[0].image"
-            :alt="bannerOffers[0].name"
-            wrapper-class="absolute inset-0"
-            :img-class="offerBannerImageClass"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-          <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
-            {{ $t('home.collections.season_badge') }}
-          </div>
-          <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
-            <p v-if="bannerOffers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ bannerOffers[0]?.badge }}</p>
+            <p v-if="offers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ offers[0]?.badge }}</p>
             <h3 class="text-2xl md:text-4xl font-bold leading-tight">
-              {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[0])) }}
+              {{ $t('home.offers.discount_on_service', discountHeadline(offers[0])) }}
             </h3>
           </div>
         </div>
 
-        <div class="flex flex-col gap-4 flex-1 lg:flex-[0.8] h-auto lg:h-full">
-          <div v-if="bannerOffers[1]" :class="offerBannerCompactClass">
+        <!-- 2 offers: equal split -->
+        <div v-else-if="offerCount === 2" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div
+            v-for="service in offers"
+            :key="service.id"
+            class="relative rounded-2xl overflow-hidden group aspect-[3/2] w-full md:aspect-auto md:h-80"
+          >
+            <AppLazyImage :src="service.image" :alt="service.name" wrapper-class="absolute inset-0" :img-class="offerBannerImageClass" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+            <div class="absolute bottom-0 start-0 end-0 p-5 text-white z-10">
+              <p v-if="service?.badge" class="text-xs font-medium opacity-90 mb-1">{{ service?.badge }}</p>
+              <h3 class="text-lg md:text-2xl font-bold leading-tight">
+                {{ $t('home.offers.discount_on_service', discountHeadline(service)) }}
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3–4 offers: one hero, rest as cards below -->
+        <div v-else-if="bannerCount === 1 && offerCount >= 3" class="flex flex-col gap-4">
+          <div v-if="bannerOffers[0]" :class="[offerBannerHeroClass, 'md:h-[360px]']">
+            <AppLazyImage
+              :src="bannerOffers[0].image"
+              :alt="bannerOffers[0].name"
+              wrapper-class="absolute inset-0"
+              :img-class="offerBannerImageClass"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+            <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
+              {{ $t('home.collections.season_badge') }}
+            </div>
+            <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
+              <p v-if="bannerOffers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ bannerOffers[0]?.badge }}</p>
+              <h3 class="text-2xl md:text-3xl font-bold leading-tight">
+                {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[0])) }}
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 offers: two hero banners -->
+        <div v-else-if="bannerCount === 2" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[360px]">
+          <div v-if="bannerOffers[0]" :class="[offerBannerHeroClass, 'flex-1 lg:flex-[1.6]']">
+            <AppLazyImage
+              :src="bannerOffers[0].image"
+              :alt="bannerOffers[0].name"
+              wrapper-class="absolute inset-0"
+              :img-class="offerBannerImageClass"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+            <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
+              {{ $t('home.collections.season_badge') }}
+            </div>
+            <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
+              <p v-if="bannerOffers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ bannerOffers[0]?.badge }}</p>
+              <h3 class="text-2xl md:text-3xl font-bold leading-tight">
+                {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[0])) }}
+              </h3>
+            </div>
+          </div>
+
+          <div v-if="bannerOffers[1]" :class="[offerBannerHeroClass, 'flex-1']">
             <AppLazyImage
               :src="bannerOffers[1].image"
               :alt="bannerOffers[1].name"
@@ -217,34 +214,74 @@
               :img-class="offerBannerImageClass"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
-            <div class="absolute bottom-0 start-0 end-0 p-4 text-white z-10">
+            <div class="absolute bottom-0 start-0 end-0 p-4 md:p-6 text-white z-10">
               <p v-if="bannerOffers[1]?.badge" class="text-xs font-medium opacity-90 mb-1">{{ bannerOffers[1]?.badge }}</p>
-              <h3 class="text-base md:text-lg font-bold leading-tight">
+              <h3 class="text-base md:text-xl font-bold leading-tight">
                 {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[1])) }}
               </h3>
             </div>
           </div>
-          <div v-if="bannerOffers[2]" :class="offerBannerCompactClass">
+        </div>
+
+        <!-- 6–7 offers: three hero banners -->
+        <div v-else-if="bannerCount === 3" class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px]">
+          <div v-if="bannerOffers[0]" :class="[offerBannerHeroClass, 'flex-1 lg:flex-[1.8]']">
             <AppLazyImage
-              :src="bannerOffers[2].image"
-              :alt="bannerOffers[2].name"
+              :src="bannerOffers[0].image"
+              :alt="bannerOffers[0].name"
               wrapper-class="absolute inset-0"
               :img-class="offerBannerImageClass"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
-            <div class="absolute bottom-0 start-0 end-0 p-4 text-white z-10">
-              <p v-if="bannerOffers[2]?.badge" class="text-xs font-medium opacity-90 mb-1">{{ bannerOffers[2]?.badge }}</p>
-              <h3 class="text-base md:text-lg font-bold leading-tight">
-                {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[2])) }}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+            <div class="absolute top-4 start-4 bg-brand-800 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-10">
+              {{ $t('home.collections.season_badge') }}
+            </div>
+            <div class="absolute bottom-0 start-0 end-0 p-6 md:p-8 text-white z-10">
+              <p v-if="bannerOffers[0]?.badge" class="text-sm md:text-base font-medium opacity-90 mb-2">{{ bannerOffers[0]?.badge }}</p>
+              <h3 class="text-2xl md:text-4xl font-bold leading-tight">
+                {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[0])) }}
               </h3>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Cards row (remaining offers with price + order button) -->
-      <div v-if="cardOffers.length" :class="[cardsGridClass, bannerOffers.length ? 'mt-4' : '']">
-        <HomeOfferServiceCard v-for="service in cardOffers" :key="service.id" :service="service" class="shrink-0 md:w-auto h-full" />
+          <div class="flex flex-col gap-4 flex-1 lg:flex-[0.8] h-auto lg:h-full">
+            <div v-if="bannerOffers[1]" :class="offerBannerCompactClass">
+              <AppLazyImage
+                :src="bannerOffers[1].image"
+                :alt="bannerOffers[1].name"
+                wrapper-class="absolute inset-0"
+                :img-class="offerBannerImageClass"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+              <div class="absolute bottom-0 start-0 end-0 p-4 text-white z-10">
+                <p v-if="bannerOffers[1]?.badge" class="text-xs font-medium opacity-90 mb-1">{{ bannerOffers[1]?.badge }}</p>
+                <h3 class="text-base md:text-lg font-bold leading-tight">
+                  {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[1])) }}
+                </h3>
+              </div>
+            </div>
+            <div v-if="bannerOffers[2]" :class="offerBannerCompactClass">
+              <AppLazyImage
+                :src="bannerOffers[2].image"
+                :alt="bannerOffers[2].name"
+                wrapper-class="absolute inset-0"
+                :img-class="offerBannerImageClass"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+              <div class="absolute bottom-0 start-0 end-0 p-4 text-white z-10">
+                <p v-if="bannerOffers[2]?.badge" class="text-xs font-medium opacity-90 mb-1">{{ bannerOffers[2]?.badge }}</p>
+                <h3 class="text-base md:text-lg font-bold leading-tight">
+                  {{ $t('home.offers.discount_on_service', discountHeadline(bannerOffers[2])) }}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards row (remaining offers with price + order button) -->
+        <div v-if="cardOffers.length" :class="[cardsGridClass, bannerOffers.length ? 'mt-4' : '']">
+          <HomeOfferServiceCard v-for="service in cardOffers" :key="service.id" :service="service" class="shrink-0 md:w-auto h-full" />
+        </div>
       </div>
     </div>
   </section>
@@ -253,7 +290,7 @@
 <style scoped>
   @reference "tailwindcss";
 
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     :deep(.offer-banner-img) {
       object-fit: cover;
       object-position: center 35%;
