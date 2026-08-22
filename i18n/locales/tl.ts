@@ -276,6 +276,7 @@ export default {
     developer: 'Trafik Plus',
     contact_us: {
       title: 'Makipag-ugnayan sa Amin',
+      location: 'Aming lokasyon',
       support: 'Suporta sa customer 24/7',
     },
     resources: 'Mahalagang Link',

@@ -273,6 +273,7 @@ export default {
     developer: 'Trafik Plus',
     contact_us: {
       title: 'Contact Us',
+      location: 'Our location',
       support: 'Available 24/7',
     },
     resources: 'Important Links',

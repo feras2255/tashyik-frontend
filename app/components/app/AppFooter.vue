@@ -1,6 +1,6 @@
 <script setup>
   import { resolveEntitySlug } from '~/utils/seoSlug';
-  import { normalizeSocialLinkItems } from '~/utils/socialLinks';
+  import { normalizeSocialLinkItems, resolveFooterLocation } from '~/utils/socialLinks';
   import { storeToRefs } from 'pinia';
 
   const currentYear = computed(() => new Date().getFullYear());
@@ -38,6 +38,7 @@
   };
 
   const footerSocialItems = computed(() => normalizeSocialLinkItems(social_links.value));
+  const footerLocation = computed(() => resolveFooterLocation(social_links.value));
 
   const socialAriaLabel = (item) => {
     if (item.type === 'extra') {
@@ -132,6 +133,24 @@
                 </span>
                 <span dir="ltr">{{ contact_info.email }}</span>
               </div>
+            </li>
+            <li v-if="footerLocation.url">
+              <a
+                :href="footerLocation.url"
+                :class="[contactRowClass, 'static-color transition-colors hover:text-brand-700']"
+                target="_blank"
+                rel="noopener"
+              >
+                <span :class="contactIconClass" aria-hidden="true">
+                  <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7m0 9.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9A2.5 2.5 0 0 1 12 11.5"
+                    />
+                  </svg>
+                </span>
+                <span>{{ $t('footer.contact_us.location') }}</span>
+              </a>
             </li>
             <li>
               <div :class="contactRowClass">

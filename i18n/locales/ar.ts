@@ -270,6 +270,7 @@ export default {
     developer: 'Trafik Plus',
     contact_us: {
       title: 'تواصل معنا',
+      location: 'موقعنا',
       support: 'خدمة متاحة على مدار 24/7',
     },
     resources: 'روابط مهمة',

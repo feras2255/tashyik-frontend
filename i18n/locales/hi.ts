@@ -273,6 +273,7 @@ export default {
     developer: 'Trafik Plus',
     contact_us: {
       title: 'संपर्क करें',
+      location: 'हमारा स्थान',
       support: 'ग्राहक सहायता 24/7 उपलब्ध है',
     },
     resources: 'महत्वपूर्ण लिंक',

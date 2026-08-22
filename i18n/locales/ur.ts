@@ -272,6 +272,7 @@ export default {
     developer: 'Trafik Plus',
     contact_us: {
       title: 'رابطہ کریں',
+      location: 'ہماری لوکیشن',
       support: 'کسٹمر سپورٹ 24/7 دستیاب ہے',
     },
     resources: 'اہم لنکس',

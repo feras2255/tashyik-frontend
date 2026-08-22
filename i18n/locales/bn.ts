@@ -274,6 +274,7 @@ export default {
     developer: 'Trafik Plus',
     contact_us: {
       title: 'যোগাযোগ করুন',
+      location: 'আমাদের অবস্থান',
       support: 'গ্রাহক সহায়তা ২৪/৭ উপলব্ধ',
     },
     resources: 'গুরুত্বপূর্ণ লিঙ্ক',

@@ -274,6 +274,7 @@ export default {
     developer: 'Trafik Plus',
     contact_us: {
       title: 'Hubungi Kami',
+      location: 'Lokasi kami',
       support: 'Dukungan pelanggan tersedia 24/7',
     },
     resources: 'Tautan Penting',
